@@ -1,0 +1,137 @@
+# Per-paper fixes for Paper Read Atlas.
+#
+# Each line under [papers] is keyed by the paper's Name exactly as it appears in Notion
+# (spacing and punctuation are ignored). Fields you can set:
+#   short   = "BST"        label used in charts (default: text before the first colon)
+#   title   = "..."        full title to show (useful when the Notion Name is a URL)
+#   theme   = "seq"        one of the keys in config/themes.toml (beats the tag rules)
+#   year    = 2020         publication year (beats the arXiv ID and the Year column)
+#   org     = "Google"     organisation (beats the Company column)
+#   exclude = true         leave this row out of the site
+#
+# The build lists overrides that no longer match a Name, e.g. after a rename in Notion.
+
+# Company names to tidy up everywhere.
+[org_aliases]
+"Open AI" = "OpenAI"
+"Facebook" = "Meta"
+"Esty" = "Etsy"
+
+[papers]
+"360Brew: A Decoder-only Foundation Model for Personalized Ranking and Recommendation" = { theme = "gen" }
+"6 Natural Language Processing Models you should know | by Takoua Saadani | UBIAI NLP | Medium" = { exclude = true }
+"[1702.07969] Related Pins at Pinterest: The Evolution of a Real-World Recommender System" = { short = "Related Pins", theme = "ret", org = "Pinterest" }
+"[1808.06414] Next Item Recommendation with Self-Attention" = { short = "Next-Item Self-Attention", theme = "seq" }
+"[2202.03645v1] NxtPost: User to Post Recommendations in Facebook Groups" = { theme = "ret", org = "Meta" }
+"[JD] https://arxiv.org/abs/2006.02282" = { title = "Towards Personalized and Semantic Retrieval: An End-to-End Solution for E-commerce Search via Embedding Learning", short = "JD Semantic Retrieval", theme = "ret" }
+"[LLM] | The Llama 3 Herd of Models | Abstract" = { title = "The Llama 3 Herd of Models", short = "Llama 3", theme = "llm" }
+"Actions Speak Louder than Words: Trillion-Parameter Sequential Transducers for Generative Recommendations" = { short = "HSTU", theme = "gen" }
+"ATRank: An Attention-Based User Behavior Modeling Framework for Recommendation." = { theme = "seq", org = "Alibaba" }
+"Attention is all you need: Transformers" = { short = "Transformer", theme = "llm", org = "Google" }
+"AttentionFM: Attentional Factorization Machines: Learning the Weight of Feature Interactions via Attention Networks" = { theme = "rank" }
+"AutoInt: Automatic Feature Interaction Learning via Self-Attentive Neural Networks" = { theme = "rank" }
+"Behavior-driven query similarity prediction based on pre-trained language models for e-commerce search" = { short = "Query Similarity w/ PLMs", theme = "ret", year = 2023 }
+"BERT4Rec: Sequential Recommendation with Bidirectional Encoder Representations from Transformer" = { theme = "seq", org = "Alibaba" }
+"BERT: Pre-training of Deep Bidirectional Transformers for Language Understanding" = { theme = "llm", org = "Google" }
+"Bootstrapping Conditional Retrieval for User-to-Item Recommendations" = { short = "Bootstrapping Cond. Retrieval", theme = "ret" }
+"BST: Behavior Sequence Transformer for E-commerce Recommendation in Alibaba" = { theme = "seq", org = "Alibaba" }
+"ChauffeurNet: Learning to Drive by Imitating the Best and Synthesizing the Worst | Abstract" = { title = "ChauffeurNet: Learning to Drive by Imitating the Best and Synthesizing the Worst", theme = "other", org = "Waymo" }
+"Classification is a Strong Baseline for Deep Metric Learning" = { short = "Classification for Metric Learning", theme = "ret", org = "Pinterest" }
+"CLIP : Learning Transferable Visual Models From Natural Language Supervision" = { theme = "llm" }
+"ColBERT: Efficient and Effective Passage Search via Contextualized Late Interaction over BERT" = { theme = "ret" }
+"Contrastive Learning for Sequential Recommendation" = { short = "CL4SRec", theme = "seq" }
+"Cross-Batch Negative Sampling for Training Two-Tower Recommender" = { short = "Cross-Batch Negatives", theme = "ret" }
+"DCN V2: Improved Deep & Cross Network and Practical Lessons for Web-scale Learning to Rank Systems" = { theme = "rank" }
+"DCN: Deep and Cross Network for Ad Click Predictions" = { theme = "rank" }
+"Deep interest evolution network for click-through rate prediction. In" = { short = "DIEN", theme = "seq" }
+"Deep Multifaceted Transformers for Multi-objective Ranking in Large-Scale E-commerce Recommender Systems" = { short = "DMT", theme = "mtl", year = 2020 }
+"DeepFM: Factorization-Machine based Neural Network for CTR Prediction" = { theme = "rank", org = "Huawei" }
+"DeepWalk: Online Learning of Social Representations" = { theme = "graph" }
+"DHEN: A Deep and Hierarchical Ensemble Network for Large-Scale Click-Through Rate Prediction" = { theme = "rank" }
+"DIN : Deep Interest Network for Click-Through Rate Prediction" = { theme = "seq" }
+"Distilling the Knowledge in a Neural Network" = { short = "Knowledge Distillation", theme = "rank", org = "Google" }
+"DLRM: Deep Learning Recommendation Model for Personalization and Recommendation Systems" = { theme = "rank" }
+"Efficient Smart Reply, now for Gmail" = { short = "Smart Reply", theme = "llm", year = 2017, org = "Google" }
+"Embedding Based Retrieval in Friend Recommendation" = { short = "EBR Friend Recs", theme = "ret" }
+"Embedding-based Retrieval in Facebook Search" = { short = "EBR @ Facebook Search", theme = "ret" }
+"External Large Foundation Model: How to Efficiently Serve Trillions of Parameters for Online Ads Recommendation" = { theme = "gen" }
+"Flamingo: a Visual Language Model for Few-Shot Learnig" = { title = "Flamingo: a Visual Language Model for Few-Shot Learning", theme = "llm", org = "DeepMind" }
+"GatingNetwork" = { exclude = true }
+"Gemini 1.5: Unlocking multimodal understanding across millions of tokens of context" = { theme = "llm" }
+"Gemini: A Family of Highly Capable Multimodal Models" = { theme = "llm" }
+"General-Purpose User Embeddings based on Mobile App Usage" = { short = "App-Usage User Embeddings", theme = "seq" }
+"GPT-2: Language Models are Unsupervised Multitask Learners" = { theme = "llm" }
+"GPT-3: Language Models are Few-Shot Learners" = { theme = "llm" }
+"GPT1: Improving Language Understanding by Generative Pre-Training" = { short = "GPT-1", theme = "llm" }
+"GraphSage: Inductive Representation Learning on Large Graphs" = { short = "GraphSAGE", theme = "graph", org = "Stanford" }
+"Hiformer: Heterogeneous Feature Interactions Learning with Transformers for Recommender Systems" = { theme = "rank" }
+"https://arxiv.org/abs/2305.18431" = { exclude = true }
+"https://arxiv.org/pdf/1701.06538.pdf" = { title = "Outrageously Large Neural Networks: The Sparsely-Gated Mixture-of-Experts Layer", short = "Sparsely-Gated MoE", theme = "mtl", org = "Google" }
+"https://dl.acm.org/doi/pdf/10.1145/3219819.3220007" = { title = "Modeling Task Relationships in Multi-task Learning with Multi-gate Mixture-of-Experts", short = "MMoE", theme = "mtl" }
+"https://irsworkshop.github.io/2020/publications/paper_2_%20Virani_Twitter.pdf," = { title = "Lessons Learned Addressing Dataset Bias in Model-Based Candidate Generation at Twitter", short = "Candidate Gen @ Twitter", theme = "ret" }
+"https://storage.googleapis.com/pub-tools-public-publication-data/pdf/45530.pdf" = { title = "Deep Neural Networks for YouTube Recommendations", short = "YouTube DNN", theme = "ret", year = 2016, org = "Google" }
+"Improving feature interactions at Pinterest under industry constraints" = { short = "Pinterest Feature Interactions", theme = "rank" }
+"Interpretable Click-Through Rate Prediction through Hierarchical Attention" = { short = "InterHAt", theme = "rank" }
+"ItemSage: Learning Product Embeddings for Shopping Recommendations at Pinterest" = { theme = "ret" }
+"Large Scale Retrieval for the LinkedIn Feed using Causal Language Models" = { short = "LinkedIn Feed Retrieval w/ LLMs", theme = "gen", org = "LinkedIn" }
+"Learning a Unified Embedding for Visual Search at Pinterest" = { short = "Unified Visual Embedding", theme = "ret" }
+"Learning Item-Interaction Embeddings for User Recommendations" = { short = "Item-Interaction Embeddings", theme = "ret" }
+"LightGCN: Simplifying and Powering Graph Convolution Network for Recommendation" = { theme = "graph" }
+"LiGNN: Graph Neural Networks at LinkedIn" = { theme = "graph", org = "LinkedIn" }
+"LiNR: Model Based Neural Retrieval on GPUs at LinkedIn" = { theme = "ret" }
+"LiRank: Industrial Large Scale Ranking Models at LinkedIn" = { theme = "rank" }
+"LLaMA: Open and Efficient Foundation Language Models]" = { theme = "llm" }
+"LORA: LOW-RANK ADAPTATION OF LARGE LANGUAGE MODELS" = { short = "LoRA", theme = "llm", year = 2021, org = "Microsoft" }
+"Machine Learning Operations (MLOps): Overview, Definition, and Architecture" = { short = "MLOps Overview", theme = "other", year = 2022 }
+"Mixed negative sampling for learning two-tower neural networks in recommendations." = { short = "Mixed Negative Sampling", theme = "ret" }
+"ML%20Papers/ML%20Papers%20f20c994dcc894d739ad8fa271be9d7a7.csv" = { exclude = true }
+"Monolith: Real Time Recommendation System With Collisionless Embedding Table" = { theme = "ret", org = "ByteDance" }
+"Multi-Interest Network with Dynamic Routing for Recommendation at Tmall" = { short = "MIND", theme = "seq" }
+"NeurIPS Embedding User-Generated Content using Structural Supervision and Generative Models" = { short = "UGC Embeddings", theme = "ret", year = 2023 }
+"node2vec: Scalable Feature Learning for Networks" = { theme = "graph", org = "Stanford" }
+"On the Effectiveness of Sampled Softmax Loss for Item" = { short = "Sampled Softmax Loss", theme = "ret" }
+"On the Factory Floor: ML Engineering for Industrial-Scale Ads Recommendation Models" = { theme = "rank", org = "Google" }
+"One Model To Learn Them All" = { theme = "mtl" }
+"Online multi task learning framework for Google Feeds ads auction" = { short = "Feeds Ads MTL", theme = "mtl" }
+"Parameter-Efficient Transfer from Sequential Behaviors for User Modeling and Recommendation" = { short = "PeterRec", theme = "seq" }
+"Pinner- Former: Sequence Modeling for User Representation at Pinterest." = { title = "PinnerFormer: Sequence Modeling for User Representation at Pinterest.", theme = "seq" }
+"PinnerSage: Multi-Modal User Embedding Framework for Recommendations at Pinterest" = { theme = "seq" }
+"PinSage: Graph Convolutional Neural Networks for Web-Scale Recommender Systems Pinterest" = { theme = "graph" }
+"Pinterest: TransAct: Transformer-based Realtime User Action Model for Recommendation at Pinteres" = { short = "TransAct", theme = "seq" }
+"Pixie A systen for recommending" = { short = "Pixie", theme = "graph", year = 2018, org = "Pinterest" }
+"PLUM: Adapting Pre-trained Language Models for Industrial-scale Generative Recommendations" = { theme = "gen" }
+"Powering Job Search at Scale: LLM-Enhanced Query Understanding in Job Matching Systems" = { short = "LinkedIn Job Search LLM", theme = "ret" }
+"Practice on Long Sequential User Behavior Modeling for Click-Through Rate Prediction" = { short = "MIMN", theme = "seq" }
+"Progressive Layered Extraction (PLE): A Novel Multi-Task Learning (MTL) Model for Personalized Recommendations" = { short = "PLE", theme = "mtl" }
+"Que2Search: Fast and Accurate Query and Document Understanding for Search at Facebook - Meta Research" = { theme = "ret", year = 2021, org = "Meta" }
+"Real-Time Personalization Using Embeddings for Search Ranking at Airbnb." = { short = "Airbnb Search Embeddings", theme = "ret", year = 2018, org = "Airbnb" }
+"Recommending What Video to Watch Next: A Multitask Ranking System" = { short = "YouTube Watch-Next MTL", theme = "mtl", year = 2019, org = "Google" }
+"ResNet: Deep Residual Learning for Image Recognition" = { theme = "rank", year = 2015, org = "Microsoft" }
+"Rethinking Personalized Ranking at Pinterest: An End-to-End Approach" = { short = "Rethinking Ranking @ Pinterest", theme = "rank" }
+"SASRec: Self-Attentive Sequential Recommendation" = { theme = "seq", org = "UCSD" }
+"Scaling Retrieval for Web-Scale Recommenders: Lessons from Inverted" = { short = "Inverted-Index Retrieval", theme = "ret" }
+"Semantic Search at LinkedIn" = { short = "Semantic Search @ LinkedIn", theme = "ret" }
+"Semi-supervised Multitask Learning for Sequence Labeling" = { short = "Semi-supervised MTL", theme = "mtl" }
+"Shop The Look: Building a Large Scale Visual Shopping System at Pinterest" = { theme = "ret" }
+"Sigmoid Loss for Language Image Pre-Training" = { short = "SigLIP", theme = "llm" }
+"SIM: Search based User Interest Modeling with Lifelong Sequential Behavior Data for Click-Through Rate Prediction" = { theme = "seq" }
+"Smart Compose: Using Neural Networks to Help Write Emails" = { theme = "llm", year = 2019, org = "Google" }
+"Software-Hardware Co-design for Fast and Scalable Training of Deep Learning Recommendation Models" = { short = "SW-HW Co-design for DLRM", theme = "other" }
+"Squeeze-and-Excitation Networks" = { short = "SENet", theme = "rank" }
+"SUM: Scaling User Modeling: Large-scale Online User Representations for Ads Personalization in Meta" = { theme = "seq" }
+"T5: Exploring Transfer Learning with T5: the Text-To-Text Transfer Transformer" = { theme = "llm", year = 2019 }
+"Talking-Heads Attention" = { theme = "llm" }
+"The Evolution of Embedding Table Optimization and Multi-Epoch Training in Pinterest Ads Conversion" = { short = "Pinterest Embedding Tables", theme = "ret" }
+"TIGER: Recommender Systems with Generative Retrieval" = { theme = "gen" }
+"Towards the Better Ranking Consistency: A Multi-task Learning Framework for Early Stage Ads Ranking" = { short = "Ranking Consistency MTL", theme = "mtl" }
+"Towards Understanding Mixture of Experts in Deep Learning" = { short = "Understanding MoE", theme = "mtl" }
+"Transformer Memory as a Differentiable Search Index" = { short = "DSI", theme = "gen" }
+"Transformer-XL: Attentive Language Models Beyond a Fixed-Length Context by Dai et al.: Published in June 2019." = { theme = "llm", year = 2019, org = "Google" }
+"TWIN V2: Scaling Ultra-Long User Behavior Sequence Modeling for Enhanced CTR Prediction at Kuaishou" = { theme = "seq", year = 2024 }
+"TWIN: TWo-stage Interest Network for Lifelong User Behavior Modeling in CTR Prediction at Kuaishou" = { theme = "seq" }
+"Unified Embedding Based Personalized Retrieval in Etsy Search" = { short = "Etsy Unified Embedding", theme = "ret", year = 2023, org = "Etsy" }
+"VectorNet: Encoding HD Maps and Agent Dynamics from Vectorized Representation | Abstract" = { title = "VectorNet: Encoding HD Maps and Agent Dynamics from Vectorized Representation", theme = "other", org = "Waymo" }
+"Visual Discovery at Pinterest" = { short = "Visual Discovery @ Pinterest", theme = "ret" }
+"Wukong: Towards a Scaling Law for Large-Scale Recommendation" = { theme = "rank" }
+"xDeepFM: Combining Explicit and Implicit Feature Interactions for Recommender Systems" = { theme = "rank" }
+"xDeepInt: a hybrid architecture for modeling the vector-wise and bit-wise feature interactions" = { theme = "rank" }

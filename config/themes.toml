@@ -1,0 +1,72 @@
+# Themes for Paper Read Atlas.
+#
+# The order of the [[theme]] blocks is the order of sectors in the Constellation
+# and of colours on the site. Keep "other" last.
+
+[[theme]]
+key = "rank"
+name = "Ranking & feature interaction"
+short = "Ranking"
+
+[[theme]]
+key = "seq"
+name = "Sequential & user modeling"
+short = "Sequential"
+
+[[theme]]
+key = "ret"
+name = "Retrieval, embeddings & search"
+short = "Retrieval"
+
+[[theme]]
+key = "llm"
+name = "Transformers & foundation models"
+short = "Foundation models"
+
+[[theme]]
+key = "mtl"
+name = "Multi-task & mixture-of-experts"
+short = "Multi-task"
+
+[[theme]]
+key = "gen"
+name = "Generative & LLM recommendation"
+short = "Generative recs"
+
+[[theme]]
+key = "graph"
+name = "Graph learning"
+short = "Graphs"
+
+[[theme]]
+key = "other"
+name = "Infra & other"
+short = "Other"
+
+# Tag rules, checked top to bottom: a paper gets the theme of the first rule whose
+# Notion tag it has. Matching ignores case. A theme in config/overrides.toml wins
+# over these rules. Papers that match no rule show up as Unsorted.
+rules = [
+  ["gen_recommendations", "gen"],
+  ["LLMRecs", "gen"],
+  ["GNN", "graph"],
+  ["FMModel", "llm"],
+  ["mtml", "mtl"],
+  ["MoE", "mtl"],
+  ["sequential_recommendation", "seq"],
+  ["representation_learning", "seq"],
+  ["retrieval", "ret"],
+  ["Search", "ret"],
+  ["Embeddings", "ret"],
+  ["sampling", "ret"],
+  ["feature_interaction", "rank"],
+  ["Ranking", "rank"],
+  ["ML architectures", "rank"],
+  ["Transformers", "llm"],
+  ["gpt", "llm"],
+  ["Bert", "llm"],
+  ["Computer vision", "llm"],
+  ["attention", "llm"],
+  ["Infra", "other"],
+  ["distributed", "other"],
+]

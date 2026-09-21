@@ -1,0 +1,175 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Paper Read Atlas</title>
+<meta name="description" content="What I've read in ML, when each paper came out, and how the ideas connect.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ccircle cx='16' cy='16' r='5' fill='%23A3232B'/%3E%3Ccircle cx='16' cy='16' r='12' fill='none' stroke='%23465061' stroke-width='2'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;1,400&family=STIX+Two+Text:ital,wght@0,400;0,500;0,600;1,400&display=swap">
+<link rel="stylesheet" href="assets/style.css?v=e5a6548c46">
+</head>
+<body>
+
+<header class="top">
+  <div class="wrap top-inner">
+    <div class="brand">
+      <div class="eyebrow" id="stamp">paper_read</div>
+      <h1>Paper Read Atlas</h1>
+      <p class="stats" id="stats"></p>
+    </div>
+    <button type="button" class="search-btn" id="open-search" aria-haspopup="dialog">
+      <span>Search papers</span><kbd>⌘K</kbd>
+    </button>
+  </div>
+  <nav class="wrap tabs" role="tablist" aria-label="Views">
+    <button type="button" class="tab" role="tab" id="tab-constellation" data-tab="constellation" aria-controls="panel-constellation">Constellation</button>
+    <button type="button" class="tab" role="tab" id="tab-timeline" data-tab="timeline" aria-controls="panel-timeline">Timeline</button>
+    <button type="button" class="tab" role="tab" id="tab-lineages" data-tab="lineages" aria-controls="panel-lineages">Lineages</button>
+    <button type="button" class="tab" role="tab" id="tab-graph" data-tab="graph" aria-controls="panel-graph">Graph</button>
+    <button type="button" class="tab" role="tab" id="tab-tables" data-tab="tables" aria-controls="panel-tables">Tables</button>
+  </nav>
+</header>
+
+<div class="filters-bar">
+  <div class="wrap filters" role="toolbar" aria-label="Highlight a theme">
+    <span class="label">Highlight</span>
+    <div id="chips"></div>
+  </div>
+</div>
+
+<main class="wrap">
+
+  <section class="view" role="tabpanel" id="panel-constellation" aria-labelledby="tab-constellation">
+    <div class="view-head">
+      <h2>Constellation</h2>
+      <p>Each sector is a theme and each ring a publication year. Bigger dots are built on by more of your papers. Click a paper to open it in the graph.</p>
+    </div>
+    <figure class="fig">
+      <div class="fig-head">
+        <span class="k"><svg width="12" height="12" viewBox="0 0 12 12" aria-hidden="true"><circle cx="6" cy="6" r="5" fill="currentColor"/></svg>Read</span>
+        <span class="k"><svg width="12" height="12" viewBox="0 0 12 12" aria-hidden="true"><circle cx="6" cy="6" r="4.2" fill="none" stroke="currentColor" stroke-width="2.4"/></svg>In progress</span>
+        <span class="k"><svg width="12" height="12" viewBox="0 0 12 12" aria-hidden="true"><circle cx="6" cy="6" r="4.4" fill="none" stroke="currentColor" stroke-width="1.3"/></svg>Queued</span>
+        <span class="k"><svg width="12" height="12" viewBox="0 0 12 12" aria-hidden="true"><circle cx="6" cy="6" r="3" fill="currentColor" opacity=".55"/></svg>Someday</span>
+        <span>Rings: year published · Dot size: times built on · Lines: your links</span>
+      </div>
+      <div class="fig-body"><svg id="constellation" class="viz" role="group" aria-label="Papers by theme and publication year"></svg></div>
+    </figure>
+  </section>
+
+  <section class="view" role="tabpanel" id="panel-timeline" aria-labelledby="tab-timeline" hidden>
+    <div class="view-head">
+      <h2>Timeline</h2>
+      <p>Each line joins when a paper first came out (top) to when you read or started it (bottom). Bars count papers per month; brackets mark your reading seasons.</p>
+    </div>
+    <figure class="fig">
+      <div class="fig-head"><span id="timeline-note">Colour = theme</span></div>
+      <div class="fig-body"><svg id="timeline" class="viz" role="group" aria-label="Publication date to read date for each paper"></svg></div>
+    </figure>
+  </section>
+
+  <section class="view" role="tabpanel" id="panel-lineages" aria-labelledby="tab-lineages" hidden>
+    <div class="view-head">
+      <h2>Lineages</h2>
+      <p>Ideas laid out paper by paper, like transit lines. Lines come from <code id="lineage-src">config/lineages.toml</code>; the build suggests new ones for you to confirm.</p>
+    </div>
+    <figure class="fig">
+      <div class="fig-head">
+        <span class="k"><svg width="28" height="10" viewBox="0 0 28 10" aria-hidden="true"><line x1="2" y1="5" x2="26" y2="5" stroke="currentColor" stroke-width="4" stroke-linecap="round"/></svg>Linked in your notes</span>
+        <span class="k"><svg width="28" height="10" viewBox="0 0 28 10" aria-hidden="true"><line x1="2" y1="5" x2="26" y2="5" stroke="currentColor" stroke-width="1.6" stroke-dasharray="1.5 5" stroke-linecap="round"/></svg>No link yet</span>
+        <span>Filled station = read · Open station = not read yet</span>
+      </div>
+      <div class="fig-body">
+        <svg id="lineages" class="viz" role="group" aria-label="Idea lineages on a publication-year axis"></svg>
+        <p class="empty-note" id="lineages-empty" hidden>No lineages yet. Add one to <code>config/lineages.toml</code> and run the build again.</p>
+      </div>
+    </figure>
+  </section>
+
+  <section class="view" role="tabpanel" id="panel-graph" aria-labelledby="tab-graph" hidden>
+    <div class="view-head">
+      <h2>Graph</h2>
+      <p>One paper at the centre, surrounded by the papers it links to. Bigger circles are built on by more of your papers. Drag to move circles or the canvas; pinch or use the buttons to zoom.</p>
+    </div>
+    <div class="graph-toolbar">
+      <div class="combo">
+        <label class="sr-only" for="graph-search">Choose the centre paper</label>
+        <input id="graph-search" type="search" autocomplete="off" spellcheck="false" placeholder="Centre on a paper: title, org or arXiv ID"
+               role="combobox" aria-expanded="false" aria-controls="graph-results" aria-autocomplete="list">
+        <ul class="results" id="graph-results" role="listbox" hidden></ul>
+      </div>
+      <div class="seg" role="group" aria-label="Depth">
+        <button type="button" id="depth-1" aria-pressed="true">1 level</button>
+        <button type="button" id="depth-2" aria-pressed="false">2 levels</button>
+      </div>
+      <div class="glegend">
+        <span class="k"><svg width="12" height="12" viewBox="0 0 12 12" aria-hidden="true"><circle cx="6" cy="6" r="5" fill="currentColor"/></svg>Read</span>
+        <span class="k"><svg width="12" height="12" viewBox="0 0 12 12" aria-hidden="true"><circle cx="6" cy="6" r="4" fill="none" stroke="currentColor" stroke-width="2.6"/></svg>In progress</span>
+        <span class="k"><svg width="12" height="12" viewBox="0 0 12 12" aria-hidden="true"><circle cx="6" cy="6" r="4.4" fill="none" stroke="currentColor" stroke-width="1.4"/></svg>Unread</span>
+        <span class="k"><svg width="22" height="10" viewBox="0 0 22 10" aria-hidden="true"><line x1="1" y1="5" x2="21" y2="5" stroke="#D97757" stroke-width="2"/></svg>Link to centre</span>
+      </div>
+    </div>
+    <div class="graph-canvas">
+      <svg id="graph" class="gviz" role="group" aria-label="Papers linked to the centre paper" hidden></svg>
+      <div class="graph-caption" id="graph-caption" hidden></div>
+      <div class="zoom" id="graph-zoom" hidden>
+        <button type="button" id="zoom-in" aria-label="Zoom in">+</button>
+        <button type="button" id="zoom-out" aria-label="Zoom out">−</button>
+        <button type="button" id="zoom-fit" class="fit" aria-label="Reset view">Fit</button>
+      </div>
+      <div class="graph-empty" id="graph-empty">
+        <h3>Pick a paper to centre the graph</h3>
+        <p>Search above, or click any paper in the other tabs.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="view" role="tabpanel" id="panel-tables" aria-labelledby="tab-tables" hidden>
+    <div class="view-head">
+      <h2>Tables</h2>
+      <p>Click a row to open that paper in the graph.</p>
+    </div>
+    <div class="tbl-block">
+      <div class="tbl-cap"><h3>Read next</h3><span>Unread papers linked to ones you've read, most connections first.</span></div>
+      <div class="tbl-wrap">
+        <table>
+          <thead><tr><th>Paper</th><th>Published</th><th>Theme</th><th>Status</th><th>Linked to what you've read</th></tr></thead>
+          <tbody id="next-body"></tbody>
+        </table>
+      </div>
+    </div>
+    <div class="tbl-block">
+      <div class="tbl-cap"><h3>All papers <span class="ct" id="all-count"></span></h3><span>Newest reads first.</span></div>
+      <div class="tbl-wrap tall">
+        <table>
+          <thead><tr><th>Paper</th><th>Published</th><th>Read</th><th>Theme</th><th>Status</th><th>Org</th><th>Built on by</th></tr></thead>
+          <tbody id="all-body"></tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="wrap foot" id="foot"></footer>
+
+<aside class="drawer" id="drawer" aria-labelledby="drawer-title" hidden></aside>
+
+<div class="palette" id="palette" hidden>
+  <div class="palette-box" role="dialog" aria-modal="true" aria-label="Search papers">
+    <label class="sr-only" for="palette-input">Search papers</label>
+    <input id="palette-input" type="search" autocomplete="off" spellcheck="false" placeholder="Search by title, org, tag or arXiv ID"
+           role="combobox" aria-expanded="false" aria-controls="palette-results" aria-autocomplete="list">
+    <ul class="results in-palette" id="palette-results" role="listbox" hidden></ul>
+    <p class="palette-hint"><kbd>↑</kbd><kbd>↓</kbd> to move · <kbd>Enter</kbd> to open in graph · <kbd>Esc</kbd> to close</p>
+  </div>
+</div>
+
+<div id="tip" role="tooltip" hidden></div>
+
+<script src="data/papers.js?v=049c1d438d"></script>
+<script src="assets/app.js?v=1a7f377765"></script>
+</body>
+</html>
