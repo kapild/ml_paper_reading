@@ -23,5 +23,9 @@ name = "Text → generative retrieval"
 stations = ["Transformer", "BERT", "T5", "DSI", "TIGER", "PLUM"]
 
 [[line]]
+name = "Embedding-based retrieval"
+stations = ["YouTube DNN", "Airbnb Search Embeddings", "Mixed Negative Sampling", "JD Semantic Retrieval", "EBR @ Facebook Search", "EBR Friend Recs", "Inverted-Index Retrieval"]
+
+[[line]]
 name = "Graph embeddings"
 stations = ["DeepWalk", "node2vec", "GraphSAGE", "PinSage", "LiGNN"]

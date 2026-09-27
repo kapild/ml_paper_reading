@@ -79,8 +79,10 @@ const state = {
   tab: 'constellation',
   theme: null,
   hover: null,
+  selected: null,
   centre: byKey.has(store.get('atlas.centre')) ? store.get('atlas.centre') : null,
   depth: store.get('atlas.depth') === '2' ? 2 : 1,
+  table: {q: '', status: '', org: '', sort: 'read', dir: 'desc'},
 };
 
 function applyEmphasis() {
@@ -692,11 +694,36 @@ function openPanel(key) {
   if (centreBtn) centreBtn.addEventListener('click', () => openInGraph(key));
   $$('[data-open]', d).forEach(b => b.addEventListener('click', () => openPanel(b.dataset.open)));
   $('#drawer-title').focus({preventScroll: true});
+  state.selected = key;
+  renderConnected();
 }
 function closePanel() {
   $('#drawer').hidden = true;
   if (drawerReturn && drawerReturn.isConnected && drawerReturn.getClientRects().length) drawerReturn.focus({preventScroll: true});
   drawerReturn = null;
+}
+
+/* ---------- connected papers, at the foot of the page ---------- */
+function connItem(q) {
+  return `<li><button type="button" class="conn-item" data-open="${esc(q.key)}">` +
+    `<span class="sw" style="background:${C(q.theme)}"></span>` +
+    `<span class="conn-main"><span class="conn-short">${esc(q.short)}</span><span class="conn-title">${esc(q.title)}</span></span>` +
+    `<span class="conn-meta"><span class="num">${q.year ?? '—'}</span>${pill(q.status)}</span></button></li>`;
+}
+function renderConnected() {
+  const section = $('#connected');
+  const p = state.selected ? byKey.get(state.selected) : null;
+  section.hidden = !p;
+  if (!p) return;
+  const pick = keys => keys.filter(k => byKey.has(k)).map(k => byKey.get(k)).sort((a, b) => (b.pub ?? 0) - (a.pub ?? 0));
+  const on = pick(p.buildsOn), by = pick(p.builtOnBy), total = on.length + by.length;
+  $('#connected-sub').innerHTML = `<span class="sw" style="background:${C(p.theme)}"></span><b>${esc(p.short)}</b>` +
+    ` · ${total} connected paper${total === 1 ? '' : 's'} in your notes. Click one to move the graph to it.`;
+  $('#conn-on-n').textContent = on.length;
+  $('#conn-by-n').textContent = by.length;
+  $('#conn-on').innerHTML = on.map(connItem).join('') || '<li class="conn-none">Nothing yet. Add a backlink in Notion.</li>';
+  $('#conn-by').innerHTML = by.map(connItem).join('') || '<li class="conn-none">Nothing yet. Add a fwdlink in Notion.</li>';
+  $$('#connected [data-open]').forEach(b => b.addEventListener('click', () => openInGraph(b.dataset.open)));
 }
 
 /* ---------- search ---------- */
@@ -776,39 +803,96 @@ document.addEventListener('keydown', e => {
 });
 
 /* ---------- tables ---------- */
-function buildTables() {
-  const done = new Set(P.filter(p => p.status === 'done').map(p => p.key));
-  const rank = {reading: 0, next: 1, later: 2};
-  const next = P.filter(p => p.status !== 'done')
-    .map(p => ({p, linked: [...nbr.get(p.key)].filter(k => done.has(k)).map(k => byKey.get(k))}))
-    .filter(r => r.linked.length)
-    .sort((a, b) => b.linked.length - a.linked.length || rank[a.p.status] - rank[b.p.status] || (b.p.pub ?? 0) - (a.p.pub ?? 0));
-  $('#next-body').innerHTML = next.map(({p, linked}) =>
-    `<tr tabindex="0" data-key="${esc(p.key)}" data-th="${esc(p.theme)}"><td><span class="t">${esc(p.short)}</span><span class="tf">${esc(p.title)}</span></td><td class="num">${pubLabel(p)}</td><td>${themeCell(p.theme)}</td><td>${pill(p.status)}</td><td>${linked.map(l => esc(l.short)).join(', ')}</td></tr>`
-  ).join('') + '<tr class="empty-row" hidden><td colspan="5">No unread papers here are linked to ones you\'ve read.</td></tr>';
+const DONE_KEYS = new Set(P.filter(p => p.status === 'done').map(p => p.key));
+const NEXT_RANK = {reading: 0, next: 1, later: 2};
+const NEXT_ROWS = P.filter(p => p.status !== 'done')
+  .map(p => ({p, linked: [...nbr.get(p.key)].filter(k => DONE_KEYS.has(k)).map(k => byKey.get(k))}))
+  .filter(r => r.linked.length)
+  .sort((a, b) => b.linked.length - a.linked.length || NEXT_RANK[a.p.status] - NEXT_RANK[b.p.status] || (b.p.pub ?? 0) - (a.p.pub ?? 0));
 
-  const all = [...P].sort((a, b) => (b.read || '').localeCompare(a.read || '') || (b.pub ?? 0) - (a.pub ?? 0));
-  $('#all-count').textContent = all.length;
-  $('#all-body').innerHTML = all.map(p =>
-    `<tr tabindex="0" data-key="${esc(p.key)}" data-th="${esc(p.theme)}"><td>${p.url ? `<a href="${esc(p.url)}" target="_blank" rel="noopener">${esc(p.short)}</a>` : `<span class="t">${esc(p.short)}</span>`}<span class="tf">${esc(p.title)}</span></td><td class="num">${pubLabel(p)}</td><td class="num">${p.read ? readLabel(p.read) : '—'}</td><td>${themeCell(p.theme)}</td><td>${pill(p.status)}</td><td>${esc(p.org || '—')}</td><td class="num">${builtOn(p)}</td></tr>`
-  ).join('') + '<tr class="empty-row" hidden><td colspan="7">No papers in this theme.</td></tr>';
-
-  $$('#panel-tables tbody tr[data-key]').forEach(tr => {
-    tr.addEventListener('click', e => { if (!e.target.closest('a')) openInGraph(tr.dataset.key); });
-    tr.addEventListener('keydown', e => { if (e.key === 'Enter' && e.target === tr) { e.preventDefault(); openInGraph(tr.dataset.key); } });
-  });
+const STATUS_ORDER = {done: 0, reading: 1, next: 2, later: 3};
+const SORTERS = {
+  paper: p => p.short.toLowerCase(),
+  published: p => p.pub ?? -1,
+  read: p => p.read || '',
+  theme: p => thShort(p.theme).toLowerCase(),
+  status: p => STATUS_ORDER[p.status],
+  org: p => (p.org || '~~').toLowerCase(),
+  links: p => builtOn(p),
+};
+function matchesFilters(p) {
+  const t = state.table;
+  if (state.theme && p.theme !== state.theme) return false;
+  if (t.status && p.status !== t.status) return false;
+  if (t.org && (p.org || '') !== t.org) return false;
+  const q = t.q.trim().toLowerCase();
+  if (!q) return true;
+  return [p.short, p.title, p.org, p.arxiv || '', thShort(p.theme), String(p.year ?? ''), ...p.tags]
+    .some(v => String(v).toLowerCase().includes(q));
 }
-function filterTables() {
-  for (const body of $$('#panel-tables tbody')) {
-    let shown = 0;
-    $$('tr[data-key]', body).forEach(tr => {
-      const on = !state.theme || tr.dataset.th === state.theme;
-      tr.hidden = !on;
-      if (on) shown++;
-    });
-    const empty = $('.empty-row', body);
-    if (empty) empty.hidden = shown > 0;
-  }
+function allRow(p) {
+  return `<tr tabindex="0" data-key="${esc(p.key)}">` +
+    `<td>${p.url ? `<a href="${esc(p.url)}" target="_blank" rel="noopener">${esc(p.short)}</a>` : `<span class="t">${esc(p.short)}</span>`}<span class="tf">${esc(p.title)}</span></td>` +
+    `<td class="num">${pubLabel(p)}</td><td class="num">${p.read ? readLabel(p.read) : '—'}</td>` +
+    `<td>${themeCell(p.theme)}</td><td>${pill(p.status)}</td><td>${esc(p.org || '—')}</td><td class="num">${builtOn(p)}</td></tr>`;
+}
+function renderAllTable() {
+  const t = state.table;
+  const rows = P.filter(matchesFilters);
+  const value = SORTERS[t.sort] || SORTERS.read;
+  rows.sort((a, b) => {
+    const va = value(a), vb = value(b);
+    const cmp = typeof va === 'string' ? va.localeCompare(vb) : va - vb;
+    return (t.dir === 'asc' ? cmp : -cmp) || (b.pub ?? 0) - (a.pub ?? 0);
+  });
+  $('#all-body').innerHTML = rows.map(allRow).join('') || '<tr class="empty-row"><td colspan="7">No papers match these filters.</td></tr>';
+  $('#all-count').textContent = rows.length === P.length ? P.length : `${rows.length} of ${P.length}`;
+  $$('#all-head th[data-sort]').forEach(th => {
+    const on = th.dataset.sort === t.sort;
+    th.setAttribute('aria-sort', on ? (t.dir === 'asc' ? 'ascending' : 'descending') : 'none');
+  });
+  $('#tbl-clear').hidden = !(state.theme || t.status || t.org || t.q.trim());
+}
+function renderNextTable() {
+  const rows = NEXT_ROWS.filter(({p}) => !state.theme || p.theme === state.theme);
+  $('#next-body').innerHTML = rows.map(({p, linked}) =>
+    `<tr tabindex="0" data-key="${esc(p.key)}"><td><span class="t">${esc(p.short)}</span><span class="tf">${esc(p.title)}</span></td>` +
+    `<td class="num">${pubLabel(p)}</td><td>${themeCell(p.theme)}</td><td>${pill(p.status)}</td>` +
+    `<td>${linked.map(l => esc(l.short)).join(', ')}</td></tr>`
+  ).join('') || '<tr class="empty-row"><td colspan="5">No unread papers in this theme link to ones you have read.</td></tr>';
+}
+function filterTables() { renderNextTable(); renderAllTable(); }
+function buildTables() {
+  const orgs = [...new Set(P.map(p => p.org).filter(Boolean))].sort((a, b) => a.localeCompare(b));
+  $('#tbl-org').innerHTML = '<option value="">All orgs</option>' +
+    orgs.map(o => `<option value="${esc(o)}">${esc(o)} (${P.filter(p => p.org === o).length})</option>`).join('');
+  $('#tbl-search').addEventListener('input', e => { state.table.q = e.target.value; renderAllTable(); });
+  $('#tbl-status').addEventListener('change', e => { state.table.status = e.target.value; renderAllTable(); });
+  $('#tbl-org').addEventListener('change', e => { state.table.org = e.target.value; renderAllTable(); });
+  $('#tbl-clear').addEventListener('click', () => {
+    Object.assign(state.table, {q: '', status: '', org: ''});
+    $('#tbl-search').value = '';
+    $('#tbl-status').value = '';
+    $('#tbl-org').value = '';
+    renderAllTable();
+    $('#tbl-search').focus();
+  });
+  $$('#all-head .th-btn').forEach(btn => btn.addEventListener('click', () => {
+    const col = btn.parentElement.dataset.sort, t = state.table;
+    if (t.sort === col) t.dir = t.dir === 'asc' ? 'desc' : 'asc';
+    else { t.sort = col; t.dir = ['paper', 'org', 'theme'].includes(col) ? 'asc' : 'desc'; }
+    renderAllTable();
+  }));
+  const panel = $('#panel-tables');
+  panel.addEventListener('click', e => {
+    const tr = e.target.closest('tr[data-key]');
+    if (tr && !e.target.closest('a')) openInGraph(tr.dataset.key);
+  });
+  panel.addEventListener('keydown', e => {
+    const tr = e.target.closest('tr[data-key]');
+    if (tr && e.key === 'Enter' && e.target === tr) { e.preventDefault(); openInGraph(tr.dataset.key); }
+  });
+  filterTables();
 }
 
 /* ---------- header, footer, start ---------- */
@@ -826,5 +910,6 @@ drawTimeline();
 drawLineages();
 buildTables();
 wireGraph();
+renderConnected();
 route();
 })();

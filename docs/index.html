@@ -9,7 +9,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;1,400&family=STIX+Two+Text:ital,wght@0,400;0,500;0,600;1,400&display=swap">
-<link rel="stylesheet" href="assets/style.css?v=e5a6548c46">
+<link rel="stylesheet" href="assets/style.css?v=f22e70082e">
 </head>
 <body>
 
@@ -129,10 +129,10 @@
   <section class="view" role="tabpanel" id="panel-tables" aria-labelledby="tab-tables" hidden>
     <div class="view-head">
       <h2>Tables</h2>
-      <p>Click a row to open that paper in the graph.</p>
+      <p>Search, filter and sort the full list. Click a row to open that paper in the graph.</p>
     </div>
     <div class="tbl-block">
-      <div class="tbl-cap"><h3>Read next</h3><span>Unread papers linked to ones you've read, most connections first.</span></div>
+      <div class="tbl-cap"><h3>Read next</h3><span>Unread papers linked to ones you've read, most connections first. Follows the theme filter above.</span></div>
       <div class="tbl-wrap">
         <table>
           <thead><tr><th>Paper</th><th>Published</th><th>Theme</th><th>Status</th><th>Linked to what you've read</th></tr></thead>
@@ -141,12 +141,52 @@
       </div>
     </div>
     <div class="tbl-block">
-      <div class="tbl-cap"><h3>All papers <span class="ct" id="all-count"></span></h3><span>Newest reads first.</span></div>
+      <div class="tbl-cap"><h3>All papers <span class="ct" id="all-count"></span></h3><span>Click a column heading to sort.</span></div>
+      <div class="tbl-tools">
+        <label class="sr-only" for="tbl-search">Search this table</label>
+        <input id="tbl-search" type="search" autocomplete="off" spellcheck="false" placeholder="Search title, org, tag, year or arXiv ID">
+        <label class="sr-only" for="tbl-status">Status</label>
+        <select id="tbl-status">
+          <option value="">All statuses</option>
+          <option value="done">Read</option>
+          <option value="reading">In progress</option>
+          <option value="next">Queued</option>
+          <option value="later">Someday</option>
+        </select>
+        <label class="sr-only" for="tbl-org">Organisation</label>
+        <select id="tbl-org"></select>
+        <button type="button" class="btn" id="tbl-clear" hidden>Clear filters</button>
+      </div>
       <div class="tbl-wrap tall">
         <table>
-          <thead><tr><th>Paper</th><th>Published</th><th>Read</th><th>Theme</th><th>Status</th><th>Org</th><th>Built on by</th></tr></thead>
+          <thead id="all-head"><tr>
+            <th data-sort="paper" aria-sort="none"><button type="button" class="th-btn">Paper</button></th>
+            <th data-sort="published" aria-sort="none"><button type="button" class="th-btn">Published</button></th>
+            <th data-sort="read" aria-sort="descending"><button type="button" class="th-btn">Read</button></th>
+            <th data-sort="theme" aria-sort="none"><button type="button" class="th-btn">Theme</button></th>
+            <th data-sort="status" aria-sort="none"><button type="button" class="th-btn">Status</button></th>
+            <th data-sort="org" aria-sort="none"><button type="button" class="th-btn">Org</button></th>
+            <th data-sort="links" aria-sort="none"><button type="button" class="th-btn">Built on by</button></th>
+          </tr></thead>
           <tbody id="all-body"></tbody>
         </table>
+      </div>
+    </div>
+  </section>
+
+  <section class="connected" id="connected" aria-labelledby="connected-title" hidden>
+    <div class="view-head">
+      <h2 id="connected-title">Connected papers</h2>
+      <p id="connected-sub"></p>
+    </div>
+    <div class="conn-cols">
+      <div class="conn-col">
+        <h3>Builds on <span class="ct" id="conn-on-n">0</span></h3>
+        <ul class="conn-list" id="conn-on"></ul>
+      </div>
+      <div class="conn-col">
+        <h3>Built on by <span class="ct" id="conn-by-n">0</span></h3>
+        <ul class="conn-list" id="conn-by"></ul>
       </div>
     </div>
   </section>
@@ -169,7 +209,7 @@
 
 <div id="tip" role="tooltip" hidden></div>
 
-<script src="data/papers.js?v=049c1d438d"></script>
-<script src="assets/app.js?v=1a7f377765"></script>
+<script src="data/papers.js?v=5bba9573e5"></script>
+<script src="assets/app.js?v=9a963cdbff"></script>
 </body>
 </html>
