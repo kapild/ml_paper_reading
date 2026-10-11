@@ -1,0 +1,65 @@
+/* Citation map page. Tokens come from style.css; this file adds the graph, the table and the dock. */
+
+.cite-page{padding-bottom:0}
+.cite-page main{padding-bottom:230px}
+.back{min-width:0;color:var(--ink);text-decoration:none;white-space:nowrap}
+.cite-page h1{font-size:clamp(24px,3.4vw,34px)}
+.cite-page .stats{font-family:var(--f-mono);font-size:13px;font-variant-numeric:tabular-nums;display:flex;flex-wrap:wrap;gap:4px 20px}
+.cite-page .stats b{font-weight:500}
+
+.cite-view{display:flex;flex-direction:column;gap:14px}
+.cite-view .view-head{gap:10px}
+.tabs{align-self:flex-start;flex-wrap:wrap;max-width:100%}
+.tabs button{padding:8px 14px;font-size:14px;white-space:nowrap}
+.tabs button[aria-selected="true"]{background:var(--ink);color:var(--sheet)}
+.note{color:var(--ink-2);font-size:14px;max-width:76ch}
+
+.gwrap{overflow-x:auto;background:var(--sheet);border:1px solid var(--rule);border-radius:6px;padding:14px 10px}
+svg.g{display:block;width:100%;min-width:660px;height:auto}
+.gl{fill:none;stroke:var(--ink-2);opacity:.34}
+.gl.on{stroke:var(--accent);opacity:.9}
+.gl.dim{opacity:.07}
+.gn{fill:var(--muted)}
+.gn.on{fill:var(--accent)}
+.gnode{cursor:pointer}
+.gnode.dim{opacity:.3}
+.gt{fill:var(--ink);font-family:var(--f-sans)}
+.gt .k{fill:var(--muted);font-family:var(--f-mono);font-size:10px;font-weight:400}
+.gh{fill:var(--muted);font-family:var(--f-mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase}
+.gnode:focus-visible{outline:none}
+.gnode:focus-visible .gn{fill:var(--accent);stroke:var(--accent);stroke-width:2}
+
+.rt{border-collapse:collapse;width:100%;min-width:620px;font-size:14px;line-height:1.35}
+.rt th{position:sticky;top:0;background:var(--sheet);text-align:left;font:600 11px/1.2 var(--f-sans);letter-spacing:.08em;text-transform:uppercase;color:var(--muted);padding:11px 12px;border-bottom:1px solid var(--rule);white-space:nowrap}
+.rt td{padding:9px 12px;border-bottom:1px solid var(--grid);vertical-align:baseline}
+.rt tr:last-child td{border-bottom:0}
+.krow{cursor:pointer}
+.krow:hover td{background:var(--band)}
+.krow.on td{background:var(--band);box-shadow:inset 2px 0 0 var(--accent)}
+.c-num,.c-year,.c-cnt{font-family:var(--f-mono);font-size:13px;white-space:nowrap;font-variant-numeric:tabular-nums;color:var(--ink-2)}
+.c-key{font-weight:600;white-space:nowrap}
+.c-title{min-width:220px}
+.kbar{display:inline-block;height:9px;background:var(--ink-2);opacity:.55;border-radius:2px;margin-right:8px;vertical-align:1px}
+.krow.on .kbar{background:var(--accent);opacity:1}
+
+/* Selected reference, docked at the foot of the screen */
+.dock{position:fixed;left:0;right:0;bottom:0;z-index:30;background:var(--sheet);border-top:1px solid var(--rule);box-shadow:var(--shadow);padding:12px 20px calc(12px + env(safe-area-inset-bottom,0px))}
+.dock-in{max-width:1120px;margin:0 auto;display:grid;grid-template-columns:minmax(0,1fr) auto;gap:8px 28px;align-items:start}
+.d-top{font-family:var(--f-mono);font-size:12px;color:var(--muted);display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+.d-top b{background:var(--accent);color:var(--sheet);padding:1px 7px;border-radius:4px;font-weight:500}
+.d-title{font:500 20px/1.25 var(--f-display);margin:3px 0 2px;text-wrap:balance}
+.d-meta{font-size:13px;color:var(--ink-2);margin:0}
+.d-side{display:flex;flex-direction:column;gap:9px;min-width:0;align-items:flex-end}
+.strip{display:flex;gap:4px;align-items:flex-end}
+.cell{display:flex;flex-direction:column;align-items:center;gap:3px;font-family:var(--f-mono);font-size:10px;color:var(--muted);width:24px}
+.cell i{display:block;width:100%;border-radius:2px;background:var(--ink-2);opacity:.55;min-height:2px}
+.cell.z i{background:var(--rule);opacity:1}
+.cell.hot i{background:var(--accent);opacity:1}
+
+@media (max-width:760px){
+  .dock-in{grid-template-columns:minmax(0,1fr)}
+  .d-side{align-items:flex-start}
+  .strip{display:none}
+  .d-title{font-size:17px}
+  .cite-page main{padding-bottom:200px}
+}

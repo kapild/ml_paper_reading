@@ -1,0 +1,40 @@
+# Themes for the citation map (cite_map.py).
+#
+# Each reference takes the name of the first theme below whose match words appear
+# in its title, venue or keyword. Matching ignores case and matches anywhere in the
+# text, so "hash" also matches "hashing". References that match nothing become "Other".
+#
+# The resolved theme is written into docs/data/citations/<id>.json, so you can also
+# edit a single reference there without touching these rules.
+
+[[theme]]
+name = "Generative retrieval"
+match = ["generative retrieval", "differentiable search index", "corpus indexer", "autoregressive entity",
+         "learned index", "document retrieval", "entity retrieval", "long sequences"]
+
+[[theme]]
+name = "Sequential recommenders"
+match = ["sequential recommendation", "session-based", "session based", "next item", "self-attentive",
+         "bert4rec", "gru4rec", "sasrec", "s3-rec", "transformers4rec", "hierarchical gating",
+         "convolutional sequence", "self-supervised learning for sequential", "attentive session"]
+
+[[theme]]
+name = "Semantic IDs & quantization"
+match = ["quantization", "quantized", "vq-", "semantic id", "codec", "soundstream", "hashing",
+         "hash", "locality-preserving", "nearest neighbor", "nearest neighbour", "codebook",
+         "discrete representation", "embedding tables", "categorical features"]
+
+[[theme]]
+name = "Language models & tooling"
+match = ["bert", "t5", "transformer", "attention is all", "sentence encoder", "subword", "seqio",
+         "language understanding", "pre-training", "pretrain"]
+
+[[theme]]
+name = "Industry recommenders"
+match = ["youtube", "netflix", "wide & deep", "wide and deep", "multitask ranking", "ranking for recommendations",
+         "large corpus item", "matrix factorization", "music recommendation", "business value"]
+
+[[theme]]
+name = "Data & bias"
+match = ["popularity bias", "feedback loop", "bias amplification", "fashion trends", "one-class collaborative",
+         "unfairness", "dataset"]

@@ -1,0 +1,439 @@
+#!/usr/bin/env python3
+"""Build a citation map for one paper from its arXiv HTML.
+
+    python3 cite_map.py 2305.05065v3
+    python3 cite_map.py https://arxiv.org/abs/2305.05065v3
+    python3 cite_map.py 2305.05065v3 --html saved.html   # parse a local copy instead
+
+Reads   https://arxiv.org/html/<id> (falls back to ar5iv), plus config/citation_themes.toml
+Writes  docs/data/citations/<id>.json and docs/data/citations/index.json,
+        then prints a report of what it found.
+
+Needs Python 3.11+ and nothing else. Papers with no HTML version are reported, not parsed:
+this script does not read PDFs.
+"""
+import argparse
+import datetime
+import json
+import os
+import re
+import sys
+import tomllib
+import urllib.error
+import urllib.request
+from collections import defaultdict
+from html.parser import HTMLParser
+
+ROOT = os.path.dirname(os.path.abspath(__file__))
+CONFIG = os.path.join(ROOT, 'config')
+OUT_DIR = os.path.join(ROOT, 'docs', 'data', 'citations')
+SOURCES = ['https://arxiv.org/html/{id}', 'https://ar5iv.labs.arxiv.org/html/{id}']
+UA = 'paper-read-atlas/0.1 (citation map; https://github.com/kapild/ml_paper_reading)'
+ARXIV_IN_TEXT = re.compile(r'arxiv[:\s/]*(?:abs/)?(\d{4}\.\d{4,5})', re.I)
+YEAR = re.compile(r'\b(19|20)\d{2}\b')
+VOID = {'area', 'base', 'br', 'col', 'embed', 'hr', 'img', 'input', 'link', 'meta', 'param', 'source', 'track', 'wbr'}
+
+
+def clean(s):
+    return re.sub(r'\s+', ' ', s or '').strip()
+
+
+def title_key(s):
+    return re.sub(r'[^a-z0-9]', '', (s or '').lower())
+
+
+def paper_id(arg):
+    """Accept a bare id, an arXiv URL, or an id with a version suffix."""
+    m = re.search(r'(\d{4}\.\d{4,5}(?:v\d+)?)', arg)
+    if not m:
+        sys.exit(f'Not an arXiv id or URL: {arg}')
+    return m.group(1)
+
+
+# ---------- HTML parsing ----------
+
+class LatexmlDoc(HTMLParser):
+    """Pulls references, citation marks and their section context out of arXiv's LaTeXML HTML."""
+
+    def __init__(self):
+        super().__init__(convert_charrefs=True)
+        self.stack = []              # open tag names; its length is the current depth
+        self.depth = 0
+        self.open_sections = []      # innermost last
+        self.sections = {}           # key -> dict, in document order
+        self.doc_title = []
+        self.bibitems = []           # dicts in document order
+        self.marks = []              # (ref number, section key, subsection key)
+        self._bib = None
+        self._cite_depth = None
+        self._note_depth = None      # footnotes sit inside titles; skip their text
+        self._caps = []              # active text captures: (list, depth, kind, target)
+
+    # -- helpers
+
+    def _attr(self, attrs, name):
+        for k, v in attrs:
+            if k == name:
+                return v or ''
+        return ''
+
+    def _capture(self, kind, target=None):
+        buf = []
+        self._caps.append((buf, self.depth, kind, target))
+        return buf
+
+    def _section(self, *kinds):
+        for s in reversed(self.open_sections):
+            if s['kind'] in kinds:
+                return s
+        return None
+
+    # -- parser callbacks
+
+    def handle_starttag(self, tag, attrs):
+        if tag in VOID:
+            return
+        self.stack.append(tag)
+        self.depth = len(self.stack)
+        cls = self._attr(attrs, 'class')
+        sid = self._attr(attrs, 'id')
+
+        if ('ltx_note' in cls or 'ltx_pubnote' in cls) and self._note_depth is None:
+            self._note_depth = self.depth
+
+        if tag == 'section':
+            kind = ('section' if 'ltx_section' in cls else 'appendix' if 'ltx_appendix' in cls
+                    else 'subsection' if 'ltx_subsection' in cls else 'paragraph' if 'ltx_paragraph' in cls
+                    else 'other')
+            sec = {'key': sid or f'sec{len(self.sections)}', 'kind': kind, 'label': '', 'depth': self.depth,
+                   'order': len(self.sections)}
+            self.open_sections.append(sec)
+            if kind != 'other':
+                self.sections[sec['key']] = sec
+            return
+
+        if tag in ('h1', 'h2', 'h3', 'h4', 'h5', 'h6') and 'ltx_title' in cls:
+            if 'ltx_title_document' in cls:
+                self._caps.append((self.doc_title, self.depth, 'text', None))
+            elif self.open_sections:
+                self._capture('title', self.open_sections[-1])
+            return
+
+        if tag == 'li' and 'ltx_bibitem' in cls:
+            self._bib = {'id': sid, 'number': None, 'blocks': [], 'depth': self.depth}
+            self.bibitems.append(self._bib)
+            return
+
+        if self._bib is not None:
+            if 'ltx_tag' in cls:
+                self._capture('bibtag', self._bib)
+            elif 'ltx_bibblock' in cls:
+                self._capture('bibblock', self._bib)
+            return
+
+        if tag == 'cite' and 'ltx_cite' in cls:
+            self._cite_depth = self.depth
+            return
+
+        if tag == 'a' and self._cite_depth is not None:
+            m = re.match(r'#bib\.bib(\d+)', self._attr(attrs, 'href'))
+            if m:
+                top = self._section('section', 'appendix')
+                sub = self._section('subsection') or self._section('paragraph')
+                tk = top['key'] if top else ''
+                self.marks.append((int(m.group(1)), tk, sub['key'] if sub else tk))
+
+    def handle_startendtag(self, tag, attrs):
+        pass  # self-closing tags never change depth or context
+
+    def handle_endtag(self, tag):
+        if tag in VOID or tag not in self.stack:
+            return
+        # Close everything the document left open inside this element, then the element itself.
+        depth = len(self.stack) - 1 - self.stack[::-1].index(tag)
+        del self.stack[depth:]
+        self.depth = depth
+
+        while self._caps and self._caps[-1][1] > self.depth:
+            buf, _, kind, target = self._caps.pop()
+            text = clean(''.join(buf))
+            if kind == 'title' and not target['label']:
+                target['label'] = text
+            elif kind == 'bibtag' and target['number'] is None:
+                m = re.search(r'\d+', text)
+                target['number'] = int(m.group(0)) if m else None
+            elif kind == 'bibblock' and text:
+                target['blocks'].append(text)
+
+        while self.open_sections and self.open_sections[-1]['depth'] > self.depth:
+            self.open_sections.pop()
+        if self._bib is not None and self._bib['depth'] > self.depth:
+            self._bib = None
+        if self._cite_depth is not None and self._cite_depth > self.depth:
+            self._cite_depth = None
+        if self._note_depth is not None and self._note_depth > self.depth:
+            self._note_depth = None
+
+    def handle_data(self, data):
+        if self._note_depth is not None:
+            return
+        for buf, _, _, _ in self._caps:
+            buf.append(data)
+
+
+def fetch(pid, local=None):
+    if local:
+        with open(local, encoding='utf-8', errors='replace') as f:
+            return f.read(), os.path.abspath(local)
+    problems = []
+    for template in SOURCES:
+        url = template.format(id=pid)
+        try:
+            req = urllib.request.Request(url, headers={'User-Agent': UA})
+            with urllib.request.urlopen(req, timeout=60) as r:
+                html = r.read().decode('utf-8', 'replace')
+            if 'ltx_bibitem' in html:
+                return html, url
+            problems.append(f'{url} has no LaTeXML bibliography')
+        except urllib.error.HTTPError as e:
+            problems.append(f'{url} returned HTTP {e.code}')
+        except Exception as e:  # noqa: BLE001 - report whatever urllib raised and move on
+            problems.append(f'{url} failed: {e}')
+    sys.exit('No arXiv HTML version found for this paper, so there is nothing to parse:\n  '
+             + '\n  '.join(problems)
+             + '\nOlder papers often have no HTML version. This script does not read PDFs.')
+
+
+# ---------- turning bibitems into references ----------
+
+STOP = {'a', 'an', 'the', 'of', 'for', 'and', 'with', 'in', 'on', 'to', 'via', 'using', 'towards',
+        'learning', 'neural', 'deep', 'model', 'models', 'based', 'from', 'by', 'at', 'is', 'are'}
+
+
+def smart_case(name):
+    """bert4rec -> BERT4Rec, s3-rec -> S3-Rec, dsi -> DSI. arXiv lowercases titles in bibliographies."""
+    def piece(w, first):
+        if not w or w.isupper():
+            return w
+        m = re.match(r'^([a-zA-Z]+)(\d)(.*)$', w)
+        if m:
+            stem, digit, tail = m.groups()
+            stem = stem.upper() if len(stem) <= 6 else stem[:1].upper() + stem[1:]
+            return stem + digit + (tail[:1].upper() + tail[1:] if tail else '')
+        if first and len(w) <= 5 and w.isalpha():
+            return w.upper()
+        return w[:1].upper() + w[1:]
+    return '-'.join(piece(p, i == 0) for i, p in enumerate(name.split('-')))
+
+
+def keyword_for(title):
+    """A short name for a paper: its acronym where it has one, else its first words."""
+    t = clean(title).rstrip('.')
+    paren = re.findall(r'\(([A-Za-z][A-Za-z0-9\-]{0,13})\)', t)
+    for cand in reversed(paren):
+        if len(cand) <= 10 and re.search(r'[A-Za-z]', cand):
+            return smart_case(cand)
+    head = t.split(':', 1)[0].strip() if ':' in t else ''
+    if head and len(head) <= 22 and len(head.split()) <= 2:
+        return smart_case(head)
+    for word in t.split():
+        w = word.strip('.,()')
+        if len(w) > 2 and (re.search(r'[a-z][A-Z]', w) or re.search(r'[A-Za-z]\d', w) or (w.isupper() and len(w) > 2)):
+            return smart_case(w)
+    words = [w.strip('.,:()') for w in t.split()]
+    keep = [w for w in words if w.lower() not in STOP][:2] or words[:2]
+    out = ' '.join(keep)
+    return out[:1].upper() + out[1:]
+
+
+def load_themes():
+    path = os.path.join(CONFIG, 'citation_themes.toml')
+    if not os.path.exists(path):
+        return []
+    with open(path, 'rb') as f:
+        cfg = tomllib.load(f)
+    return [(t['name'], [w.lower() for w in t.get('match', [])]) for t in cfg.get('theme', [])]
+
+
+def theme_for(ref, rules):
+    hay = f"{ref['title']} {ref['venue']} {ref['keyword']}".lower()
+    for name, words in rules:
+        if any(w in hay for w in words):
+            return name
+    return 'Other'
+
+
+def build_references(doc, rules):
+    """One entry per bibitem, then merge entries whose titles match."""
+    refs = {}
+    for item in doc.bibitems:
+        n = item['number']
+        if n is None:
+            continue
+        blocks = item['blocks']
+        authors = blocks[0].rstrip('.') if blocks else ''
+        title = (blocks[1] if len(blocks) > 1 else '').rstrip('.')
+        venue = clean(' '.join(blocks[2:])) if len(blocks) > 2 else ''
+        years = YEAR.findall(venue) or YEAR.findall(' '.join(blocks))
+        year = re.findall(r'\b((?:19|20)\d{2})\b', venue or ' '.join(blocks))
+        arx = ARXIV_IN_TEXT.search(' '.join(blocks))
+        ref = {'n': n, 'numbers': [n], 'authors': authors, 'title': title, 'venue': venue,
+               'year': year[-1] if year else '', 'arxiv': arx.group(1) if arx else '',
+               'count': 0, 'sections': {}, 'subsections': {}}
+        ref['keyword'] = keyword_for(title or authors)
+        ref['theme'] = theme_for(ref, rules)
+        refs[n] = ref
+        del years
+    return refs
+
+
+def merge_duplicates(refs):
+    """A preprint and its published version share a title: one row, counts summed."""
+    by_title, order, merged = {}, [], 0
+    for n in sorted(refs):
+        ref = refs[n]
+        key = title_key(ref['title'])
+        first = by_title.get(key)
+        if key and first:
+            first['numbers'].append(n)
+            first['count'] += ref['count']
+            for field in ('sections', 'subsections'):
+                for k, v in ref[field].items():
+                    first[field][k] = first[field].get(k, 0) + v
+            if not first['arxiv'] and ref['arxiv']:
+                first['arxiv'] = ref['arxiv']
+            if ref['year'] and ref['year'] not in first['year'].split(', '):
+                first['year'] = ', '.join(filter(None, [first['year'], ref['year']]))
+            merged += 1
+        else:
+            by_title[key] = ref
+            order.append(ref)
+    return order, merged
+
+
+def main():
+    ap = argparse.ArgumentParser(description='Build a citation map for one arXiv paper.')
+    ap.add_argument('paper', help='arXiv id (2305.05065v3) or URL')
+    ap.add_argument('--html', help='parse this local HTML file instead of fetching')
+    args = ap.parse_args()
+
+    pid = paper_id(args.paper)
+    html, source = fetch(pid, args.html)
+    doc = LatexmlDoc()
+    doc.feed(html)
+
+    rules = load_themes()
+    refs = build_references(doc, rules)
+    report = defaultdict(list)
+
+    sec_marks, sub_marks, unknown = defaultdict(int), defaultdict(int), set()
+    for n, sec, sub in doc.marks:
+        ref = refs.get(n)
+        if not ref:
+            unknown.add(n)
+            continue
+        ref['count'] += 1
+        if sec:
+            ref['sections'][sec] = ref['sections'].get(sec, 0) + 1
+            sec_marks[sec] += 1
+        if sub:
+            ref['subsections'][sub] = ref['subsections'].get(sub, 0) + 1
+            sub_marks[sub] += 1
+    if unknown:
+        report['unknown'].append(f'{len(unknown)} citation marks point to reference numbers with no bibitem: '
+                                 + ', '.join(f'[{n}]' for n in sorted(unknown)))
+
+    rows, merged = merge_duplicates(refs)
+    uncited = [r for r in rows if not r['count']]
+    if uncited:
+        report['uncited'].append(f'{len(uncited)} references are never cited in the text: '
+                                 + ', '.join(f'[{r["numbers"][0]}]' for r in uncited))
+
+    # Sections and subsections, in paper order, keeping only those that cite something.
+    sections, subsections = [], []
+    for sec in doc.sections.values():
+        if sec['kind'] in ('section', 'appendix') and sec_marks.get(sec['key']):
+            sections.append({'key': sec['key'], 'label': sec['label'] or sec['key'],
+                             'kind': sec['kind'], 'marks': sec_marks[sec['key']]})
+        elif sec['kind'] in ('subsection', 'paragraph') and sub_marks.get(sec['key']):
+            parent = next((s['key'] for s in doc.sections.values()
+                           if s['kind'] in ('section', 'appendix') and sec['key'].startswith(s['key'] + '.')), '')
+            subsections.append({'key': sec['key'], 'section': parent, 'kind': sec['kind'],
+                                'label': (sec['label'] or sec['key']).rstrip('.'), 'marks': sub_marks[sec['key']]})
+
+    # Marks sitting directly in a section, with no subsection of their own, get a row for the section.
+    for sec in sections:
+        direct = sub_marks.get(sec['key'], 0)
+        if direct:
+            subsections.append({'key': sec['key'], 'section': sec['key'], 'kind': 'section',
+                                'label': sec['label'], 'marks': direct})
+    order = {s['key']: i for i, s in enumerate(sections)}
+    subsections.sort(key=lambda s: (order.get(s['section'], 99), s['key']))
+
+    themes = []
+    for r in rows:
+        if r['theme'] not in themes:
+            themes.append(r['theme'])
+    if len(themes) > 8:
+        keep = sorted(themes, key=lambda t: -sum(x['count'] for x in rows if x['theme'] == t))[:7]
+        for r in rows:
+            if r['theme'] not in keep:
+                r['theme'] = 'Other'
+        themes = [t for t in themes if t in keep] + ['Other']
+    if len(themes) < 5:
+        report['themes'].append(f'Only {len(themes)} themes matched. Add rules to config/citation_themes.toml '
+                                'for a more useful "Sections → Themes" tab.')
+
+    data = {
+        'generated': datetime.date.today().isoformat(),
+        'paper': {'arxiv': pid, 'title': clean(''.join(doc.doc_title)), 'source': source},
+        'stats': {'references': len(refs), 'rows': len(rows), 'merged': merged,
+                  'marks': sum(r['count'] for r in rows), 'sections': len(sections)},
+        'themes': themes,
+        'sections': sections,
+        'subsections': subsections,
+        'references': rows,
+    }
+    os.makedirs(OUT_DIR, exist_ok=True)
+    out = os.path.join(OUT_DIR, f'{pid}.json')
+    with open(out, 'w', encoding='utf-8') as f:
+        json.dump(data, f, ensure_ascii=False, indent=1)
+
+    index_path = os.path.join(OUT_DIR, 'index.json')
+    index = {}
+    if os.path.exists(index_path):
+        with open(index_path, encoding='utf-8') as f:
+            index = {p['arxiv']: p for p in json.load(f).get('papers', [])}
+    index[pid] = {'arxiv': pid, 'title': data['paper']['title'], 'references': len(rows),
+                  'marks': data['stats']['marks'], 'generated': data['generated']}
+    with open(index_path, 'w', encoding='utf-8') as f:
+        json.dump({'papers': sorted(index.values(), key=lambda p: p['arxiv'])}, f, ensure_ascii=False, indent=1)
+
+    top = max(rows, key=lambda r: r['count'])
+    print('Citation map')
+    print(f'  source     {source}')
+    print(f'  paper      {data["paper"]["title"] or "(no title found)"}')
+    print(f'  references {len(refs)} bibitems, {len(rows)} rows after merging {merged} duplicate title(s)')
+    print(f'  marks      {data["stats"]["marks"]} citation marks')
+    print(f'  sections   {len(sections)} cite something, {len(subsections)} subsection rows')
+    print(f'  most cited [{top["numbers"][0]}] {top["keyword"]} — {top["count"]} times')
+    print(f'  themes     {len(themes)}: ' + ', '.join(themes))
+    print(f'  wrote      {os.path.relpath(out, ROOT)}')
+    if report:
+        print()
+        for title, items in [('Unmatched citation marks', report['unknown']),
+                             ('Never cited', report['uncited']),
+                             ('Themes', report['themes'])]:
+            for item in items:
+                print(f'  - {item}')
+
+    try:
+        sys.path.insert(0, ROOT)
+        import build
+        build.stamp_assets('cite.html')
+    except Exception as e:  # noqa: BLE001 - stamping is a convenience, not the job
+        print(f'  (could not stamp docs/cite.html: {e})')
+
+
+if __name__ == '__main__':
+    main()

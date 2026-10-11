@@ -25,6 +25,20 @@ python3 -m http.server 8000 -d docs
 
 Then open http://localhost:8000. Opening `docs/index.html` directly also works.
 
+## Citation map
+
+Maps every in-text citation in one paper to its reference, so you stop scrolling back to find out what [19] was. Build it from the paper's arXiv id:
+
+```bash
+python3 cite_map.py 2305.05065v3
+```
+
+It reads the arXiv HTML version (falling back to ar5iv), writes `docs/data/citations/<id>.json`, and prints what it found. Papers with no HTML version are reported rather than parsed; this does not read PDFs.
+
+Then open `cite.html` on the local site, or `cite.html?paper=<id>` once you have more than one. The page has three tabs — subsections to papers, sections to themes, and a sortable reference table — and tapping any paper opens its full reference in the bar at the foot of the screen.
+
+Keywords and themes in the JSON are generated, so edit that file when one is wrong. Theme rules live in `config/citation_themes.toml`.
+
 ## Configuration
 
 Everything you edit by hand lives in `config/`:
@@ -34,6 +48,7 @@ Everything you edit by hand lives in `config/`:
 | `themes.toml` | The themes, their order, and the tag → theme rules (first matching tag wins). |
 | `overrides.toml` | Per-paper fixes keyed by the Notion Name: `short`, `title`, `theme`, `year`, `org`, `exclude`. |
 | `lineages.toml` | The lines on the Lineages tab. The build suggests new ones; copy the ones you want. |
+| `citation_themes.toml` | The themes on the citation map's "Sections → Themes" tab. |
 
 Don't edit `docs/data/papers.js`; the build rewrites it. The build also refreshes the `?v=` version tags on the script and stylesheet links in `docs/index.html`, so browsers load the new files instead of cached ones. Run the build again after editing anything in `docs/assets/`.
 
