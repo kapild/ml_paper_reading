@@ -1,9 +1,9 @@
 {
  "generated": "2026-10-11",
  "paper": {
-  "arxiv": "2305.05065v3",
+  "arxiv": "2305.05065",
   "title": "Recommender Systems with Generative Retrieval",
-  "source": "https://arxiv.org/html/2305.05065v3"
+  "source": "https://arxiv.org/html/2305.05065"
  },
  "stats": {
   "references": 44,
@@ -170,6 +170,7 @@
    "numbers": [
     1
    ],
+   "label": "[1]",
    "authors": "Himan Abdollahpouri, Masoud Mansoury, Robin Burke, and Bamshad Mobasher",
    "title": "The unfairness of popularity bias in recommendation",
    "venue": "arXiv preprint arXiv:1907.13286, 2019.",
@@ -190,6 +191,7 @@
    "numbers": [
     2
    ],
+   "label": "[2]",
    "authors": "Moses S Charikar",
    "title": "Similarity estimation techniques from rounding algorithms",
    "venue": "In Proceedings of the thiry-fourth annual ACM symposium on Theory of computing, pages 380–388, 2002.",
@@ -212,6 +214,7 @@
    "numbers": [
     3
    ],
+   "label": "[3]",
    "authors": "Heng-Tze Cheng, Levent Koc, Jeremiah Harmsen, Tal Shaked, Tushar Chandra, Hrishi Aradhye, Glen Anderson, Greg Corrado, Wei Chai, Mustafa Ispir, et al",
    "title": "Wide & deep learning for recommender systems",
    "venue": "In Proceedings of the 1st workshop on deep learning for recommender systems, pages 7–10, 2016.",
@@ -232,6 +235,7 @@
    "numbers": [
     4
    ],
+   "label": "[4]",
    "authors": "Paul Covington, Jay Adams, and Emre Sargin",
    "title": "Deep neural networks for youtube recommendations",
    "venue": "In Proceedings of the 10th ACM conference on recommender systems, pages 191–198, 2016.",
@@ -252,6 +256,7 @@
    "numbers": [
     5
    ],
+   "label": "[5]",
    "authors": "Nicola De Cao, Gautier Izacard, Sebastian Riedel, and Fabio Petroni",
    "title": "Autoregressive entity retrieval",
    "venue": "arXiv preprint arXiv:2010.00904, 2020.",
@@ -274,6 +279,7 @@
    "numbers": [
     6
    ],
+   "label": "[6]",
    "authors": "Gabriel de Souza Pereira Moreira, Sara Rabhi, Jeong Min Lee, Ronay Ak, and Even Oldridge",
    "title": "Transformers4rec: Bridging the gap between nlp and sequential/session-based recommendation",
    "venue": "In Fifteenth ACM Conference on Recommender Systems, pages 143–153, 2021.",
@@ -296,6 +302,7 @@
    "numbers": [
     7
    ],
+   "label": "[7]",
    "authors": "Jacob Devlin, Ming-Wei Chang, Kenton Lee, and Kristina Toutanova",
    "title": "Bert: Pre-training of deep bidirectional transformers for language understanding",
    "venue": "arXiv preprint arXiv:1810.04805, 2018.",
@@ -316,6 +323,7 @@
    "numbers": [
     8
    ],
+   "label": "[8]",
    "authors": "Shijie Geng, Shuchang Liu, Zuohui Fu, Yingqiang Ge, and Yongfeng Zhang",
    "title": "Recommendation as language processing (rlp): A unified pretrain, personalized prompt & predict paradigm (p5)",
    "venue": "arXiv preprint arXiv:2203.13366, 2022.",
@@ -346,6 +354,7 @@
    "numbers": [
     9
    ],
+   "label": "[9]",
    "authors": "Carlos A Gomez-Uribe and Neil Hunt",
    "title": "The netflix recommender system: Algorithms, business value, and innovation",
    "venue": "ACM Transactions on Management Information Systems (TMIS), 6(4):1–19, 2015.",
@@ -366,6 +375,7 @@
    "numbers": [
     10
    ],
+   "label": "[10]",
    "authors": "Ruining He and Julian McAuley",
    "title": "Ups and downs: Modeling the visual evolution of fashion trends with one-class collaborative filtering",
    "venue": "In proceedings of the 25th international conference on world wide web, pages 507–517, 2016.",
@@ -388,6 +398,7 @@
    "numbers": [
     11
    ],
+   "label": "[11]",
    "authors": "Balázs Hidasi, Alexandros Karatzoglou, Linas Baltrunas, and Domonkos Tikk",
    "title": "Session-based recommendations with recurrent neural networks",
    "venue": "arXiv preprint arXiv:1511.06939, 2015.",
@@ -414,6 +425,7 @@
    "numbers": [
     12
    ],
+   "label": "[12]",
    "authors": "Yupeng Hou, Zhankui He, Julian McAuley, and Wayne Xin Zhao",
    "title": "Learning vector-quantized item representation for transferable sequential recommenders",
    "venue": "arXiv preprint arXiv:2210.12316, 2022.",
@@ -434,6 +446,7 @@
    "numbers": [
     13
    ],
+   "label": "[13]",
    "authors": "Piotr Indyk and Rajeev Motwani",
    "title": "Approximate nearest neighbors: towards removing the curse of dimensionality",
    "venue": "In Proceedings of the thirtieth annual ACM symposium on Theory of computing, pages 604–613, 1998.",
@@ -456,6 +469,7 @@
    "numbers": [
     14
    ],
+   "label": "[14]",
    "authors": "Piotr Indyk, Rajeev Motwani, Prabhakar Raghavan, and Santosh Vempala",
    "title": "Locality-preserving hashing in multidimensional spaces",
    "venue": "In Proceedings of the twenty-ninth annual ACM symposium on Theory of computing, pages 618–625, 1997.",
@@ -478,6 +492,7 @@
    "numbers": [
     15
    ],
+   "label": "[15]",
    "authors": "Herve Jegou, Matthijs Douze, and Cordelia Schmid",
    "title": "Product quantization for nearest neighbor search",
    "venue": "IEEE transactions on pattern analysis and machine intelligence, 33(1):117–128, 2010.",
@@ -498,6 +513,7 @@
    "numbers": [
     16
    ],
+   "label": "[16]",
    "authors": "Wang-Cheng Kang, Derek Zhiyuan Cheng, Tiansheng Yao, Xinyang Yi, Ting Chen, Lichan Hong, and Ed H Chi",
    "title": "Learning to embed categorical features without embedding tables for recommendation",
    "venue": "arXiv preprint arXiv:2010.10784, 2020.",
@@ -518,6 +534,7 @@
    "numbers": [
     17
    ],
+   "label": "[17]",
    "authors": "Wang-Cheng Kang and Julian McAuley",
    "title": "Self-attentive sequential recommendation",
    "venue": "In 2018 IEEE international conference on data mining (ICDM), pages 197–206. IEEE, 2018.",
@@ -546,6 +563,7 @@
    "numbers": [
     18
    ],
+   "label": "[18]",
    "authors": "Dongmoon Kim, Kun-su Kim, Kyo-Hyun Park, Jee-Hyong Lee, and Keon Myung Lee",
    "title": "A music recommendation system with a dynamic k-means clustering algorithm",
    "venue": "In Sixth international conference on machine learning and applications (ICMLA 2007), pages 399–403. IEEE, 2007.",
@@ -566,6 +584,7 @@
    "numbers": [
     19
    ],
+   "label": "[19]",
    "authors": "Yehuda Koren, Robert Bell, and Chris Volinsky",
    "title": "Matrix factorization techniques for recommender systems",
    "venue": "Computer, 42(8):30–37, 2009.",
@@ -586,6 +605,7 @@
    "numbers": [
     20
    ],
+   "label": "[20]",
    "authors": "Tim Kraska, Alex Beutel, Ed H Chi, Jeffrey Dean, and Neoklis Polyzotis",
    "title": "The case for learned index structures",
    "venue": "In Proceedings of the 2018 international conference on management of data, pages 489–504, 2018.",
@@ -606,6 +626,7 @@
    "numbers": [
     21
    ],
+   "label": "[21]",
    "authors": "Doyup Lee, Chiheon Kim, Saehoon Kim, Minsu Cho, and Wook-Shin Han",
    "title": "Autoregressive image generation using residual quantization",
    "venue": "In Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition, pages 11523–11532, 2022.",
@@ -627,6 +648,7 @@
    "numbers": [
     22
    ],
+   "label": "[22]",
    "authors": "Hyunji Lee, Jaeyoung Kim, Hoyeon Chang, Hanseok Oh, Sohee Yang, Vlad Karpukhin, Yi Lu, and Minjoon Seo",
    "title": "Contextualized generative retrieval",
    "venue": "arXiv preprint arXiv:2210.02068, 2022.",
@@ -649,6 +671,7 @@
    "numbers": [
     23
    ],
+   "label": "[23]",
    "authors": "Hyunji Lee, Sohee Yang, Hanseok Oh, and Minjoon Seo",
    "title": "Generative retrieval for long sequences",
    "venue": "arXiv preprint arXiv:2204.13596, 2022.",
@@ -669,6 +692,7 @@
    "numbers": [
     24
    ],
+   "label": "[24]",
    "authors": "Jing Li, Pengjie Ren, Zhumin Chen, Zhaochun Ren, Tao Lian, and Jun Ma",
    "title": "Neural attentive session-based recommendation",
    "venue": "In Proceedings of the 2017 ACM on Conference on Information and Knowledge Management, pages 1419–1428, 2017.",
@@ -691,6 +715,7 @@
    "numbers": [
     25
    ],
+   "label": "[25]",
    "authors": "Chen Ma, Peng Kang, and Xue Liu",
    "title": "Hierarchical gating networks for sequential recommendation",
    "venue": "In Proceedings of the 25th ACM SIGKDD international conference on knowledge discovery & data mining, pages 825–833, 2019.",
@@ -713,6 +738,7 @@
    "numbers": [
     26
    ],
+   "label": "[26]",
    "authors": "Masoud Mansoury, Himan Abdollahpouri, Mykola Pechenizkiy, Bamshad Mobasher, and Robin Burke",
    "title": "Feedback loop and bias amplification in recommender systems, 2020",
    "venue": "",
@@ -733,6 +759,7 @@
    "numbers": [
     27
    ],
+   "label": "[27]",
    "authors": "Jianmo Ni, Gustavo Hernandez Abrego, Noah Constant, Ji Ma, Keith Hall, Daniel Cer, and Yinfei Yang",
    "title": "Sentence-t5: Scalable sentence encoders from pre-trained text-to-text models",
    "venue": "In Findings of the Association for Computational Linguistics: ACL 2022, pages 1864–1874, Dublin, Ireland, May 2022. Association for Computational Linguistics.",
@@ -757,6 +784,7 @@
    "numbers": [
     28
    ],
+   "label": "[28]",
    "authors": "Adam Roberts, Hyung Won Chung, Anselm Levskaya, Gaurav Mishra, James Bradbury, Daniel Andor, Sharan Narang, Brian Lester, Colin Gaffney, Afroz Mohiuddin, Curtis Hawthorne, Aitor Lewkowycz, Alex Salcianu, Marc van Zee, Jacob Austin, Sebastian Goodman, Livio Baldini Soares, Haitang Hu, Sasha Tsvyashchenko, Aakanksha Chowdhery, Jasmijn Bastings, Jannis Bulian, Xavier Garcia, Jianmo Ni, Andrew Chen, Kathleen Kenealy, Jonathan H. Clark, Stephan Lee, Dan Garrette, James Lee-Thorp, Colin Raffel, Noam Shazeer, Marvin Ritter, Maarten Bosma, Alexandre Passos, Jeremy Maitin-Shepard, Noah Fiedel, Mark Omernick, Brennan Saeta, Ryan Sepassi, Alexander Spiridonov, Joshua Newlan, and Andrea Gesmundo",
    "title": "Scaling up models and data with t5x and seqio",
    "venue": "arXiv preprint arXiv:2203.17189, 2022.",
@@ -778,6 +806,7 @@
     29,
     30
    ],
+   "label": "[29] · [30]",
    "authors": "Rico Sennrich, Barry Haddow, and Alexandra Birch",
    "title": "Neural machine translation of rare words with subword units",
    "venue": "arXiv preprint arXiv:1508.07909, 2015.",
@@ -800,6 +829,7 @@
    "numbers": [
     31
    ],
+   "label": "[31]",
    "authors": "Anima Singh, Trung Vu, Raghunandan Keshavan, Nikhil Mehta, Xinyang Yi, Lichan Hong, Lukasz Heldt, Li Wei, Ed Chi, and Maheswaran Sathiamoorthy",
    "title": "Better generalization with semantic ids: A case study in ranking for recommendations",
    "venue": "arXiv preprint arXiv:2306.08121, 2023.",
@@ -820,6 +850,7 @@
    "numbers": [
     32
    ],
+   "label": "[32]",
    "authors": "Fei Sun, Jun Liu, Jian Wu, Changhua Pei, Xiao Lin, Wenwu Ou, and Peng Jiang",
    "title": "Bert4rec: Sequential recommendation with bidirectional encoder representations from transformer",
    "venue": "In Proceedings of the 28th ACM international conference on information and knowledge management, pages 1441–1450, 2019.",
@@ -846,6 +877,7 @@
    "numbers": [
     33
    ],
+   "label": "[33]",
    "authors": "Jiaxi Tang and Ke Wang",
    "title": "Personalized top-n sequential recommendation via convolutional sequence embedding",
    "venue": "In Proceedings of the eleventh ACM international conference on web search and data mining, pages 565–573, 2018.",
@@ -870,6 +902,7 @@
    "numbers": [
     34
    ],
+   "label": "[34]",
    "authors": "Yi Tay, Vinh Q Tran, Mostafa Dehghani, Jianmo Ni, Dara Bahri, Harsh Mehta, Zhen Qin, Kai Hui, Zhe Zhao, Jai Gupta, et al",
    "title": "Transformer memory as a differentiable search index",
    "venue": "arXiv preprint arXiv:2202.06991, 2022.",
@@ -897,6 +930,7 @@
    "numbers": [
     35
    ],
+   "label": "[35]",
    "authors": "Aaron Van Den Oord, Oriol Vinyals, et al",
    "title": "Neural discrete representation learning",
    "venue": "Advances in neural information processing systems, 30, 2017.",
@@ -919,6 +953,7 @@
    "numbers": [
     36
    ],
+   "label": "[36]",
    "authors": "Ashish Vaswani, Noam Shazeer, Niki Parmar, Jakob Uszkoreit, Llion Jones, Aidan N Gomez, Łukasz Kaiser, and Illia Polosukhin",
    "title": "Attention is all you need",
    "venue": "Advances in neural information processing systems, 30, 2017.",
@@ -939,6 +974,7 @@
    "numbers": [
     37
    ],
+   "label": "[37]",
    "authors": "Yujing Wang, Yingyan Hou, Haonan Wang, Ziming Miao, Shibin Wu, Hao Sun, Qi Chen, Yuqing Xia, Chengmin Chi, Guoshuai Zhao, et al",
    "title": "A neural corpus indexer for document retrieval",
    "venue": "arXiv preprint arXiv:2206.02743, 2022.",
@@ -963,6 +999,7 @@
    "numbers": [
     38
    ],
+   "label": "[38]",
    "authors": "Kilian Weinberger, Anirban Dasgupta, John Langford, Alex Smola, and Josh Attenberg",
    "title": "Feature hashing for large scale multitask learning",
    "venue": "In Proceedings of the 26th annual international conference on machine learning, pages 1113–1120, 2009.",
@@ -983,6 +1020,7 @@
    "numbers": [
     39
    ],
+   "label": "[39]",
    "authors": "Xinyang Yi, Ji Yang, Lichan Hong, Derek Zhiyuan Cheng, Lukasz Heldt, Aditee Kumthekar, Zhe Zhao, Li Wei, and Ed Chi",
    "title": "Sampling-bias-corrected neural modeling for large corpus item recommendations",
    "venue": "In Proceedings of the 13th ACM Conference on Recommender Systems, pages 269–277, 2019.",
@@ -1003,6 +1041,7 @@
    "numbers": [
     40
    ],
+   "label": "[40]",
    "authors": "Neil Zeghidour, Alejandro Luebs, Ahmed Omran, Jan Skoglund, and Marco Tagliasacchi",
    "title": "Soundstream: An end-to-end neural audio codec",
    "venue": "CoRR, abs/2107.03312, 2021.",
@@ -1026,6 +1065,7 @@
    "numbers": [
     41
    ],
+   "label": "[41]",
    "authors": "Shuai Zhang, Yi Tay, Lina Yao, and Aixin Sun",
    "title": "Next item recommendation with self-attention",
    "venue": "arXiv preprint arXiv:1808.06414, 2018.",
@@ -1048,6 +1088,7 @@
    "numbers": [
     42
    ],
+   "label": "[42]",
    "authors": "Tingting Zhang, Pengpeng Zhao, Yanchi Liu, Victor S Sheng, Jiajie Xu, Deqing Wang, Guanfeng Liu, and Xiaofang Zhou",
    "title": "Feature-level deeper self-attention network for sequential recommendation",
    "venue": "In IJCAI, pages 4320–4326, 2019.",
@@ -1072,6 +1113,7 @@
    "numbers": [
     43
    ],
+   "label": "[43]",
    "authors": "Zhe Zhao, Lichan Hong, Li Wei, Jilin Chen, Aniruddh Nath, Shawn Andrews, Aditee Kumthekar, Maheswaran Sathiamoorthy, Xinyang Yi, and Ed Chi",
    "title": "Recommending what video to watch next: a multitask ranking system",
    "venue": "In Proceedings of the 13th ACM Conference on Recommender Systems, pages 43–51, 2019.",
@@ -1092,6 +1134,7 @@
    "numbers": [
     44
    ],
+   "label": "[44]",
    "authors": "Kun Zhou, Hui Wang, Wayne Xin Zhao, Yutao Zhu, Sirui Wang, Fuzheng Zhang, Zhongyuan Wang, and Ji-Rong Wen",
    "title": "S3-rec: Self-supervised learning for sequential recommendation with mutual information maximization",
    "venue": "In Proceedings of the 29th ACM International Conference on Information & Knowledge Management, pages 1893–1902, 2020.",

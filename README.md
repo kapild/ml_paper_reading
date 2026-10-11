@@ -35,7 +35,15 @@ python3 cite_map.py 2305.05065v3
 
 It reads the arXiv HTML version (falling back to ar5iv), writes `docs/data/citations/<id>.json`, and prints what it found. Papers with no HTML version are reported rather than parsed; this does not read PDFs.
 
-Then open `cite.html` on the local site, or `cite.html?paper=<id>` once you have more than one. The page has three tabs — subsections to papers, sections to themes, and a sortable reference table — and tapping any paper opens its full reference in the bar at the foot of the screen.
+Papers with a map show a **Citation map** button in their detail panel, and the site's **Citations** tab holds the views: subsections to papers, sections to themes, and a sortable reference table. Tapping any paper opens its full reference in the bar at the foot of the screen, and references you have already logged are badged with their status.
+
+To queue several papers, edit `config/citation_papers.csv` (one row per paper, written by `build.py`): set a row's `status` to `extract`, then run
+
+```bash
+python3 cite_map.py --queue
+```
+
+It extracts only the rows marked `extract` and writes each result back into the row as `done`, with the reference and mark counts, or `error` with the reason. Rows for papers with no arXiv id are marked `no-arxiv`.
 
 Keywords and themes in the JSON are generated, so edit that file when one is wrong. Theme rules live in `config/citation_themes.toml`.
 

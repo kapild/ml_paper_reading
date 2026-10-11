@@ -1,0 +1,1033 @@
+{
+ "generated": "2026-10-11",
+ "paper": {
+  "arxiv": "1706.03762",
+  "title": "Attention Is All You Need",
+  "source": "https://arxiv.org/html/1706.03762"
+ },
+ "stats": {
+  "references": 40,
+  "rows": 40,
+  "merged": 0,
+  "marks": 76,
+  "sections": 6
+ },
+ "themes": [
+  "Other",
+  "Sequential recommenders",
+  "Language models & tooling"
+ ],
+ "sections": [
+  {
+   "key": "S1",
+   "label": "1 Introduction",
+   "kind": "section",
+   "marks": 13
+  },
+  {
+   "key": "S2",
+   "label": "2 Background",
+   "kind": "section",
+   "marks": 12
+  },
+  {
+   "key": "S3",
+   "label": "3 Model Architecture",
+   "kind": "section",
+   "marks": 14
+  },
+  {
+   "key": "S4",
+   "label": "4 Why Self-Attention",
+   "kind": "section",
+   "marks": 5
+  },
+  {
+   "key": "S5",
+   "label": "5 Training",
+   "kind": "section",
+   "marks": 5
+  },
+  {
+   "key": "S6",
+   "label": "6 Results",
+   "kind": "section",
+   "marks": 27
+  }
+ ],
+ "subsections": [
+  {
+   "key": "S1",
+   "section": "S1",
+   "kind": "section",
+   "label": "1 Introduction",
+   "marks": 13
+  },
+  {
+   "key": "S2",
+   "section": "S2",
+   "kind": "section",
+   "label": "2 Background",
+   "marks": 12
+  },
+  {
+   "key": "S3",
+   "section": "S3",
+   "kind": "section",
+   "label": "3 Model Architecture",
+   "marks": 4
+  },
+  {
+   "key": "S3.SS1",
+   "section": "S3",
+   "kind": "subsection",
+   "label": "3.1 Encoder and Decoder Stacks",
+   "marks": 2
+  },
+  {
+   "key": "S3.SS2",
+   "section": "S3",
+   "kind": "subsection",
+   "label": "3.2 Attention",
+   "marks": 5
+  },
+  {
+   "key": "S3.SS4",
+   "section": "S3",
+   "kind": "subsection",
+   "label": "3.4 Embeddings and Softmax",
+   "marks": 1
+  },
+  {
+   "key": "S3.SS5",
+   "section": "S3",
+   "kind": "subsection",
+   "label": "3.5 Positional Encoding",
+   "marks": 2
+  },
+  {
+   "key": "S4",
+   "section": "S4",
+   "kind": "section",
+   "label": "4 Why Self-Attention",
+   "marks": 5
+  },
+  {
+   "key": "S5.SS1",
+   "section": "S5",
+   "kind": "subsection",
+   "label": "5.1 Training Data and Batching",
+   "marks": 2
+  },
+  {
+   "key": "S5.SS3",
+   "section": "S5",
+   "kind": "subsection",
+   "label": "5.3 Optimizer",
+   "marks": 1
+  },
+  {
+   "key": "S5.SS4",
+   "section": "S5",
+   "kind": "subsection",
+   "label": "5.4 Regularization",
+   "marks": 2
+  },
+  {
+   "key": "S6.SS1",
+   "section": "S6",
+   "kind": "subsection",
+   "label": "6.1 Machine Translation",
+   "marks": 10
+  },
+  {
+   "key": "S6.SS2",
+   "section": "S6",
+   "kind": "subsection",
+   "label": "6.2 Model Variations",
+   "marks": 1
+  },
+  {
+   "key": "S6.SS3",
+   "section": "S6",
+   "kind": "subsection",
+   "label": "6.3 English Constituency Parsing",
+   "marks": 16
+  }
+ ],
+ "references": [
+  {
+   "n": 1,
+   "numbers": [
+    1
+   ],
+   "label": "[1]",
+   "authors": "Jimmy Lei Ba, Jamie Ryan Kiros, and Geoffrey E Hinton",
+   "title": "Layer normalization",
+   "venue": "arXiv preprint arXiv:1607.06450, 2016.",
+   "year": "2016",
+   "arxiv": "1607.06450",
+   "count": 1,
+   "sections": {
+    "S3": 1
+   },
+   "subsections": {
+    "S3.SS1": 1
+   },
+   "keyword": "Layer normalization",
+   "theme": "Other"
+  },
+  {
+   "n": 2,
+   "numbers": [
+    2
+   ],
+   "label": "[2]",
+   "authors": "Dzmitry Bahdanau, Kyunghyun Cho, and Yoshua Bengio",
+   "title": "Neural machine translation by jointly learning to align and translate",
+   "venue": "CoRR, abs/1409.0473, 2014.",
+   "year": "2014",
+   "arxiv": "",
+   "count": 5,
+   "sections": {
+    "S1": 2,
+    "S3": 3
+   },
+   "subsections": {
+    "S1": 2,
+    "S3": 1,
+    "S3.SS2": 2
+   },
+   "keyword": "Machine translation",
+   "theme": "Other"
+  },
+  {
+   "n": 3,
+   "numbers": [
+    3
+   ],
+   "label": "[3]",
+   "authors": "Denny Britz, Anna Goldie, Minh-Thang Luong, and Quoc V. Le",
+   "title": "Massive exploration of neural machine translation architectures",
+   "venue": "CoRR, abs/1703.03906, 2017.",
+   "year": "2017",
+   "arxiv": "",
+   "count": 2,
+   "sections": {
+    "S3": 1,
+    "S5": 1
+   },
+   "subsections": {
+    "S3.SS2": 1,
+    "S5.SS1": 1
+   },
+   "keyword": "Massive exploration",
+   "theme": "Other"
+  },
+  {
+   "n": 4,
+   "numbers": [
+    4
+   ],
+   "label": "[4]",
+   "authors": "Jianpeng Cheng, Li Dong, and Mirella Lapata",
+   "title": "Long short-term memory-networks for machine reading",
+   "venue": "arXiv preprint arXiv:1601.06733, 2016.",
+   "year": "2016",
+   "arxiv": "1601.06733",
+   "count": 1,
+   "sections": {
+    "S2": 1
+   },
+   "subsections": {
+    "S2": 1
+   },
+   "keyword": "Long short-term",
+   "theme": "Other"
+  },
+  {
+   "n": 5,
+   "numbers": [
+    5
+   ],
+   "label": "[5]",
+   "authors": "Kyunghyun Cho, Bart van Merrienboer, Caglar Gulcehre, Fethi Bougares, Holger Schwenk, and Yoshua Bengio",
+   "title": "Learning phrase representations using rnn encoder-decoder for statistical machine translation",
+   "venue": "CoRR, abs/1406.1078, 2014.",
+   "year": "2014",
+   "arxiv": "",
+   "count": 2,
+   "sections": {
+    "S1": 1,
+    "S3": 1
+   },
+   "subsections": {
+    "S1": 1,
+    "S3": 1
+   },
+   "keyword": "Phrase representations",
+   "theme": "Other"
+  },
+  {
+   "n": 6,
+   "numbers": [
+    6
+   ],
+   "label": "[6]",
+   "authors": "Francois Chollet",
+   "title": "Xception: Deep learning with depthwise separable convolutions",
+   "venue": "arXiv preprint arXiv:1610.02357, 2016.",
+   "year": "2016",
+   "arxiv": "1610.02357",
+   "count": 1,
+   "sections": {
+    "S4": 1
+   },
+   "subsections": {
+    "S4": 1
+   },
+   "keyword": "Xception",
+   "theme": "Other"
+  },
+  {
+   "n": 7,
+   "numbers": [
+    7
+   ],
+   "label": "[7]",
+   "authors": "Junyoung Chung, Çaglar Gülçehre, Kyunghyun Cho, and Yoshua Bengio",
+   "title": "Empirical evaluation of gated recurrent neural networks on sequence modeling",
+   "venue": "CoRR, abs/1412.3555, 2014.",
+   "year": "2014",
+   "arxiv": "",
+   "count": 1,
+   "sections": {
+    "S1": 1
+   },
+   "subsections": {
+    "S1": 1
+   },
+   "keyword": "Empirical evaluation",
+   "theme": "Other"
+  },
+  {
+   "n": 8,
+   "numbers": [
+    8
+   ],
+   "label": "[8]",
+   "authors": "Chris Dyer, Adhiguna Kuncoro, Miguel Ballesteros, and Noah A. Smith",
+   "title": "Recurrent neural network grammars",
+   "venue": "In Proc. of NAACL, 2016.",
+   "year": "2016",
+   "arxiv": "",
+   "count": 3,
+   "sections": {
+    "S6": 3
+   },
+   "subsections": {
+    "S6.SS3": 3
+   },
+   "keyword": "Recurrent network",
+   "theme": "Other"
+  },
+  {
+   "n": 9,
+   "numbers": [
+    9
+   ],
+   "label": "[9]",
+   "authors": "Jonas Gehring, Michael Auli, David Grangier, Denis Yarats, and Yann N. Dauphin",
+   "title": "Convolutional sequence to sequence learning",
+   "venue": "arXiv preprint arXiv:1705.03122v2, 2017.",
+   "year": "2017",
+   "arxiv": "1705.03122",
+   "count": 8,
+   "sections": {
+    "S2": 2,
+    "S3": 3,
+    "S6": 3
+   },
+   "subsections": {
+    "S2": 2,
+    "S3.SS2": 1,
+    "S3.SS5": 2,
+    "S6.SS1": 2,
+    "S6.SS2": 1
+   },
+   "keyword": "Convolutional sequence",
+   "theme": "Sequential recommenders"
+  },
+  {
+   "n": 10,
+   "numbers": [
+    10
+   ],
+   "label": "[10]",
+   "authors": "Alex Graves",
+   "title": "Generating sequences with recurrent neural networks",
+   "venue": "arXiv preprint arXiv:1308.0850, 2013.",
+   "year": "2013",
+   "arxiv": "1308.0850",
+   "count": 1,
+   "sections": {
+    "S3": 1
+   },
+   "subsections": {
+    "S3": 1
+   },
+   "keyword": "Generating sequences",
+   "theme": "Other"
+  },
+  {
+   "n": 11,
+   "numbers": [
+    11
+   ],
+   "label": "[11]",
+   "authors": "Kaiming He, Xiangyu Zhang, Shaoqing Ren, and Jian Sun",
+   "title": "Deep residual learning for image recognition",
+   "venue": "In Proceedings of the IEEE Conference on Computer Vision and Pattern Recognition, pages 770–778, 2016.",
+   "year": "2016",
+   "arxiv": "",
+   "count": 1,
+   "sections": {
+    "S3": 1
+   },
+   "subsections": {
+    "S3.SS1": 1
+   },
+   "keyword": "Residual image",
+   "theme": "Other"
+  },
+  {
+   "n": 12,
+   "numbers": [
+    12
+   ],
+   "label": "[12]",
+   "authors": "Sepp Hochreiter, Yoshua Bengio, Paolo Frasconi, and Jürgen Schmidhuber",
+   "title": "Gradient flow in recurrent nets: the difficulty of learning long-term dependencies, 2001",
+   "venue": "",
+   "year": "2001",
+   "arxiv": "",
+   "count": 2,
+   "sections": {
+    "S2": 1,
+    "S4": 1
+   },
+   "subsections": {
+    "S2": 1,
+    "S4": 1
+   },
+   "keyword": "Gradient flow",
+   "theme": "Other"
+  },
+  {
+   "n": 13,
+   "numbers": [
+    13
+   ],
+   "label": "[13]",
+   "authors": "Sepp Hochreiter and Jürgen Schmidhuber",
+   "title": "Long short-term memory",
+   "venue": "Neural computation, 9(8):1735–1780, 1997.",
+   "year": "1997",
+   "arxiv": "",
+   "count": 1,
+   "sections": {
+    "S1": 1
+   },
+   "subsections": {
+    "S1": 1
+   },
+   "keyword": "Long short-term",
+   "theme": "Other"
+  },
+  {
+   "n": 14,
+   "numbers": [
+    14
+   ],
+   "label": "[14]",
+   "authors": "Zhongqiang Huang and Mary Harper",
+   "title": "Self-training PCFG grammars with latent annotations across languages",
+   "venue": "In Proceedings of the 2009 Conference on Empirical Methods in Natural Language Processing, pages 832–841. ACL, August 2009.",
+   "year": "2009",
+   "arxiv": "",
+   "count": 1,
+   "sections": {
+    "S6": 1
+   },
+   "subsections": {
+    "S6.SS3": 1
+   },
+   "keyword": "PCFG",
+   "theme": "Other"
+  },
+  {
+   "n": 15,
+   "numbers": [
+    15
+   ],
+   "label": "[15]",
+   "authors": "Rafal Jozefowicz, Oriol Vinyals, Mike Schuster, Noam Shazeer, and Yonghui Wu",
+   "title": "Exploring the limits of language modeling",
+   "venue": "arXiv preprint arXiv:1602.02410, 2016.",
+   "year": "2016",
+   "arxiv": "1602.02410",
+   "count": 1,
+   "sections": {
+    "S1": 1
+   },
+   "subsections": {
+    "S1": 1
+   },
+   "keyword": "Exploring limits",
+   "theme": "Other"
+  },
+  {
+   "n": 16,
+   "numbers": [
+    16
+   ],
+   "label": "[16]",
+   "authors": "Łukasz Kaiser and Samy Bengio",
+   "title": "Can active memory replace attention?",
+   "venue": "In Advances in Neural Information Processing Systems, (NIPS), 2016.",
+   "year": "2016",
+   "arxiv": "",
+   "count": 1,
+   "sections": {
+    "S2": 1
+   },
+   "subsections": {
+    "S2": 1
+   },
+   "keyword": "Can active",
+   "theme": "Other"
+  },
+  {
+   "n": 17,
+   "numbers": [
+    17
+   ],
+   "label": "[17]",
+   "authors": "Łukasz Kaiser and Ilya Sutskever",
+   "title": "Neural GPUs learn algorithms",
+   "venue": "In International Conference on Learning Representations (ICLR), 2016.",
+   "year": "2016",
+   "arxiv": "",
+   "count": 1,
+   "sections": {
+    "S2": 1
+   },
+   "subsections": {
+    "S2": 1
+   },
+   "keyword": "GPUs learn",
+   "theme": "Other"
+  },
+  {
+   "n": 18,
+   "numbers": [
+    18
+   ],
+   "label": "[18]",
+   "authors": "Nal Kalchbrenner, Lasse Espeholt, Karen Simonyan, Aaron van den Oord, Alex Graves, and Koray Kavukcuoglu",
+   "title": "Neural machine translation in linear time",
+   "venue": "arXiv preprint arXiv:1610.10099v2, 2017.",
+   "year": "2017",
+   "arxiv": "1610.10099",
+   "count": 4,
+   "sections": {
+    "S2": 2,
+    "S4": 1,
+    "S6": 1
+   },
+   "subsections": {
+    "S2": 2,
+    "S4": 1,
+    "S6.SS1": 1
+   },
+   "keyword": "Machine translation",
+   "theme": "Other"
+  },
+  {
+   "n": 19,
+   "numbers": [
+    19
+   ],
+   "label": "[19]",
+   "authors": "Yoon Kim, Carl Denton, Luong Hoang, and Alexander M. Rush",
+   "title": "Structured attention networks",
+   "venue": "In International Conference on Learning Representations, 2017.",
+   "year": "2017",
+   "arxiv": "",
+   "count": 1,
+   "sections": {
+    "S1": 1
+   },
+   "subsections": {
+    "S1": 1
+   },
+   "keyword": "Structured attention",
+   "theme": "Other"
+  },
+  {
+   "n": 20,
+   "numbers": [
+    20
+   ],
+   "label": "[20]",
+   "authors": "Diederik Kingma and Jimmy Ba",
+   "title": "Adam: A method for stochastic optimization",
+   "venue": "In ICLR, 2015.",
+   "year": "2015",
+   "arxiv": "",
+   "count": 1,
+   "sections": {
+    "S5": 1
+   },
+   "subsections": {
+    "S5.SS3": 1
+   },
+   "keyword": "ADAM",
+   "theme": "Other"
+  },
+  {
+   "n": 21,
+   "numbers": [
+    21
+   ],
+   "label": "[21]",
+   "authors": "Oleksii Kuchaiev and Boris Ginsburg",
+   "title": "Factorization tricks for LSTM networks",
+   "venue": "arXiv preprint arXiv:1703.10722, 2017.",
+   "year": "2017",
+   "arxiv": "1703.10722",
+   "count": 1,
+   "sections": {
+    "S1": 1
+   },
+   "subsections": {
+    "S1": 1
+   },
+   "keyword": "LSTM",
+   "theme": "Other"
+  },
+  {
+   "n": 22,
+   "numbers": [
+    22
+   ],
+   "label": "[22]",
+   "authors": "Zhouhan Lin, Minwei Feng, Cicero Nogueira dos Santos, Mo Yu, Bing Xiang, Bowen Zhou, and Yoshua Bengio",
+   "title": "A structured self-attentive sentence embedding",
+   "venue": "arXiv preprint arXiv:1703.03130, 2017.",
+   "year": "2017",
+   "arxiv": "1703.03130",
+   "count": 1,
+   "sections": {
+    "S2": 1
+   },
+   "subsections": {
+    "S2": 1
+   },
+   "keyword": "Structured self-attentive",
+   "theme": "Sequential recommenders"
+  },
+  {
+   "n": 23,
+   "numbers": [
+    23
+   ],
+   "label": "[23]",
+   "authors": "Minh-Thang Luong, Quoc V. Le, Ilya Sutskever, Oriol Vinyals, and Lukasz Kaiser",
+   "title": "Multi-task sequence to sequence learning",
+   "venue": "arXiv preprint arXiv:1511.06114, 2015.",
+   "year": "2015",
+   "arxiv": "1511.06114",
+   "count": 1,
+   "sections": {
+    "S6": 1
+   },
+   "subsections": {
+    "S6.SS3": 1
+   },
+   "keyword": "Multi-task sequence",
+   "theme": "Other"
+  },
+  {
+   "n": 24,
+   "numbers": [
+    24
+   ],
+   "label": "[24]",
+   "authors": "Minh-Thang Luong, Hieu Pham, and Christopher D Manning",
+   "title": "Effective approaches to attention-based neural machine translation",
+   "venue": "arXiv preprint arXiv:1508.04025, 2015.",
+   "year": "2015",
+   "arxiv": "1508.04025",
+   "count": 1,
+   "sections": {
+    "S1": 1
+   },
+   "subsections": {
+    "S1": 1
+   },
+   "keyword": "Effective approaches",
+   "theme": "Other"
+  },
+  {
+   "n": 25,
+   "numbers": [
+    25
+   ],
+   "label": "[25]",
+   "authors": "Mitchell P Marcus, Mary Ann Marcinkiewicz, and Beatrice Santorini",
+   "title": "Building a large annotated corpus of english: The penn treebank",
+   "venue": "Computational linguistics, 19(2):313–330, 1993.",
+   "year": "1993",
+   "arxiv": "",
+   "count": 1,
+   "sections": {
+    "S6": 1
+   },
+   "subsections": {
+    "S6.SS3": 1
+   },
+   "keyword": "Building large",
+   "theme": "Other"
+  },
+  {
+   "n": 26,
+   "numbers": [
+    26
+   ],
+   "label": "[26]",
+   "authors": "David McClosky, Eugene Charniak, and Mark Johnson",
+   "title": "Effective self-training for parsing",
+   "venue": "In Proceedings of the Human Language Technology Conference of the NAACL, Main Conference, pages 152–159. ACL, June 2006.",
+   "year": "2006",
+   "arxiv": "",
+   "count": 1,
+   "sections": {
+    "S6": 1
+   },
+   "subsections": {
+    "S6.SS3": 1
+   },
+   "keyword": "Effective self-training",
+   "theme": "Other"
+  },
+  {
+   "n": 27,
+   "numbers": [
+    27
+   ],
+   "label": "[27]",
+   "authors": "Ankur Parikh, Oscar Täckström, Dipanjan Das, and Jakob Uszkoreit",
+   "title": "A decomposable attention model",
+   "venue": "In Empirical Methods in Natural Language Processing, 2016.",
+   "year": "2016",
+   "arxiv": "",
+   "count": 2,
+   "sections": {
+    "S1": 1,
+    "S2": 1
+   },
+   "subsections": {
+    "S1": 1,
+    "S2": 1
+   },
+   "keyword": "Decomposable attention",
+   "theme": "Other"
+  },
+  {
+   "n": 28,
+   "numbers": [
+    28
+   ],
+   "label": "[28]",
+   "authors": "Romain Paulus, Caiming Xiong, and Richard Socher",
+   "title": "A deep reinforced model for abstractive summarization",
+   "venue": "arXiv preprint arXiv:1705.04304, 2017.",
+   "year": "2017",
+   "arxiv": "1705.04304",
+   "count": 1,
+   "sections": {
+    "S2": 1
+   },
+   "subsections": {
+    "S2": 1
+   },
+   "keyword": "Reinforced abstractive",
+   "theme": "Other"
+  },
+  {
+   "n": 29,
+   "numbers": [
+    29
+   ],
+   "label": "[29]",
+   "authors": "Slav Petrov, Leon Barrett, Romain Thibaux, and Dan Klein",
+   "title": "Learning accurate, compact, and interpretable tree annotation",
+   "venue": "In Proceedings of the 21st International Conference on Computational Linguistics and 44th Annual Meeting of the ACL, pages 433–440. ACL, July 2006.",
+   "year": "2006",
+   "arxiv": "",
+   "count": 2,
+   "sections": {
+    "S6": 2
+   },
+   "subsections": {
+    "S6.SS3": 2
+   },
+   "keyword": "Accurate compact",
+   "theme": "Other"
+  },
+  {
+   "n": 30,
+   "numbers": [
+    30
+   ],
+   "label": "[30]",
+   "authors": "Ofir Press and Lior Wolf",
+   "title": "Using the output embedding to improve language models",
+   "venue": "arXiv preprint arXiv:1608.05859, 2016.",
+   "year": "2016",
+   "arxiv": "1608.05859",
+   "count": 1,
+   "sections": {
+    "S3": 1
+   },
+   "subsections": {
+    "S3.SS4": 1
+   },
+   "keyword": "Output embedding",
+   "theme": "Other"
+  },
+  {
+   "n": 31,
+   "numbers": [
+    31
+   ],
+   "label": "[31]",
+   "authors": "Rico Sennrich, Barry Haddow, and Alexandra Birch",
+   "title": "Neural machine translation of rare words with subword units",
+   "venue": "arXiv preprint arXiv:1508.07909, 2015.",
+   "year": "2015",
+   "arxiv": "1508.07909",
+   "count": 1,
+   "sections": {
+    "S4": 1
+   },
+   "subsections": {
+    "S4": 1
+   },
+   "keyword": "Machine translation",
+   "theme": "Language models & tooling"
+  },
+  {
+   "n": 32,
+   "numbers": [
+    32
+   ],
+   "label": "[32]",
+   "authors": "Noam Shazeer, Azalia Mirhoseini, Krzysztof Maziarz, Andy Davis, Quoc Le, Geoffrey Hinton, and Jeff Dean",
+   "title": "Outrageously large neural networks: The sparsely-gated mixture-of-experts layer",
+   "venue": "arXiv preprint arXiv:1701.06538, 2017.",
+   "year": "2017",
+   "arxiv": "1701.06538",
+   "count": 2,
+   "sections": {
+    "S1": 1,
+    "S6": 1
+   },
+   "subsections": {
+    "S1": 1,
+    "S6.SS1": 1
+   },
+   "keyword": "Outrageously large",
+   "theme": "Other"
+  },
+  {
+   "n": 33,
+   "numbers": [
+    33
+   ],
+   "label": "[33]",
+   "authors": "Nitish Srivastava, Geoffrey E Hinton, Alex Krizhevsky, Ilya Sutskever, and Ruslan Salakhutdinov",
+   "title": "Dropout: a simple way to prevent neural networks from overfitting",
+   "venue": "Journal of Machine Learning Research, 15(1):1929–1958, 2014.",
+   "year": "2014",
+   "arxiv": "",
+   "count": 1,
+   "sections": {
+    "S5": 1
+   },
+   "subsections": {
+    "S5.SS4": 1
+   },
+   "keyword": "Dropout",
+   "theme": "Other"
+  },
+  {
+   "n": 34,
+   "numbers": [
+    34
+   ],
+   "label": "[34]",
+   "authors": "Sainbayar Sukhbaatar, Arthur Szlam, Jason Weston, and Rob Fergus",
+   "title": "End-to-end memory networks",
+   "venue": "In C. Cortes, N. D. Lawrence, D. D. Lee, M. Sugiyama, and R. Garnett, editors, Advances in Neural Information Processing Systems 28, pages 2440–2448. Curran Associates, Inc., 2015.",
+   "year": "2015",
+   "arxiv": "",
+   "count": 1,
+   "sections": {
+    "S2": 1
+   },
+   "subsections": {
+    "S2": 1
+   },
+   "keyword": "End-to-end memory",
+   "theme": "Other"
+  },
+  {
+   "n": 35,
+   "numbers": [
+    35
+   ],
+   "label": "[35]",
+   "authors": "Ilya Sutskever, Oriol Vinyals, and Quoc VV Le",
+   "title": "Sequence to sequence learning with neural networks",
+   "venue": "In Advances in Neural Information Processing Systems, pages 3104–3112, 2014.",
+   "year": "2014",
+   "arxiv": "",
+   "count": 2,
+   "sections": {
+    "S1": 1,
+    "S3": 1
+   },
+   "subsections": {
+    "S1": 1,
+    "S3": 1
+   },
+   "keyword": "Sequence sequence",
+   "theme": "Other"
+  },
+  {
+   "n": 36,
+   "numbers": [
+    36
+   ],
+   "label": "[36]",
+   "authors": "Christian Szegedy, Vincent Vanhoucke, Sergey Ioffe, Jonathon Shlens, and Zbigniew Wojna",
+   "title": "Rethinking the inception architecture for computer vision",
+   "venue": "CoRR, abs/1512.00567, 2015.",
+   "year": "2015",
+   "arxiv": "",
+   "count": 1,
+   "sections": {
+    "S5": 1
+   },
+   "subsections": {
+    "S5.SS4": 1
+   },
+   "keyword": "Rethinking inception",
+   "theme": "Other"
+  },
+  {
+   "n": 37,
+   "numbers": [
+    37
+   ],
+   "label": "[37]",
+   "authors": "Vinyals & Kaiser, Koo, Petrov, Sutskever, and Hinton",
+   "title": "Grammar as a foreign language",
+   "venue": "In Advances in Neural Information Processing Systems, 2015.",
+   "year": "2015",
+   "arxiv": "",
+   "count": 5,
+   "sections": {
+    "S6": 5
+   },
+   "subsections": {
+    "S6.SS3": 5
+   },
+   "keyword": "Grammar as",
+   "theme": "Other"
+  },
+  {
+   "n": 38,
+   "numbers": [
+    38
+   ],
+   "label": "[38]",
+   "authors": "Yonghui Wu, Mike Schuster, Zhifeng Chen, Quoc V Le, Mohammad Norouzi, Wolfgang Macherey, Maxim Krikun, Yuan Cao, Qin Gao, Klaus Macherey, et al",
+   "title": "Google’s neural machine translation system: Bridging the gap between human and machine translation",
+   "venue": "arXiv preprint arXiv:1609.08144, 2016.",
+   "year": "2016",
+   "arxiv": "1609.08144",
+   "count": 8,
+   "sections": {
+    "S1": 1,
+    "S3": 1,
+    "S4": 1,
+    "S5": 1,
+    "S6": 4
+   },
+   "subsections": {
+    "S1": 1,
+    "S3.SS2": 1,
+    "S4": 1,
+    "S5.SS1": 1,
+    "S6.SS1": 4
+   },
+   "keyword": "Google’s machine",
+   "theme": "Other"
+  },
+  {
+   "n": 39,
+   "numbers": [
+    39
+   ],
+   "label": "[39]",
+   "authors": "Jie Zhou, Ying Cao, Xuguang Wang, Peng Li, and Wei Xu",
+   "title": "Deep recurrent models with fast-forward connections for neural machine translation",
+   "venue": "CoRR, abs/1606.04199, 2016.",
+   "year": "2016",
+   "arxiv": "",
+   "count": 2,
+   "sections": {
+    "S6": 2
+   },
+   "subsections": {
+    "S6.SS1": 2
+   },
+   "keyword": "Recurrent fast-forward",
+   "theme": "Other"
+  },
+  {
+   "n": 40,
+   "numbers": [
+    40
+   ],
+   "label": "[40]",
+   "authors": "Muhua Zhu, Yue Zhang, Wenliang Chen, Min Zhang, and Jingbo Zhu",
+   "title": "Fast and accurate shift-reduce constituent parsing",
+   "venue": "In Proceedings of the 51st Annual Meeting of the ACL (Volume 1: Long Papers), pages 434–443. ACL, August 2013.",
+   "year": "2013",
+   "arxiv": "",
+   "count": 2,
+   "sections": {
+    "S6": 2
+   },
+   "subsections": {
+    "S6.SS3": 2
+   },
+   "keyword": "Fast accurate",
+   "theme": "Other"
+  }
+ ]
+}

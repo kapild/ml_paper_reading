@@ -74,13 +74,14 @@ const themeCell = k => `<span class="thm"><span class="sw" style="background:${C
 const pill = s => `<span class="pill">${GLYPH[s]}${STATUS[s]}</span>`;
 
 /* ---------- shared state ---------- */
-const TABS = ['constellation', 'timeline', 'lineages', 'graph', 'tables'];
+const TABS = ['constellation', 'timeline', 'lineages', 'graph', 'citations', 'tables'];
 const state = {
   tab: 'constellation',
   theme: null,
   hover: null,
   selected: null,
   centre: byKey.has(store.get('atlas.centre')) ? store.get('atlas.centre') : null,
+  citePaper: byKey.has(store.get('atlas.cite')) ? store.get('atlas.cite') : null,
   depth: store.get('atlas.depth') === '2' ? 2 : 1,
   table: {q: '', status: '', org: '', sort: 'read', dir: 'desc'},
 };
@@ -163,6 +164,7 @@ function setTab(tab, {hash = true} = {}) {
   applyEmphasis();
   hideTip();
   if (tab === 'graph') renderGraph();
+  if (tab === 'citations') renderCitations();
 }
 $$('.tab').forEach(b => {
   b.addEventListener('click', () => setTab(b.dataset.tab));
@@ -674,6 +676,7 @@ function openPanel(key) {
     <p class="dr-full">${esc(p.title)}</p>
     <div class="dr-actions">
       ${p.key === state.centre ? '<span class="dr-note">At the centre of the graph</span>' : '<button type="button" class="btn primary" id="dr-centre">Centre graph here</button>'}
+      ${p.map ? '<button type="button" class="btn" id="dr-cite">Citation map</button>' : ''}
       ${p.url ? `<a class="btn" href="${esc(p.url)}" target="_blank" rel="noopener">Open paper ↗</a>` : ''}
     </div>
     <dl class="dr-facts">
@@ -692,6 +695,8 @@ function openPanel(key) {
   $('#dr-close').addEventListener('click', closePanel);
   const centreBtn = $('#dr-centre');
   if (centreBtn) centreBtn.addEventListener('click', () => openInGraph(key));
+  const citeBtn = $('#dr-cite');
+  if (citeBtn) citeBtn.addEventListener('click', () => { closePanel(); openCitations(key); });
   $$('[data-open]', d).forEach(b => b.addEventListener('click', () => openPanel(b.dataset.open)));
   $('#drawer-title').focus({preventScroll: true});
   state.selected = key;
@@ -801,6 +806,44 @@ document.addEventListener('keydown', e => {
     else if (!$('#drawer').hidden) closePanel();
   }
 });
+
+/* ---------- citations ---------- */
+function openCitations(key) {
+  state.citePaper = key;
+  store.set('atlas.cite', key);
+  setTab('citations');
+}
+
+function renderCitations() {
+  const top = $('#cite-top'), root = $('#cite-root');
+  const have = P.filter(p => p.map);
+  if (!have.length) {
+    root.textContent = '';
+    top.innerHTML = '<p class="empty-note">No citation maps yet. Set a paper\'s status to <code>extract</code> in ' +
+      '<code>config/citation_papers.csv</code>, run <code>python3 cite_map.py --queue</code>, then rebuild.</p>';
+    return;
+  }
+  const wanted = byKey.get(state.citePaper) || byKey.get(state.centre);
+  const paper = wanted && wanted.map ? wanted : have[0];
+  state.citePaper = paper.key;
+
+  top.textContent = '';
+  const label = document.createElement('label');
+  label.className = 'cite-pick';
+  label.innerHTML = '<span class="label">Paper</span>';
+  const select = document.createElement('select');
+  select.id = 'cite-select';
+  select.innerHTML = have.map(p => `<option value="${esc(p.key)}"${p.key === paper.key ? ' selected' : ''}>${esc(p.short)} — ${esc(trimTitle(p.title))}</option>`).join('');
+  select.addEventListener('change', () => openCitations(select.value));
+  label.append(select);
+  const meta = document.createElement('span');
+  meta.className = 'cite-meta';
+  meta.textContent = `arXiv ${paper.arxiv || '—'}`;
+  top.append(label, meta);
+
+  window.CiteMap.show({root, paper: paper.map, atlas: P});
+}
+const trimTitle = t => t.length > 70 ? t.slice(0, 69).trimEnd() + '…' : t;
 
 /* ---------- tables ---------- */
 const DONE_KEYS = new Set(P.filter(p => p.status === 'done').map(p => p.key));

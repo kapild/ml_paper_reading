@@ -1,0 +1,942 @@
+{
+ "generated": "2026-10-11",
+ "paper": {
+  "arxiv": "2510.07784",
+  "title": "PLUM: Adapting Pre-trained Language Models for Industrial-scale Generative Recommendations",
+  "source": "https://arxiv.org/html/2510.07784"
+ },
+ "stats": {
+  "references": 40,
+  "rows": 40,
+  "merged": 0,
+  "marks": 58,
+  "sections": 3
+ },
+ "themes": [
+  "Other",
+  "Language models & tooling",
+  "Industry recommenders",
+  "Sequential recommenders",
+  "Semantic IDs & quantization",
+  "Generative retrieval"
+ ],
+ "sections": [
+  {
+   "key": "S1",
+   "label": "1. Introduction",
+   "kind": "section",
+   "marks": 47
+  },
+  {
+   "key": "S2",
+   "label": "2. PLUM Framework",
+   "kind": "section",
+   "marks": 3
+  },
+  {
+   "key": "S3",
+   "label": "3. Experiments",
+   "kind": "section",
+   "marks": 6
+  }
+ ],
+ "subsections": [
+  {
+   "key": "S1",
+   "section": "S1",
+   "kind": "section",
+   "label": "1. Introduction",
+   "marks": 18
+  },
+  {
+   "key": "S1.SS1",
+   "section": "S1",
+   "kind": "subsection",
+   "label": "1.1. Related Work",
+   "marks": 29
+  },
+  {
+   "key": "S2.SS1",
+   "section": "S2",
+   "kind": "subsection",
+   "label": "2.1. Semantic IDs",
+   "marks": 3
+  },
+  {
+   "key": "S3.SS1",
+   "section": "S3",
+   "kind": "subsection",
+   "label": "3.1. Performance of Generative Retrieval",
+   "marks": 1
+  },
+  {
+   "key": "S3.SS2",
+   "section": "S3",
+   "kind": "subsection",
+   "label": "3.2. Semantic IDs Ablation Study",
+   "marks": 1
+  },
+  {
+   "key": "S3.SS4",
+   "section": "S3",
+   "kind": "subsection",
+   "label": "3.4. Scaling Study",
+   "marks": 4
+  }
+ ],
+ "references": [
+  {
+   "n": 2,
+   "numbers": [
+    2
+   ],
+   "label": "Cao et al. (2024)",
+   "authors": "Yuwei Cao, Nikhil Mehta, Xinyang Yi, Raghunandan Keshavan, Lukasz Heldt, Lichan Hong, Ed H. Chi, and Maheswaran Sathiamoorthy. 2024",
+   "title": "Aligning Large Language Models with Recommendation Knowledge",
+   "venue": "(2024). arXiv:2404.00245 [cs.IR] https://arxiv.org/abs/2404.00245",
+   "year": "2024",
+   "arxiv": "2404.00245",
+   "count": 1,
+   "sections": {
+    "S1": 1
+   },
+   "subsections": {
+    "S1.SS1": 1
+   },
+   "keyword": "Aligning Large",
+   "theme": "Other"
+  },
+  {
+   "n": 3,
+   "numbers": [
+    3
+   ],
+   "label": "Chen et al. (2019a)",
+   "authors": "Minmin Chen, Alex Beutel, Paul Covington, Sagar Jain, Francois Belletti, and Ed H. Chi. 2019a",
+   "title": "Top-K Off-Policy Correction for a REINFORCE Recommender System. In Proceedings of the Twelfth ACM International Conference on Web Search and Data Mining (Melbourne VIC, Australia) (WSDM ’19). Association for Computing Machinery, New York, NY, USA, 456–464",
+   "venue": "doi:10.1145/3289600.3290999",
+   "year": "",
+   "arxiv": "",
+   "count": 1,
+   "sections": {
+    "S3": 1
+   },
+   "subsections": {
+    "S3.SS1": 1
+   },
+   "keyword": "REINFORCE",
+   "theme": "Other"
+  },
+  {
+   "n": 4,
+   "numbers": [
+    4
+   ],
+   "label": "Chen et al. (2019b)",
+   "authors": "Qiwei Chen, Huan Zhao, Wei Li, Pipei Huang, and Wenwu Ou. 2019b",
+   "title": "Behavior sequence transformer for e-commerce recommendation in Alibaba. In Proceedings of the 1st International Workshop on Deep Learning Practice for High-Dimensional Sparse Data (Anchorage, Alaska) (DLP-KDD ’19). Association for Computing Machinery, New York, NY, USA, Article 12, 4 pages",
+   "venue": "doi:10.1145/3326937.3341261",
+   "year": "",
+   "arxiv": "",
+   "count": 1,
+   "sections": {
+    "S1": 1
+   },
+   "subsections": {
+    "S1": 1
+   },
+   "keyword": "DLP-KDD",
+   "theme": "Language models & tooling"
+  },
+  {
+   "n": 5,
+   "numbers": [
+    5
+   ],
+   "label": "Chen et al. (2025)",
+   "authors": "Xiangyi Chen, Kousik Rajesh, Matthew Lawhon, Zelun Wang, Hanyu Li, Haomiao Li, Saurabh Vishwas Joshi, Pong Eksombatchai, Jaewon Yang, Yi-Ping Hsu, Jiajing Xu, and Charles Rosenberg. 2025",
+   "title": "PinFM: Foundation Model for User Activity Sequences at a Billion-scale Visual Discovery Platform",
+   "venue": "(2025). arXiv:2507.12704 [cs.LG] https://arxiv.org/abs/2507.12704",
+   "year": "2025",
+   "arxiv": "2507.12704",
+   "count": 2,
+   "sections": {
+    "S1": 2
+   },
+   "subsections": {
+    "S1": 1,
+    "S1.SS1": 1
+   },
+   "keyword": "PINFM",
+   "theme": "Other"
+  },
+  {
+   "n": 6,
+   "numbers": [
+    6
+   ],
+   "label": "Coleman et al. (2023)",
+   "authors": "Benjamin Coleman, Wang-Cheng Kang, Matthew Fahrbach, Ruoxi Wang, Lichan Hong, Ed H. Chi, and Derek Zhiyuan Cheng. 2023",
+   "title": "Unified embedding: battle-tested feature representations for web-scale ML systems. In Proceedings of the 37th International Conference on Neural Information Processing Systems (New Orleans, LA, USA) (NIPS ’23). Curran Associates Inc., Red Hook, NY, USA, Article 2453, 22 pages",
+   "venue": "",
+   "year": "2023",
+   "arxiv": "",
+   "count": 1,
+   "sections": {
+    "S1": 1
+   },
+   "subsections": {
+    "S1": 1
+   },
+   "keyword": "Unified embedding",
+   "theme": "Other"
+  },
+  {
+   "n": 7,
+   "numbers": [
+    7
+   ],
+   "label": "Covington et al. (2016)",
+   "authors": "Paul Covington, Jay Adams, and Emre Sargin. 2016",
+   "title": "Deep Neural Networks for YouTube Recommendations. In Proceedings of the 10th ACM Conference on Recommender Systems (Boston, Massachusetts, USA) (RecSys ’16). Association for Computing Machinery, New York, NY, USA, 191–198",
+   "venue": "doi:10.1145/2959100.2959190",
+   "year": "",
+   "arxiv": "",
+   "count": 2,
+   "sections": {
+    "S1": 2
+   },
+   "subsections": {
+    "S1": 2
+   },
+   "keyword": "YouTube",
+   "theme": "Industry recommenders"
+  },
+  {
+   "n": 8,
+   "numbers": [
+    8
+   ],
+   "label": "Firooz et al. (2025)",
+   "authors": "Hamed Firooz, Maziar Sanjabi, Adrian Englhardt, Aman Gupta, Ben Levine, Dre Olgiati, Gungor Polatkan, Iuliia Melnychuk, Karthik Ramgopal, Kirill Talanine, Kutta Srinivasan, Luke Simon, Natesh Sivasubramoniapillai, Necip Fazil Ayan, Qingquan Song, Samira Sriram, Souvik Ghosh, Tao Song, Vignesh Kothapalli, Xiaoling Zhai, Ya Xu, Yu Wang, and Yun Dai. 2025",
+   "title": "360Brew: A Decoder-only Foundation Model for Personalized Ranking and Recommendation",
+   "venue": "(2025). arXiv:2501.16450 [cs.IR] https://arxiv.org/abs/2501.16450",
+   "year": "2025",
+   "arxiv": "2501.16450",
+   "count": 2,
+   "sections": {
+    "S1": 2
+   },
+   "subsections": {
+    "S1": 1,
+    "S1.SS1": 1
+   },
+   "keyword": "360Brew",
+   "theme": "Other"
+  },
+  {
+   "n": 9,
+   "numbers": [
+    9
+   ],
+   "label": "Gu et al. (2020)",
+   "authors": "Yulong Gu, Zhuoye Ding, Shuaiqiang Wang, Lixin Zou, Yiding Liu, and Dawei Yin. 2020",
+   "title": "Deep Multifaceted Transformers for Multi-objective Ranking in Large-Scale E-commerce Recommender Systems. In Proceedings of the 29th ACM International Conference on Information & Knowledge Management (Virtual Event, Ireland) (CIKM ’20). Association for Computing Machinery, New York, NY, USA, 2493–2500",
+   "venue": "doi:10.1145/3340531.3412697",
+   "year": "",
+   "arxiv": "",
+   "count": 1,
+   "sections": {
+    "S1": 1
+   },
+   "subsections": {
+    "S1": 1
+   },
+   "keyword": "ACM",
+   "theme": "Language models & tooling"
+  },
+  {
+   "n": 10,
+   "numbers": [
+    10
+   ],
+   "label": "Han et al. (2025)",
+   "authors": "Ruidong Han, Bin Yin, Shangyu Chen, He Jiang, Fei Jiang, Xiang Li, Chi Ma, Mincong Huang, Xiaoguang Li, Chunzhen Jing, Yueming Han, Menglei Zhou, Lei Yu, Chuan Liu, and Wei Lin. 2025",
+   "title": "MTGR: Industrial-Scale Generative Recommendation Framework in Meituan",
+   "venue": "(05 2025). doi:10.48550/arXiv.2505.18654",
+   "year": "2025",
+   "arxiv": "",
+   "count": 1,
+   "sections": {
+    "S1": 1
+   },
+   "subsections": {
+    "S1.SS1": 1
+   },
+   "keyword": "MTGR",
+   "theme": "Other"
+  },
+  {
+   "n": 11,
+   "numbers": [
+    11
+   ],
+   "label": "Hidasi et al. (2016)",
+   "authors": "Balázs Hidasi, Alexandros Karatzoglou, Linas Baltrunas, and Domonkos Tikk. 2016",
+   "title": "Session-based Recommendations with Recurrent Neural Networks",
+   "venue": "arXiv:1511.06939 [cs.LG] https://arxiv.org/abs/1511.06939",
+   "year": "",
+   "arxiv": "1511.06939",
+   "count": 1,
+   "sections": {
+    "S1": 1
+   },
+   "subsections": {
+    "S1.SS1": 1
+   },
+   "keyword": "Session-based Recommendations",
+   "theme": "Sequential recommenders"
+  },
+  {
+   "n": 12,
+   "numbers": [
+    12
+   ],
+   "label": "Hoffmann et al. (2022)",
+   "authors": "Jordan Hoffmann, Sebastian Borgeaud, Arthur Mensch, Elena Buchatskaya, Trevor Cai, Eliza Rutherford, Diego de Las Casas, Lisa Anne Hendricks, Johannes Welbl, Aidan Clark, et al. 2022",
+   "title": "Training compute-optimal large language models",
+   "venue": "arXiv preprint arXiv:2203.15556 (2022).",
+   "year": "2022",
+   "arxiv": "2203.15556",
+   "count": 2,
+   "sections": {
+    "S3": 2
+   },
+   "subsections": {
+    "S3.SS4": 2
+   },
+   "keyword": "Training compute-optimal",
+   "theme": "Other"
+  },
+  {
+   "n": 13,
+   "numbers": [
+    13
+   ],
+   "label": "Hou et al. (2024)",
+   "authors": "Yupeng Hou, Junjie Zhang, Zihan Lin, Hongyu Lu, Ruobing Xie, Julian McAuley, and Wayne Xin Zhao. 2024",
+   "title": "Large Language Models are Zero-Shot Rankers for Recommender Systems. Springer-Verlag, Berlin, Heidelberg, 364–381",
+   "venue": "doi:10.1007/978-3-031-56060-6_24",
+   "year": "",
+   "arxiv": "",
+   "count": 1,
+   "sections": {
+    "S1": 1
+   },
+   "subsections": {
+    "S1": 1
+   },
+   "keyword": "Large Language",
+   "theme": "Other"
+  },
+  {
+   "n": 14,
+   "numbers": [
+    14
+   ],
+   "label": "Huang et al. (2025)",
+   "authors": "Yanhua Huang, Yuqi Chen, Xiong Cao, Rui Yang, Mingliang Qi, Yinghao Zhu, Qingchang Han, Yaowei Liu, Zhaoyu Liu, Xuefeng Yao, Yuting Jia, Leilei Ma, Yinqi Zhang, Taoyu Zhu, Liujie Zhang, Lei Chen, Weihang Chen, Min Zhu, Ruiwen Xu, and Lei Zhang. 2025",
+   "title": "Towards Large-scale Generative Ranking",
+   "venue": "(2025). arXiv:2505.04180 [cs.IR] https://arxiv.org/abs/2505.04180",
+   "year": "2025",
+   "arxiv": "2505.04180",
+   "count": 1,
+   "sections": {
+    "S1": 1
+   },
+   "subsections": {
+    "S1.SS1": 1
+   },
+   "keyword": "Large-scale Generative",
+   "theme": "Other"
+  },
+  {
+   "n": 15,
+   "numbers": [
+    15
+   ],
+   "label": "Ju et al. (2025)",
+   "authors": "Clark Mingxuan Ju, Liam Collins, Leonardo Neves, Bhuvesh Kumar, Louis Yufeng Wang, Tong Zhao, and Neil Shah. 2025",
+   "title": "Generative Recommendation with Semantic IDs: A Practitioner’s Handbook",
+   "venue": "(2025). arXiv:2507.22224 [cs.IR] https://arxiv.org/abs/2507.22224",
+   "year": "2025",
+   "arxiv": "2507.22224",
+   "count": 1,
+   "sections": {
+    "S1": 1
+   },
+   "subsections": {
+    "S1.SS1": 1
+   },
+   "keyword": "Generative Recommendation",
+   "theme": "Semantic IDs & quantization"
+  },
+  {
+   "n": 16,
+   "numbers": [
+    16
+   ],
+   "label": "Kang and McAuley (2018)",
+   "authors": "Wang-Cheng Kang and Julian McAuley. 2018",
+   "title": "Self-Attentive Sequential Recommendation",
+   "venue": "arXiv:1808.09781 [cs.IR] https://arxiv.org/abs/1808.09781",
+   "year": "",
+   "arxiv": "1808.09781",
+   "count": 1,
+   "sections": {
+    "S1": 1
+   },
+   "subsections": {
+    "S1.SS1": 1
+   },
+   "keyword": "Self-Attentive Sequential",
+   "theme": "Sequential recommenders"
+  },
+  {
+   "n": 17,
+   "numbers": [
+    17
+   ],
+   "label": "Li et al. (2025)",
+   "authors": "Kaiyuan Li, Rui Xiang, Yong Bai, Yongxiang Tang, Yanhua Cheng, Xialong Liu, Peng Jiang, and Kun Gai. 2025",
+   "title": "BBQRec: Behavior-Bind Quantization for Multi-Modal Sequential Recommendation",
+   "venue": "(2025). arXiv:2504.06636 [cs.IR] https://arxiv.org/abs/2504.06636",
+   "year": "2025",
+   "arxiv": "2504.06636",
+   "count": 1,
+   "sections": {
+    "S1": 1
+   },
+   "subsections": {
+    "S1.SS1": 1
+   },
+   "keyword": "BBQRec",
+   "theme": "Sequential recommenders"
+  },
+  {
+   "n": 18,
+   "numbers": [
+    18
+   ],
+   "label": "Liu et al. (2022)",
+   "authors": "Zhuoran Liu, Leqi Zou, Xuan Zou, Caihua Wang, Biao Zhang, Da Tang, Bolin Zhu, Yijie Zhu, Peng Wu, Ke Wang, and Youlong Cheng. 2022",
+   "title": "Monolith: Real Time Recommendation System With Collisionless Embedding Table",
+   "venue": "arXiv:2209.07663 [cs.IR] https://arxiv.org/abs/2209.07663",
+   "year": "",
+   "arxiv": "2209.07663",
+   "count": 1,
+   "sections": {
+    "S1": 1
+   },
+   "subsections": {
+    "S1": 1
+   },
+   "keyword": "Monolith",
+   "theme": "Other"
+  },
+  {
+   "n": 19,
+   "numbers": [
+    19
+   ],
+   "label": "Mei et al. (2025)",
+   "authors": "M. Jeffrey Mei, Florian Henkel, Samuel E. Sandberg, Oliver Bembom, and Andreas F. Ehmann. 2025",
+   "title": "Semantic IDs for Music Recommendation",
+   "venue": "arXiv preprint arXiv:2507.18800 (2025). arXiv:2507.18800 [cs.IR]",
+   "year": "2025",
+   "arxiv": "2507.18800",
+   "count": 1,
+   "sections": {
+    "S1": 1
+   },
+   "subsections": {
+    "S1.SS1": 1
+   },
+   "keyword": "Semantic IDs",
+   "theme": "Semantic IDs & quantization"
+  },
+  {
+   "n": 20,
+   "numbers": [
+    20
+   ],
+   "label": "Naumov et al. (2019)",
+   "authors": "Maxim Naumov, Dheevatsa Mudigere, Hao-Jun Michael Shi, Jianyu Huang, Narayanan Sundaraman, Jongsoo Park, Xiaodong Wang, Udit Gupta, Carole-Jean Wu, Alisson G. Azzolini, Dmytro Dzhulgakov, Andrey Mallevich, Ilia Cherniavskii, Yinghai Lu, Raghuraman Krishnamoorthi, Ansha Yu, Volodymyr Kondratenko, Stephanie Pereira, Xianjie Chen, Wenlin Chen, Vijay Rao, Bill Jia, Liang Xiong, and Misha Smelyanskiy. 2019",
+   "title": "Deep Learning Recommendation Model for Personalization and Recommendation Systems",
+   "venue": "(2019). arXiv:1906.00091 [cs.IR] https://arxiv.org/abs/1906.00091",
+   "year": "1906",
+   "arxiv": "1906.00091",
+   "count": 1,
+   "sections": {
+    "S1": 1
+   },
+   "subsections": {
+    "S1": 1
+   },
+   "keyword": "Recommendation Personalization",
+   "theme": "Other"
+  },
+  {
+   "n": 21,
+   "numbers": [
+    21
+   ],
+   "label": "Netflix (2024)",
+   "authors": "Netflix. 2024",
+   "title": "Foundation Model for Personalized Recommendation",
+   "venue": "https://netflixtechblog.com/foundation-model-for-personalized-recommendation-1a0bd8e02d39.",
+   "year": "",
+   "arxiv": "",
+   "count": 1,
+   "sections": {
+    "S1": 1
+   },
+   "subsections": {
+    "S1.SS1": 1
+   },
+   "keyword": "Foundation Personalized",
+   "theme": "Industry recommenders"
+  },
+  {
+   "n": 22,
+   "numbers": [
+    22
+   ],
+   "label": "Pang et al. (2025)",
+   "authors": "Ming Pang, Chunyuan Yuan, Xiaoyu He, Zheng Fang, Donghao Xie, Fanyi Qu, Xue Jiang, Changping Peng, Zhangang Lin, Zheng Luo, and Jingping Shao. 2025",
+   "title": "Generative Retrieval and Alignment Model: A New Paradigm for E-commerce Retrieval. In Companion Proceedings of the ACM on Web Conference 2025 (Sydney NSW, Australia) (WWW ’25). Association for Computing Machinery, New York, NY, USA, 413–421",
+   "venue": "doi:10.1145/3701716.3715228",
+   "year": "",
+   "arxiv": "",
+   "count": 2,
+   "sections": {
+    "S1": 2
+   },
+   "subsections": {
+    "S1": 1,
+    "S1.SS1": 1
+   },
+   "keyword": "ACM",
+   "theme": "Generative retrieval"
+  },
+  {
+   "n": 23,
+   "numbers": [
+    23
+   ],
+   "label": "Penha et al. (2025)",
+   "authors": "Gustavo Penha, Edoardo D’Amico, Marco De Nadai, Enrico Palumbo, Alexandre Tamborrino, Ali Vardasbi, Max Lefarov, Shawn Lin, Timothy Heath, Francesco Fabbri, and Hugues Bouchard. 2025",
+   "title": "Semantic IDs for Joint Generative Search and Recommendation",
+   "venue": "(2025). arXiv:2508.10478 [cs.IR] https://arxiv.org/abs/2508.10478",
+   "year": "2025",
+   "arxiv": "2508.10478",
+   "count": 1,
+   "sections": {
+    "S1": 1
+   },
+   "subsections": {
+    "S1.SS1": 1
+   },
+   "keyword": "Semantic IDs",
+   "theme": "Semantic IDs & quantization"
+  },
+  {
+   "n": 24,
+   "numbers": [
+    24
+   ],
+   "label": "Rajput et al. (2023)",
+   "authors": "Shashank Rajput, Nikhil Mehta, Anima Singh, Raghunandan Keshavan, Trung Vu, Lukasz Heidt, Lichan Hong, Yi Tay, Vinh Q. Tran, Jonah Samost, Maciej Kula, Ed H. Chi, and Maheswaran Sathiamoorthy. 2023",
+   "title": "Recommender systems with generative retrieval. In Proceedings of the 37th International Conference on Neural Information Processing Systems (New Orleans, LA, USA) (NIPS ’23). Curran Associates Inc., Red Hook, NY, USA, Article 452, 17 pages",
+   "venue": "",
+   "year": "2023",
+   "arxiv": "",
+   "count": 8,
+   "sections": {
+    "S1": 4,
+    "S2": 2,
+    "S3": 1
+   },
+   "subsections": {
+    "S1": 2,
+    "S1.SS1": 2,
+    "S2.SS1": 2,
+    "S3.SS2": 1
+   },
+   "keyword": "USA",
+   "theme": "Generative retrieval"
+  },
+  {
+   "n": 25,
+   "numbers": [
+    25
+   ],
+   "label": "Singh et al. (2024)",
+   "authors": "Anima Singh, Trung Vu, Nikhil Mehta, Raghunandan Keshavan, Maheswaran Sathiamoorthy, Yilin Zheng, Lichan Hong, Lukasz Heldt, Li Wei, Devansh Tandon, Ed Chi, and Xinyang Yi. 2024",
+   "title": "Better Generalization with Semantic IDs: A Case Study in Ranking for Recommendations. In Proceedings of the 18th ACM Conference on Recommender Systems (Bari, Italy) (RecSys ’24). Association for Computing Machinery, New York, NY, USA",
+   "venue": "",
+   "year": "2024",
+   "arxiv": "",
+   "count": 4,
+   "sections": {
+    "S1": 2,
+    "S2": 1
+   },
+   "subsections": {
+    "S1": 1,
+    "S1.SS1": 1,
+    "S2.SS1": 1
+   },
+   "keyword": "ACM",
+   "theme": "Semantic IDs & quantization"
+  },
+  {
+   "n": 26,
+   "numbers": [
+    26
+   ],
+   "label": "Tay et al. (2022)",
+   "authors": "Yi Tay, Vinh Q. Tran, Mostafa Dehghani, Jianmo Ni, Dara Bahri, Harsh Mehta, Zhen Qin, Kai Hui, Zhe Zhao, Jai Gupta, Tal Schuster, William W. Cohen, and Donald Metzler. 2022",
+   "title": "Transformer memory as a differentiable search index. In Proceedings of the 36th International Conference on Neural Information Processing Systems (New Orleans, LA, USA) (NIPS ’22). Curran Associates Inc., Red Hook, NY, USA, Article 1587, 13 pages",
+   "venue": "",
+   "year": "2022",
+   "arxiv": "",
+   "count": 1,
+   "sections": {
+    "S1": 1
+   },
+   "subsections": {
+    "S1.SS1": 1
+   },
+   "keyword": "USA",
+   "theme": "Generative retrieval"
+  },
+  {
+   "n": 27,
+   "numbers": [
+    27
+   ],
+   "label": "Team (2024)",
+   "authors": "Gemini Team. 2024",
+   "title": "Gemini 1.5: Unlocking multimodal understanding across millions of tokens of context",
+   "venue": "arXiv preprint arXiv:2403.05530 (2024).",
+   "year": "2024",
+   "arxiv": "2403.05530",
+   "count": 1,
+   "sections": {
+    "S3": 1
+   },
+   "subsections": {
+    "S3.SS4": 1
+   },
+   "keyword": "Gemini 1.5",
+   "theme": "Other"
+  },
+  {
+   "n": 28,
+   "numbers": [
+    28
+   ],
+   "label": "Wang et al. (2025)",
+   "authors": "Dongsheng Wang, Yuxi Huang, Shen Gao, Yifan Wang, Chengrui Huang, and Shuo Shang. 2025",
+   "title": "Generative Next POI Recommendation with Semantic ID",
+   "venue": "(2025). arXiv:2506.01375 [cs.IR] https://arxiv.org/abs/2506.01375",
+   "year": "2025",
+   "arxiv": "2506.01375",
+   "count": 1,
+   "sections": {
+    "S1": 1
+   },
+   "subsections": {
+    "S1.SS1": 1
+   },
+   "keyword": "POI",
+   "theme": "Semantic IDs & quantization"
+  },
+  {
+   "n": 29,
+   "numbers": [
+    29
+   ],
+   "label": "Wang et al. (2021)",
+   "authors": "Ruoxi Wang, Rakesh Shivanna, Derek Cheng, Sagar Jain, Dong Lin, Lichan Hong, and Ed Chi. 2021",
+   "title": "DCN V2: Improved Deep & Cross Network and Practical Lessons for Web-scale Learning to Rank Systems. In Proceedings of the Web Conference 2021 (Ljubljana, Slovenia) (WWW ’21). Association for Computing Machinery, New York, NY, USA, 1785–1797",
+   "venue": "doi:10.1145/3442381.3450078",
+   "year": "",
+   "arxiv": "",
+   "count": 1,
+   "sections": {
+    "S1": 1
+   },
+   "subsections": {
+    "S1.SS1": 1
+   },
+   "keyword": "DCN V2",
+   "theme": "Other"
+  },
+  {
+   "n": 30,
+   "numbers": [
+    30
+   ],
+   "label": "Weller et al. (2025)",
+   "authors": "Orion Weller, Michael Boratko, Iftekhar Naim, and Jinhyuk Lee. 2025",
+   "title": "On the Theoretical Limitations of Embedding-Based Retrieval",
+   "venue": "arXiv:2508.21038 [cs.IR] https://arxiv.org/abs/2508.21038",
+   "year": "",
+   "arxiv": "2508.21038",
+   "count": 1,
+   "sections": {
+    "S1": 1
+   },
+   "subsections": {
+    "S1": 1
+   },
+   "keyword": "Theoretical Limitations",
+   "theme": "Other"
+  },
+  {
+   "n": 31,
+   "numbers": [
+    31
+   ],
+   "label": "Xu et al. (2025)",
+   "authors": "Yi Xu, Moyu Zhang, Chenxuan Li, Zhihao Liao, Haibo Xing, Hao Deng, Jinxin Hu, Yu Zhang, Xiaoyi Zeng, and Jing Zhang. 2025",
+   "title": "MMQ: Multimodal Mixture-of-Quantization Tokenization for Semantic ID Generation and User Behavioral Adaptation",
+   "venue": "(2025). arXiv:2508.15281 [cs.IR] https://arxiv.org/abs/2508.15281",
+   "year": "2025",
+   "arxiv": "2508.15281",
+   "count": 2,
+   "sections": {
+    "S1": 2
+   },
+   "subsections": {
+    "S1.SS1": 2
+   },
+   "keyword": "MMQ",
+   "theme": "Semantic IDs & quantization"
+  },
+  {
+   "n": 32,
+   "numbers": [
+    32
+   ],
+   "label": "Yang et al. (2024)",
+   "authors": "Liu Yang, Fabian Paischer, Kaveh Hassani, Jiacheng Li, Shuai Shao, Zhang Gabriel Li, Yun He, Xue Feng, Nima Noorshams, Sem Park, Bo Long, Robert D Nowak, Xiaoli Gao, and Hamid Eghbalzadeh. 2024",
+   "title": "Unifying Generative and Dense Retrieval for Sequential Recommendation",
+   "venue": "(2024). arXiv:2411.18814 [cs.IR] https://arxiv.org/abs/2411.18814",
+   "year": "2024",
+   "arxiv": "2411.18814",
+   "count": 1,
+   "sections": {
+    "S1": 1
+   },
+   "subsections": {
+    "S1.SS1": 1
+   },
+   "keyword": "Unifying Generative",
+   "theme": "Sequential recommenders"
+  },
+  {
+   "n": 33,
+   "numbers": [
+    33
+   ],
+   "label": "Yang et al. (2025)",
+   "authors": "Yuhao Yang, Zhi Ji, Zhaopeng Li, Yi Li, Zhonglin Mo, Yue Ding, Kai Chen, Zijian Zhang, Jie Li, Shuanglong Li, and Lin Liu. 2025",
+   "title": "Sparse Meets Dense: Unified Generative Recommendations with Cascaded Sparse-Dense Representations",
+   "venue": "(2025). arXiv:2503.02453 [cs.IR] https://arxiv.org/abs/2503.02453",
+   "year": "2025",
+   "arxiv": "2503.02453",
+   "count": 1,
+   "sections": {
+    "S1": 1
+   },
+   "subsections": {
+    "S1.SS1": 1
+   },
+   "keyword": "Sparse Meets",
+   "theme": "Other"
+  },
+  {
+   "n": 34,
+   "numbers": [
+    34
+   ],
+   "label": "Yao et al. (2025)",
+   "authors": "Yining Yao, Ziwei Li, Shuwen Xiao, Boya Du, Jialin Zhu, Junjun Zheng, Xiangheng Kong, and Yuning Jiang. 2025",
+   "title": "SaviorRec: Semantic-Behavior Alignment for Cold-Start Recommendation",
+   "venue": "(2025). arXiv:2508.01375 [cs.IR] https://arxiv.org/abs/2508.01375",
+   "year": "2025",
+   "arxiv": "2508.01375",
+   "count": 1,
+   "sections": {
+    "S1": 1
+   },
+   "subsections": {
+    "S1.SS1": 1
+   },
+   "keyword": "SaviorRec",
+   "theme": "Other"
+  },
+  {
+   "n": 35,
+   "numbers": [
+    35
+   ],
+   "label": "Ye et al. (2025)",
+   "authors": "Wencai Ye, Mingjie Sun, Shaoyun Shi, Peng Wang, Wenjin Wu, and Peng Jiang. 2025",
+   "title": "DAS: Dual-Aligned Semantic IDs Empowered Industrial Recommender System",
+   "venue": "(2025). arXiv:2508.10584 [cs.IR] https://arxiv.org/abs/2508.10584",
+   "year": "2025",
+   "arxiv": "2508.10584",
+   "count": 1,
+   "sections": {
+    "S1": 1
+   },
+   "subsections": {
+    "S1.SS1": 1
+   },
+   "keyword": "DAS",
+   "theme": "Semantic IDs & quantization"
+  },
+  {
+   "n": 36,
+   "numbers": [
+    36
+   ],
+   "label": "Yi et al. (2019)",
+   "authors": "Xinyang Yi, Ji Yang, Lichan Hong, Derek Zhiyuan Cheng, Lukasz Heldt, Aditee Kumthekar, Zhe Zhao, Li Wei, and Ed Chi. 2019",
+   "title": "Sampling-bias-corrected neural modeling for large corpus item recommendations. In Proceedings of the 13th ACM Conference on Recommender Systems (Copenhagen, Denmark) (RecSys ’19). Association for Computing Machinery, New York, NY, USA, 269–277",
+   "venue": "doi:10.1145/3298689.3346996",
+   "year": "",
+   "arxiv": "",
+   "count": 1,
+   "sections": {
+    "S1": 1
+   },
+   "subsections": {
+    "S1": 1
+   },
+   "keyword": "ACM",
+   "theme": "Industry recommenders"
+  },
+  {
+   "n": 37,
+   "numbers": [
+    37
+   ],
+   "label": "Zhai et al. (2024)",
+   "authors": "Jiaqi Zhai, Lucy Liao, Xing Liu, Yueming Wang, Rui Li, Xuan Cao, Leon Gao, Zhaojie Gong, Fangda Gu, Jiayuan He, Yinghai Lu, and Yu Shi. 2024",
+   "title": "Actions Speak Louder than Words: Trillion-Parameter Sequential Transducers for Generative Recommendations. In Proceedings of the 41st International Conference on Machine Learning (Proceedings of Machine Learning Research, Vol. 235), Ruslan Salakhutdinov, Zico Kolter, Katherine Heller, Adrian Weller, Nuria Oliver, Jonathan Scarlett, and Felix Berkenkamp (Eds.). PMLR, 58484–58509",
+   "venue": "https://proceedings.mlr.press/v235/zhai24a.html",
+   "year": "",
+   "arxiv": "",
+   "count": 2,
+   "sections": {
+    "S1": 2
+   },
+   "subsections": {
+    "S1": 1,
+    "S1.SS1": 1
+   },
+   "keyword": "PMLR",
+   "theme": "Other"
+  },
+  {
+   "n": 38,
+   "numbers": [
+    38
+   ],
+   "label": "Zhang et al. (2024)",
+   "authors": "Buyun Zhang, Liang Luo, Yuxin Chen, Jade Nie, Xi Liu, Daifeng Guo, Yanli Zhao, Shen Li, Yuchen Hao, Yantao Yao, Guna Lakshminarayanan, Ellie Dingqiao Wen, Jongsoo Park, Maxim Naumov, and Wenlin Chen. 2024",
+   "title": "Wukong: Towards a Scaling Law for Large-Scale Recommendation",
+   "venue": "(2024). arXiv:2403.02545 [cs.LG] https://arxiv.org/abs/2403.02545",
+   "year": "2024",
+   "arxiv": "2403.02545",
+   "count": 1,
+   "sections": {
+    "S1": 1
+   },
+   "subsections": {
+    "S1.SS1": 1
+   },
+   "keyword": "Wukong",
+   "theme": "Other"
+  },
+  {
+   "n": 39,
+   "numbers": [
+    39
+   ],
+   "label": "Zhao et al. (2019)",
+   "authors": "Zhe Zhao, Lichan Hong, Li Wei, Jilin Chen, Aniruddh Nath, Shawn Andrews, Aditee Kumthekar, Maheswaran Sathiamoorthy, Xinyang Yi, and Ed Chi. 2019",
+   "title": "Recommending what video to watch next: a multitask ranking system. In Proceedings of the 13th ACM Conference on Recommender Systems (Copenhagen, Denmark) (RecSys ’19)",
+   "venue": "",
+   "year": "2019",
+   "arxiv": "",
+   "count": 1,
+   "sections": {
+    "S3": 1
+   },
+   "subsections": {
+    "S3.SS4": 1
+   },
+   "keyword": "ACM",
+   "theme": "Industry recommenders"
+  },
+  {
+   "n": 40,
+   "numbers": [
+    40
+   ],
+   "label": "Zheng et al. (2025)",
+   "authors": "Carolina Zheng, Minhui Huang, Dmitrii Pedchenko, Kaushik Rangadurai, Siyu Wang, Gaby Nahum, Jie Lei, Yang Yang, Tao Liu, Zutian Luo, Xiaohan Wei, Dinesh Ramasamy, Jiyan Yang, Yiping Han, Lin Yang, Hangjun Xu, Rong Jin, and Shuang Yang. 2025",
+   "title": "Enhancing Embedding Representation Stability in Recommendation Systems with Semantic ID",
+   "venue": "(2025). arXiv:2504.02137 [cs.IR] https://arxiv.org/abs/2504.02137",
+   "year": "2025",
+   "arxiv": "2504.02137",
+   "count": 1,
+   "sections": {
+    "S1": 1
+   },
+   "subsections": {
+    "S1.SS1": 1
+   },
+   "keyword": "Enhancing Embedding",
+   "theme": "Semantic IDs & quantization"
+  },
+  {
+   "n": 41,
+   "numbers": [
+    41
+   ],
+   "label": "Zhou et al. (2025)",
+   "authors": "Guorui Zhou, Jiaxin Deng, Jinghao Zhang, Kuo Cai, Lejian Ren, Qiang Luo, Qianqian Wang, Qigen Hu, Rui Huang, Shiyao Wang, Weifeng Ding, Wuchao Li, Xinchen Luo, Xingmei Wang, Zexuan Cheng, Zixing Zhang, Bin Zhang, Boxuan Wang, Chaoyi Ma, Chengru Song, Chenhui Wang, Di Wang, Dongxue Meng, Fan Yang, Fangyu Zhang, Feng Jiang, Fuxing Zhang, Gang Wang, Guowang Zhang, Han Li, Hengrui Hu, Hezheng Lin, Hongtao Cheng, Hongyang Cao, Huanjie Wang, Jiaming Huang, Jiapeng Chen, Jiaqiang Liu, Jinghui Jia, Kun Gai, Lantao Hu, Liang Zeng, Liao Yu, Qiang Wang, Qidong Zhou, Shengzhe Wang, Shihui He, Shuang Yang, Shujie Yang, Sui Huang, Tao Wu, Tiantian He, Tingting Gao, Wei Yuan, Xiao Liang, Xiaoxiao Xu, Xugang Liu, Yan Wang, Yi Wang, Yiwu Liu, Yue Song, Yufei Zhang, Yunfan Wu, Yunfeng Zhao, and Zhanyu Liu. 2025",
+   "title": "OneRec Technical Report",
+   "venue": "arXiv:2506.13695 [cs.IR] https://arxiv.org/abs/2506.13695",
+   "year": "",
+   "arxiv": "2506.13695",
+   "count": 2,
+   "sections": {
+    "S1": 2
+   },
+   "subsections": {
+    "S1": 1,
+    "S1.SS1": 1
+   },
+   "keyword": "OneRec",
+   "theme": "Other"
+  }
+ ]
+}

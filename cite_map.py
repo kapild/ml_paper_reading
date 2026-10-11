@@ -13,7 +13,9 @@ Needs Python 3.11+ and nothing else. Papers with no HTML version are reported, n
 this script does not read PDFs.
 """
 import argparse
+import csv
 import datetime
+import glob
 import json
 import os
 import re
@@ -27,6 +29,8 @@ from html.parser import HTMLParser
 ROOT = os.path.dirname(os.path.abspath(__file__))
 CONFIG = os.path.join(ROOT, 'config')
 OUT_DIR = os.path.join(ROOT, 'docs', 'data', 'citations')
+QUEUE = os.path.join(CONFIG, 'citation_papers.csv')
+QUEUE_FIELDS = ['key', 'short', 'title', 'year', 'arxiv', 'status', 'references', 'marks', 'extracted', 'note']
 SOURCES = ['https://arxiv.org/html/{id}', 'https://ar5iv.labs.arxiv.org/html/{id}']
 UA = 'paper-read-atlas/0.1 (citation map; https://github.com/kapild/ml_paper_reading)'
 ARXIV_IN_TEXT = re.compile(r'arxiv[:\s/]*(?:abs/)?(\d{4}\.\d{4,5})', re.I)
@@ -120,7 +124,9 @@ class LatexmlDoc(HTMLParser):
             return
 
         if tag == 'li' and 'ltx_bibitem' in cls:
-            self._bib = {'id': sid, 'number': None, 'blocks': [], 'depth': self.depth}
+            m = re.match(r'bib\.bib(\d+)', sid or '')
+            self._bib = {'id': sid, 'number': int(m.group(1)) if m else None,
+                         'label': '', 'blocks': [], 'depth': self.depth}
             self.bibitems.append(self._bib)
             return
 
@@ -159,9 +165,12 @@ class LatexmlDoc(HTMLParser):
             text = clean(''.join(buf))
             if kind == 'title' and not target['label']:
                 target['label'] = text
-            elif kind == 'bibtag' and target['number'] is None:
-                m = re.search(r'\d+', text)
-                target['number'] = int(m.group(0)) if m else None
+            elif kind == 'bibtag' and not target['label']:
+                # "[19]" in a numbered bibliography, "Abnar et al. [2021]" in an author-year one
+                target['label'] = text
+                if target['number'] is None:
+                    m = re.search(r'\d+', text)
+                    target['number'] = int(m.group(0)) if m else None
             elif kind == 'bibblock' and text:
                 target['blocks'].append(text)
 
@@ -277,7 +286,8 @@ def build_references(doc, rules):
         years = YEAR.findall(venue) or YEAR.findall(' '.join(blocks))
         year = re.findall(r'\b((?:19|20)\d{2})\b', venue or ' '.join(blocks))
         arx = ARXIV_IN_TEXT.search(' '.join(blocks))
-        ref = {'n': n, 'numbers': [n], 'authors': authors, 'title': title, 'venue': venue,
+        ref = {'n': n, 'numbers': [n], 'label': item.get('label') or f'[{n}]',
+               'authors': authors, 'title': title, 'venue': venue,
                'year': year[-1] if year else '', 'arxiv': arx.group(1) if arx else '',
                'count': 0, 'sections': {}, 'subsections': {}}
         ref['keyword'] = keyword_for(title or authors)
@@ -296,6 +306,8 @@ def merge_duplicates(refs):
         first = by_title.get(key)
         if key and first:
             first['numbers'].append(n)
+            if ref['label'] and ref['label'] not in first['label']:
+                first['label'] += ' · ' + ref['label']
             first['count'] += ref['count']
             for field in ('sections', 'subsections'):
                 for k, v in ref[field].items():
@@ -311,14 +323,9 @@ def merge_duplicates(refs):
     return order, merged
 
 
-def main():
-    ap = argparse.ArgumentParser(description='Build a citation map for one arXiv paper.')
-    ap.add_argument('paper', help='arXiv id (2305.05065v3) or URL')
-    ap.add_argument('--html', help='parse this local HTML file instead of fetching')
-    args = ap.parse_args()
-
-    pid = paper_id(args.paper)
-    html, source = fetch(pid, args.html)
+def extract_paper(pid, local=None):
+    """Fetch, parse and write one paper's citation map. Returns (data, report, output path)."""
+    html, source = fetch(pid, local)
     doc = LatexmlDoc()
     doc.feed(html)
 
@@ -399,21 +406,34 @@ def main():
     with open(out, 'w', encoding='utf-8') as f:
         json.dump(data, f, ensure_ascii=False, indent=1)
 
-    index_path = os.path.join(OUT_DIR, 'index.json')
-    index = {}
-    if os.path.exists(index_path):
-        with open(index_path, encoding='utf-8') as f:
-            index = {p['arxiv']: p for p in json.load(f).get('papers', [])}
-    index[pid] = {'arxiv': pid, 'title': data['paper']['title'], 'references': len(rows),
-                  'marks': data['stats']['marks'], 'generated': data['generated']}
-    with open(index_path, 'w', encoding='utf-8') as f:
-        json.dump({'papers': sorted(index.values(), key=lambda p: p['arxiv'])}, f, ensure_ascii=False, indent=1)
+    write_index()
 
+    return data, report, out
+
+
+def write_index():
+    """Rebuild docs/data/citations/index.json from the maps on disk, so it never keeps stale rows."""
+    papers = []
+    for path in sorted(glob.glob(os.path.join(OUT_DIR, '*.json'))):
+        if os.path.basename(path) == 'index.json':
+            continue
+        with open(path, encoding='utf-8') as f:
+            d = json.load(f)
+        papers.append({'arxiv': d['paper']['arxiv'], 'title': d['paper']['title'],
+                       'references': d['stats']['rows'], 'marks': d['stats']['marks'],
+                       'generated': d['generated']})
+    with open(os.path.join(OUT_DIR, 'index.json'), 'w', encoding='utf-8') as f:
+        json.dump({'papers': papers}, f, ensure_ascii=False, indent=1)
+
+
+def print_map_report(data, report, out):
+    rows, sections, subsections = data['references'], data['sections'], data['subsections']
+    themes, merged = data['themes'], data['stats']['merged']
     top = max(rows, key=lambda r: r['count'])
     print('Citation map')
-    print(f'  source     {source}')
+    print(f'  source     {data["paper"]["source"]}')
     print(f'  paper      {data["paper"]["title"] or "(no title found)"}')
-    print(f'  references {len(refs)} bibitems, {len(rows)} rows after merging {merged} duplicate title(s)')
+    print(f'  references {data['stats']['references']} bibitems, {len(rows)} rows after merging {merged} duplicate title(s)')
     print(f'  marks      {data["stats"]["marks"]} citation marks')
     print(f'  sections   {len(sections)} cite something, {len(subsections)} subsection rows')
     print(f'  most cited [{top["numbers"][0]}] {top["keyword"]} — {top["count"]} times')
@@ -427,12 +447,96 @@ def main():
             for item in items:
                 print(f'  - {item}')
 
+
+
+def stamp_pages():
+    """Refresh the ?v= hashes so a browser picks up new data."""
     try:
         sys.path.insert(0, ROOT)
         import build
-        build.stamp_assets('cite.html')
+        for page in ('index.html', 'cite.html'):
+            build.stamp_assets(page)
     except Exception as e:  # noqa: BLE001 - stamping is a convenience, not the job
-        print(f'  (could not stamp docs/cite.html: {e})')
+        print(f'  (could not stamp the pages: {e})')
+
+
+# ---------- the queue in config/citation_papers.csv ----------
+
+def read_queue():
+    if not os.path.exists(QUEUE):
+        sys.exit(f'No {os.path.relpath(QUEUE, ROOT)} yet. Run python3 build.py once and it will create the list.')
+    with open(QUEUE, newline='', encoding='utf-8') as f:
+        return list(csv.DictReader(f))
+
+
+def write_queue(rows):
+    with open(QUEUE, 'w', newline='', encoding='utf-8') as f:
+        writer = csv.DictWriter(f, fieldnames=QUEUE_FIELDS)
+        writer.writeheader()
+        for row in rows:
+            writer.writerow({k: row.get(k, '') for k in QUEUE_FIELDS})
+
+
+def run_queue(limit=None):
+    """Extract every row whose status is "extract", then write the result back into the CSV."""
+    rows = read_queue()
+    todo = [r for r in rows if (r.get('status') or '').strip().lower() == 'extract']
+    where = os.path.relpath(QUEUE, ROOT)
+    if not todo:
+        print(f'Nothing marked for extraction in {where}.')
+        print('Set a row\'s status column to "extract" and run this again.')
+        return
+    if limit:
+        todo = todo[:limit]
+    print(f'Extracting {len(todo)} paper(s) marked "extract" in {where}.\n')
+    today = datetime.date.today().isoformat()
+    done = failed = 0
+    for row in todo:
+        name = row.get('short') or row.get('key') or row.get('arxiv')
+        arxiv = (row.get('arxiv') or '').strip()
+        if not arxiv:
+            row.update(status='no-arxiv', note='no arXiv id for this paper', extracted=today)
+            print(f'  {name}: no arXiv id, skipped')
+            failed += 1
+        else:
+            try:
+                data, paper_report, out = extract_paper(arxiv)
+            except (SystemExit, Exception) as e:  # noqa: BLE001 - one bad paper must not stop the queue
+                row.update(status='error', note=clean(str(e))[:200], extracted=today)
+                print(f'  {name}: failed — {clean(str(e))[:110]}')
+                failed += 1
+            else:
+                trouble = paper_report.get('unknown') or []
+                if not data['stats']['marks']:
+                    trouble = trouble or ['no citation marks were found in the HTML']
+                row.update(status='check' if trouble else 'done', references=str(data['stats']['rows']),
+                           marks=str(data['stats']['marks']), extracted=data['generated'],
+                           note=clean(trouble[0])[:200] if trouble else '')
+                print(f"  {name}: {data['stats']['rows']} references, {data['stats']['marks']} marks "
+                      f"-> {os.path.relpath(out, ROOT)}" + (f'\n      check: {clean(trouble[0])[:110]}' if trouble else ''))
+                done += 1
+        write_queue(rows)  # after each paper, so an interrupted run keeps what it finished
+    print(f'\n{done} extracted, {failed} failed. Statuses written back to {where}.')
+    stamp_pages()
+
+
+def main():
+    ap = argparse.ArgumentParser(description='Build citation maps from arXiv HTML.')
+    ap.add_argument('paper', nargs='?', help='arXiv id (2305.05065v3) or URL')
+    ap.add_argument('--html', help='parse this local HTML file instead of fetching')
+    ap.add_argument('--queue', action='store_true',
+                    help='extract every paper whose status is "extract" in config/citation_papers.csv')
+    ap.add_argument('--limit', type=int, help='with --queue, stop after this many papers')
+    args = ap.parse_args()
+
+    if args.queue:
+        run_queue(args.limit)
+        return
+    if not args.paper:
+        ap.error('give an arXiv id or URL, or --queue to work through config/citation_papers.csv')
+    data, report, out = extract_paper(paper_id(args.paper), args.html)
+    print_map_report(data, report, out)
+    stamp_pages()
 
 
 if __name__ == '__main__':

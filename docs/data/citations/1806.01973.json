@@ -1,0 +1,811 @@
+{
+ "generated": "2026-10-11",
+ "paper": {
+  "arxiv": "1806.01973",
+  "title": "Graph Convolutional Neural Networks for Web-Scale Recommender Systems",
+  "source": "https://arxiv.org/html/1806.01973"
+ },
+ "stats": {
+  "references": 31,
+  "rows": 31,
+  "merged": 0,
+  "marks": 67,
+  "sections": 5
+ },
+ "themes": [
+  "Other",
+  "Semantic IDs & quantization",
+  "Industry recommenders"
+ ],
+ "sections": [
+  {
+   "key": "S1",
+   "label": "1. Introduction",
+   "kind": "section",
+   "marks": 14
+  },
+  {
+   "key": "S2",
+   "label": "2. Related work",
+   "kind": "section",
+   "marks": 25
+  },
+  {
+   "key": "S3",
+   "label": "3. Method",
+   "kind": "section",
+   "marks": 13
+  },
+  {
+   "key": "S4",
+   "label": "4. Experiments",
+   "kind": "section",
+   "marks": 14
+  },
+  {
+   "key": "S5",
+   "label": "5. Conclusion",
+   "kind": "section",
+   "marks": 1
+  }
+ ],
+ "subsections": [
+  {
+   "key": "S1",
+   "section": "S1",
+   "kind": "section",
+   "label": "1. Introduction",
+   "marks": 14
+  },
+  {
+   "key": "S2",
+   "section": "S2",
+   "kind": "section",
+   "label": "2. Related work",
+   "marks": 25
+  },
+  {
+   "key": "S3",
+   "section": "S3",
+   "kind": "section",
+   "label": "3. Method",
+   "marks": 3
+  },
+  {
+   "key": "S3.SS2",
+   "section": "S3",
+   "kind": "subsection",
+   "label": "3.2. Model Architecture",
+   "marks": 3
+  },
+  {
+   "key": "S3.SS3",
+   "section": "S3",
+   "kind": "subsection",
+   "label": "3.3. Model Training",
+   "marks": 5
+  },
+  {
+   "key": "S3.SS5",
+   "section": "S3",
+   "kind": "subsection",
+   "label": "3.5. Efficient nearest-neighbor lookups",
+   "marks": 2
+  },
+  {
+   "key": "S4.SS1",
+   "section": "S4",
+   "kind": "subsection",
+   "label": "4.1. Experimental Setup",
+   "marks": 13
+  },
+  {
+   "key": "S4.SS5",
+   "section": "S4",
+   "kind": "subsection",
+   "label": "4.5. Training and Inference Runtime Analysis",
+   "marks": 1
+  },
+  {
+   "key": "S5.SSx1",
+   "section": "S5",
+   "kind": "subsection",
+   "label": "Acknowledgments",
+   "marks": 1
+  }
+ ],
+ "references": [
+  {
+   "n": 2,
+   "numbers": [
+    2
+   ],
+   "label": "Abadi et al. (2016)",
+   "authors": "M. Abadi, A. Agarwal, P. Barham, E. Brevdo, Z. Chen, C. Citro, G. S. Corrado, A. Davis, J. Dean, M. Devin, et al. 2016",
+   "title": "Tensorflow: Large-scale machine learning on heterogeneous distributed systems",
+   "venue": "arXiv preprint arXiv:1603.04467 (2016).",
+   "year": "2016",
+   "arxiv": "1603.04467",
+   "count": 1,
+   "sections": {
+    "S4": 1
+   },
+   "subsections": {
+    "S4.SS1": 1
+   },
+   "keyword": "Tensorflow",
+   "theme": "Other"
+  },
+  {
+   "n": 3,
+   "numbers": [
+    3
+   ],
+   "label": "Andoni and Indyk (2006)",
+   "authors": "A. Andoni and P. Indyk. 2006",
+   "title": "Near-optimal hashing algorithms for approximate nearest neighbor in high dimensions. In FOCS",
+   "venue": "",
+   "year": "2006",
+   "arxiv": "",
+   "count": 1,
+   "sections": {
+    "S3": 1
+   },
+   "subsections": {
+    "S3.SS5": 1
+   },
+   "keyword": "FOCS",
+   "theme": "Semantic IDs & quantization"
+  },
+  {
+   "n": 4,
+   "numbers": [
+    4
+   ],
+   "label": "Bansal et al. (2016)",
+   "authors": "T. Bansal, D. Belanger, and A. McCallum. 2016",
+   "title": "Ask the GRU: Multi-task learning for deep text recommendations. In RecSys. ACM",
+   "venue": "",
+   "year": "2016",
+   "arxiv": "",
+   "count": 1,
+   "sections": {
+    "S1": 1
+   },
+   "subsections": {
+    "S1": 1
+   },
+   "keyword": "GRU:",
+   "theme": "Other"
+  },
+  {
+   "n": 5,
+   "numbers": [
+    5
+   ],
+   "label": "Bengio et al. (2009)",
+   "authors": "Y. Bengio, J. Louradour, R. Collobert, and J. Weston. 2009",
+   "title": "Curriculum learning. In ICML",
+   "venue": "",
+   "year": "2009",
+   "arxiv": "",
+   "count": 1,
+   "sections": {
+    "S3": 1
+   },
+   "subsections": {
+    "S3.SS3": 1
+   },
+   "keyword": "ICML",
+   "theme": "Other"
+  },
+  {
+   "n": 6,
+   "numbers": [
+    6
+   ],
+   "label": "Broder et al. (2003)",
+   "authors": "A. Z. Broder, D. Carmel, M. Herscovici, A. Soffer, and J. Zien. 2003",
+   "title": "Efficient query evaluation using a two-level retrieval process. In CIKM",
+   "venue": "",
+   "year": "2003",
+   "arxiv": "",
+   "count": 1,
+   "sections": {
+    "S3": 1
+   },
+   "subsections": {
+    "S3.SS5": 1
+   },
+   "keyword": "CIKM",
+   "theme": "Other"
+  },
+  {
+   "n": 7,
+   "numbers": [
+    7
+   ],
+   "label": "Bronstein et al. (2017)",
+   "authors": "M. M. Bronstein, J. Bruna, Y. LeCun, A. Szlam, and P. Vandergheynst. 2017",
+   "title": "Geometric deep learning: Going beyond euclidean data",
+   "venue": "IEEE Signal Processing Magazine 34, 4 (2017).",
+   "year": "2017",
+   "arxiv": "",
+   "count": 4,
+   "sections": {
+    "S1": 1,
+    "S2": 2,
+    "S3": 1
+   },
+   "subsections": {
+    "S1": 1,
+    "S2": 2,
+    "S3": 1
+   },
+   "keyword": "Geometric Going",
+   "theme": "Other"
+  },
+  {
+   "n": 8,
+   "numbers": [
+    8
+   ],
+   "label": "Bruna et al. (2014)",
+   "authors": "J. Bruna, W. Zaremba, A. Szlam, and Y. LeCun. 2014",
+   "title": "Spectral networks and locally connected networks on graphs. In ICLR",
+   "venue": "",
+   "year": "2014",
+   "arxiv": "",
+   "count": 1,
+   "sections": {
+    "S2": 1
+   },
+   "subsections": {
+    "S2": 1
+   },
+   "keyword": "ICLR",
+   "theme": "Other"
+  },
+  {
+   "n": 9,
+   "numbers": [
+    9
+   ],
+   "label": "Chen et al. (2018)",
+   "authors": "J. Chen, T. Ma, and C. Xiao. 2018",
+   "title": "FastGCN: Fast Learning with Graph Convolutional Networks via Importance Sampling",
+   "venue": "ICLR (2018).",
+   "year": "2018",
+   "arxiv": "",
+   "count": 1,
+   "sections": {
+    "S2": 1
+   },
+   "subsections": {
+    "S2": 1
+   },
+   "keyword": "FastGCN",
+   "theme": "Other"
+  },
+  {
+   "n": 10,
+   "numbers": [
+    10
+   ],
+   "label": "Covington et al. (2016)",
+   "authors": "P. Covington, J. Adams, and E. Sargin. 2016",
+   "title": "Deep neural networks for youtube recommendations. In RecSys. ACM",
+   "venue": "",
+   "year": "2016",
+   "arxiv": "",
+   "count": 2,
+   "sections": {
+    "S1": 1,
+    "S4": 1
+   },
+   "subsections": {
+    "S1": 1,
+    "S4.SS1": 1
+   },
+   "keyword": "RecSys",
+   "theme": "Industry recommenders"
+  },
+  {
+   "n": 11,
+   "numbers": [
+    11
+   ],
+   "label": "Dai et al. (2016)",
+   "authors": "H. Dai, B. Dai, and L. Song. 2016",
+   "title": "Discriminative Embeddings of Latent Variable Models for Structured Data. In ICML",
+   "venue": "",
+   "year": "2016",
+   "arxiv": "",
+   "count": 1,
+   "sections": {
+    "S2": 1
+   },
+   "subsections": {
+    "S2": 1
+   },
+   "keyword": "ICML",
+   "theme": "Other"
+  },
+  {
+   "n": 12,
+   "numbers": [
+    12
+   ],
+   "label": "Defferrard et al. (2016)",
+   "authors": "M. Defferrard, X. Bresson, and P. Vandergheynst. 2016",
+   "title": "Convolutional neural networks on graphs with fast localized spectral filtering. In NIPS",
+   "venue": "",
+   "year": "2016",
+   "arxiv": "",
+   "count": 1,
+   "sections": {
+    "S2": 1
+   },
+   "subsections": {
+    "S2": 1
+   },
+   "keyword": "NIPS",
+   "theme": "Other"
+  },
+  {
+   "n": 13,
+   "numbers": [
+    13
+   ],
+   "label": "den Oord et al. (2013)",
+   "authors": "A. Van den Oord, S. Dieleman, and B. Schrauwen. 2013",
+   "title": "Deep content-based music recommendation. In NIPS",
+   "venue": "",
+   "year": "2013",
+   "arxiv": "",
+   "count": 2,
+   "sections": {
+    "S1": 1,
+    "S4": 1
+   },
+   "subsections": {
+    "S1": 1,
+    "S4.SS1": 1
+   },
+   "keyword": "NIPS",
+   "theme": "Industry recommenders"
+  },
+  {
+   "n": 14,
+   "numbers": [
+    14
+   ],
+   "label": "Duvenaud et al. (2015)",
+   "authors": "D. Duvenaud, D. Maclaurin, J. Iparraguirre, R. Bombarell, T. Hirzel, A. Aspuru-Guzik, and R. P. Adams. 2015",
+   "title": "Convolutional networks on graphs for learning molecular fingerprints. In NIPS",
+   "venue": "",
+   "year": "2015",
+   "arxiv": "",
+   "count": 2,
+   "sections": {
+    "S2": 1,
+    "S3": 1
+   },
+   "subsections": {
+    "S2": 1,
+    "S3": 1
+   },
+   "keyword": "NIPS",
+   "theme": "Other"
+  },
+  {
+   "n": 15,
+   "numbers": [
+    15
+   ],
+   "label": "Eksombatchai et al. (2018)",
+   "authors": "C. Eksombatchai, P. Jindal, J. Z. Liu, Y. Liu, R. Sharma, C. Sugnet, M. Ulrich, and J. Leskovec. 2018",
+   "title": "Pixie: A System for Recommending 3+ Billion Items to 200+ Million Users in Real-Time",
+   "venue": "WWW (2018).",
+   "year": "2018",
+   "arxiv": "",
+   "count": 5,
+   "sections": {
+    "S3": 2,
+    "S4": 2,
+    "S5": 1
+   },
+   "subsections": {
+    "S3.SS2": 1,
+    "S3.SS3": 1,
+    "S4.SS1": 2,
+    "S5.SSx1": 1
+   },
+   "keyword": "PIXIE",
+   "theme": "Other"
+  },
+  {
+   "n": 16,
+   "numbers": [
+    16
+   ],
+   "label": "Gori et al. (2005)",
+   "authors": "M. Gori, G. Monfardini, and F. Scarselli. 2005",
+   "title": "A new model for learning in graph domains. In IEEE International Joint Conference on Neural Networks",
+   "venue": "",
+   "year": "2005",
+   "arxiv": "",
+   "count": 1,
+   "sections": {
+    "S2": 1
+   },
+   "subsections": {
+    "S2": 1
+   },
+   "keyword": "IEEE",
+   "theme": "Other"
+  },
+  {
+   "n": 17,
+   "numbers": [
+    17
+   ],
+   "label": "Goyal et al. (2017)",
+   "authors": "P. Goyal, P. Dollár, R. Girshick, P. Noordhuis, L. Wesolowski, A. Kyrola, A. Tulloch, Y. Jia, and K. He. 2017",
+   "title": "Accurate, Large Minibatch SGD: Training ImageNet in 1 Hour",
+   "venue": "arXiv preprint arXiv:1706.02677 (2017).",
+   "year": "2017",
+   "arxiv": "1706.02677",
+   "count": 1,
+   "sections": {
+    "S3": 1
+   },
+   "subsections": {
+    "S3.SS3": 1
+   },
+   "keyword": "SGD:",
+   "theme": "Other"
+  },
+  {
+   "n": 18,
+   "numbers": [
+    18
+   ],
+   "label": "Grover and Leskovec (2016)",
+   "authors": "A. Grover and J. Leskovec. 2016",
+   "title": "node2vec: Scalable feature learning for networks. In KDD",
+   "venue": "",
+   "year": "2016",
+   "arxiv": "",
+   "count": 2,
+   "sections": {
+    "S2": 2
+   },
+   "subsections": {
+    "S2": 2
+   },
+   "keyword": "NODE2Vec",
+   "theme": "Other"
+  },
+  {
+   "n": 19,
+   "numbers": [
+    19
+   ],
+   "label": "Hamilton et al. (2017a)",
+   "authors": "W. L. Hamilton, R. Ying, and J. Leskovec. 2017a",
+   "title": "Inductive Representation Learning on Large Graphs. In NIPS",
+   "venue": "",
+   "year": "",
+   "arxiv": "",
+   "count": 5,
+   "sections": {
+    "S2": 2,
+    "S3": 1,
+    "S4": 2
+   },
+   "subsections": {
+    "S2": 2,
+    "S3.SS2": 1,
+    "S4.SS1": 2
+   },
+   "keyword": "NIPS",
+   "theme": "Other"
+  },
+  {
+   "n": 20,
+   "numbers": [
+    20
+   ],
+   "label": "Hamilton et al. (2017b)",
+   "authors": "W. L. Hamilton, R. Ying, and J. Leskovec. 2017b",
+   "title": "Representation Learning on Graphs: Methods and Applications",
+   "venue": "IEEE Data Engineering Bulletin (2017).",
+   "year": "2017",
+   "arxiv": "",
+   "count": 5,
+   "sections": {
+    "S1": 3,
+    "S2": 1,
+    "S4": 1
+   },
+   "subsections": {
+    "S1": 3,
+    "S2": 1,
+    "S4.SS5": 1
+   },
+   "keyword": "Representation Graphs",
+   "theme": "Other"
+  },
+  {
+   "n": 21,
+   "numbers": [
+    21
+   ],
+   "label": "Kearnes et al. (2016)",
+   "authors": "S. Kearnes, K. McCloskey, M. Berndl, V. Pande, and P. Riley. 2016",
+   "title": "Molecular graph convolutions: moving beyond fingerprints",
+   "venue": "CAMD 30, 8.",
+   "year": "",
+   "arxiv": "",
+   "count": 2,
+   "sections": {
+    "S2": 1,
+    "S3": 1
+   },
+   "subsections": {
+    "S2": 1,
+    "S3": 1
+   },
+   "keyword": "Molecular graph",
+   "theme": "Other"
+  },
+  {
+   "n": 22,
+   "numbers": [
+    22
+   ],
+   "label": "Kipf and Welling (2017)",
+   "authors": "T. N. Kipf and M. Welling. 2017",
+   "title": "Semi-supervised classification with graph convolutional networks. In ICLR",
+   "venue": "",
+   "year": "2017",
+   "arxiv": "",
+   "count": 5,
+   "sections": {
+    "S1": 2,
+    "S2": 1,
+    "S3": 1,
+    "S4": 1
+   },
+   "subsections": {
+    "S1": 2,
+    "S2": 1,
+    "S3.SS2": 1,
+    "S4.SS1": 1
+   },
+   "keyword": "ICLR",
+   "theme": "Other"
+  },
+  {
+   "n": 23,
+   "numbers": [
+    23
+   ],
+   "label": "Li et al. (2015)",
+   "authors": "Y. Li, D. Tarlow, M. Brockschmidt, and R. Zemel. 2015",
+   "title": "Gated graph sequence neural networks. In ICLR",
+   "venue": "",
+   "year": "2015",
+   "arxiv": "",
+   "count": 1,
+   "sections": {
+    "S2": 1
+   },
+   "subsections": {
+    "S2": 1
+   },
+   "keyword": "ICLR",
+   "theme": "Other"
+  },
+  {
+   "n": 24,
+   "numbers": [
+    24
+   ],
+   "label": "Mikolov et al. (2013)",
+   "authors": "T. Mikolov, I Sutskever, K. Chen, G. S. Corrado, and J. Dean. 2013",
+   "title": "Distributed representations of words and phrases and their compositionality. In NIPS",
+   "venue": "",
+   "year": "2013",
+   "arxiv": "",
+   "count": 2,
+   "sections": {
+    "S3": 1,
+    "S4": 1
+   },
+   "subsections": {
+    "S3.SS3": 1,
+    "S4.SS1": 1
+   },
+   "keyword": "NIPS",
+   "theme": "Other"
+  },
+  {
+   "n": 25,
+   "numbers": [
+    25
+   ],
+   "label": "Monti et al. (2017)",
+   "authors": "F. Monti, M. M. Bronstein, and X. Bresson. 2017",
+   "title": "Geometric matrix completion with recurrent multi-graph neural networks. In NIPS",
+   "venue": "",
+   "year": "2017",
+   "arxiv": "",
+   "count": 7,
+   "sections": {
+    "S1": 2,
+    "S2": 3,
+    "S4": 2
+   },
+   "subsections": {
+    "S1": 2,
+    "S2": 3,
+    "S4.SS1": 2
+   },
+   "keyword": "NIPS",
+   "theme": "Other"
+  },
+  {
+   "n": 26,
+   "numbers": [
+    26
+   ],
+   "label": "OpenMP Architecture Review Board (2015)",
+   "authors": "OpenMP Architecture Review Board. 2015",
+   "title": "OpenMP Application Program Interface Version 4.5",
+   "venue": "(2015).",
+   "year": "2015",
+   "arxiv": "",
+   "count": 1,
+   "sections": {
+    "S3": 1
+   },
+   "subsections": {
+    "S3.SS3": 1
+   },
+   "keyword": "OpenMP",
+   "theme": "Other"
+  },
+  {
+   "n": 27,
+   "numbers": [
+    27
+   ],
+   "label": "Perozzi et al. (2014)",
+   "authors": "B. Perozzi, R. Al-Rfou, and S. Skiena. 2014",
+   "title": "DeepWalk: Online learning of social representations. In KDD",
+   "venue": "",
+   "year": "2014",
+   "arxiv": "",
+   "count": 2,
+   "sections": {
+    "S2": 2
+   },
+   "subsections": {
+    "S2": 2
+   },
+   "keyword": "DeepWalk",
+   "theme": "Other"
+  },
+  {
+   "n": 28,
+   "numbers": [
+    28
+   ],
+   "label": "Scarselli et al. (2009)",
+   "authors": "F. Scarselli, M. Gori, A.C. Tsoi, M. Hagenbuchner, and G. Monfardini. 2009",
+   "title": "The graph neural network model",
+   "venue": "IEEE Transactions on Neural Networks 20, 1 (2009), 61–80.",
+   "year": "2009",
+   "arxiv": "",
+   "count": 1,
+   "sections": {
+    "S2": 1
+   },
+   "subsections": {
+    "S2": 1
+   },
+   "keyword": "Graph network",
+   "theme": "Other"
+  },
+  {
+   "n": 29,
+   "numbers": [
+    29
+   ],
+   "label": "Simonyan and Zisserman (2014)",
+   "authors": "K. Simonyan and A. Zisserman. 2014",
+   "title": "Very deep convolutional networks for large-scale image recognition",
+   "venue": "arXiv preprint arXiv:1409.1556 (2014).",
+   "year": "2014",
+   "arxiv": "1409.1556",
+   "count": 1,
+   "sections": {
+    "S4": 1
+   },
+   "subsections": {
+    "S4.SS1": 1
+   },
+   "keyword": "Very convolutional",
+   "theme": "Other"
+  },
+  {
+   "n": 30,
+   "numbers": [
+    30
+   ],
+   "label": "van den Berg et al. (2017)",
+   "authors": "R. van den Berg, T. N. Kipf, and M. Welling. 2017",
+   "title": "Graph Convolutional Matrix Completion",
+   "venue": "arXiv preprint arXiv:1706.02263 (2017).",
+   "year": "2017",
+   "arxiv": "1706.02263",
+   "count": 4,
+   "sections": {
+    "S1": 2,
+    "S2": 1,
+    "S4": 1
+   },
+   "subsections": {
+    "S1": 2,
+    "S2": 1,
+    "S4.SS1": 1
+   },
+   "keyword": "Graph Convolutional",
+   "theme": "Other"
+  },
+  {
+   "n": 31,
+   "numbers": [
+    31
+   ],
+   "label": "You et al. (2018)",
+   "authors": "J. You, R. Ying, X. Ren, W. L. Hamilton, and J. Leskovec. 2018",
+   "title": "GraphRNN: Generating Realistic Graphs using Deep Auto-regressive Models",
+   "venue": "ICML (2018).",
+   "year": "2018",
+   "arxiv": "",
+   "count": 1,
+   "sections": {
+    "S1": 1
+   },
+   "subsections": {
+    "S1": 1
+   },
+   "keyword": "GraphRNN",
+   "theme": "Other"
+  },
+  {
+   "n": 32,
+   "numbers": [
+    32
+   ],
+   "label": "Zitnik et al. (2018)",
+   "authors": "M. Zitnik, M. Agrawal, and J. Leskovec. 2018",
+   "title": "Modeling polypharmacy side effects with graph convolutional networks",
+   "venue": "Bioinformatics (2018).",
+   "year": "2018",
+   "arxiv": "",
+   "count": 2,
+   "sections": {
+    "S2": 2
+   },
+   "subsections": {
+    "S2": 2
+   },
+   "keyword": "Modeling polypharmacy",
+   "theme": "Other"
+  }
+ ]
+}

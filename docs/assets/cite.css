@@ -1,11 +1,11 @@
-/* Citation map page. Tokens come from style.css; this file adds the graph, the table and the dock. */
+/* Citations tab. Tokens come from style.css; this file adds the graph, the table and the dock. */
 
-.cite-page{padding-bottom:0}
-.cite-page main{padding-bottom:230px}
-.back{min-width:0;color:var(--ink);text-decoration:none;white-space:nowrap}
-.cite-page h1{font-size:clamp(24px,3.4vw,34px)}
-.cite-page .stats{font-family:var(--f-mono);font-size:13px;font-variant-numeric:tabular-nums;display:flex;flex-wrap:wrap;gap:4px 20px}
-.cite-page .stats b{font-weight:500}
+#panel-citations{padding-bottom:220px}
+.cite-top{display:flex;flex-wrap:wrap;align-items:center;gap:8px 14px;margin-bottom:12px}
+.cite-pick{display:flex;align-items:center;gap:8px;min-width:0}
+.cite-pick select{font:400 13.5px var(--f-sans);padding:7px 10px;border:1px solid var(--rule);border-radius:6px;background:var(--sheet);color:var(--ink);max-width:min(520px,70vw)}
+.cite-meta{font:12.5px var(--f-mono);color:var(--muted)}
+.cite-head{display:grid;gap:10px}
 
 .cite-view{display:flex;flex-direction:column;gap:14px}
 .cite-view .view-head{gap:10px}
@@ -61,5 +61,12 @@ svg.g{display:block;width:100%;min-width:660px;height:auto}
   .d-side{align-items:flex-start}
   .strip{display:none}
   .d-title{font-size:17px}
-  .cite-page main{padding-bottom:200px}
+  #panel-citations{padding-bottom:200px}
 }
+
+/* References that are already in the reading list */
+.g-have{fill:none;stroke:var(--accent);stroke-width:1.6}
+.g-have.read{fill:var(--accent)}
+.have-pill{display:inline-flex;align-items:center;font:500 11.5px/1.4 var(--f-sans);padding:3px 8px;border-radius:999px;border:1px solid var(--rule);color:var(--ink-2);white-space:nowrap}
+.have-pill.read{border-color:var(--accent);color:var(--accent)}
+.c-have{white-space:nowrap}

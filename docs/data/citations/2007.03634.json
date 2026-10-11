@@ -1,0 +1,774 @@
+{
+ "generated": "2026-10-11",
+ "paper": {
+  "arxiv": "2007.03634",
+  "title": "PinnerSage: Multi-Modal User Embedding Framework for Recommendations at Pinterest",
+  "source": "https://arxiv.org/html/2007.03634"
+ },
+ "stats": {
+  "references": 30,
+  "rows": 30,
+  "merged": 0,
+  "marks": 62,
+  "sections": 6
+ },
+ "themes": [
+  "Semantic IDs & quantization",
+  "Data & bias",
+  "Other",
+  "Industry recommenders"
+ ],
+ "sections": [
+  {
+   "key": "S1",
+   "label": "1. Introduction",
+   "kind": "section",
+   "marks": 19
+  },
+  {
+   "key": "S2",
+   "label": "2. PinnerSage Design Choices",
+   "kind": "section",
+   "marks": 8
+  },
+  {
+   "key": "S3",
+   "label": "3. Our Approach",
+   "kind": "section",
+   "marks": 5
+  },
+  {
+   "key": "S4",
+   "label": "4. PinnerSage Recommendation System",
+   "kind": "section",
+   "marks": 6
+  },
+  {
+   "key": "S5",
+   "label": "5. Experiment",
+   "kind": "section",
+   "marks": 3
+  },
+  {
+   "key": "S6",
+   "label": "6. Related Work",
+   "kind": "section",
+   "marks": 21
+  }
+ ],
+ "subsections": [
+  {
+   "key": "S1",
+   "section": "S1",
+   "kind": "section",
+   "label": "1. Introduction",
+   "marks": 19
+  },
+  {
+   "key": "S2",
+   "section": "S2",
+   "kind": "section",
+   "label": "2. PinnerSage Design Choices",
+   "marks": 8
+  },
+  {
+   "key": "S3",
+   "section": "S3",
+   "kind": "section",
+   "label": "3. Our Approach",
+   "marks": 2
+  },
+  {
+   "key": "S3.SS1",
+   "section": "S3",
+   "kind": "subsection",
+   "label": "3.1. PinnerSage",
+   "marks": 3
+  },
+  {
+   "key": "S4.SS1",
+   "section": "S4",
+   "kind": "subsection",
+   "label": "4.1. Approximate Nearest Neighbor Retrieval",
+   "marks": 6
+  },
+  {
+   "key": "S5.SS3",
+   "section": "S5",
+   "kind": "subsection",
+   "label": "5.3. Offline Experiments",
+   "marks": 3
+  },
+  {
+   "key": "S6",
+   "section": "S6",
+   "kind": "section",
+   "label": "6. Related Work",
+   "marks": 21
+  }
+ ],
+ "references": [
+  {
+   "n": 1,
+   "numbers": [
+    1
+   ],
+   "label": "[1]",
+   "authors": "V. Athitsos, M. Potamias, P. Papapetrou, and G. Kollios",
+   "title": "Nearest neighbor retrieval using distance-based hashing",
+   "venue": "In ICDE, 2008.",
+   "year": "2008",
+   "arxiv": "",
+   "count": 1,
+   "sections": {
+    "S4": 1
+   },
+   "subsections": {
+    "S4.SS1": 1
+   },
+   "keyword": "Nearest neighbor",
+   "theme": "Semantic IDs & quantization"
+  },
+  {
+   "n": 2,
+   "numbers": [
+    2
+   ],
+   "label": "[2]",
+   "authors": "A. Babenko and V. Lempitsky",
+   "title": "Efficient indexing of billion-scale datasets of deep descriptors",
+   "venue": "In CVPR, 2016.",
+   "year": "2016",
+   "arxiv": "",
+   "count": 1,
+   "sections": {
+    "S4": 1
+   },
+   "subsections": {
+    "S4.SS1": 1
+   },
+   "keyword": "Efficient indexing",
+   "theme": "Data & bias"
+  },
+  {
+   "n": 3,
+   "numbers": [
+    3
+   ],
+   "label": "[3]",
+   "authors": "L. Baltrunas and X. Amatriain",
+   "title": "Towards time-dependant recommendation based on implicit feedback",
+   "venue": "In Workshop on context-aware recommender systems, 2009.",
+   "year": "2009",
+   "arxiv": "",
+   "count": 3,
+   "sections": {
+    "S1": 1,
+    "S6": 2
+   },
+   "subsections": {
+    "S1": 1,
+    "S6": 2
+   },
+   "keyword": "Time-dependant recommendation",
+   "theme": "Other"
+  },
+  {
+   "n": 4,
+   "numbers": [
+    4
+   ],
+   "label": "[4]",
+   "authors": "O. Barkan and N. Koenigstein",
+   "title": "ITEM2VEC: neural item embedding for collaborative filtering",
+   "venue": "In Workshop on Machine Learning for Signal Processing, 2016.",
+   "year": "2016",
+   "arxiv": "",
+   "count": 1,
+   "sections": {
+    "S6": 1
+   },
+   "subsections": {
+    "S6": 1
+   },
+   "keyword": "ITEM2VEC",
+   "theme": "Other"
+  },
+  {
+   "n": 5,
+   "numbers": [
+    5
+   ],
+   "label": "[5]",
+   "authors": "J. G. Carbonell and J. Goldstein",
+   "title": "The use of mmr, diversity-based reranking for reordering documents and producing summaries",
+   "venue": "In SIGIR, 1998.",
+   "year": "1998",
+   "arxiv": "",
+   "count": 1,
+   "sections": {
+    "S5": 1
+   },
+   "subsections": {
+    "S5.SS3": 1
+   },
+   "keyword": "Use mmr",
+   "theme": "Other"
+  },
+  {
+   "n": 6,
+   "numbers": [
+    6
+   ],
+   "label": "[6]",
+   "authors": "H. Cheng, L. Koc, J. Harmsen, T. Shaked, T. Chandra, H. Aradhye, G. Anderson, G. Corrado, W. Chai, M. Ispir, R. Anil, Z. Haque, L. Hong, V. Jain, X. Liu, and H. Shah",
+   "title": "Wide & deep learning for recommender systems",
+   "venue": "In DLRS@RecSys, 2016.",
+   "year": "2016",
+   "arxiv": "",
+   "count": 4,
+   "sections": {
+    "S1": 2,
+    "S6": 2
+   },
+   "subsections": {
+    "S1": 2,
+    "S6": 2
+   },
+   "keyword": "Wide &",
+   "theme": "Industry recommenders"
+  },
+  {
+   "n": 7,
+   "numbers": [
+    7
+   ],
+   "label": "[7]",
+   "authors": "P. Covington, J. Adams, and E. Sargin",
+   "title": "Deep neural networks for youtube recommendations",
+   "venue": "In RecSys, pages 191–198, 2016.",
+   "year": "2016",
+   "arxiv": "",
+   "count": 6,
+   "sections": {
+    "S1": 2,
+    "S2": 2,
+    "S6": 2
+   },
+   "subsections": {
+    "S1": 2,
+    "S2": 2,
+    "S6": 2
+   },
+   "keyword": "Networks youtube",
+   "theme": "Industry recommenders"
+  },
+  {
+   "n": 8,
+   "numbers": [
+    8
+   ],
+   "label": "[8]",
+   "authors": "D. Defays",
+   "title": "An efficient algorithm for a complete link method",
+   "venue": "The Computer Journal, 20(4):364–366, 01 1977.",
+   "year": "1977",
+   "arxiv": "",
+   "count": 1,
+   "sections": {
+    "S3": 1
+   },
+   "subsections": {
+    "S3.SS1": 1
+   },
+   "keyword": "Efficient algorithm",
+   "theme": "Other"
+  },
+  {
+   "n": 9,
+   "numbers": [
+    9
+   ],
+   "label": "[9]",
+   "authors": "C. Eksombatchai, P. Jindal, J. Z. Liu, Y. Liu, R. Sharma, C. Sugnet, M. Ulrich, and J. Leskovec",
+   "title": "Pixie: A system for recommending 3+ billion items to 200+ million users in real-time",
+   "venue": "In WWW, 2018.",
+   "year": "2018",
+   "arxiv": "",
+   "count": 1,
+   "sections": {
+    "S4": 1
+   },
+   "subsections": {
+    "S4.SS1": 1
+   },
+   "keyword": "PIXIE",
+   "theme": "Other"
+  },
+  {
+   "n": 10,
+   "numbers": [
+    10
+   ],
+   "label": "[10]",
+   "authors": "A. Epasto and B. Perozzi",
+   "title": "Is a single embedding enough? learning node representations that capture multiple social contexts",
+   "venue": "In WWW, 2019.",
+   "year": "2019",
+   "arxiv": "",
+   "count": 1,
+   "sections": {
+    "S1": 1
+   },
+   "subsections": {
+    "S1": 1
+   },
+   "keyword": "Single embedding",
+   "theme": "Other"
+  },
+  {
+   "n": 11,
+   "numbers": [
+    11
+   ],
+   "label": "[11]",
+   "authors": "M. Grbovic and H. Cheng",
+   "title": "Real-time personalization using embeddings for search ranking at airbnb",
+   "venue": "In KDD, 2018.",
+   "year": "2018",
+   "arxiv": "",
+   "count": 3,
+   "sections": {
+    "S1": 1,
+    "S2": 2
+   },
+   "subsections": {
+    "S1": 1,
+    "S2": 2
+   },
+   "keyword": "Real-time personalization",
+   "theme": "Other"
+  },
+  {
+   "n": 12,
+   "numbers": [
+    12
+   ],
+   "label": "[12]",
+   "authors": "J. Johnson, M. Douze, and H. Jégou",
+   "title": "Billion-scale similarity search with gpus",
+   "venue": "CoRR, abs/1702.08734, 2017.",
+   "year": "2017",
+   "arxiv": "",
+   "count": 1,
+   "sections": {
+    "S4": 1
+   },
+   "subsections": {
+    "S4.SS1": 1
+   },
+   "keyword": "Billion-scale similarity",
+   "theme": "Other"
+  },
+  {
+   "n": 13,
+   "numbers": [
+    13
+   ],
+   "label": "[13]",
+   "authors": "K. Kenthapadi, B. Le, and G. Venkataraman",
+   "title": "Personalized job recommendation system at linkedin: Practical challenges and lessons learned",
+   "venue": "In RecSys, 2017.",
+   "year": "2017",
+   "arxiv": "",
+   "count": 1,
+   "sections": {
+    "S6": 1
+   },
+   "subsections": {
+    "S6": 1
+   },
+   "keyword": "Personalized job",
+   "theme": "Other"
+  },
+  {
+   "n": 14,
+   "numbers": [
+    14
+   ],
+   "label": "[14]",
+   "authors": "G. N. Lance and W. T. Williams",
+   "title": "A general theory of classificatory sorting strategies 1. Hierarchical systems",
+   "venue": "Computer Journal, 9(4):373–380, Feb. 1967.",
+   "year": "1967",
+   "arxiv": "",
+   "count": 1,
+   "sections": {
+    "S3": 1
+   },
+   "subsections": {
+    "S3.SS1": 1
+   },
+   "keyword": "General theory",
+   "theme": "Other"
+  },
+  {
+   "n": 15,
+   "numbers": [
+    15
+   ],
+   "label": "[15]",
+   "authors": "G. Linden, B. Smith, and J. York",
+   "title": "Amazon.com recommendations: Item-to-item collaborative filtering",
+   "venue": "IEEE Internet computing, 7(1):76–80, 2003.",
+   "year": "2003",
+   "arxiv": "",
+   "count": 1,
+   "sections": {
+    "S1": 1
+   },
+   "subsections": {
+    "S1": 1
+   },
+   "keyword": "Amazon.com recommendations",
+   "theme": "Other"
+  },
+  {
+   "n": 16,
+   "numbers": [
+    16
+   ],
+   "label": "[16]",
+   "authors": "N. Liu, Q. Tan, Y. Li, H. Yang, J. Zhou, and X. Hu",
+   "title": "Is a single vector enough?: Exploring node polysemy for network embedding",
+   "venue": "In KDD, pages 932–940, 2019.",
+   "year": "2019",
+   "arxiv": "",
+   "count": 6,
+   "sections": {
+    "S1": 2,
+    "S2": 1,
+    "S6": 3
+   },
+   "subsections": {
+    "S1": 2,
+    "S2": 1,
+    "S6": 3
+   },
+   "keyword": "Single vector",
+   "theme": "Other"
+  },
+  {
+   "n": 17,
+   "numbers": [
+    17
+   ],
+   "label": "[17]",
+   "authors": "Y. A. Malkov and D. A. Yashunin",
+   "title": "Efficient and robust approximate nearest neighbor search using hierarchical navigable small world graphs",
+   "venue": "PAMI, 2018.",
+   "year": "2018",
+   "arxiv": "",
+   "count": 1,
+   "sections": {
+    "S4": 1
+   },
+   "subsections": {
+    "S4.SS1": 1
+   },
+   "keyword": "Efficient robust",
+   "theme": "Semantic IDs & quantization"
+  },
+  {
+   "n": 18,
+   "numbers": [
+    18
+   ],
+   "label": "[18]",
+   "authors": "T. Mikolov, I. Sutskever, K. Chen, G. Corrado, and J. Dean",
+   "title": "Distributed representations of words and phrases and their compositionality",
+   "venue": "In NIPS, 2013.",
+   "year": "2013",
+   "arxiv": "",
+   "count": 1,
+   "sections": {
+    "S6": 1
+   },
+   "subsections": {
+    "S6": 1
+   },
+   "keyword": "Distributed representations",
+   "theme": "Other"
+  },
+  {
+   "n": 19,
+   "numbers": [
+    19
+   ],
+   "label": "[19]",
+   "authors": "S. Okura, Y. Tagami, S. Ono, and A. Tajima",
+   "title": "Embedding-based news recommendation for millions of users",
+   "venue": "In KDD, 2017.",
+   "year": "2017",
+   "arxiv": "",
+   "count": 1,
+   "sections": {
+    "S1": 1
+   },
+   "subsections": {
+    "S1": 1
+   },
+   "keyword": "Embedding-based news",
+   "theme": "Other"
+  },
+  {
+   "n": 20,
+   "numbers": [
+    20
+   ],
+   "label": "[20]",
+   "authors": "B. Sarwar, G. Karypis, J. Konstan, and J. Riedl",
+   "title": "Item-based collaborative filtering recommendation algorithms",
+   "venue": "In WWW, page 285–295, 2001.",
+   "year": "2001",
+   "arxiv": "",
+   "count": 1,
+   "sections": {
+    "S1": 1
+   },
+   "subsections": {
+    "S1": 1
+   },
+   "keyword": "Item-based collaborative",
+   "theme": "Other"
+  },
+  {
+   "n": 21,
+   "numbers": [
+    21
+   ],
+   "label": "[21]",
+   "authors": "K. Terasawa and Y. Tanaka",
+   "title": "Spherical lsh for approximate nearest neighbor search on unit hypersphere",
+   "venue": "In Workshop on Algorithms and Data Structures, 2007.",
+   "year": "2007",
+   "arxiv": "",
+   "count": 1,
+   "sections": {
+    "S4": 1
+   },
+   "subsections": {
+    "S4.SS1": 1
+   },
+   "keyword": "Spherical lsh",
+   "theme": "Semantic IDs & quantization"
+  },
+  {
+   "n": 22,
+   "numbers": [
+    22
+   ],
+   "label": "[22]",
+   "authors": "D. Wang, S. Deng, X. Zhang, and G. Xu",
+   "title": "Learning to embed music and metadata for context-aware music recommendation",
+   "venue": "World Wide Web, 21(5):1399–1423, 2018.",
+   "year": "2018",
+   "arxiv": "",
+   "count": 1,
+   "sections": {
+    "S6": 1
+   },
+   "subsections": {
+    "S6": 1
+   },
+   "keyword": "Embed music",
+   "theme": "Industry recommenders"
+  },
+  {
+   "n": 23,
+   "numbers": [
+    23
+   ],
+   "label": "[23]",
+   "authors": "J. Wang, P. Huang, H. Zhao, Z. Zhang, B. Zhao, and D. L. Lee",
+   "title": "Billion-scale commodity embedding for e-commerce recommendation in alibaba",
+   "venue": "In KDD, 2018.",
+   "year": "2018",
+   "arxiv": "",
+   "count": 2,
+   "sections": {
+    "S6": 2
+   },
+   "subsections": {
+    "S6": 2
+   },
+   "keyword": "Billion-scale commodity",
+   "theme": "Other"
+  },
+  {
+   "n": 24,
+   "numbers": [
+    24
+   ],
+   "label": "[24]",
+   "authors": "J. J. H. Ward",
+   "title": "Hierarchical grouping to optimize an objective function",
+   "venue": "1963.",
+   "year": "1963",
+   "arxiv": "",
+   "count": 1,
+   "sections": {
+    "S3": 1
+   },
+   "subsections": {
+    "S3.SS1": 1
+   },
+   "keyword": "Hierarchical grouping",
+   "theme": "Other"
+  },
+  {
+   "n": 25,
+   "numbers": [
+    25
+   ],
+   "label": "[25]",
+   "authors": "J. Weston, R. J. Weiss, and H. Yee",
+   "title": "Nonlinear latent factorization by embedding multiple user interests",
+   "venue": "In RecSys, pages 65–68, 2013.",
+   "year": "2013",
+   "arxiv": "",
+   "count": 6,
+   "sections": {
+    "S1": 2,
+    "S2": 1,
+    "S6": 3
+   },
+   "subsections": {
+    "S1": 2,
+    "S2": 1,
+    "S6": 3
+   },
+   "keyword": "Nonlinear latent",
+   "theme": "Other"
+  },
+  {
+   "n": 26,
+   "numbers": [
+    26
+   ],
+   "label": "[26]",
+   "authors": "L. Y. Wu, A. Fisch, S. Chopra, K. Adams, A. Bordes, and J. Weston",
+   "title": "Starspace: Embed all the things!",
+   "venue": "In AAAI, 2018.",
+   "year": "2018",
+   "arxiv": "",
+   "count": 2,
+   "sections": {
+    "S1": 1,
+    "S6": 1
+   },
+   "subsections": {
+    "S1": 1,
+    "S6": 1
+   },
+   "keyword": "Starspace",
+   "theme": "Other"
+  },
+  {
+   "n": 27,
+   "numbers": [
+    27
+   ],
+   "label": "[27]",
+   "authors": "R. Ying, R. He, K. Chen, P. Eksombatchai, W. L. Hamilton, and J. Leskovec",
+   "title": "Graph convolutional neural networks for web-scale recommender systems",
+   "venue": "In KDD, 2018.",
+   "year": "2018",
+   "arxiv": "",
+   "count": 3,
+   "sections": {
+    "S1": 1,
+    "S2": 1,
+    "S3": 1
+   },
+   "subsections": {
+    "S1": 1,
+    "S2": 1,
+    "S3": 1
+   },
+   "keyword": "Graph convolutional",
+   "theme": "Other"
+  },
+  {
+   "n": 28,
+   "numbers": [
+    28
+   ],
+   "label": "[28]",
+   "authors": "J. You, Y. Wang, A. Pal, P. Eksombatchai, C. Rosenberg, and J. Leskovec",
+   "title": "Hierarchical temporal convolutional networks for dynamic recommender systems",
+   "venue": "In WWW, 2019.",
+   "year": "2019",
+   "arxiv": "",
+   "count": 7,
+   "sections": {
+    "S1": 1,
+    "S2": 1,
+    "S3": 1,
+    "S5": 2,
+    "S6": 2
+   },
+   "subsections": {
+    "S1": 1,
+    "S2": 1,
+    "S3": 1,
+    "S5.SS3": 2,
+    "S6": 2
+   },
+   "keyword": "Hierarchical temporal",
+   "theme": "Other"
+  },
+  {
+   "n": 29,
+   "numbers": [
+    29
+   ],
+   "label": "[29]",
+   "authors": "N. Zhang, S. Deng, Z. Sun, X. Chen, W. Zhang, and H. Chen",
+   "title": "Attention-based capsule networks with dynamic routing for relation extraction",
+   "venue": "arXiv preprint arXiv:1812.11321, 2018.",
+   "year": "2018",
+   "arxiv": "1812.11321",
+   "count": 1,
+   "sections": {
+    "S1": 1
+   },
+   "subsections": {
+    "S1": 1
+   },
+   "keyword": "Attention-based capsule",
+   "theme": "Other"
+  },
+  {
+   "n": 30,
+   "numbers": [
+    30
+   ],
+   "label": "[30]",
+   "authors": "X. Zhao, R. Louca, D. Hu, and L. Hong",
+   "title": "Learning item-interaction embeddings for user recommendations",
+   "venue": "2018.",
+   "year": "2018",
+   "arxiv": "",
+   "count": 1,
+   "sections": {
+    "S1": 1
+   },
+   "subsections": {
+    "S1": 1
+   },
+   "keyword": "Item-interaction embeddings",
+   "theme": "Other"
+  }
+ ]
+}

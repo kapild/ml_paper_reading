@@ -1,0 +1,741 @@
+{
+ "generated": "2026-10-11",
+ "paper": {
+  "arxiv": "2202.06991",
+  "title": "Transformer Memory as a Differentiable Search Index",
+  "source": "https://arxiv.org/html/2202.06991"
+ },
+ "stats": {
+  "references": 29,
+  "rows": 29,
+  "merged": 0,
+  "marks": 42,
+  "sections": 5
+ },
+ "themes": [
+  "Language models & tooling",
+  "Other",
+  "Generative retrieval",
+  "Semantic IDs & quantization"
+ ],
+ "sections": [
+  {
+   "key": "S1",
+   "label": "1 Introduction",
+   "kind": "section",
+   "marks": 12
+  },
+  {
+   "key": "S2",
+   "label": "2 Related Work",
+   "kind": "section",
+   "marks": 13
+  },
+  {
+   "key": "S3",
+   "label": "3 Differentiable Search Index",
+   "kind": "section",
+   "marks": 1
+  },
+  {
+   "key": "S4",
+   "label": "4 Experiments",
+   "kind": "section",
+   "marks": 12
+  },
+  {
+   "key": "S5",
+   "label": "5 Conclusion",
+   "kind": "section",
+   "marks": 4
+  }
+ ],
+ "subsections": [
+  {
+   "key": "S1",
+   "section": "S1",
+   "kind": "section",
+   "label": "1 Introduction",
+   "marks": 12
+  },
+  {
+   "key": "S2",
+   "section": "S2",
+   "kind": "section",
+   "label": "2 Related Work",
+   "marks": 13
+  },
+  {
+   "key": "S3.SS1",
+   "section": "S3",
+   "kind": "subsection",
+   "label": "3.1 Indexing Strategies",
+   "marks": 1
+  },
+  {
+   "key": "S4.SS0.SSS0.Px1",
+   "section": "S4",
+   "kind": "paragraph",
+   "label": "Dataset",
+   "marks": 1
+  },
+  {
+   "key": "S4.SS0.SSS0.Px3",
+   "section": "S4",
+   "kind": "paragraph",
+   "label": "Implementation Details",
+   "marks": 2
+  },
+  {
+   "key": "S4.SS1",
+   "section": "S4",
+   "kind": "subsection",
+   "label": "4.1 Baselines",
+   "marks": 5
+  },
+  {
+   "key": "S4.SS2",
+   "section": "S4",
+   "kind": "subsection",
+   "label": "4.2 Experimental Results",
+   "marks": 4
+  },
+  {
+   "key": "S5",
+   "section": "S5",
+   "kind": "section",
+   "label": "5 Conclusion",
+   "marks": 4
+  }
+ ],
+ "references": [
+  {
+   "n": 1,
+   "numbers": [
+    1
+   ],
+   "label": "Abnar et al. [2021]",
+   "authors": "Samira Abnar, Mostafa Dehghani, Behnam Neyshabur, and Hanie Sedghi",
+   "title": "Exploring the limits of large scale pre-training",
+   "venue": "arXiv preprint arXiv:2110.02095, 2021.",
+   "year": "2021",
+   "arxiv": "2110.02095",
+   "count": 1,
+   "sections": {
+    "S4": 1
+   },
+   "subsections": {
+    "S4.SS2": 1
+   },
+   "keyword": "Exploring limits",
+   "theme": "Language models & tooling"
+  },
+  {
+   "n": 2,
+   "numbers": [
+    2
+   ],
+   "label": "Borgeaud et al. [2021]",
+   "authors": "Sebastian Borgeaud, Arthur Mensch, Jordan Hoffmann, Trevor Cai, Eliza Rutherford, Katie Millican, George van den Driessche, Jean-Baptiste Lespiau, Bogdan Damoc, Aidan Clark, et al",
+   "title": "Improving language models by retrieving from trillions of tokens",
+   "venue": "arXiv preprint arXiv:2112.04426, 2021.",
+   "year": "2021",
+   "arxiv": "2112.04426",
+   "count": 1,
+   "sections": {
+    "S2": 1
+   },
+   "subsections": {
+    "S2": 1
+   },
+   "keyword": "Improving language",
+   "theme": "Other"
+  },
+  {
+   "n": 3,
+   "numbers": [
+    3
+   ],
+   "label": "Brown et al. [2020]",
+   "authors": "Tom B Brown, Benjamin Mann, Nick Ryder, Melanie Subbiah, Jared Kaplan, Prafulla Dhariwal, Arvind Neelakantan, Pranav Shyam, Girish Sastry, Amanda Askell, et al",
+   "title": "Language models are few-shot learners",
+   "venue": "arXiv preprint arXiv:2005.14165, 2020.",
+   "year": "2020",
+   "arxiv": "2005.14165",
+   "count": 2,
+   "sections": {
+    "S1": 2
+   },
+   "subsections": {
+    "S1": 2
+   },
+   "keyword": "Language few-shot",
+   "theme": "Other"
+  },
+  {
+   "n": 4,
+   "numbers": [
+    4
+   ],
+   "label": "De Cao et al. [2020]",
+   "authors": "Nicola De Cao, Gautier Izacard, Sebastian Riedel, and Fabio Petroni",
+   "title": "Autoregressive entity retrieval",
+   "venue": "arXiv preprint arXiv:2010.00904, 2020.",
+   "year": "2020",
+   "arxiv": "2010.00904",
+   "count": 1,
+   "sections": {
+    "S2": 1
+   },
+   "subsections": {
+    "S2": 1
+   },
+   "keyword": "Autoregressive entity",
+   "theme": "Generative retrieval"
+  },
+  {
+   "n": 5,
+   "numbers": [
+    5
+   ],
+   "label": "Dehghani et al. [2017]",
+   "authors": "Mostafa Dehghani, Hamed Zamani, Aliaksei Severyn, Jaap Kamps, and W Bruce Croft",
+   "title": "Neural ranking models with weak supervision",
+   "venue": "In Proceedings of the 40th International ACM SIGIR Conference on Research and Development in Information Retrieval, pages 65–74, 2017.",
+   "year": "2017",
+   "arxiv": "",
+   "count": 1,
+   "sections": {
+    "S2": 1
+   },
+   "subsections": {
+    "S2": 1
+   },
+   "keyword": "Ranking weak",
+   "theme": "Other"
+  },
+  {
+   "n": 6,
+   "numbers": [
+    6
+   ],
+   "label": "Devlin et al. [2018]",
+   "authors": "Jacob Devlin, Ming-Wei Chang, Kenton Lee, and Kristina Toutanova",
+   "title": "Bert: Pre-training of deep bidirectional transformers for language understanding",
+   "venue": "arXiv preprint arXiv:1810.04805, 2018.",
+   "year": "2018",
+   "arxiv": "1810.04805",
+   "count": 2,
+   "sections": {
+    "S1": 1,
+    "S4": 1
+   },
+   "subsections": {
+    "S1": 1,
+    "S4.SS0.SSS0.Px3": 1
+   },
+   "keyword": "BERT",
+   "theme": "Language models & tooling"
+  },
+  {
+   "n": 7,
+   "numbers": [
+    7
+   ],
+   "label": "Du et al. [2021]",
+   "authors": "Nan Du, Yanping Huang, Andrew M Dai, Simon Tong, Dmitry Lepikhin, Yuanzhong Xu, Maxim Krikun, Yanqi Zhou, Adams Wei Yu, Orhan Firat, et al",
+   "title": "Glam: Efficient scaling of language models with mixture-of-experts",
+   "venue": "arXiv preprint arXiv:2112.06905, 2021.",
+   "year": "2021",
+   "arxiv": "2112.06905",
+   "count": 2,
+   "sections": {
+    "S1": 1,
+    "S5": 1
+   },
+   "subsections": {
+    "S1": 1,
+    "S5": 1
+   },
+   "keyword": "GLAM",
+   "theme": "Other"
+  },
+  {
+   "n": 8,
+   "numbers": [
+    8
+   ],
+   "label": "Fedus et al. [2021]",
+   "authors": "William Fedus, Barret Zoph, and Noam Shazeer",
+   "title": "Switch transformers: Scaling to trillion parameter models with simple and efficient sparsity",
+   "venue": "arXiv preprint arXiv:2101.03961, 2021.",
+   "year": "2021",
+   "arxiv": "2101.03961",
+   "count": 1,
+   "sections": {
+    "S5": 1
+   },
+   "subsections": {
+    "S5": 1
+   },
+   "keyword": "Switch transformers",
+   "theme": "Language models & tooling"
+  },
+  {
+   "n": 9,
+   "numbers": [
+    9
+   ],
+   "label": "Gao et al. [2021]",
+   "authors": "Tianyu Gao, Xingcheng Yao, and Danqi Chen",
+   "title": "SimCSE: Simple contrastive learning of sentence embeddings",
+   "venue": "In Proceedings of the 2021 Conference on Empirical Methods in Natural Language Processing, pages 6894–6910, Online and Punta Cana, Dominican Republic, November 2021. Association for Computational Linguistics. doi: 10.18653/v1/2021.emnlp-main.552. URL https://aclanthology.org/2021.emnlp-main.552.",
+   "year": "2021",
+   "arxiv": "",
+   "count": 1,
+   "sections": {
+    "S2": 1
+   },
+   "subsections": {
+    "S2": 1
+   },
+   "keyword": "SimCSE",
+   "theme": "Other"
+  },
+  {
+   "n": 10,
+   "numbers": [
+    10
+   ],
+   "label": "Geva et al. [2020]",
+   "authors": "Mor Geva, Roei Schuster, Jonathan Berant, and Omer Levy",
+   "title": "Transformer feed-forward layers are key-value memories",
+   "venue": "arXiv preprint arXiv:2012.14913, 2020.",
+   "year": "2020",
+   "arxiv": "2012.14913",
+   "count": 1,
+   "sections": {
+    "S2": 1
+   },
+   "subsections": {
+    "S2": 1
+   },
+   "keyword": "Transformer feed-forward",
+   "theme": "Language models & tooling"
+  },
+  {
+   "n": 11,
+   "numbers": [
+    11
+   ],
+   "label": "Gillick et al. [2018]",
+   "authors": "Daniel Gillick, Alessandro Presta, and Gaurav Singh Tomar",
+   "title": "End-to-end retrieval in continuous space",
+   "venue": "arXiv preprint arXiv:1811.08008, 2018.",
+   "year": "2018",
+   "arxiv": "1811.08008",
+   "count": 2,
+   "sections": {
+    "S1": 1,
+    "S2": 1
+   },
+   "subsections": {
+    "S1": 1,
+    "S2": 1
+   },
+   "keyword": "End-to-end retrieval",
+   "theme": "Other"
+  },
+  {
+   "n": 12,
+   "numbers": [
+    12
+   ],
+   "label": "Guo et al. [2020]",
+   "authors": "Ruiqi Guo, Philip Sun, Erik Lindgren, Quan Geng, David Simcha, Felix Chern, and Sanjiv Kumar",
+   "title": "Accelerating large-scale inference with anisotropic vector quantization",
+   "venue": "In International Conference on Machine Learning, 2020. URL https://arxiv.org/abs/1908.10396.",
+   "year": "1908",
+   "arxiv": "",
+   "count": 1,
+   "sections": {
+    "S4": 1
+   },
+   "subsections": {
+    "S4.SS1": 1
+   },
+   "keyword": "Accelerating large-scale",
+   "theme": "Semantic IDs & quantization"
+  },
+  {
+   "n": 13,
+   "numbers": [
+    13
+   ],
+   "label": "Guu et al. [2020]",
+   "authors": "Kelvin Guu, Kenton Lee, Zora Tung, and Panupong Pasupat",
+   "title": "REALM: Retrieval-Augmented Language Model Pre-Training",
+   "venue": "In Proceedings of ICML 2020, 2020.",
+   "year": "2020",
+   "arxiv": "",
+   "count": 1,
+   "sections": {
+    "S2": 1
+   },
+   "subsections": {
+    "S2": 1
+   },
+   "keyword": "REALM",
+   "theme": "Language models & tooling"
+  },
+  {
+   "n": 14,
+   "numbers": [
+    14
+   ],
+   "label": "Josifoski et al. [2021]",
+   "authors": "Martin Josifoski, Nicola De Cao, Maxime Peyrard, and Robert West",
+   "title": "Genie: Generative information extraction",
+   "venue": "arXiv preprint arXiv:2112.08340, 2021.",
+   "year": "2021",
+   "arxiv": "2112.08340",
+   "count": 1,
+   "sections": {
+    "S2": 1
+   },
+   "subsections": {
+    "S2": 1
+   },
+   "keyword": "GENIE",
+   "theme": "Other"
+  },
+  {
+   "n": 15,
+   "numbers": [
+    15
+   ],
+   "label": "Kaplan et al. [2020]",
+   "authors": "Jared Kaplan, Sam McCandlish, Tom Henighan, Tom B Brown, Benjamin Chess, Rewon Child, Scott Gray, Alec Radford, Jeffrey Wu, and Dario Amodei",
+   "title": "Scaling laws for neural language models",
+   "venue": "arXiv preprint arXiv:2001.08361, 2020.",
+   "year": "2020",
+   "arxiv": "2001.08361",
+   "count": 1,
+   "sections": {
+    "S4": 1
+   },
+   "subsections": {
+    "S4.SS2": 1
+   },
+   "keyword": "Scaling laws",
+   "theme": "Other"
+  },
+  {
+   "n": 16,
+   "numbers": [
+    16
+   ],
+   "label": "Karpukhin et al. [2020]",
+   "authors": "Vladimir Karpukhin, Barlas Oğuz, Sewon Min, Patrick Lewis, Ledell Wu, Sergey Edunov, Danqi Chen, and Wen-tau Yih",
+   "title": "Dense passage retrieval for open-domain question answering",
+   "venue": "arXiv preprint arXiv:2004.04906, 2020.",
+   "year": "2020",
+   "arxiv": "2004.04906",
+   "count": 3,
+   "sections": {
+    "S1": 1,
+    "S2": 1,
+    "S4": 1
+   },
+   "subsections": {
+    "S1": 1,
+    "S2": 1,
+    "S4.SS1": 1
+   },
+   "keyword": "Dense passage",
+   "theme": "Other"
+  },
+  {
+   "n": 17,
+   "numbers": [
+    17
+   ],
+   "label": "Kwiatkowski et al. [2019]",
+   "authors": "Tom Kwiatkowski, Jennimaria Palomaki, Olivia Redfield, Michael Collins, Ankur Parikh, Chris Alberti, Danielle Epstein, Illia Polosukhin, Jacob Devlin Kenton Lee, Kristina Toutanova, Llion Jones Matthew Kelcey, Ming-Wei Chang, Andrew M Dai, Jakob Uszkoreit, Quoc Le, and Slav Petrov",
+   "title": "Natural Questions: a Benchmark for Question Answering Research",
+   "venue": "In Transactions of the ACL, 2019.",
+   "year": "2019",
+   "arxiv": "",
+   "count": 1,
+   "sections": {
+    "S4": 1
+   },
+   "subsections": {
+    "S4.SS0.SSS0.Px1": 1
+   },
+   "keyword": "Natural Questions",
+   "theme": "Other"
+  },
+  {
+   "n": 18,
+   "numbers": [
+    18
+   ],
+   "label": "Lepikhin et al. [2020]",
+   "authors": "Dmitry Lepikhin, HyoukJoong Lee, Yuanzhong Xu, Dehao Chen, Orhan Firat, Yanping Huang, Maxim Krikun, Noam Shazeer, and Zhifeng Chen",
+   "title": "Gshard: Scaling giant models with conditional computation and automatic sharding",
+   "venue": "arXiv preprint arXiv:2006.16668, 2020.",
+   "year": "2020",
+   "arxiv": "2006.16668",
+   "count": 1,
+   "sections": {
+    "S5": 1
+   },
+   "subsections": {
+    "S5": 1
+   },
+   "keyword": "Gshard",
+   "theme": "Other"
+  },
+  {
+   "n": 19,
+   "numbers": [
+    19
+   ],
+   "label": "Metzler et al. [2021]",
+   "authors": "Donald Metzler, Yi Tay, Dara Bahri, and Marc Najork",
+   "title": "Rethinking search: making domain experts out of dilettantes",
+   "venue": "In ACM SIGIR Forum, volume 55, pages 1–27. ACM New York, NY, USA, 2021.",
+   "year": "2021",
+   "arxiv": "",
+   "count": 1,
+   "sections": {
+    "S5": 1
+   },
+   "subsections": {
+    "S5": 1
+   },
+   "keyword": "Rethinking search",
+   "theme": "Other"
+  },
+  {
+   "n": 20,
+   "numbers": [
+    20
+   ],
+   "label": "Ni et al. [2021]",
+   "authors": "Jianmo Ni, Gustavo Hernández Ábrego, Noah Constant, Ji Ma, Keith B Hall, Daniel Cer, and Yinfei Yang",
+   "title": "Sentence-t5: Scalable sentence encoders from pre-trained text-to-text models",
+   "venue": "arXiv preprint arXiv:2108.08877, 2021.",
+   "year": "2021",
+   "arxiv": "2108.08877",
+   "count": 6,
+   "sections": {
+    "S1": 1,
+    "S2": 1,
+    "S4": 4
+   },
+   "subsections": {
+    "S1": 1,
+    "S2": 1,
+    "S4.SS1": 3,
+    "S4.SS2": 1
+   },
+   "keyword": "Sentence-T5",
+   "theme": "Language models & tooling"
+  },
+  {
+   "n": 21,
+   "numbers": [
+    21
+   ],
+   "label": "Petroni et al. [2019]",
+   "authors": "Fabio Petroni, Tim Rocktäschel, Patrick Lewis, Anton Bakhtin, Yuxiang Wu, Alexander H Miller, and Sebastian Riedel",
+   "title": "Language models as knowledge bases?",
+   "venue": "arXiv preprint arXiv:1909.01066, 2019.",
+   "year": "2019",
+   "arxiv": "1909.01066",
+   "count": 1,
+   "sections": {
+    "S2": 1
+   },
+   "subsections": {
+    "S2": 1
+   },
+   "keyword": "Language as",
+   "theme": "Other"
+  },
+  {
+   "n": 22,
+   "numbers": [
+    22
+   ],
+   "label": "Raffel et al. [2019]",
+   "authors": "Colin Raffel, Noam Shazeer, Adam Roberts, Katherine Lee, Sharan Narang, Michael Matena, Yanqi Zhou, Wei Li, and Peter J Liu",
+   "title": "Exploring the limits of transfer learning with a unified text-to-text transformer",
+   "venue": "arXiv preprint arXiv:1910.10683, 2019.",
+   "year": "2019",
+   "arxiv": "1910.10683",
+   "count": 3,
+   "sections": {
+    "S1": 1,
+    "S3": 1,
+    "S4": 1
+   },
+   "subsections": {
+    "S1": 1,
+    "S3.SS1": 1,
+    "S4.SS0.SSS0.Px3": 1
+   },
+   "keyword": "Exploring limits",
+   "theme": "Language models & tooling"
+  },
+  {
+   "n": 23,
+   "numbers": [
+    23
+   ],
+   "label": "Ramsauer et al. [2020]",
+   "authors": "Hubert Ramsauer, Bernhard Schäfl, Johannes Lehner, Philipp Seidl, Michael Widrich, Thomas Adler, Lukas Gruber, Markus Holzleitner, Milena Pavlović, Geir Kjetil Sandve, et al",
+   "title": "Hopfield networks is all you need",
+   "venue": "arXiv preprint arXiv:2008.02217, 2020.",
+   "year": "2020",
+   "arxiv": "2008.02217",
+   "count": 1,
+   "sections": {
+    "S2": 1
+   },
+   "subsections": {
+    "S2": 1
+   },
+   "keyword": "Hopfield networks",
+   "theme": "Other"
+  },
+  {
+   "n": 24,
+   "numbers": [
+    24
+   ],
+   "label": "Roberts et al. [2020]",
+   "authors": "Adam Roberts, Colin Raffel, and Noam Shazeer",
+   "title": "How much knowledge can you pack into the parameters of a language model?",
+   "venue": "arXiv preprint arXiv:2002.08910, 2020.",
+   "year": "2020",
+   "arxiv": "2002.08910",
+   "count": 1,
+   "sections": {
+    "S2": 1
+   },
+   "subsections": {
+    "S2": 1
+   },
+   "keyword": "How much",
+   "theme": "Other"
+  },
+  {
+   "n": 25,
+   "numbers": [
+    25
+   ],
+   "label": "Sun et al. [2020]",
+   "authors": "Yu Sun, Xiaolong Wang, Zhuang Liu, John Miller, Alexei Efros, and Moritz Hardt",
+   "title": "Test-time training with self-supervision for generalization under distribution shifts",
+   "venue": "In Hal Daumé III and Aarti Singh, editors, Proceedings of the 37th International Conference on Machine Learning, volume 119 of Proceedings of Machine Learning Research, pages 9229–9248. PMLR, 13–18 Jul 2020. URL https://proceedings.mlr.press/v119/sun20b.html.",
+   "year": "2020",
+   "arxiv": "",
+   "count": 1,
+   "sections": {
+    "S1": 1
+   },
+   "subsections": {
+    "S1": 1
+   },
+   "keyword": "Test-time training",
+   "theme": "Other"
+  },
+  {
+   "n": 26,
+   "numbers": [
+    26
+   ],
+   "label": "Sutskever et al. [2014]",
+   "authors": "Ilya Sutskever, Oriol Vinyals, and Quoc V Le",
+   "title": "Sequence to sequence learning with neural networks",
+   "venue": "arXiv preprint arXiv:1409.3215, 2014.",
+   "year": "2014",
+   "arxiv": "1409.3215",
+   "count": 1,
+   "sections": {
+    "S1": 1
+   },
+   "subsections": {
+    "S1": 1
+   },
+   "keyword": "Sequence sequence",
+   "theme": "Other"
+  },
+  {
+   "n": 27,
+   "numbers": [
+    27
+   ],
+   "label": "Tay et al. [2021]",
+   "authors": "Yi Tay, Mostafa Dehghani, Jinfeng Rao, William Fedus, Samira Abnar, Hyung Won Chung, Sharan Narang, Dani Yogatama, Ashish Vaswani, and Donald Metzler",
+   "title": "Scale efficiently: Insights from pre-training and fine-tuning transformers",
+   "venue": "arXiv preprint arXiv:2109.10686, 2021.",
+   "year": "2021",
+   "arxiv": "2109.10686",
+   "count": 1,
+   "sections": {
+    "S4": 1
+   },
+   "subsections": {
+    "S4.SS2": 1
+   },
+   "keyword": "Scale efficiently",
+   "theme": "Language models & tooling"
+  },
+  {
+   "n": 28,
+   "numbers": [
+    28
+   ],
+   "label": "Thoppilan et al. [2022]",
+   "authors": "Romal Thoppilan, Daniel De Freitas, Jamie Hall, Noam Shazeer, Apoorv Kulshreshtha, Heng-Tze Cheng, Alicia Jin, Taylor Bos, Leslie Baker, Yu Du, et al",
+   "title": "Lamda: Language models for dialog applications",
+   "venue": "arXiv preprint arXiv:2201.08239, 2022.",
+   "year": "2022",
+   "arxiv": "2201.08239",
+   "count": 1,
+   "sections": {
+    "S1": 1
+   },
+   "subsections": {
+    "S1": 1
+   },
+   "keyword": "LAMDA",
+   "theme": "Other"
+  },
+  {
+   "n": 29,
+   "numbers": [
+    29
+   ],
+   "label": "Vaswani et al. [2017]",
+   "authors": "Ashish Vaswani, Noam Shazeer, Niki Parmar, Jakob Uszkoreit, Llion Jones, Aidan N Gomez, Łukasz Kaiser, and Illia Polosukhin",
+   "title": "Attention is all you need",
+   "venue": "In Advances in neural information processing systems, pages 5998–6008, 2017.",
+   "year": "2017",
+   "arxiv": "",
+   "count": 1,
+   "sections": {
+    "S1": 1
+   },
+   "subsections": {
+    "S1": 1
+   },
+   "keyword": "Attention all",
+   "theme": "Language models & tooling"
+  }
+ ]
+}

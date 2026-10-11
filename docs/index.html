@@ -10,6 +10,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;1,400&family=STIX+Two+Text:ital,wght@0,400;0,500;0,600;1,400&display=swap">
 <link rel="stylesheet" href="assets/style.css?v=f22e70082e">
+<link rel="stylesheet" href="assets/cite.css?v=960f91dbf1">
 </head>
 <body>
 
@@ -29,6 +30,7 @@
     <button type="button" class="tab" role="tab" id="tab-timeline" data-tab="timeline" aria-controls="panel-timeline">Timeline</button>
     <button type="button" class="tab" role="tab" id="tab-lineages" data-tab="lineages" aria-controls="panel-lineages">Lineages</button>
     <button type="button" class="tab" role="tab" id="tab-graph" data-tab="graph" aria-controls="panel-graph">Graph</button>
+    <button type="button" class="tab" role="tab" id="tab-citations" data-tab="citations" aria-controls="panel-citations">Citations</button>
     <button type="button" class="tab" role="tab" id="tab-tables" data-tab="tables" aria-controls="panel-tables">Tables</button>
   </nav>
 </header>
@@ -126,6 +128,15 @@
     </div>
   </section>
 
+  <section class="view" role="tabpanel" id="panel-citations" aria-labelledby="tab-citations" hidden>
+    <div class="view-head">
+      <h2>Citations</h2>
+      <p>Every in-text citation in one paper, mapped to its reference. To add a paper, set its status to <code>extract</code> in <code>config/citation_papers.csv</code>, run <code>python3 cite_map.py --queue</code>, then rebuild.</p>
+    </div>
+    <div class="cite-top" id="cite-top"></div>
+    <div class="cite-view" id="cite-root"></div>
+  </section>
+
   <section class="view" role="tabpanel" id="panel-tables" aria-labelledby="tab-tables" hidden>
     <div class="view-head">
       <h2>Tables</h2>
@@ -209,7 +220,8 @@
 
 <div id="tip" role="tooltip" hidden></div>
 
-<script src="data/papers.js?v=3fdef03295"></script>
-<script src="assets/app.js?v=9a963cdbff"></script>
+<script src="data/papers.js?v=cdf62d9287"></script>
+<script src="assets/cite.js?v=6287bc8843"></script>
+<script src="assets/app.js?v=23897340a2"></script>
 </body>
 </html>

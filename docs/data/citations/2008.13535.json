@@ -1,0 +1,1371 @@
+{
+ "generated": "2026-10-11",
+ "paper": {
+  "arxiv": "2008.13535",
+  "title": "DCN V2: Improved Deep & Cross Network and Practical Lessons for Web-scale Learning to Rank Systems",
+  "source": "https://arxiv.org/html/2008.13535"
+ },
+ "stats": {
+  "references": 52,
+  "rows": 52,
+  "merged": 0,
+  "marks": 125,
+  "sections": 8
+ },
+ "themes": [
+  "Other",
+  "Industry recommenders",
+  "Sequential recommenders",
+  "Language models & tooling"
+ ],
+ "sections": [
+  {
+   "key": "S1",
+   "label": "1. Introduction",
+   "kind": "section",
+   "marks": 37
+  },
+  {
+   "key": "S2",
+   "label": "2. Related Work",
+   "kind": "section",
+   "marks": 10
+  },
+  {
+   "key": "S3",
+   "label": "3. Proposed Architecture: DCN-V2",
+   "kind": "section",
+   "marks": 19
+  },
+  {
+   "key": "S4",
+   "label": "4. Model Analysis",
+   "kind": "section",
+   "marks": 6
+  },
+  {
+   "key": "S6",
+   "label": "6. Empirical understanding of feature crossing techniques (RQ1)",
+   "kind": "section",
+   "marks": 8
+  },
+  {
+   "key": "S7",
+   "label": "7. Experimental Results (RQ2 - RQ5)",
+   "kind": "section",
+   "marks": 38
+  },
+  {
+   "key": "S8",
+   "label": "8. Productionizing DCN-V2 at Google",
+   "kind": "section",
+   "marks": 2
+  },
+  {
+   "key": "S10",
+   "label": "10. Baseline performance reported in papers",
+   "kind": "section",
+   "marks": 5
+  }
+ ],
+ "subsections": [
+  {
+   "key": "S1",
+   "section": "S1",
+   "kind": "section",
+   "label": "1. Introduction",
+   "marks": 37
+  },
+  {
+   "key": "S2",
+   "section": "S2",
+   "kind": "section",
+   "label": "2. Related Work",
+   "marks": 10
+  },
+  {
+   "key": "S3",
+   "section": "S3",
+   "kind": "section",
+   "label": "3. Proposed Architecture: DCN-V2",
+   "marks": 1
+  },
+  {
+   "key": "S3.SS1",
+   "section": "S3",
+   "kind": "subsection",
+   "label": "3.1. Embedding Layer",
+   "marks": 6
+  },
+  {
+   "key": "S3.SS5",
+   "section": "S3",
+   "kind": "subsection",
+   "label": "3.5. Cost-Effective Mixture of Low-Rank DCN",
+   "marks": 12
+  },
+  {
+   "key": "S4",
+   "section": "S4",
+   "kind": "section",
+   "label": "4. Model Analysis",
+   "marks": 1
+  },
+  {
+   "key": "S4.SS1",
+   "section": "S4",
+   "kind": "subsection",
+   "label": "4.1. Polynomial Approximation",
+   "marks": 3
+  },
+  {
+   "key": "S4.SS2",
+   "section": "S4",
+   "kind": "subsection",
+   "label": "4.2. Connections to Related Work",
+   "marks": 2
+  },
+  {
+   "key": "S6",
+   "section": "S6",
+   "kind": "section",
+   "label": "6. Empirical understanding of feature crossing techniques (RQ1)",
+   "marks": 8
+  },
+  {
+   "key": "S7",
+   "section": "S7",
+   "kind": "section",
+   "label": "7. Experimental Results (RQ2 - RQ5)",
+   "marks": 5
+  },
+  {
+   "key": "S7.SS1",
+   "section": "S7",
+   "kind": "subsection",
+   "label": "7.1. Experiment Setup",
+   "marks": 12
+  },
+  {
+   "key": "S7.SS2",
+   "section": "S7",
+   "kind": "subsection",
+   "label": "7.2. Performance of Feature Interaction Component Alone (RQ2)",
+   "marks": 3
+  },
+  {
+   "key": "S7.SS3",
+   "section": "S7",
+   "kind": "subsection",
+   "label": "7.3. Performance of Baselines (RQ3)",
+   "marks": 9
+  },
+  {
+   "key": "S7.SS4",
+   "section": "S7",
+   "kind": "subsection",
+   "label": "7.4. Can Cross Layers Replace ReLU layers?",
+   "marks": 6
+  },
+  {
+   "key": "S7.SS5",
+   "section": "S7",
+   "kind": "subsection",
+   "label": "7.5. How the Choice of Hyper-parameters Affect DCN-V2 Model Performance (RQ4)",
+   "marks": 3
+  },
+  {
+   "key": "S8",
+   "section": "S8",
+   "kind": "section",
+   "label": "8. Productionizing DCN-V2 at Google",
+   "marks": 2
+  },
+  {
+   "key": "S10",
+   "section": "S10",
+   "kind": "section",
+   "label": "10. Baseline performance reported in papers",
+   "marks": 5
+  }
+ ],
+ "references": [
+  {
+   "n": 2,
+   "numbers": [
+    2
+   ],
+   "label": "Beutel et al. (2018)",
+   "authors": "Alex Beutel, Paul Covington, Sagar Jain, Can Xu, Jia Li, Vince Gatto, and Ed H Chi. 2018",
+   "title": "Latent cross: Making use of context in recurrent recommender systems. In Proceedings of the Eleventh ACM International Conference on Web Search and Data Mining. 46–54",
+   "venue": "",
+   "year": "2018",
+   "arxiv": "",
+   "count": 5,
+   "sections": {
+    "S1": 3,
+    "S6": 2
+   },
+   "subsections": {
+    "S1": 3,
+    "S6": 2
+   },
+   "keyword": "Latent cross",
+   "theme": "Other"
+  },
+  {
+   "n": 3,
+   "numbers": [
+    3
+   ],
+   "label": "Bottou et al. (2013)",
+   "authors": "Léon Bottou, Jonas Peters, Joaquin Quiñonero-Candela, Denis X Charles, D Max Chickering, Elon Portugaly, Dipankar Ray, Patrice Simard, and Ed Snelson. 2013",
+   "title": "Counterfactual reasoning and learning systems: The example of computational advertising",
+   "venue": "The Journal of Machine Learning Research 14, 1 (2013), 3207–3260.",
+   "year": "2013",
+   "arxiv": "",
+   "count": 1,
+   "sections": {
+    "S1": 1
+   },
+   "subsections": {
+    "S1": 1
+   },
+   "keyword": "Counterfactual reasoning",
+   "theme": "Other"
+  },
+  {
+   "n": 4,
+   "numbers": [
+    4
+   ],
+   "label": "Broder (2008)",
+   "authors": "Andrei Z Broder. 2008",
+   "title": "Computational advertising and recommender systems. In Proceedings of the 2008 ACM conference on Recommender systems. 1–2",
+   "venue": "",
+   "year": "2008",
+   "arxiv": "",
+   "count": 1,
+   "sections": {
+    "S1": 1
+   },
+   "subsections": {
+    "S1": 1
+   },
+   "keyword": "ACM",
+   "theme": "Other"
+  },
+  {
+   "n": 5,
+   "numbers": [
+    5
+   ],
+   "label": "Cao et al. (2007)",
+   "authors": "Zhe Cao, Tao Qin, Tie-Yan Liu, Ming-Feng Tsai, and Hang Li. 2007",
+   "title": "Learning to rank: from pairwise approach to listwise approach. In Proceedings of the 24th international conference on Machine learning. 129–136",
+   "venue": "",
+   "year": "2007",
+   "arxiv": "",
+   "count": 1,
+   "sections": {
+    "S1": 1
+   },
+   "subsections": {
+    "S1": 1
+   },
+   "keyword": "Rank pairwise",
+   "theme": "Other"
+  },
+  {
+   "n": 6,
+   "numbers": [
+    6
+   ],
+   "label": "Chen et al. (2018)",
+   "authors": "Ting Chen, Ji Lin, Tian Lin, Song Han, Chong Wang, and Denny Zhou. 2018",
+   "title": "Adaptive mixture of low-rank factorizations for compact neural modeling",
+   "venue": "(2018).",
+   "year": "2018",
+   "arxiv": "",
+   "count": 1,
+   "sections": {
+    "S3": 1
+   },
+   "subsections": {
+    "S3.SS5": 1
+   },
+   "keyword": "Adaptive mixture",
+   "theme": "Other"
+  },
+  {
+   "n": 7,
+   "numbers": [
+    7
+   ],
+   "label": "Cheng et al. (2016)",
+   "authors": "Heng-Tze Cheng, Levent Koc, Jeremiah Harmsen, Tal Shaked, Tushar Chandra, Hrishi Aradhye, Glen Anderson, Greg Corrado, Wei Chai, Mustafa Ispir, et al. 2016",
+   "title": "Wide & Deep Learning for Recommender Systems",
+   "venue": "arXiv preprint arXiv:1606.07792 (2016).",
+   "year": "2016",
+   "arxiv": "1606.07792",
+   "count": 5,
+   "sections": {
+    "S1": 3,
+    "S2": 1,
+    "S6": 1
+   },
+   "subsections": {
+    "S1": 3,
+    "S2": 1,
+    "S6": 1
+   },
+   "keyword": "Wide &",
+   "theme": "Industry recommenders"
+  },
+  {
+   "n": 8,
+   "numbers": [
+    8
+   ],
+   "label": "Cheng et al. (2019)",
+   "authors": "Weiyu Cheng, Yanyan Shen, and Linpeng Huang. 2019",
+   "title": "Adaptive Factorization Network: Learning Adaptive-Order Feature Interactions",
+   "venue": "arXiv preprint arXiv:1909.03276 (2019).",
+   "year": "2019",
+   "arxiv": "1909.03276",
+   "count": 1,
+   "sections": {
+    "S2": 1
+   },
+   "subsections": {
+    "S2": 1
+   },
+   "keyword": "Adaptive Factorization",
+   "theme": "Other"
+  },
+  {
+   "n": 9,
+   "numbers": [
+    9
+   ],
+   "label": "Dacrema et al. (2019)",
+   "authors": "Maurizio Ferrari Dacrema, Paolo Cremonesi, and Dietmar Jannach. 2019",
+   "title": "Are we really making much progress? A worrying analysis of recent neural recommendation approaches. In Proceedings of the 13th ACM Conference on Recommender Systems. 101–109",
+   "venue": "",
+   "year": "2019",
+   "arxiv": "",
+   "count": 1,
+   "sections": {
+    "S7": 1
+   },
+   "subsections": {
+    "S7": 1
+   },
+   "keyword": "ACM",
+   "theme": "Other"
+  },
+  {
+   "n": 10,
+   "numbers": [
+    10
+   ],
+   "label": "Drineas and Mahoney (2005)",
+   "authors": "Petros Drineas and Michael W Mahoney. 2005",
+   "title": "On the Nyström method for approximating a Gram matrix for improved kernel-based learning",
+   "venue": "journal of machine learning research 6, Dec (2005), 2153–2175.",
+   "year": "2005",
+   "arxiv": "",
+   "count": 1,
+   "sections": {
+    "S3": 1
+   },
+   "subsections": {
+    "S3.SS5": 1
+   },
+   "keyword": "Nyström method",
+   "theme": "Other"
+  },
+  {
+   "n": 11,
+   "numbers": [
+    11
+   ],
+   "label": "Eigen et al. (2013)",
+   "authors": "David Eigen, Marc’Aurelio Ranzato, and Ilya Sutskever. 2013",
+   "title": "Learning factored representations in a deep mixture of experts",
+   "venue": "arXiv preprint arXiv:1312.4314 (2013).",
+   "year": "2013",
+   "arxiv": "1312.4314",
+   "count": 1,
+   "sections": {
+    "S3": 1
+   },
+   "subsections": {
+    "S3.SS5": 1
+   },
+   "keyword": "Factored representations",
+   "theme": "Other"
+  },
+  {
+   "n": 12,
+   "numbers": [
+    12
+   ],
+   "label": "Fan et al. (2019)",
+   "authors": "Yuwei Fan, Jordi Feliu-Faba, Lin Lin, Lexing Ying, and Leonardo Zepeda-Núnez. 2019",
+   "title": "A multiscale neural network based on hierarchical nested bases",
+   "venue": "Research in the Mathematical Sciences 6, 2 (2019), 21.",
+   "year": "2019",
+   "arxiv": "",
+   "count": 1,
+   "sections": {
+    "S3": 1
+   },
+   "subsections": {
+    "S3.SS5": 1
+   },
+   "keyword": "Multiscale network",
+   "theme": "Other"
+  },
+  {
+   "n": 13,
+   "numbers": [
+    13
+   ],
+   "label": "Golub and Van Loan (1996)",
+   "authors": "Gene H Golub and Charles F Van Loan. 1996",
+   "title": "Matrix Computations Johns Hopkins University Press",
+   "venue": "Baltimore and London (1996).",
+   "year": "1996",
+   "arxiv": "",
+   "count": 1,
+   "sections": {
+    "S3": 1
+   },
+   "subsections": {
+    "S3.SS5": 1
+   },
+   "keyword": "Matrix Computations",
+   "theme": "Other"
+  },
+  {
+   "n": 14,
+   "numbers": [
+    14
+   ],
+   "label": "Guo et al. (2017)",
+   "authors": "Huifeng Guo, Ruiming Tang, Yunming Ye, Zhenguo Li, and Xiuqiang He. 2017",
+   "title": "DeepFM: a factorization-machine based neural network for CTR prediction",
+   "venue": "arXiv preprint arXiv:1703.04247 (2017).",
+   "year": "2017",
+   "arxiv": "1703.04247",
+   "count": 9,
+   "sections": {
+    "S1": 3,
+    "S2": 1,
+    "S3": 1,
+    "S6": 1,
+    "S7": 2,
+    "S10": 1
+   },
+   "subsections": {
+    "S1": 3,
+    "S2": 1,
+    "S3.SS1": 1,
+    "S6": 1,
+    "S7.SS1": 1,
+    "S7.SS3": 1,
+    "S10": 1
+   },
+   "keyword": "DeepFM",
+   "theme": "Other"
+  },
+  {
+   "n": 15,
+   "numbers": [
+    15
+   ],
+   "label": "Halko et al. (2011)",
+   "authors": "Nathan Halko, Per-Gunnar Martinsson, and Joel A Tropp. 2011",
+   "title": "Finding structure with randomness: Probabilistic algorithms for constructing approximate matrix decompositions",
+   "venue": "SIAM review 53, 2 (2011), 217–288.",
+   "year": "2011",
+   "arxiv": "",
+   "count": 1,
+   "sections": {
+    "S3": 1
+   },
+   "subsections": {
+    "S3.SS5": 1
+   },
+   "keyword": "Finding structure",
+   "theme": "Other"
+  },
+  {
+   "n": 16,
+   "numbers": [
+    16
+   ],
+   "label": "He et al. (2015)",
+   "authors": "Kaiming He, Xiangyu Zhang, Shaoqing Ren, and Jian Sun. 2015",
+   "title": "Delving deep into rectifiers: Surpassing human-level performance on imagenet classification. In Proceedings of the IEEE international conference on computer vision. 1026–1034",
+   "venue": "",
+   "year": "2015",
+   "arxiv": "",
+   "count": 1,
+   "sections": {
+    "S7": 1
+   },
+   "subsections": {
+    "S7.SS1": 1
+   },
+   "keyword": "IEEE",
+   "theme": "Other"
+  },
+  {
+   "n": 17,
+   "numbers": [
+    17
+   ],
+   "label": "He and Chua (2017)",
+   "authors": "Xiangnan He and Tat-Seng Chua. 2017",
+   "title": "Neural factorization machines for sparse predictive analytics. In Proceedings of the 40th International ACM SIGIR conference on Research and Development in Information Retrieval. 355–364",
+   "venue": "",
+   "year": "2017",
+   "arxiv": "",
+   "count": 2,
+   "sections": {
+    "S2": 1,
+    "S3": 1
+   },
+   "subsections": {
+    "S2": 1,
+    "S3.SS1": 1
+   },
+   "keyword": "ACM",
+   "theme": "Other"
+  },
+  {
+   "n": 18,
+   "numbers": [
+    18
+   ],
+   "label": "Herlocker et al. (2004)",
+   "authors": "Jonathan L Herlocker, Joseph A Konstan, Loren G Terveen, and John T Riedl. 2004",
+   "title": "Evaluating collaborative filtering recommender systems",
+   "venue": "ACM Transactions on Information Systems (TOIS) 22, 1 (2004), 5–53.",
+   "year": "2004",
+   "arxiv": "",
+   "count": 1,
+   "sections": {
+    "S1": 1
+   },
+   "subsections": {
+    "S1": 1
+   },
+   "keyword": "Evaluating collaborative",
+   "theme": "Other"
+  },
+  {
+   "n": 19,
+   "numbers": [
+    19
+   ],
+   "label": "Hochreiter and Schmidhuber (1997)",
+   "authors": "Sepp Hochreiter and Jürgen Schmidhuber. 1997",
+   "title": "Long short-term memory",
+   "venue": "Neural computation 9, 8 (1997), 1735–1780.",
+   "year": "1997",
+   "arxiv": "",
+   "count": 1,
+   "sections": {
+    "S7": 1
+   },
+   "subsections": {
+    "S7.SS4": 1
+   },
+   "keyword": "Long short-term",
+   "theme": "Other"
+  },
+  {
+   "n": 20,
+   "numbers": [
+    20
+   ],
+   "label": "Jacobs et al. (1991)",
+   "authors": "Robert A Jacobs, Michael I Jordan, Steven J Nowlan, and Geoffrey E Hinton. 1991",
+   "title": "Adaptive mixtures of local experts",
+   "venue": "Neural computation 3, 1 (1991), 79–87.",
+   "year": "1991",
+   "arxiv": "",
+   "count": 2,
+   "sections": {
+    "S1": 1,
+    "S3": 1
+   },
+   "subsections": {
+    "S1": 1,
+    "S3.SS5": 1
+   },
+   "keyword": "Adaptive mixtures",
+   "theme": "Other"
+  },
+  {
+   "n": 21,
+   "numbers": [
+    21
+   ],
+   "label": "Jaderberg et al. (2014)",
+   "authors": "Max Jaderberg, Andrea Vedaldi, and Andrew Zisserman. 2014",
+   "title": "Speeding up convolutional neural networks with low rank expansions",
+   "venue": "arXiv preprint arXiv:1405.3866 (2014).",
+   "year": "2014",
+   "arxiv": "1405.3866",
+   "count": 1,
+   "sections": {
+    "S3": 1
+   },
+   "subsections": {
+    "S3.SS5": 1
+   },
+   "keyword": "Speeding up",
+   "theme": "Other"
+  },
+  {
+   "n": 22,
+   "numbers": [
+    22
+   ],
+   "label": "Jang et al. (2016)",
+   "authors": "Eric Jang, Shixiang Gu, and Ben Poole. 2016",
+   "title": "Categorical reparameterization with gumbel-softmax",
+   "venue": "arXiv preprint arXiv:1611.01144 (2016).",
+   "year": "2016",
+   "arxiv": "1611.01144",
+   "count": 1,
+   "sections": {
+    "S7": 1
+   },
+   "subsections": {
+    "S7.SS5": 1
+   },
+   "keyword": "Categorical reparameterization",
+   "theme": "Other"
+  },
+  {
+   "n": 23,
+   "numbers": [
+    23
+   ],
+   "label": "Kingma and Ba (2014)",
+   "authors": "Diederik Kingma and Jimmy Ba. 2014",
+   "title": "Adam: A method for stochastic optimization",
+   "venue": "arXiv preprint arXiv:1412.6980 (2014).",
+   "year": "2014",
+   "arxiv": "1412.6980",
+   "count": 1,
+   "sections": {
+    "S7": 1
+   },
+   "subsections": {
+    "S7.SS1": 1
+   },
+   "keyword": "ADAM",
+   "theme": "Other"
+  },
+  {
+   "n": 24,
+   "numbers": [
+    24
+   ],
+   "label": "Lawrence et al. (1997)",
+   "authors": "Steve Lawrence, C Lee Giles, Ah Chung Tsoi, and Andrew D Back. 1997",
+   "title": "Face recognition: A convolutional neural-network approach",
+   "venue": "IEEE transactions on neural networks 8, 1 (1997), 98–113.",
+   "year": "1997",
+   "arxiv": "",
+   "count": 1,
+   "sections": {
+    "S7": 1
+   },
+   "subsections": {
+    "S7.SS4": 1
+   },
+   "keyword": "Face recognition",
+   "theme": "Other"
+  },
+  {
+   "n": 25,
+   "numbers": [
+    25
+   ],
+   "label": "LeCun et al. (1989)",
+   "authors": "Yann LeCun, Bernhard Boser, John S Denker, Donnie Henderson, Richard E Howard, Wayne Hubbard, and Lawrence D Jackel. 1989",
+   "title": "Backpropagation applied to handwritten zip code recognition",
+   "venue": "Neural computation 1, 4 (1989), 541–551.",
+   "year": "1989",
+   "arxiv": "",
+   "count": 1,
+   "sections": {
+    "S7": 1
+   },
+   "subsections": {
+    "S7.SS4": 1
+   },
+   "keyword": "Backpropagation applied",
+   "theme": "Other"
+  },
+  {
+   "n": 26,
+   "numbers": [
+    26
+   ],
+   "label": "Li et al. (2020)",
+   "authors": "Zeyu Li, Wei Cheng, Yang Chen, Haifeng Chen, and Wei Wang. 2020",
+   "title": "Interpretable Click-Through Rate Prediction through Hierarchical Attention. In Proceedings of the 13th International Conference on Web Search and Data Mining. 313–321",
+   "venue": "",
+   "year": "2020",
+   "arxiv": "",
+   "count": 1,
+   "sections": {
+    "S2": 1
+   },
+   "subsections": {
+    "S2": 1
+   },
+   "keyword": "Interpretable Click-Through",
+   "theme": "Other"
+  },
+  {
+   "n": 27,
+   "numbers": [
+    27
+   ],
+   "label": "Lian et al. (2018)",
+   "authors": "Jianxun Lian, Xiaohuan Zhou, Fuzheng Zhang, Zhongxia Chen, Xing Xie, and Guangzhong Sun. 2018",
+   "title": "xdeepfm: Combining explicit and implicit feature interactions for recommender systems. In Proceedings of the 24th ACM SIGKDD International Conference on Knowledge Discovery & Data Mining. 1754–1763",
+   "venue": "",
+   "year": "2018",
+   "arxiv": "",
+   "count": 12,
+   "sections": {
+    "S1": 2,
+    "S2": 1,
+    "S3": 1,
+    "S4": 1,
+    "S6": 1,
+    "S7": 5,
+    "S10": 1
+   },
+   "subsections": {
+    "S1": 2,
+    "S2": 1,
+    "S3.SS1": 1,
+    "S4.SS1": 1,
+    "S6": 1,
+    "S7": 1,
+    "S7.SS1": 1,
+    "S7.SS2": 1,
+    "S7.SS3": 2,
+    "S10": 1
+   },
+   "keyword": "Xdeepfm",
+   "theme": "Other"
+  },
+  {
+   "n": 28,
+   "numbers": [
+    28
+   ],
+   "label": "Liu (2011)",
+   "authors": "Tie-Yan Liu. 2011",
+   "title": "Learning to rank for information retrieval",
+   "venue": "Springer Science & Business Media.",
+   "year": "",
+   "arxiv": "",
+   "count": 1,
+   "sections": {
+    "S1": 1
+   },
+   "subsections": {
+    "S1": 1
+   },
+   "keyword": "Rank information",
+   "theme": "Other"
+  },
+  {
+   "n": 29,
+   "numbers": [
+    29
+   ],
+   "label": "Louizos et al. (2017)",
+   "authors": "Christos Louizos, Max Welling, and Diederik P Kingma. 2017",
+   "title": "Learning Sparse Neural Networks through L​_​0L\\_0 Regularization",
+   "venue": "arXiv preprint arXiv:1712.01312 (2017).",
+   "year": "2017",
+   "arxiv": "1712.01312",
+   "count": 1,
+   "sections": {
+    "S7": 1
+   },
+   "subsections": {
+    "S7.SS5": 1
+   },
+   "keyword": "L​_​0L\\_0",
+   "theme": "Other"
+  },
+  {
+   "n": 30,
+   "numbers": [
+    30
+   ],
+   "label": "Ma et al. (2019)",
+   "authors": "Jiaqi Ma, Zhe Zhao, Jilin Chen, Ang Li, Lichan Hong, and Ed H Chi. 2019",
+   "title": "Snr: Sub-network routing for flexible parameter sharing in multi-task learning. In Proceedings of the AAAI Conference on Artificial Intelligence, Vol. 33. 216–223",
+   "venue": "",
+   "year": "2019",
+   "arxiv": "",
+   "count": 1,
+   "sections": {
+    "S7": 1
+   },
+   "subsections": {
+    "S7.SS5": 1
+   },
+   "keyword": "SNR",
+   "theme": "Other"
+  },
+  {
+   "n": 31,
+   "numbers": [
+    31
+   ],
+   "label": "Ma et al. (2018)",
+   "authors": "Jiaqi Ma, Zhe Zhao, Xinyang Yi, Jilin Chen, Lichan Hong, and Ed H Chi. 2018",
+   "title": "Modeling task relationships in multi-task learning with multi-gate mixture-of-experts. In Proceedings of the 24th ACM SIGKDD International Conference on Knowledge Discovery & Data Mining. 1930–1939",
+   "venue": "",
+   "year": "1939",
+   "arxiv": "",
+   "count": 1,
+   "sections": {
+    "S3": 1
+   },
+   "subsections": {
+    "S3.SS5": 1
+   },
+   "keyword": "ACM",
+   "theme": "Other"
+  },
+  {
+   "n": 32,
+   "numbers": [
+    32
+   ],
+   "label": "Mhaskar (1996)",
+   "authors": "Hrushikesh N Mhaskar. 1996",
+   "title": "Neural networks for optimal approximation of smooth and analytic functions",
+   "venue": "Neural computation 8, 1 (1996), 164–177.",
+   "year": "1996",
+   "arxiv": "",
+   "count": 1,
+   "sections": {
+    "S1": 1
+   },
+   "subsections": {
+    "S1": 1
+   },
+   "keyword": "Networks optimal",
+   "theme": "Other"
+  },
+  {
+   "n": 33,
+   "numbers": [
+    33
+   ],
+   "label": "Mikolov et al. (2011)",
+   "authors": "Tomáš Mikolov, Stefan Kombrink, Lukáš Burget, Jan Černockỳ, and Sanjeev Khudanpur. 2011",
+   "title": "Extensions of recurrent neural network language model. In 2011 IEEE international conference on acoustics, speech and signal processing (ICASSP). IEEE, 5528–5531",
+   "venue": "",
+   "year": "2011",
+   "arxiv": "",
+   "count": 1,
+   "sections": {
+    "S7": 1
+   },
+   "subsections": {
+    "S7.SS4": 1
+   },
+   "keyword": "ICASSP",
+   "theme": "Other"
+  },
+  {
+   "n": 34,
+   "numbers": [
+    34
+   ],
+   "label": "Musgrave et al. (2020)",
+   "authors": "Kevin Musgrave, Serge Belongie, and Ser-Nam Lim. 2020",
+   "title": "A metric learning reality check",
+   "venue": "arXiv preprint arXiv:2003.08505 (2020).",
+   "year": "2020",
+   "arxiv": "2003.08505",
+   "count": 1,
+   "sections": {
+    "S7": 1
+   },
+   "subsections": {
+    "S7": 1
+   },
+   "keyword": "Metric reality",
+   "theme": "Other"
+  },
+  {
+   "n": 35,
+   "numbers": [
+    35
+   ],
+   "label": "Naumov et al. (2019)",
+   "authors": "Maxim Naumov, Dheevatsa Mudigere, Hao-Jun Michael Shi, Jianyu Huang, Narayanan Sundaraman, Jongsoo Park, Xiaodong Wang, Udit Gupta, Carole-Jean Wu, Alisson G Azzolini, et al. 2019",
+   "title": "Deep learning recommendation model for personalization and recommendation systems",
+   "venue": "arXiv preprint arXiv:1906.00091 (2019).",
+   "year": "2019",
+   "arxiv": "1906.00091",
+   "count": 7,
+   "sections": {
+    "S1": 2,
+    "S2": 1,
+    "S3": 1,
+    "S6": 1,
+    "S7": 1,
+    "S10": 1
+   },
+   "subsections": {
+    "S1": 2,
+    "S2": 1,
+    "S3.SS1": 1,
+    "S6": 1,
+    "S7.SS1": 1,
+    "S10": 1
+   },
+   "keyword": "Recommendation personalization",
+   "theme": "Other"
+  },
+  {
+   "n": 36,
+   "numbers": [
+    36
+   ],
+   "label": "Qu et al. (2016)",
+   "authors": "Yanru Qu, Han Cai, Kan Ren, Weinan Zhang, Yong Yu, Ying Wen, and Jun Wang. 2016",
+   "title": "Product-based neural networks for user response prediction. In 2016 IEEE 16th International Conference on Data Mining (ICDM). IEEE, 1149–1154",
+   "venue": "",
+   "year": "2016",
+   "arxiv": "",
+   "count": 7,
+   "sections": {
+    "S1": 2,
+    "S2": 1,
+    "S3": 1,
+    "S6": 1,
+    "S7": 2
+   },
+   "subsections": {
+    "S1": 2,
+    "S2": 1,
+    "S3.SS1": 1,
+    "S6": 1,
+    "S7.SS1": 1,
+    "S7.SS2": 1
+   },
+   "keyword": "ICDM",
+   "theme": "Other"
+  },
+  {
+   "n": 37,
+   "numbers": [
+    37
+   ],
+   "label": "Rendle (2010)",
+   "authors": "Steffen Rendle. 2010",
+   "title": "Factorization machines. In 2010 IEEE International Conference on Data Mining. IEEE, 995–1000",
+   "venue": "",
+   "year": "2010",
+   "arxiv": "",
+   "count": 1,
+   "sections": {
+    "S1": 1
+   },
+   "subsections": {
+    "S1": 1
+   },
+   "keyword": "IEEE",
+   "theme": "Other"
+  },
+  {
+   "n": 38,
+   "numbers": [
+    38
+   ],
+   "label": "Rendle (2012)",
+   "authors": "Steffen Rendle. 2012",
+   "title": "Factorization Machines with libFM",
+   "venue": "ACM Trans. Intell. Syst. Technol. 3, 3, Article 57 (May 2012), 22 pages.",
+   "year": "2012",
+   "arxiv": "",
+   "count": 1,
+   "sections": {
+    "S1": 1
+   },
+   "subsections": {
+    "S1": 1
+   },
+   "keyword": "LIBFM",
+   "theme": "Other"
+  },
+  {
+   "n": 39,
+   "numbers": [
+    39
+   ],
+   "label": "Rendle et al. (2020)",
+   "authors": "Steffen Rendle, Walid Krichene, Li Zhang, and John Anderson. 2020",
+   "title": "Neural Collaborative Filtering vs. Matrix Factorization Revisited",
+   "venue": "arXiv preprint arXiv:2005.09683 (2020).",
+   "year": "2020",
+   "arxiv": "2005.09683",
+   "count": 1,
+   "sections": {
+    "S7": 1
+   },
+   "subsections": {
+    "S7": 1
+   },
+   "keyword": "Collaborative Filtering",
+   "theme": "Industry recommenders"
+  },
+  {
+   "n": 40,
+   "numbers": [
+    40
+   ],
+   "label": "Resnick and Varian (1997)",
+   "authors": "Paul Resnick and Hal R Varian. 1997",
+   "title": "Recommender systems",
+   "venue": "Commun. ACM 40, 3 (1997), 56–58.",
+   "year": "1997",
+   "arxiv": "",
+   "count": 1,
+   "sections": {
+    "S1": 1
+   },
+   "subsections": {
+    "S1": 1
+   },
+   "keyword": "Recommender systems",
+   "theme": "Other"
+  },
+  {
+   "n": 41,
+   "numbers": [
+    41
+   ],
+   "label": "Rumelhart et al. (1985)",
+   "authors": "David E Rumelhart, Geoffrey E Hinton, and Ronald J Williams. 1985",
+   "title": "Learning internal representations by error propagation",
+   "venue": "Technical Report. California Univ San Diego La Jolla Inst for Cognitive Science.",
+   "year": "",
+   "arxiv": "",
+   "count": 1,
+   "sections": {
+    "S7": 1
+   },
+   "subsections": {
+    "S7.SS4": 1
+   },
+   "keyword": "Internal representations",
+   "theme": "Other"
+  },
+  {
+   "n": 42,
+   "numbers": [
+    42
+   ],
+   "label": "Schafer et al. (1999)",
+   "authors": "J Ben Schafer, Joseph Konstan, and John Riedl. 1999",
+   "title": "Recommender systems in e-commerce. In Proceedings of the 1st ACM conference on Electronic commerce. 158–166",
+   "venue": "",
+   "year": "1999",
+   "arxiv": "",
+   "count": 1,
+   "sections": {
+    "S1": 1
+   },
+   "subsections": {
+    "S1": 1
+   },
+   "keyword": "ACM",
+   "theme": "Other"
+  },
+  {
+   "n": 43,
+   "numbers": [
+    43
+   ],
+   "label": "Schmidhuber (2015)",
+   "authors": "Jürgen Schmidhuber. 2015",
+   "title": "Deep learning in neural networks: An overview",
+   "venue": "Neural networks 61 (2015), 85–117.",
+   "year": "2015",
+   "arxiv": "",
+   "count": 1,
+   "sections": {
+    "S7": 1
+   },
+   "subsections": {
+    "S7.SS4": 1
+   },
+   "keyword": "Networks overview",
+   "theme": "Other"
+  },
+  {
+   "n": 44,
+   "numbers": [
+    44
+   ],
+   "label": "Seide et al. (2011)",
+   "authors": "Frank Seide, Gang Li, Xie Chen, and Dong Yu. 2011",
+   "title": "Feature engineering in context-dependent deep neural networks for conversational speech transcription. In 2011 IEEE Workshop on Automatic Speech Recognition & Understanding. IEEE, 24–29",
+   "venue": "",
+   "year": "2011",
+   "arxiv": "",
+   "count": 1,
+   "sections": {
+    "S1": 1
+   },
+   "subsections": {
+    "S1": 1
+   },
+   "keyword": "IEEE",
+   "theme": "Other"
+  },
+  {
+   "n": 45,
+   "numbers": [
+    45
+   ],
+   "label": "Shan et al. (2016)",
+   "authors": "Ying Shan, T Ryan Hoens, Jian Jiao, Haijing Wang, Dong Yu, and JC Mao. 2016",
+   "title": "Deep Crossing: Web-Scale Modeling without Manually Crafted Combinatorial Features. In Proceedings of the 22nd ACM SIGKDD International Conference on Knowledge Discovery and Data Mining. ACM, 255–262",
+   "venue": "",
+   "year": "2016",
+   "arxiv": "",
+   "count": 1,
+   "sections": {
+    "S8": 1
+   },
+   "subsections": {
+    "S8": 1
+   },
+   "keyword": "Deep Crossing",
+   "theme": "Other"
+  },
+  {
+   "n": 46,
+   "numbers": [
+    46
+   ],
+   "label": "Shazeer et al. (2017)",
+   "authors": "Noam Shazeer, Azalia Mirhoseini, Krzysztof Maziarz, Andy Davis, Quoc Le, Geoffrey Hinton, and Jeff Dean. 2017",
+   "title": "Outrageously large neural networks: The sparsely-gated mixture-of-experts layer",
+   "venue": "arXiv preprint arXiv:1701.06538 (2017).",
+   "year": "2017",
+   "arxiv": "1701.06538",
+   "count": 2,
+   "sections": {
+    "S1": 1,
+    "S3": 1
+   },
+   "subsections": {
+    "S1": 1,
+    "S3.SS5": 1
+   },
+   "keyword": "Outrageously large",
+   "theme": "Other"
+  },
+  {
+   "n": 47,
+   "numbers": [
+    47
+   ],
+   "label": "Song et al. (2019)",
+   "authors": "Weiping Song, Chence Shi, Zhiping Xiao, Zhijian Duan, Yewen Xu, Ming Zhang, and Jian Tang. 2019",
+   "title": "Autoint: Automatic feature interaction learning via self-attentive neural networks. In Proceedings of the 28th ACM International Conference on Information and Knowledge Management. 1161–1170",
+   "venue": "",
+   "year": "2019",
+   "arxiv": "",
+   "count": 15,
+   "sections": {
+    "S1": 2,
+    "S2": 1,
+    "S3": 1,
+    "S4": 1,
+    "S7": 9,
+    "S10": 1
+   },
+   "subsections": {
+    "S1": 2,
+    "S2": 1,
+    "S3.SS1": 1,
+    "S4.SS1": 1,
+    "S7": 1,
+    "S7.SS1": 3,
+    "S7.SS2": 1,
+    "S7.SS3": 4,
+    "S10": 1
+   },
+   "keyword": "Autoint",
+   "theme": "Sequential recommenders"
+  },
+  {
+   "n": 48,
+   "numbers": [
+    48
+   ],
+   "label": "Valiant (2014)",
+   "authors": "Gregory Valiant. 2014",
+   "title": "Learning polynomials with neural networks",
+   "venue": "(2014).",
+   "year": "2014",
+   "arxiv": "",
+   "count": 1,
+   "sections": {
+    "S1": 1
+   },
+   "subsections": {
+    "S1": 1
+   },
+   "keyword": "Polynomials networks",
+   "theme": "Other"
+  },
+  {
+   "n": 49,
+   "numbers": [
+    49
+   ],
+   "label": "Vaswani et al. (2017)",
+   "authors": "Ashish Vaswani, Noam Shazeer, Niki Parmar, Jakob Uszkoreit, Llion Jones, Aidan N Gomez, Łukasz Kaiser, and Illia Polosukhin. 2017",
+   "title": "Attention is all you need. In Advances in neural information processing systems. 5998–6008",
+   "venue": "",
+   "year": "2017",
+   "arxiv": "",
+   "count": 1,
+   "sections": {
+    "S8": 1
+   },
+   "subsections": {
+    "S8": 1
+   },
+   "keyword": "Attention all",
+   "theme": "Language models & tooling"
+  },
+  {
+   "n": 50,
+   "numbers": [
+    50
+   ],
+   "label": "Veit et al. (2016)",
+   "authors": "Andreas Veit, Michael J Wilber, and Serge Belongie. 2016",
+   "title": "Residual Networks Behave Like Ensembles of Relatively Shallow Networks",
+   "venue": "In Advances in Neural Information Processing Systems 29, D. D. Lee, M. Sugiyama, U. V. Luxburg, I. Guyon, and R. Garnett (Eds.). Curran Associates, Inc., 550–558.",
+   "year": "",
+   "arxiv": "",
+   "count": 1,
+   "sections": {
+    "S1": 1
+   },
+   "subsections": {
+    "S1": 1
+   },
+   "keyword": "Residual Networks",
+   "theme": "Other"
+  },
+  {
+   "n": 51,
+   "numbers": [
+    51
+   ],
+   "label": "Wang et al. (2017)",
+   "authors": "Ruoxi Wang, Bin Fu, Gang Fu, and Mingliang Wang. 2017",
+   "title": "Deep & Cross Network for Ad Click Predictions",
+   "venue": "In Proceedings of the ADKDD’17. 1–7.",
+   "year": "",
+   "arxiv": "",
+   "count": 18,
+   "sections": {
+    "S1": 5,
+    "S2": 1,
+    "S3": 1,
+    "S4": 4,
+    "S6": 1,
+    "S7": 5,
+    "S10": 1
+   },
+   "subsections": {
+    "S1": 5,
+    "S2": 1,
+    "S3": 1,
+    "S4": 1,
+    "S4.SS1": 1,
+    "S4.SS2": 2,
+    "S6": 1,
+    "S7.SS1": 3,
+    "S7.SS3": 2,
+    "S10": 1
+   },
+   "keyword": "& Cross",
+   "theme": "Other"
+  },
+  {
+   "n": 52,
+   "numbers": [
+    52
+   ],
+   "label": "Wang et al. (2019)",
+   "authors": "Ruoxi Wang, Yingzhou Li, Michael W Mahoney, and Eric Darve. 2019",
+   "title": "Block Basis Factorization for Scalable Kernel Evaluation",
+   "venue": "SIAM J. Matrix Anal. Appl. 40, 4 (2019), 1497–1526.",
+   "year": "2019",
+   "arxiv": "",
+   "count": 1,
+   "sections": {
+    "S3": 1
+   },
+   "subsections": {
+    "S3.SS5": 1
+   },
+   "keyword": "Block Basis",
+   "theme": "Other"
+  },
+  {
+   "n": 53,
+   "numbers": [
+    53
+   ],
+   "label": "Yu et al. (2017)",
+   "authors": "Xiyu Yu, Tongliang Liu, Xinchao Wang, and Dacheng Tao. 2017",
+   "title": "On compressing deep models by low rank and sparse decomposition. In Proceedings of the IEEE Conference on Computer Vision and Pattern Recognition. 7370–7379",
+   "venue": "",
+   "year": "2017",
+   "arxiv": "",
+   "count": 1,
+   "sections": {
+    "S3": 1
+   },
+   "subsections": {
+    "S3.SS5": 1
+   },
+   "keyword": "IEEE",
+   "theme": "Other"
+  }
+ ]
+}
