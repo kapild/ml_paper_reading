@@ -5,70 +5,70 @@
    "title": "Attention Is All You Need",
    "references": 40,
    "marks": 76,
-   "generated": "2026-10-11"
+   "generated": "2026-10-16"
   },
   {
    "arxiv": "1806.01973",
    "title": "Graph Convolutional Neural Networks for Web-Scale Recommender Systems",
    "references": 31,
    "marks": 67,
-   "generated": "2026-10-11"
+   "generated": "2026-10-16"
   },
   {
    "arxiv": "2007.03634",
    "title": "PinnerSage: Multi-Modal User Embedding Framework for Recommendations at Pinterest",
    "references": 30,
    "marks": 62,
-   "generated": "2026-10-11"
+   "generated": "2026-10-16"
   },
   {
    "arxiv": "2008.13535",
    "title": "DCN V2: Improved Deep & Cross Network and Practical Lessons for Web-scale Learning to Rank Systems",
    "references": 52,
    "marks": 125,
-   "generated": "2026-10-11"
+   "generated": "2026-10-16"
   },
   {
    "arxiv": "2202.06991",
    "title": "Transformer Memory as a Differentiable Search Index",
    "references": 29,
    "marks": 42,
-   "generated": "2026-10-11"
+   "generated": "2026-10-16"
   },
   {
    "arxiv": "2205.04507",
    "title": "PinnerFormer: Sequence Modeling for User Representation at Pinterest",
    "references": 31,
    "marks": 54,
-   "generated": "2026-10-11"
+   "generated": "2026-10-16"
   },
   {
    "arxiv": "2209.08435",
    "title": "Rethinking Personalized Ranking at Pinterest: An End-to-End Approach",
    "references": 21,
    "marks": 23,
-   "generated": "2026-10-11"
+   "generated": "2026-10-16"
   },
   {
    "arxiv": "2305.05065",
    "title": "Recommender Systems with Generative Retrieval",
    "references": 43,
    "marks": 108,
-   "generated": "2026-10-11"
+   "generated": "2026-10-16"
   },
   {
    "arxiv": "2306.00248",
    "title": "TransAct: Transformer-based Realtime User Action Model for Recommendation at Pinterest",
-   "references": 43,
+   "references": 41,
    "marks": 67,
-   "generated": "2026-10-11"
+   "generated": "2026-10-16"
   },
   {
    "arxiv": "2510.07784",
    "title": "PLUM: Adapting Pre-trained Language Models for Industrial-scale Generative Recommendations",
    "references": 40,
    "marks": 58,
-   "generated": "2026-10-11"
+   "generated": "2026-10-16"
   }
  ]
 }

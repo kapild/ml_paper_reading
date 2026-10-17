@@ -35,6 +35,8 @@ SOURCES = ['https://arxiv.org/html/{id}', 'https://ar5iv.labs.arxiv.org/html/{id
 UA = 'paper-read-atlas/0.1 (citation map; https://github.com/kapild/ml_paper_reading)'
 ARXIV_IN_TEXT = re.compile(r'arxiv[:\s/]*(?:abs/)?(\d{4}\.\d{4,5})', re.I)
 YEAR = re.compile(r'\b(19|20)\d{2}\b')
+LINE_TAGS = {'p', 'figcaption', 'caption', 'td', 'th', 'li'}
+ABBREV = re.compile(r'(?:\b(?:al|e\.g|i\.e|cf|vs|Fig|Eq|Sec|No|Dr|Mr|Ms|St|approx|etc)\.)$', re.I)
 VOID = {'area', 'base', 'br', 'col', 'embed', 'hr', 'img', 'input', 'link', 'meta', 'param', 'source', 'track', 'wbr'}
 
 
@@ -68,6 +70,8 @@ class LatexmlDoc(HTMLParser):
         self.doc_title = []
         self.bibitems = []           # dicts in document order
         self.marks = []              # (ref number, section key, subsection key)
+        self.mentions = []           # one entry per citing sentence, in document order
+        self._line = None            # the block of text being read, with its citation offsets
         self._bib = None
         self._cite_depth = None
         self._note_depth = None      # footnotes sit inside titles; skip their text
@@ -137,6 +141,11 @@ class LatexmlDoc(HTMLParser):
                 self._capture('bibblock', self._bib)
             return
 
+        if tag in LINE_TAGS and self._line is None:
+            top, sub = self._section('section', 'appendix'), self._section('subsection') or self._section('paragraph')
+            self._line = {'parts': [], 'marks': [], 'depth': self.depth,
+                          'sec': top['key'] if top else '', 'sub': (sub or top or {}).get('key', '')}
+
         if tag == 'cite' and 'ltx_cite' in cls:
             self._cite_depth = self.depth
             return
@@ -147,7 +156,10 @@ class LatexmlDoc(HTMLParser):
                 top = self._section('section', 'appendix')
                 sub = self._section('subsection') or self._section('paragraph')
                 tk = top['key'] if top else ''
-                self.marks.append((int(m.group(1)), tk, sub['key'] if sub else tk))
+                num = int(m.group(1))
+                self.marks.append((num, tk, sub['key'] if sub else tk))
+                if self._line is not None:
+                    self._line['marks'].append((sum(len(p) for p in self._line['parts']), num))
 
     def handle_startendtag(self, tag, attrs):
         pass  # self-closing tags never change depth or context
@@ -174,6 +186,8 @@ class LatexmlDoc(HTMLParser):
             elif kind == 'bibblock' and text:
                 target['blocks'].append(text)
 
+        if self._line is not None and self._line['depth'] > self.depth:
+            self._close_line()
         while self.open_sections and self.open_sections[-1]['depth'] > self.depth:
             self.open_sections.pop()
         if self._bib is not None and self._bib['depth'] > self.depth:
@@ -183,11 +197,44 @@ class LatexmlDoc(HTMLParser):
         if self._note_depth is not None and self._note_depth > self.depth:
             self._note_depth = None
 
+    def _close_line(self):
+        """Turn the block just read into one mention per citing sentence."""
+        line, self._line = self._line, None
+        if not line['marks']:
+            return
+        text = ''.join(line['parts'])
+        spans = split_sentences(text)
+        groups = {}
+        for offset, num in line['marks']:
+            idx = next((i for i, (a, b) in enumerate(spans) if a <= offset <= b), len(spans) - 1)
+            groups.setdefault(idx, []).append(num)
+        for idx in sorted(groups):
+            a, b = spans[idx]
+            sentence = clean(text[a:b])
+            if len(sentence) > 320:
+                sentence = sentence[:300].rsplit(' ', 1)[0] + '…'
+            self.mentions.append({'sec': line['sec'], 'sub': line['sub'],
+                                  'text': sentence, 'refs': groups[idx]})
+
     def handle_data(self, data):
         if self._note_depth is not None:
             return
+        if self._line is not None:
+            self._line['parts'].append(data)
         for buf, _, _, _ in self._caps:
             buf.append(data)
+
+
+def split_sentences(text):
+    """Rough sentence spans, skipping the usual abbreviations so "et al." stays put."""
+    spans, start = [], 0
+    for m in re.finditer(r'(?<=[.!?])["\')\]]*\s+(?=[A-Z(\[“"])', text):
+        if ABBREV.search(text[max(0, m.start() - 12):m.start()]):
+            continue
+        spans.append((start, m.start()))
+        start = m.end()
+    spans.append((start, len(text)))
+    return [(a, b) for a, b in spans if b > a] or [(0, len(text))]
 
 
 def fetch(pid, local=None):
@@ -283,6 +330,12 @@ def build_references(doc, rules):
         authors = blocks[0].rstrip('.') if blocks else ''
         title = (blocks[1] if len(blocks) > 1 else '').rstrip('.')
         venue = clean(' '.join(blocks[2:])) if len(blocks) > 2 else ''
+        # Some styles run the title and the venue together in one block: "Title. In Proceedings of ..."
+        cut = re.search(r'\.\s+(?=(?:In\b|Proceedings\b|arXiv\b|IEEE\b|ACM\b|Journal\b|Advances\b|Transactions\b|\d{4}\b))', title)
+        if cut and cut.start() >= 12:
+            venue = clean(title[cut.end():] + (' ' + venue if venue else ''))
+            title = title[:cut.start()]
+        venue = clean(re.sub(r'https?://\S+', '', venue))
         years = YEAR.findall(venue) or YEAR.findall(' '.join(blocks))
         year = re.findall(r'\b((?:19|20)\d{2})\b', venue or ' '.join(blocks))
         arx = ARXIV_IN_TEXT.search(' '.join(blocks))
@@ -400,7 +453,9 @@ def extract_paper(pid, local=None):
         'sections': sections,
         'subsections': subsections,
         'references': rows,
+        'mentions': [m for m in doc.mentions if any(n in refs for n in m['refs'])],
     }
+    data['stats']['mentions'] = len(data['mentions'])
     os.makedirs(OUT_DIR, exist_ok=True)
     out = os.path.join(OUT_DIR, f'{pid}.json')
     with open(out, 'w', encoding='utf-8') as f:
@@ -436,6 +491,7 @@ def print_map_report(data, report, out):
     print(f'  references {data['stats']['references']} bibitems, {len(rows)} rows after merging {merged} duplicate title(s)')
     print(f'  marks      {data["stats"]["marks"]} citation marks')
     print(f'  sections   {len(sections)} cite something, {len(subsections)} subsection rows')
+    print(f'  sentences  {data["stats"].get("mentions", 0)} citing sentences captured')
     print(f'  most cited [{top["numbers"][0]}] {top["keyword"]} — {top["count"]} times')
     print(f'  themes     {len(themes)}: ' + ', '.join(themes))
     print(f'  wrote      {os.path.relpath(out, ROOT)}')

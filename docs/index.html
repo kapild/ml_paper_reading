@@ -9,22 +9,28 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;1,400&family=STIX+Two+Text:ital,wght@0,400;0,500;0,600;1,400&display=swap">
-<link rel="stylesheet" href="assets/style.css?v=f22e70082e">
-<link rel="stylesheet" href="assets/cite.css?v=960f91dbf1">
+<link rel="stylesheet" href="assets/style.css?v=d5b876d52b">
+<link rel="stylesheet" href="assets/cite.css?v=654df087d1">
 </head>
 <body>
 
 <header class="top">
   <div class="wrap top-inner">
-    <div class="brand">
+    <div class="brand" id="brand">
       <div class="eyebrow" id="stamp">paper_read</div>
       <h1>Paper Read Atlas</h1>
       <p class="stats" id="stats"></p>
     </div>
-    <button type="button" class="search-btn" id="open-search" aria-haspopup="dialog">
-      <span>Search papers</span><kbd>⌘K</kbd>
-    </button>
+    <div class="brand-actions">
+      <button type="button" class="title-toggle" id="title-toggle" aria-expanded="true" aria-controls="brand">Hide title</button>
+      <button type="button" class="search-btn" id="open-search" aria-haspopup="dialog">
+        <span>Search papers</span><kbd>⌘K</kbd>
+      </button>
+    </div>
   </div>
+</header>
+
+<div class="sticky-bar">
   <nav class="wrap tabs" role="tablist" aria-label="Views">
     <button type="button" class="tab" role="tab" id="tab-constellation" data-tab="constellation" aria-controls="panel-constellation">Constellation</button>
     <button type="button" class="tab" role="tab" id="tab-timeline" data-tab="timeline" aria-controls="panel-timeline">Timeline</button>
@@ -33,16 +39,14 @@
     <button type="button" class="tab" role="tab" id="tab-citations" data-tab="citations" aria-controls="panel-citations">Citations</button>
     <button type="button" class="tab" role="tab" id="tab-tables" data-tab="tables" aria-controls="panel-tables">Tables</button>
   </nav>
-</header>
-
-<div class="filters-bar">
-  <div class="wrap filters" role="toolbar" aria-label="Highlight a theme">
-    <span class="label">Highlight</span>
-    <div id="chips"></div>
-  </div>
 </div>
 
-<main class="wrap">
+<div class="wrap shell">
+  <aside class="rail" id="rail" role="toolbar" aria-label="Highlight a theme">
+    <span class="label">Highlight</span>
+    <div id="chips"></div>
+  </aside>
+  <main>
 
   <section class="view" role="tabpanel" id="panel-constellation" aria-labelledby="tab-constellation">
     <div class="view-head">
@@ -202,7 +206,8 @@
     </div>
   </section>
 
-</main>
+  </main>
+</div>
 
 <footer class="wrap foot" id="foot"></footer>
 
@@ -220,8 +225,8 @@
 
 <div id="tip" role="tooltip" hidden></div>
 
-<script src="data/papers.js?v=cdf62d9287"></script>
-<script src="assets/cite.js?v=6287bc8843"></script>
-<script src="assets/app.js?v=23897340a2"></script>
+<script src="data/papers.js?v=bbc8cb6945"></script>
+<script src="assets/cite.js?v=cbb3265d84"></script>
+<script src="assets/app.js?v=b5ebe20c73"></script>
 </body>
 </html>

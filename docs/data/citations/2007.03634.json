@@ -1,5 +1,5 @@
 {
- "generated": "2026-10-11",
+ "generated": "2026-10-16",
  "paper": {
   "arxiv": "2007.03634",
   "title": "PinnerSage: Multi-Modal User Embedding Framework for Recommendations at Pinterest",
@@ -10,7 +10,8 @@
   "rows": 30,
   "merged": 0,
   "marks": 62,
-  "sections": 6
+  "sections": 6,
+  "mentions": 32
  },
  "themes": [
   "Semantic IDs & quantization",
@@ -769,6 +770,294 @@
    },
    "keyword": "Item-interaction embeddings",
    "theme": "Other"
+  }
+ ],
+ "mentions": [
+  {
+   "sec": "S1",
+   "sub": "S1",
+   "text": "They are shown to be effective at powering collaborative filtering techniques (20, 15), and serving as features in ranking models (6, 26, 7, 28).",
+   "refs": [
+    20,
+    15,
+    6,
+    26,
+    7,
+    28
+   ]
+  },
+  {
+   "sec": "S1",
+   "sub": "S1",
+   "text": "They are used to power YouTube and Google play recommendations (7, 6), personalize search ranking and similar listing recommendations at Airbnb (11), recommend news articles to users (19), connect similar users at Etsy (30), etc.",
+   "refs": [
+    7,
+    6,
+    11,
+    19,
+    30
+   ]
+  },
+  {
+   "sec": "S1",
+   "sub": "S1",
+   "text": "This is initially satisfying, but as pointed by research work described in (3, 25, 16, 10), a good embedding must encode user’s multiple tastes, interests, styles, etc., whereas an item (a video, an image, a news article, a house listing, a pin, etc) typically only has a single focus.",
+   "refs": [
+    3,
+    25,
+    16,
+    10
+   ]
+  },
+  {
+   "sec": "S1",
+   "sub": "S1",
+   "text": "Hence, an attention layer (29) or other context adapting approaches is needed to keep track of the evolving interests of the users.",
+   "refs": [
+    29
+   ]
+  },
+  {
+   "sec": "S1",
+   "sub": "S1",
+   "text": "As shown by (25), multi-embedding user representations can deliver 25% improvement in YouTube video recommendations.",
+   "refs": [
+    25
+   ]
+  },
+  {
+   "sec": "S1",
+   "sub": "S1",
+   "text": "(16) also shows reasonable gains on small benchmark datasets.",
+   "refs": [
+    16
+   ]
+  },
+  {
+   "sec": "S1",
+   "sub": "S1",
+   "text": "PinnerSage is a highly scalable, flexible and extensible recommender system that internally represents each user with multiple PinSage (27) embeddings.",
+   "refs": [
+    27
+   ]
+  },
+  {
+   "sec": "S2",
+   "sub": "S2",
+   "text": "Most prior work, jointly learns user and item embeddings (e.g. (7, 11)).",
+   "refs": [
+    7,
+    11
+   ]
+  },
+  {
+   "sec": "S2",
+   "sub": "S2",
+   "text": "For this reason, we use PinSage (27), which precisely achieves this objective without any dilution.",
+   "refs": [
+    27
+   ]
+  },
+  {
+   "sec": "S2",
+   "sub": "S2",
+   "text": "Prior work either fixes the number of embeddings to a small number (25) or puts an upper bound on them (16).",
+   "refs": [
+    25,
+    16
+   ]
+  },
+  {
+   "sec": "S2",
+   "sub": "S2",
+   "text": "For example, merging item embeddings, which is considered reasonable (see (7, 28)), could yield an embedding that lies in a very different region.",
+   "refs": [
+    7,
+    28
+   ]
+  },
+  {
+   "sec": "S2",
+   "sub": "S2",
+   "text": "Similar to (11), we address this issue by combining two methods: (a) a daily batch inference job that infers multiple medoids per user based on their long-term interaction history, and (b) an online version of the same model that infers medoids based on the users’ interactions on the current day.",
+   "refs": [
+    11
+   ]
+  },
+  {
+   "sec": "S3",
+   "sub": "S3",
+   "text": "Within Pinterest, this model is PinSage (27) that is trained to place similar pins nearby in the embedding space with the objective of subsequent retrieval.",
+   "refs": [
+    27
+   ]
+  },
+  {
+   "sec": "S3",
+   "sub": "S3",
+   "text": "We also made a similar assumption in our prior work (28).",
+   "refs": [
+    28
+   ]
+  },
+  {
+   "sec": "S3",
+   "sub": "S3.SS1",
+   "text": "The above two constraints are satisfied by Ward (24), which is a hierarchical agglomerative clustering method, that is based on a minimum variance criteria (satisfying our constraint 1).",
+   "refs": [
+    24
+   ]
+  },
+  {
+   "sec": "S3",
+   "sub": "S3.SS1",
+   "text": "In our experiments (sec. 5), it performed better than K-means and complete linkage methods (8).",
+   "refs": [
+    8
+   ]
+  },
+  {
+   "sec": "S3",
+   "sub": "S3.SS1",
+   "text": "Our implementation of Ward is adapted from the Lance-Williams algorithm (14) which provided an efficient way to do the clustering.",
+   "refs": [
+    14
+   ]
+  },
+  {
+   "sec": "S4",
+   "sub": "S4.SS1",
+   "text": "We discuss a few tricks that have helped ANN become a first-class citizen alongside other candidate retrieval frameworks, such as Pixie (9).",
+   "refs": [
+    9
+   ]
+  },
+  {
+   "sec": "S4",
+   "sub": "S4.SS1",
+   "text": "Many different embedding indexing schemes (see (12)) were evaluated, such as LSH Orthoplex (1, 21), Product Quantization (2), HNSW (17), etc. We found HNSW to perform best on cost, latency, and recall.",
+   "refs": [
+    12,
+    1,
+    21,
+    2,
+    17
+   ]
+  },
+  {
+   "sec": "S5",
+   "sub": "S5.SS3",
+   "text": "We compare PinnerSage with the following baselines: (a) single embedding models, such as last pin, decay avg with several choices of λ\\lambda (0,0.01,0.1,0.250,0.01,0.1,0.25), LSTM, GRU, and HierTCN(28), (b) multi-embedding variants of PinnerSage with different choices of (i) clustering algorithm,…",
+   "refs": [
+    28
+   ]
+  },
+  {
+   "sec": "S5",
+   "sub": "S5.SS3",
+   "text": "Similar to (28), baseline models are trained with the objective of ranking user actions over impressions with several loss functions (l2, hinge, log-loss, etc).",
+   "refs": [
+    28
+   ]
+  },
+  {
+   "sec": "S5",
+   "sub": "S5.SS3",
+   "text": "Recommender systems often have to trade between relevance and diversity (5).",
+   "refs": [
+    5
+   ]
+  },
+  {
+   "sec": "S6",
+   "sub": "S6",
+   "text": "There is an extensive research work focused towards learning embeddings for users and items, for e.g., (23, 7, 6, 26, 28).",
+   "refs": [
+    23,
+    7,
+    6,
+    26,
+    28
+   ]
+  },
+  {
+   "sec": "S6",
+   "sub": "S6",
+   "text": "Much of this work is fueled by the models proposed to learn word representations, such as Word2Vec model (18) that is a highly scalable continuous bag-of-words (CBOW) and skip-gram (SG) language models.",
+   "refs": [
+    18
+   ]
+  },
+  {
+   "sec": "S6",
+   "sub": "S6",
+   "text": "Researchers from several domains have adopted word representation learning models for several problems such as for recommendation candidate ranking in various settings, for example for movie, music, job, pin recommendations (22, 13, 4, 28).",
+   "refs": [
+    22,
+    13,
+    4,
+    28
+   ]
+  },
+  {
+   "sec": "S6",
+   "sub": "S6",
+   "text": "(6) mentioned that the candidate retrieval can be handled by a combination of machine-learned models and human-defined rules; (23) considers large scale candidate generation from billions of users and items, and proposed a solution that pre-computes hundreds of similar items for each embedding offline.",
+   "refs": [
+    6,
+    23
+   ]
+  },
+  {
+   "sec": "S6",
+   "sub": "S6",
+   "text": "(7) has discussed a candidate generation and retrieval system in production based on a single user embedding.",
+   "refs": [
+    7
+   ]
+  },
+  {
+   "sec": "S6",
+   "sub": "S6",
+   "text": "Several prior works (3, 25, 16) consider modeling users with multiple embeddings.",
+   "refs": [
+    3,
+    25,
+    16
+   ]
+  },
+  {
+   "sec": "S6",
+   "sub": "S6",
+   "text": "(3) uses multiple time-sensitive contextual profile to capture user’s changing interests.",
+   "refs": [
+    3
+   ]
+  },
+  {
+   "sec": "S6",
+   "sub": "S6",
+   "text": "(25) considers max function based non-linearity in factorization model, equivalently uses multiple vectors to represent a single user, and shows an improvement in 25% improvement in YouTube recommendations.",
+   "refs": [
+    25
+   ]
+  },
+  {
+   "sec": "S6",
+   "sub": "S6",
+   "text": "(16) uses polysemous embeddings (embeddings with multiple meanings) to improve node representation, but it relies on an estimation of the occurrence probability of each embedding for inference.",
+   "refs": [
+    16
+   ]
+  },
+  {
+   "sec": "S6",
+   "sub": "S6",
+   "text": "Both (25, 16) report results on offline evaluation datasets.",
+   "refs": [
+    25,
+    16
+   ]
   }
  ]
 }

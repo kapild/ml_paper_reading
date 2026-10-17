@@ -732,11 +732,11 @@ function renderConnected() {
 }
 
 /* ---------- search ---------- */
-function searchPapers(query) {
+function searchPapers(query, pool = P) {
   const q = query.trim().toLowerCase();
   if (!q) return [];
   const hits = [];
-  for (const p of P) {
+  for (const p of pool) {
     const s = p.short.toLowerCase(), t = p.title.toLowerCase();
     const score = s.startsWith(q) ? 0 : s.includes(q) ? 1 : t.includes(q) ? 2
       : (p.org.toLowerCase().includes(q) || (p.arxiv || '').includes(q) || p.tags.some(x => x.toLowerCase().includes(q))) ? 3 : -1;
@@ -744,7 +744,7 @@ function searchPapers(query) {
   }
   return hits.sort((a, b) => a[0] - b[0] || (b[1].pub ?? 0) - (a[1].pub ?? 0)).slice(0, 8).map(h => h[1]);
 }
-function wireCombobox(input, list, onPick) {
+function wireCombobox(input, list, onPick, pool) {
   let items = [], active = -1;
   const setActive = i => {
     active = i;
@@ -754,7 +754,7 @@ function wireCombobox(input, list, onPick) {
   };
   const render = () => {
     const q = input.value.trim();
-    items = searchPapers(q);
+    items = searchPapers(q, pool);
     list.innerHTML = items.length
       ? items.map((p, i) => `<li role="option" id="${list.id}-${i}" data-i="${i}" aria-selected="false"><span class="sw" style="background:${C(p.theme)}"></span><span class="r-s">${esc(p.short)}</span><span class="r-t">${esc(p.title)}</span><span class="r-y">${p.year ?? ''}</span></li>`).join('')
       : q ? '<li class="r-none">No papers match. Try part of a title, an org, a tag or an arXiv ID.</li>' : '';
@@ -795,6 +795,17 @@ function closePalette() {
 }
 palette.addEventListener('pointerdown', e => { if (e.target === palette) closePalette(); });
 $('#open-search').addEventListener('click', openPalette);
+
+/* The title block can be collapsed to give the views more room. */
+function setTitleCollapsed(collapsed) {
+  document.body.classList.toggle('title-collapsed', collapsed);
+  const b = $('#title-toggle');
+  b.textContent = collapsed ? 'Show title' : 'Hide title';
+  b.setAttribute('aria-expanded', String(!collapsed));
+  store.set('atlas.title', collapsed ? 'hidden' : 'shown');
+}
+$('#title-toggle').addEventListener('click', () => setTitleCollapsed(!document.body.classList.contains('title-collapsed')));
+setTitleCollapsed(store.get('atlas.title') === 'hidden');
 document.addEventListener('keydown', e => {
   if ((e.metaKey || e.ctrlKey) && e.key.toLowerCase() === 'k') {
     e.preventDefault();
@@ -827,19 +838,16 @@ function renderCitations() {
   const paper = wanted && wanted.map ? wanted : have[0];
   state.citePaper = paper.key;
 
-  top.textContent = '';
-  const label = document.createElement('label');
-  label.className = 'cite-pick';
-  label.innerHTML = '<span class="label">Paper</span>';
-  const select = document.createElement('select');
-  select.id = 'cite-select';
-  select.innerHTML = have.map(p => `<option value="${esc(p.key)}"${p.key === paper.key ? ' selected' : ''}>${esc(p.short)} — ${esc(trimTitle(p.title))}</option>`).join('');
-  select.addEventListener('change', () => openCitations(select.value));
-  label.append(select);
-  const meta = document.createElement('span');
-  meta.className = 'cite-meta';
-  meta.textContent = `arXiv ${paper.arxiv || '—'}`;
-  top.append(label, meta);
+  top.innerHTML = `<span class="label">Paper</span>
+    <div class="combo cite-combo">
+      <label class="sr-only" for="cite-search">Search papers that have a citation map</label>
+      <input id="cite-search" type="search" autocomplete="off" spellcheck="false"
+             placeholder="Search the ${have.length} papers with a map"
+             role="combobox" aria-expanded="false" aria-controls="cite-results" aria-autocomplete="list">
+      <ul class="results" id="cite-results" role="listbox" hidden></ul>
+    </div>
+    <span class="cite-current"><b>${esc(paper.short)}</b> · ${esc(trimTitle(paper.title))} · arXiv ${esc(paper.arxiv || '—')}</span>`;
+  wireCombobox($('#cite-search'), $('#cite-results'), p => openCitations(p.key), have);
 
   window.CiteMap.show({root, paper: paper.map, atlas: P});
 }

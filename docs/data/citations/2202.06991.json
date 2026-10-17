@@ -1,5 +1,5 @@
 {
- "generated": "2026-10-11",
+ "generated": "2026-10-16",
  "paper": {
   "arxiv": "2202.06991",
   "title": "Transformer Memory as a Differentiable Search Index",
@@ -10,7 +10,8 @@
   "rows": 29,
   "merged": 0,
   "marks": 42,
-  "sections": 5
+  "sections": 5,
+  "mentions": 25
  },
  "themes": [
   "Language models & tooling",
@@ -289,7 +290,7 @@
    "label": "Gao et al. [2021]",
    "authors": "Tianyu Gao, Xingcheng Yao, and Danqi Chen",
    "title": "SimCSE: Simple contrastive learning of sentence embeddings",
-   "venue": "In Proceedings of the 2021 Conference on Empirical Methods in Natural Language Processing, pages 6894–6910, Online and Punta Cana, Dominican Republic, November 2021. Association for Computational Linguistics. doi: 10.18653/v1/2021.emnlp-main.552. URL https://aclanthology.org/2021.emnlp-main.552.",
+   "venue": "In Proceedings of the 2021 Conference on Empirical Methods in Natural Language Processing, pages 6894–6910, Online and Punta Cana, Dominican Republic, November 2021. Association for Computational Linguistics. doi: 10.18653/v1/2021.emnlp-main.552. URL",
    "year": "2021",
    "arxiv": "",
    "count": 1,
@@ -354,8 +355,8 @@
    "label": "Guo et al. [2020]",
    "authors": "Ruiqi Guo, Philip Sun, Erik Lindgren, Quan Geng, David Simcha, Felix Chern, and Sanjiv Kumar",
    "title": "Accelerating large-scale inference with anisotropic vector quantization",
-   "venue": "In International Conference on Machine Learning, 2020. URL https://arxiv.org/abs/1908.10396.",
-   "year": "1908",
+   "venue": "In International Conference on Machine Learning, 2020. URL",
+   "year": "2020",
    "arxiv": "",
    "count": 1,
    "sections": {
@@ -640,7 +641,7 @@
    "label": "Sun et al. [2020]",
    "authors": "Yu Sun, Xiaolong Wang, Zhuang Liu, John Miller, Alexei Efros, and Moritz Hardt",
    "title": "Test-time training with self-supervision for generalization under distribution shifts",
-   "venue": "In Hal Daumé III and Aarti Singh, editors, Proceedings of the 37th International Conference on Machine Learning, volume 119 of Proceedings of Machine Learning Research, pages 9229–9248. PMLR, 13–18 Jul 2020. URL https://proceedings.mlr.press/v119/sun20b.html.",
+   "venue": "In Hal Daumé III and Aarti Singh, editors, Proceedings of the 37th International Conference on Machine Learning, volume 119 of Proceedings of Machine Learning Research, pages 9229–9248. PMLR, 13–18 Jul 2020. URL",
    "year": "2020",
    "arxiv": "",
    "count": 1,
@@ -736,6 +737,225 @@
    },
    "keyword": "Attention all",
    "theme": "Language models & tooling"
+  }
+ ],
+ "mentions": [
+  {
+   "sec": "S1",
+   "sub": "S1",
+   "text": "For retrieval, approaches based on inverted indexes or nearest neighbor search are common where contrastive learning based dual encoders (DEs) (Gillick et al., 2018; Karpukhin et al., 2020; Ni et al., 2021) are the present state-of-the-art.",
+   "refs": [
+    11,
+    16,
+    20
+   ]
+  },
+  {
+   "sec": "S1",
+   "sub": "S1",
+   "text": "This paper proposes an alternative architecture, wherein a sequence-to-sequence (seq2seq) learning system (Sutskever et al., 2014) is used to directly map a query qq to a relevant docid j∈𝒴j\\in\\mathcal{Y}.",
+   "refs": [
+    26
+   ]
+  },
+  {
+   "sec": "S1",
+   "sub": "S1",
+   "text": "We call this proposed architecture a differentiable search index (DSI), and implement it with a large pre-trained Transformer (Vaswani et al., 2017) model, building on the recent success of large generative language models (LMs) (Brown et al., 2020; Raffel et al., 2019; Devlin et al., 2018;…",
+   "refs": [
+    29,
+    3,
+    22,
+    6,
+    28,
+    7
+   ]
+  },
+  {
+   "sec": "S1",
+   "sub": "S1",
+   "text": "As one example, since indexing is now a special case of model training, incrementally updating an index becomes a special case of model updating (Sun et al., 2020).",
+   "refs": [
+    25
+   ]
+  },
+  {
+   "sec": "S1",
+   "sub": "S1",
+   "text": "Since recent results suggest that some properties of large LMs emerge only for very large model sizes Brown et al. (2020), we explore the performance of DSI for a range of model sizes and corpus sizes of 10k, 100k, and 320k documents.",
+   "refs": [
+    3
+   ]
+  },
+  {
+   "sec": "S2",
+   "sub": "S2",
+   "text": "De Cao et al. (2020) describe a related sequence-to-sequence system called autoregressive entity linking, in which documents mentioning an entity—perhaps implicitly, e.g., by posing a question to which that entity is an answer—are mapped to a canonical name of that entity.",
+   "refs": [
+    4
+   ]
+  },
+  {
+   "sec": "S2",
+   "sub": "S2",
+   "text": "This approach has been adapted to other purposes, such as generating knowledge base triples in canonical form (Josifoski et al., 2021).",
+   "refs": [
+    14
+   ]
+  },
+  {
+   "sec": "S2",
+   "sub": "S2",
+   "text": "There is a large body of work on retrieval augmented generation, i.e., retrieving auxiliary documents to enhance language models (Borgeaud et al., 2021; Guu et al., 2020).",
+   "refs": [
+    2,
+    13
+   ]
+  },
+  {
+   "sec": "S2",
+   "sub": "S2",
+   "text": "Dual encoders (Dehghani et al., 2017; Gillick et al., 2018; Gao et al., 2021; Ni et al., 2021; Karpukhin et al., 2020) are a well-established paradigm for retrieval.",
+   "refs": [
+    5,
+    11,
+    9,
+    20,
+    16
+   ]
+  },
+  {
+   "sec": "S2",
+   "sub": "S2",
+   "text": "(Roberts et al., 2020) demonstrated success on a closed-book QA task whereby they train T5 models to retrieve facts that are encoded within the parameters of the model during pretraining.",
+   "refs": [
+    24
+   ]
+  },
+  {
+   "sec": "S2",
+   "sub": "S2",
+   "text": "Meanwhile, (Petroni et al., 2019) also investigated language models as knowledge bases and found that pretrained LMs may already contain relational knowledge.",
+   "refs": [
+    21
+   ]
+  },
+  {
+   "sec": "S2",
+   "sub": "S2",
+   "text": "(Geva et al., 2020) analyzes the knowledge encoded within Transformer feedforward layers.",
+   "refs": [
+    10
+   ]
+  },
+  {
+   "sec": "S2",
+   "sub": "S2",
+   "text": "There have been also works that demonstrate the relation of Transformers to associative memory and Hopfield networks (Ramsauer et al., 2020), which reinforce the notion that Transformers should intuitively serve as a good associative memory store or search index.",
+   "refs": [
+    23
+   ]
+  },
+  {
+   "sec": "S3",
+   "sub": "S3.SS1",
+   "text": "We also explored a setup that performs span corruption-based denoising (Raffel et al., 2019) with the inclusion of docid tokens.",
+   "refs": [
+    22
+   ]
+  },
+  {
+   "sec": "S4",
+   "sub": "S4.SS0.SSS0.Px1",
+   "text": "We conduct our experiments on the challenging Natural Questions (NQ) (Kwiatkowski et al., 2019) dataset.",
+   "refs": [
+    17
+   ]
+  },
+  {
+   "sec": "S4",
+   "sub": "S4.SS0.SSS0.Px3",
+   "text": "All DSI models are initialized using standard pretrained T5 (Raffel et al., 2019) model configurations.",
+   "refs": [
+    22
+   ]
+  },
+  {
+   "sec": "S4",
+   "sub": "S4.SS0.SSS0.Px3",
+   "text": "Semantically structured identifiers are generated using an 8-layer BERT (Devlin et al., 2018) model , and the default kk-means clustering in scikit-learn.",
+   "refs": [
+    6
+   ]
+  },
+  {
+   "sec": "S4",
+   "sub": "S4.SS1",
+   "text": "For baselines, we use T5-based dual encoders implemented by (Ni et al., 2021).",
+   "refs": [
+    20
+   ]
+  },
+  {
+   "sec": "S4",
+   "sub": "S4.SS1",
+   "text": "For the T5-based dual encoders, we train with contrastive learning on the NQ pairs until convergence (≈\\approx 10K steps) and obtain top-k nearest neighbors with a system similar to ScaNN (Guo et al., 2020).",
+   "refs": [
+    12
+   ]
+  },
+  {
+   "sec": "S4",
+   "sub": "S4.SS1",
+   "text": "For zero-shot retrieval, we also compare with a state-of-the-art unsupervised baseline, Sentence T5 (Ni et al., 2021) which have been specially pre-trained with a similarity learning task.",
+   "refs": [
+    20
+   ]
+  },
+  {
+   "sec": "S4",
+   "sub": "S4.SS1",
+   "text": "There two reasons why we consider (Ni et al., 2021) the relevant dual encoder baseline for this work rather than other dense retrieval works such as DPR (Karpukhin et al., 2020).",
+   "refs": [
+    20,
+    16
+   ]
+  },
+  {
+   "sec": "S4",
+   "sub": "S4.SS2",
+   "text": "Moreover, DSI outperforms unsupervised representation learning methods such as SentenceT5 (Ni et al., 2021), which is trained to learn similarity-aware representations via contrastive learning.",
+   "refs": [
+    20
+   ]
+  },
+  {
+   "sec": "S4",
+   "sub": "S4.SS2",
+   "text": "Understanding the scaling behaviour of Transformers have garnered significant interest in recent years (Kaplan et al., 2020; Tay et al., 2021; Abnar et al., 2021).",
+   "refs": [
+    15,
+    27,
+    1
+   ]
+  },
+  {
+   "sec": "S5",
+   "sub": "S5",
+   "text": "This paper proposed the Differentiable Search Index (DSI), a new paradigm for learning an end-to-end search system in a unified manner, paving the way for next generation search (Metzler et al., 2021).",
+   "refs": [
+    19
+   ]
+  },
+  {
+   "sec": "S5",
+   "sub": "S5",
+   "text": "For example, it would be interesting to explore alternative strategies for representing documents and docids, as well as to investigate mixture-of-expert models (Du et al., 2021; Fedus et al., 2021; Lepikhin et al., 2020) for scaling the memory capacity of DSI.",
+   "refs": [
+    7,
+    8,
+    18
+   ]
   }
  ]
 }

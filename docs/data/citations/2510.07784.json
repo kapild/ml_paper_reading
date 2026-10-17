@@ -1,5 +1,5 @@
 {
- "generated": "2026-10-11",
+ "generated": "2026-10-16",
  "paper": {
   "arxiv": "2510.07784",
   "title": "PLUM: Adapting Pre-trained Language Models for Industrial-scale Generative Recommendations",
@@ -10,7 +10,8 @@
   "rows": 40,
   "merged": 0,
   "marks": 58,
-  "sections": 3
+  "sections": 3,
+  "mentions": 26
  },
  "themes": [
   "Other",
@@ -93,7 +94,7 @@
    "label": "Cao et al. (2024)",
    "authors": "Yuwei Cao, Nikhil Mehta, Xinyang Yi, Raghunandan Keshavan, Lukasz Heldt, Lichan Hong, Ed H. Chi, and Maheswaran Sathiamoorthy. 2024",
    "title": "Aligning Large Language Models with Recommendation Knowledge",
-   "venue": "(2024). arXiv:2404.00245 [cs.IR] https://arxiv.org/abs/2404.00245",
+   "venue": "(2024). arXiv:2404.00245 [cs.IR]",
    "year": "2024",
    "arxiv": "2404.00245",
    "count": 1,
@@ -113,8 +114,8 @@
    ],
    "label": "Chen et al. (2019a)",
    "authors": "Minmin Chen, Alex Beutel, Paul Covington, Sagar Jain, Francois Belletti, and Ed H. Chi. 2019a",
-   "title": "Top-K Off-Policy Correction for a REINFORCE Recommender System. In Proceedings of the Twelfth ACM International Conference on Web Search and Data Mining (Melbourne VIC, Australia) (WSDM ’19). Association for Computing Machinery, New York, NY, USA, 456–464",
-   "venue": "doi:10.1145/3289600.3290999",
+   "title": "Top-K Off-Policy Correction for a REINFORCE Recommender System",
+   "venue": "In Proceedings of the Twelfth ACM International Conference on Web Search and Data Mining (Melbourne VIC, Australia) (WSDM ’19). Association for Computing Machinery, New York, NY, USA, 456–464 doi:10.1145/3289600.3290999",
    "year": "",
    "arxiv": "",
    "count": 1,
@@ -134,8 +135,8 @@
    ],
    "label": "Chen et al. (2019b)",
    "authors": "Qiwei Chen, Huan Zhao, Wei Li, Pipei Huang, and Wenwu Ou. 2019b",
-   "title": "Behavior sequence transformer for e-commerce recommendation in Alibaba. In Proceedings of the 1st International Workshop on Deep Learning Practice for High-Dimensional Sparse Data (Anchorage, Alaska) (DLP-KDD ’19). Association for Computing Machinery, New York, NY, USA, Article 12, 4 pages",
-   "venue": "doi:10.1145/3326937.3341261",
+   "title": "Behavior sequence transformer for e-commerce recommendation in Alibaba",
+   "venue": "In Proceedings of the 1st International Workshop on Deep Learning Practice for High-Dimensional Sparse Data (Anchorage, Alaska) (DLP-KDD ’19). Association for Computing Machinery, New York, NY, USA, Article 12, 4 pages doi:10.1145/3326937.3341261",
    "year": "",
    "arxiv": "",
    "count": 1,
@@ -145,7 +146,7 @@
    "subsections": {
     "S1": 1
    },
-   "keyword": "DLP-KDD",
+   "keyword": "Behavior sequence",
    "theme": "Language models & tooling"
   },
   {
@@ -156,7 +157,7 @@
    "label": "Chen et al. (2025)",
    "authors": "Xiangyi Chen, Kousik Rajesh, Matthew Lawhon, Zelun Wang, Hanyu Li, Haomiao Li, Saurabh Vishwas Joshi, Pong Eksombatchai, Jaewon Yang, Yi-Ping Hsu, Jiajing Xu, and Charles Rosenberg. 2025",
    "title": "PinFM: Foundation Model for User Activity Sequences at a Billion-scale Visual Discovery Platform",
-   "venue": "(2025). arXiv:2507.12704 [cs.LG] https://arxiv.org/abs/2507.12704",
+   "venue": "(2025). arXiv:2507.12704 [cs.LG]",
    "year": "2025",
    "arxiv": "2507.12704",
    "count": 2,
@@ -177,9 +178,9 @@
    ],
    "label": "Coleman et al. (2023)",
    "authors": "Benjamin Coleman, Wang-Cheng Kang, Matthew Fahrbach, Ruoxi Wang, Lichan Hong, Ed H. Chi, and Derek Zhiyuan Cheng. 2023",
-   "title": "Unified embedding: battle-tested feature representations for web-scale ML systems. In Proceedings of the 37th International Conference on Neural Information Processing Systems (New Orleans, LA, USA) (NIPS ’23). Curran Associates Inc., Red Hook, NY, USA, Article 2453, 22 pages",
-   "venue": "",
-   "year": "2023",
+   "title": "Unified embedding: battle-tested feature representations for web-scale ML systems",
+   "venue": "In Proceedings of the 37th International Conference on Neural Information Processing Systems (New Orleans, LA, USA) (NIPS ’23). Curran Associates Inc., Red Hook, NY, USA, Article 2453, 22 pages",
+   "year": "",
    "arxiv": "",
    "count": 1,
    "sections": {
@@ -198,8 +199,8 @@
    ],
    "label": "Covington et al. (2016)",
    "authors": "Paul Covington, Jay Adams, and Emre Sargin. 2016",
-   "title": "Deep Neural Networks for YouTube Recommendations. In Proceedings of the 10th ACM Conference on Recommender Systems (Boston, Massachusetts, USA) (RecSys ’16). Association for Computing Machinery, New York, NY, USA, 191–198",
-   "venue": "doi:10.1145/2959100.2959190",
+   "title": "Deep Neural Networks for YouTube Recommendations",
+   "venue": "In Proceedings of the 10th ACM Conference on Recommender Systems (Boston, Massachusetts, USA) (RecSys ’16). Association for Computing Machinery, New York, NY, USA, 191–198 doi:10.1145/2959100.2959190",
    "year": "",
    "arxiv": "",
    "count": 2,
@@ -220,7 +221,7 @@
    "label": "Firooz et al. (2025)",
    "authors": "Hamed Firooz, Maziar Sanjabi, Adrian Englhardt, Aman Gupta, Ben Levine, Dre Olgiati, Gungor Polatkan, Iuliia Melnychuk, Karthik Ramgopal, Kirill Talanine, Kutta Srinivasan, Luke Simon, Natesh Sivasubramoniapillai, Necip Fazil Ayan, Qingquan Song, Samira Sriram, Souvik Ghosh, Tao Song, Vignesh Kothapalli, Xiaoling Zhai, Ya Xu, Yu Wang, and Yun Dai. 2025",
    "title": "360Brew: A Decoder-only Foundation Model for Personalized Ranking and Recommendation",
-   "venue": "(2025). arXiv:2501.16450 [cs.IR] https://arxiv.org/abs/2501.16450",
+   "venue": "(2025). arXiv:2501.16450 [cs.IR]",
    "year": "2025",
    "arxiv": "2501.16450",
    "count": 2,
@@ -241,8 +242,8 @@
    ],
    "label": "Gu et al. (2020)",
    "authors": "Yulong Gu, Zhuoye Ding, Shuaiqiang Wang, Lixin Zou, Yiding Liu, and Dawei Yin. 2020",
-   "title": "Deep Multifaceted Transformers for Multi-objective Ranking in Large-Scale E-commerce Recommender Systems. In Proceedings of the 29th ACM International Conference on Information & Knowledge Management (Virtual Event, Ireland) (CIKM ’20). Association for Computing Machinery, New York, NY, USA, 2493–2500",
-   "venue": "doi:10.1145/3340531.3412697",
+   "title": "Deep Multifaceted Transformers for Multi-objective Ranking in Large-Scale E-commerce Recommender Systems",
+   "venue": "In Proceedings of the 29th ACM International Conference on Information & Knowledge Management (Virtual Event, Ireland) (CIKM ’20). Association for Computing Machinery, New York, NY, USA, 2493–2500 doi:10.1145/3340531.3412697",
    "year": "",
    "arxiv": "",
    "count": 1,
@@ -252,7 +253,7 @@
    "subsections": {
     "S1": 1
    },
-   "keyword": "ACM",
+   "keyword": "Multifaceted Transformers",
    "theme": "Language models & tooling"
   },
   {
@@ -284,7 +285,7 @@
    "label": "Hidasi et al. (2016)",
    "authors": "Balázs Hidasi, Alexandros Karatzoglou, Linas Baltrunas, and Domonkos Tikk. 2016",
    "title": "Session-based Recommendations with Recurrent Neural Networks",
-   "venue": "arXiv:1511.06939 [cs.LG] https://arxiv.org/abs/1511.06939",
+   "venue": "arXiv:1511.06939 [cs.LG]",
    "year": "",
    "arxiv": "1511.06939",
    "count": 1,
@@ -347,7 +348,7 @@
    "label": "Huang et al. (2025)",
    "authors": "Yanhua Huang, Yuqi Chen, Xiong Cao, Rui Yang, Mingliang Qi, Yinghao Zhu, Qingchang Han, Yaowei Liu, Zhaoyu Liu, Xuefeng Yao, Yuting Jia, Leilei Ma, Yinqi Zhang, Taoyu Zhu, Liujie Zhang, Lei Chen, Weihang Chen, Min Zhu, Ruiwen Xu, and Lei Zhang. 2025",
    "title": "Towards Large-scale Generative Ranking",
-   "venue": "(2025). arXiv:2505.04180 [cs.IR] https://arxiv.org/abs/2505.04180",
+   "venue": "(2025). arXiv:2505.04180 [cs.IR]",
    "year": "2025",
    "arxiv": "2505.04180",
    "count": 1,
@@ -368,7 +369,7 @@
    "label": "Ju et al. (2025)",
    "authors": "Clark Mingxuan Ju, Liam Collins, Leonardo Neves, Bhuvesh Kumar, Louis Yufeng Wang, Tong Zhao, and Neil Shah. 2025",
    "title": "Generative Recommendation with Semantic IDs: A Practitioner’s Handbook",
-   "venue": "(2025). arXiv:2507.22224 [cs.IR] https://arxiv.org/abs/2507.22224",
+   "venue": "(2025). arXiv:2507.22224 [cs.IR]",
    "year": "2025",
    "arxiv": "2507.22224",
    "count": 1,
@@ -389,7 +390,7 @@
    "label": "Kang and McAuley (2018)",
    "authors": "Wang-Cheng Kang and Julian McAuley. 2018",
    "title": "Self-Attentive Sequential Recommendation",
-   "venue": "arXiv:1808.09781 [cs.IR] https://arxiv.org/abs/1808.09781",
+   "venue": "arXiv:1808.09781 [cs.IR]",
    "year": "",
    "arxiv": "1808.09781",
    "count": 1,
@@ -410,7 +411,7 @@
    "label": "Li et al. (2025)",
    "authors": "Kaiyuan Li, Rui Xiang, Yong Bai, Yongxiang Tang, Yanhua Cheng, Xialong Liu, Peng Jiang, and Kun Gai. 2025",
    "title": "BBQRec: Behavior-Bind Quantization for Multi-Modal Sequential Recommendation",
-   "venue": "(2025). arXiv:2504.06636 [cs.IR] https://arxiv.org/abs/2504.06636",
+   "venue": "(2025). arXiv:2504.06636 [cs.IR]",
    "year": "2025",
    "arxiv": "2504.06636",
    "count": 1,
@@ -431,7 +432,7 @@
    "label": "Liu et al. (2022)",
    "authors": "Zhuoran Liu, Leqi Zou, Xuan Zou, Caihua Wang, Biao Zhang, Da Tang, Bolin Zhu, Yijie Zhu, Peng Wu, Ke Wang, and Youlong Cheng. 2022",
    "title": "Monolith: Real Time Recommendation System With Collisionless Embedding Table",
-   "venue": "arXiv:2209.07663 [cs.IR] https://arxiv.org/abs/2209.07663",
+   "venue": "arXiv:2209.07663 [cs.IR]",
    "year": "",
    "arxiv": "2209.07663",
    "count": 1,
@@ -473,7 +474,7 @@
    "label": "Naumov et al. (2019)",
    "authors": "Maxim Naumov, Dheevatsa Mudigere, Hao-Jun Michael Shi, Jianyu Huang, Narayanan Sundaraman, Jongsoo Park, Xiaodong Wang, Udit Gupta, Carole-Jean Wu, Alisson G. Azzolini, Dmytro Dzhulgakov, Andrey Mallevich, Ilia Cherniavskii, Yinghai Lu, Raghuraman Krishnamoorthi, Ansha Yu, Volodymyr Kondratenko, Stephanie Pereira, Xianjie Chen, Wenlin Chen, Vijay Rao, Bill Jia, Liang Xiong, and Misha Smelyanskiy. 2019",
    "title": "Deep Learning Recommendation Model for Personalization and Recommendation Systems",
-   "venue": "(2019). arXiv:1906.00091 [cs.IR] https://arxiv.org/abs/1906.00091",
+   "venue": "(2019). arXiv:1906.00091 [cs.IR]",
    "year": "1906",
    "arxiv": "1906.00091",
    "count": 1,
@@ -494,8 +495,8 @@
    "label": "Netflix (2024)",
    "authors": "Netflix. 2024",
    "title": "Foundation Model for Personalized Recommendation",
-   "venue": "https://netflixtechblog.com/foundation-model-for-personalized-recommendation-1a0bd8e02d39.",
-   "year": "",
+   "venue": "",
+   "year": "2024",
    "arxiv": "",
    "count": 1,
    "sections": {
@@ -505,7 +506,7 @@
     "S1.SS1": 1
    },
    "keyword": "Foundation Personalized",
-   "theme": "Industry recommenders"
+   "theme": "Other"
   },
   {
    "n": 22,
@@ -514,9 +515,9 @@
    ],
    "label": "Pang et al. (2025)",
    "authors": "Ming Pang, Chunyuan Yuan, Xiaoyu He, Zheng Fang, Donghao Xie, Fanyi Qu, Xue Jiang, Changping Peng, Zhangang Lin, Zheng Luo, and Jingping Shao. 2025",
-   "title": "Generative Retrieval and Alignment Model: A New Paradigm for E-commerce Retrieval. In Companion Proceedings of the ACM on Web Conference 2025 (Sydney NSW, Australia) (WWW ’25). Association for Computing Machinery, New York, NY, USA, 413–421",
-   "venue": "doi:10.1145/3701716.3715228",
-   "year": "",
+   "title": "Generative Retrieval and Alignment Model: A New Paradigm for E-commerce Retrieval",
+   "venue": "In Companion Proceedings of the ACM on Web Conference 2025 (Sydney NSW, Australia) (WWW ’25). Association for Computing Machinery, New York, NY, USA, 413–421 doi:10.1145/3701716.3715228",
+   "year": "2025",
    "arxiv": "",
    "count": 2,
    "sections": {
@@ -526,7 +527,7 @@
     "S1": 1,
     "S1.SS1": 1
    },
-   "keyword": "ACM",
+   "keyword": "Generative Retrieval",
    "theme": "Generative retrieval"
   },
   {
@@ -537,7 +538,7 @@
    "label": "Penha et al. (2025)",
    "authors": "Gustavo Penha, Edoardo D’Amico, Marco De Nadai, Enrico Palumbo, Alexandre Tamborrino, Ali Vardasbi, Max Lefarov, Shawn Lin, Timothy Heath, Francesco Fabbri, and Hugues Bouchard. 2025",
    "title": "Semantic IDs for Joint Generative Search and Recommendation",
-   "venue": "(2025). arXiv:2508.10478 [cs.IR] https://arxiv.org/abs/2508.10478",
+   "venue": "(2025). arXiv:2508.10478 [cs.IR]",
    "year": "2025",
    "arxiv": "2508.10478",
    "count": 1,
@@ -557,9 +558,9 @@
    ],
    "label": "Rajput et al. (2023)",
    "authors": "Shashank Rajput, Nikhil Mehta, Anima Singh, Raghunandan Keshavan, Trung Vu, Lukasz Heidt, Lichan Hong, Yi Tay, Vinh Q. Tran, Jonah Samost, Maciej Kula, Ed H. Chi, and Maheswaran Sathiamoorthy. 2023",
-   "title": "Recommender systems with generative retrieval. In Proceedings of the 37th International Conference on Neural Information Processing Systems (New Orleans, LA, USA) (NIPS ’23). Curran Associates Inc., Red Hook, NY, USA, Article 452, 17 pages",
-   "venue": "",
-   "year": "2023",
+   "title": "Recommender systems with generative retrieval",
+   "venue": "In Proceedings of the 37th International Conference on Neural Information Processing Systems (New Orleans, LA, USA) (NIPS ’23). Curran Associates Inc., Red Hook, NY, USA, Article 452, 17 pages",
+   "year": "",
    "arxiv": "",
    "count": 8,
    "sections": {
@@ -573,7 +574,7 @@
     "S2.SS1": 2,
     "S3.SS2": 1
    },
-   "keyword": "USA",
+   "keyword": "Recommender systems",
    "theme": "Generative retrieval"
   },
   {
@@ -583,9 +584,9 @@
    ],
    "label": "Singh et al. (2024)",
    "authors": "Anima Singh, Trung Vu, Nikhil Mehta, Raghunandan Keshavan, Maheswaran Sathiamoorthy, Yilin Zheng, Lichan Hong, Lukasz Heldt, Li Wei, Devansh Tandon, Ed Chi, and Xinyang Yi. 2024",
-   "title": "Better Generalization with Semantic IDs: A Case Study in Ranking for Recommendations. In Proceedings of the 18th ACM Conference on Recommender Systems (Bari, Italy) (RecSys ’24). Association for Computing Machinery, New York, NY, USA",
-   "venue": "",
-   "year": "2024",
+   "title": "Better Generalization with Semantic IDs: A Case Study in Ranking for Recommendations",
+   "venue": "In Proceedings of the 18th ACM Conference on Recommender Systems (Bari, Italy) (RecSys ’24). Association for Computing Machinery, New York, NY, USA",
+   "year": "",
    "arxiv": "",
    "count": 4,
    "sections": {
@@ -597,7 +598,7 @@
     "S1.SS1": 1,
     "S2.SS1": 1
    },
-   "keyword": "ACM",
+   "keyword": "Better Generalization",
    "theme": "Semantic IDs & quantization"
   },
   {
@@ -607,9 +608,9 @@
    ],
    "label": "Tay et al. (2022)",
    "authors": "Yi Tay, Vinh Q. Tran, Mostafa Dehghani, Jianmo Ni, Dara Bahri, Harsh Mehta, Zhen Qin, Kai Hui, Zhe Zhao, Jai Gupta, Tal Schuster, William W. Cohen, and Donald Metzler. 2022",
-   "title": "Transformer memory as a differentiable search index. In Proceedings of the 36th International Conference on Neural Information Processing Systems (New Orleans, LA, USA) (NIPS ’22). Curran Associates Inc., Red Hook, NY, USA, Article 1587, 13 pages",
-   "venue": "",
-   "year": "2022",
+   "title": "Transformer memory as a differentiable search index",
+   "venue": "In Proceedings of the 36th International Conference on Neural Information Processing Systems (New Orleans, LA, USA) (NIPS ’22). Curran Associates Inc., Red Hook, NY, USA, Article 1587, 13 pages",
+   "year": "",
    "arxiv": "",
    "count": 1,
    "sections": {
@@ -618,7 +619,7 @@
    "subsections": {
     "S1.SS1": 1
    },
-   "keyword": "USA",
+   "keyword": "Transformer memory",
    "theme": "Generative retrieval"
   },
   {
@@ -650,7 +651,7 @@
    "label": "Wang et al. (2025)",
    "authors": "Dongsheng Wang, Yuxi Huang, Shen Gao, Yifan Wang, Chengrui Huang, and Shuo Shang. 2025",
    "title": "Generative Next POI Recommendation with Semantic ID",
-   "venue": "(2025). arXiv:2506.01375 [cs.IR] https://arxiv.org/abs/2506.01375",
+   "venue": "(2025). arXiv:2506.01375 [cs.IR]",
    "year": "2025",
    "arxiv": "2506.01375",
    "count": 1,
@@ -670,9 +671,9 @@
    ],
    "label": "Wang et al. (2021)",
    "authors": "Ruoxi Wang, Rakesh Shivanna, Derek Cheng, Sagar Jain, Dong Lin, Lichan Hong, and Ed Chi. 2021",
-   "title": "DCN V2: Improved Deep & Cross Network and Practical Lessons for Web-scale Learning to Rank Systems. In Proceedings of the Web Conference 2021 (Ljubljana, Slovenia) (WWW ’21). Association for Computing Machinery, New York, NY, USA, 1785–1797",
-   "venue": "doi:10.1145/3442381.3450078",
-   "year": "",
+   "title": "DCN V2: Improved Deep & Cross Network and Practical Lessons for Web-scale Learning to Rank Systems",
+   "venue": "In Proceedings of the Web Conference 2021 (Ljubljana, Slovenia) (WWW ’21). Association for Computing Machinery, New York, NY, USA, 1785–1797 doi:10.1145/3442381.3450078",
+   "year": "2021",
    "arxiv": "",
    "count": 1,
    "sections": {
@@ -692,7 +693,7 @@
    "label": "Weller et al. (2025)",
    "authors": "Orion Weller, Michael Boratko, Iftekhar Naim, and Jinhyuk Lee. 2025",
    "title": "On the Theoretical Limitations of Embedding-Based Retrieval",
-   "venue": "arXiv:2508.21038 [cs.IR] https://arxiv.org/abs/2508.21038",
+   "venue": "arXiv:2508.21038 [cs.IR]",
    "year": "",
    "arxiv": "2508.21038",
    "count": 1,
@@ -713,7 +714,7 @@
    "label": "Xu et al. (2025)",
    "authors": "Yi Xu, Moyu Zhang, Chenxuan Li, Zhihao Liao, Haibo Xing, Hao Deng, Jinxin Hu, Yu Zhang, Xiaoyi Zeng, and Jing Zhang. 2025",
    "title": "MMQ: Multimodal Mixture-of-Quantization Tokenization for Semantic ID Generation and User Behavioral Adaptation",
-   "venue": "(2025). arXiv:2508.15281 [cs.IR] https://arxiv.org/abs/2508.15281",
+   "venue": "(2025). arXiv:2508.15281 [cs.IR]",
    "year": "2025",
    "arxiv": "2508.15281",
    "count": 2,
@@ -734,7 +735,7 @@
    "label": "Yang et al. (2024)",
    "authors": "Liu Yang, Fabian Paischer, Kaveh Hassani, Jiacheng Li, Shuai Shao, Zhang Gabriel Li, Yun He, Xue Feng, Nima Noorshams, Sem Park, Bo Long, Robert D Nowak, Xiaoli Gao, and Hamid Eghbalzadeh. 2024",
    "title": "Unifying Generative and Dense Retrieval for Sequential Recommendation",
-   "venue": "(2024). arXiv:2411.18814 [cs.IR] https://arxiv.org/abs/2411.18814",
+   "venue": "(2024). arXiv:2411.18814 [cs.IR]",
    "year": "2024",
    "arxiv": "2411.18814",
    "count": 1,
@@ -755,7 +756,7 @@
    "label": "Yang et al. (2025)",
    "authors": "Yuhao Yang, Zhi Ji, Zhaopeng Li, Yi Li, Zhonglin Mo, Yue Ding, Kai Chen, Zijian Zhang, Jie Li, Shuanglong Li, and Lin Liu. 2025",
    "title": "Sparse Meets Dense: Unified Generative Recommendations with Cascaded Sparse-Dense Representations",
-   "venue": "(2025). arXiv:2503.02453 [cs.IR] https://arxiv.org/abs/2503.02453",
+   "venue": "(2025). arXiv:2503.02453 [cs.IR]",
    "year": "2025",
    "arxiv": "2503.02453",
    "count": 1,
@@ -776,7 +777,7 @@
    "label": "Yao et al. (2025)",
    "authors": "Yining Yao, Ziwei Li, Shuwen Xiao, Boya Du, Jialin Zhu, Junjun Zheng, Xiangheng Kong, and Yuning Jiang. 2025",
    "title": "SaviorRec: Semantic-Behavior Alignment for Cold-Start Recommendation",
-   "venue": "(2025). arXiv:2508.01375 [cs.IR] https://arxiv.org/abs/2508.01375",
+   "venue": "(2025). arXiv:2508.01375 [cs.IR]",
    "year": "2025",
    "arxiv": "2508.01375",
    "count": 1,
@@ -797,7 +798,7 @@
    "label": "Ye et al. (2025)",
    "authors": "Wencai Ye, Mingjie Sun, Shaoyun Shi, Peng Wang, Wenjin Wu, and Peng Jiang. 2025",
    "title": "DAS: Dual-Aligned Semantic IDs Empowered Industrial Recommender System",
-   "venue": "(2025). arXiv:2508.10584 [cs.IR] https://arxiv.org/abs/2508.10584",
+   "venue": "(2025). arXiv:2508.10584 [cs.IR]",
    "year": "2025",
    "arxiv": "2508.10584",
    "count": 1,
@@ -817,8 +818,8 @@
    ],
    "label": "Yi et al. (2019)",
    "authors": "Xinyang Yi, Ji Yang, Lichan Hong, Derek Zhiyuan Cheng, Lukasz Heldt, Aditee Kumthekar, Zhe Zhao, Li Wei, and Ed Chi. 2019",
-   "title": "Sampling-bias-corrected neural modeling for large corpus item recommendations. In Proceedings of the 13th ACM Conference on Recommender Systems (Copenhagen, Denmark) (RecSys ’19). Association for Computing Machinery, New York, NY, USA, 269–277",
-   "venue": "doi:10.1145/3298689.3346996",
+   "title": "Sampling-bias-corrected neural modeling for large corpus item recommendations",
+   "venue": "In Proceedings of the 13th ACM Conference on Recommender Systems (Copenhagen, Denmark) (RecSys ’19). Association for Computing Machinery, New York, NY, USA, 269–277 doi:10.1145/3298689.3346996",
    "year": "",
    "arxiv": "",
    "count": 1,
@@ -828,7 +829,7 @@
    "subsections": {
     "S1": 1
    },
-   "keyword": "ACM",
+   "keyword": "Sampling-bias-corrected modeling",
    "theme": "Industry recommenders"
   },
   {
@@ -838,8 +839,8 @@
    ],
    "label": "Zhai et al. (2024)",
    "authors": "Jiaqi Zhai, Lucy Liao, Xing Liu, Yueming Wang, Rui Li, Xuan Cao, Leon Gao, Zhaojie Gong, Fangda Gu, Jiayuan He, Yinghai Lu, and Yu Shi. 2024",
-   "title": "Actions Speak Louder than Words: Trillion-Parameter Sequential Transducers for Generative Recommendations. In Proceedings of the 41st International Conference on Machine Learning (Proceedings of Machine Learning Research, Vol. 235), Ruslan Salakhutdinov, Zico Kolter, Katherine Heller, Adrian Weller, Nuria Oliver, Jonathan Scarlett, and Felix Berkenkamp (Eds.). PMLR, 58484–58509",
-   "venue": "https://proceedings.mlr.press/v235/zhai24a.html",
+   "title": "Actions Speak Louder than Words: Trillion-Parameter Sequential Transducers for Generative Recommendations",
+   "venue": "In Proceedings of the 41st International Conference on Machine Learning (Proceedings of Machine Learning Research, Vol. 235), Ruslan Salakhutdinov, Zico Kolter, Katherine Heller, Adrian Weller, Nuria Oliver, Jonathan Scarlett, and Felix Berkenkamp (Eds.). PMLR, 58484–58509",
    "year": "",
    "arxiv": "",
    "count": 2,
@@ -850,7 +851,7 @@
     "S1": 1,
     "S1.SS1": 1
    },
-   "keyword": "PMLR",
+   "keyword": "Actions Speak",
    "theme": "Other"
   },
   {
@@ -861,7 +862,7 @@
    "label": "Zhang et al. (2024)",
    "authors": "Buyun Zhang, Liang Luo, Yuxin Chen, Jade Nie, Xi Liu, Daifeng Guo, Yanli Zhao, Shen Li, Yuchen Hao, Yantao Yao, Guna Lakshminarayanan, Ellie Dingqiao Wen, Jongsoo Park, Maxim Naumov, and Wenlin Chen. 2024",
    "title": "Wukong: Towards a Scaling Law for Large-Scale Recommendation",
-   "venue": "(2024). arXiv:2403.02545 [cs.LG] https://arxiv.org/abs/2403.02545",
+   "venue": "(2024). arXiv:2403.02545 [cs.LG]",
    "year": "2024",
    "arxiv": "2403.02545",
    "count": 1,
@@ -881,9 +882,9 @@
    ],
    "label": "Zhao et al. (2019)",
    "authors": "Zhe Zhao, Lichan Hong, Li Wei, Jilin Chen, Aniruddh Nath, Shawn Andrews, Aditee Kumthekar, Maheswaran Sathiamoorthy, Xinyang Yi, and Ed Chi. 2019",
-   "title": "Recommending what video to watch next: a multitask ranking system. In Proceedings of the 13th ACM Conference on Recommender Systems (Copenhagen, Denmark) (RecSys ’19)",
-   "venue": "",
-   "year": "2019",
+   "title": "Recommending what video to watch next: a multitask ranking system",
+   "venue": "In Proceedings of the 13th ACM Conference on Recommender Systems (Copenhagen, Denmark) (RecSys ’19)",
+   "year": "",
    "arxiv": "",
    "count": 1,
    "sections": {
@@ -892,7 +893,7 @@
    "subsections": {
     "S3.SS4": 1
    },
-   "keyword": "ACM",
+   "keyword": "Recommending what",
    "theme": "Industry recommenders"
   },
   {
@@ -903,7 +904,7 @@
    "label": "Zheng et al. (2025)",
    "authors": "Carolina Zheng, Minhui Huang, Dmitrii Pedchenko, Kaushik Rangadurai, Siyu Wang, Gaby Nahum, Jie Lei, Yang Yang, Tao Liu, Zutian Luo, Xiaohan Wei, Dinesh Ramasamy, Jiyan Yang, Yiping Han, Lin Yang, Hangjun Xu, Rong Jin, and Shuang Yang. 2025",
    "title": "Enhancing Embedding Representation Stability in Recommendation Systems with Semantic ID",
-   "venue": "(2025). arXiv:2504.02137 [cs.IR] https://arxiv.org/abs/2504.02137",
+   "venue": "(2025). arXiv:2504.02137 [cs.IR]",
    "year": "2025",
    "arxiv": "2504.02137",
    "count": 1,
@@ -924,7 +925,7 @@
    "label": "Zhou et al. (2025)",
    "authors": "Guorui Zhou, Jiaxin Deng, Jinghao Zhang, Kuo Cai, Lejian Ren, Qiang Luo, Qianqian Wang, Qigen Hu, Rui Huang, Shiyao Wang, Weifeng Ding, Wuchao Li, Xinchen Luo, Xingmei Wang, Zexuan Cheng, Zixing Zhang, Bin Zhang, Boxuan Wang, Chaoyi Ma, Chengru Song, Chenhui Wang, Di Wang, Dongxue Meng, Fan Yang, Fangyu Zhang, Feng Jiang, Fuxing Zhang, Gang Wang, Guowang Zhang, Han Li, Hengrui Hu, Hezheng Lin, Hongtao Cheng, Hongyang Cao, Huanjie Wang, Jiaming Huang, Jiapeng Chen, Jiaqiang Liu, Jinghui Jia, Kun Gai, Lantao Hu, Liang Zeng, Liao Yu, Qiang Wang, Qidong Zhou, Shengzhe Wang, Shihui He, Shuang Yang, Shujie Yang, Sui Huang, Tao Wu, Tiantian He, Tingting Gao, Wei Yuan, Xiao Liang, Xiaoxiao Xu, Xugang Liu, Yan Wang, Yi Wang, Yiwu Liu, Yue Song, Yufei Zhang, Yunfan Wu, Yunfeng Zhao, and Zhanyu Liu. 2025",
    "title": "OneRec Technical Report",
-   "venue": "arXiv:2506.13695 [cs.IR] https://arxiv.org/abs/2506.13695",
+   "venue": "arXiv:2506.13695 [cs.IR]",
    "year": "",
    "arxiv": "2506.13695",
    "count": 2,
@@ -937,6 +938,248 @@
    },
    "keyword": "OneRec",
    "theme": "Other"
+  }
+ ],
+ "mentions": [
+  {
+   "sec": "",
+   "sub": "",
+   "text": "PLUM consists of item tokenization using Semantic IDs (Rajput et al., 2023; Singh et al., 2024), continued pre-training (CPT) on domain-specific data, and task-specific fine-tuning for recommendation objectives.",
+   "refs": [
+    24,
+    25
+   ]
+  },
+  {
+   "sec": "S1",
+   "sub": "S1",
+   "text": "Despite the use of neural networks, the dominant paradigm in industrial recommenders continues to rely on massive embedding tables to represent high-cardinality categorical features such as item IDs (see, e.g., (Covington et al., 2016; Naumov et al., 2019; Liu et al., 2022; Coleman et al., 2023)).",
+   "refs": [
+    7,
+    20,
+    18,
+    6
+   ]
+  },
+  {
+   "sec": "S1",
+   "sub": "S1",
+   "text": "While highly effective at memorizing user-item interactions, this architectural choice hinders the potential benefits of deeper, more complex networks (e.g., (Chen et al., 2019b; Gu et al., 2020)).",
+   "refs": [
+    4,
+    9
+   ]
+  },
+  {
+   "sec": "S1",
+   "sub": "S1",
+   "text": "The success of LLMs has inspired an emerging paradigm shift for building recommendation models (Rajput et al., 2023; Zhai et al., 2024; Firooz et al., 2025; Zhou et al., 2025; Pang et al., 2025; Chen et al., 2025).",
+   "refs": [
+    24,
+    37,
+    8,
+    41,
+    22,
+    5
+   ]
+  },
+  {
+   "sec": "S1",
+   "sub": "S1",
+   "text": "Consequently, directly applying off-the-shelf LLMs to recommendation tasks has shown a persistent performance gap, even on small public datasets (Hou et al., 2024).",
+   "refs": [
+    13
+   ]
+  },
+  {
+   "sec": "S1",
+   "sub": "S1",
+   "text": "Building on the prior work with RQ-VAE (Rajput et al., 2023; Singh et al., 2024), we introduce a set of new techniques (referred to as SID-v2) for incorporating user behavioral signals and multi-modal content embeddings, and improve the hierarchical integrity through multi-resolution codebooks and progressive masking.",
+   "refs": [
+    24,
+    25
+   ]
+  },
+  {
+   "sec": "S1",
+   "sub": "S1",
+   "text": "Generative retrieval does not need to maintain a separate index of an item corpus, and bypasses the dot-product limitation (Weller et al., 2025) in embedding-based retrieval (Covington et al., 2016; Yi et al., 2019).",
+   "refs": [
+    30,
+    7,
+    36
+   ]
+  },
+  {
+   "sec": "S1",
+   "sub": "S1.SS1",
+   "text": "Modeling user sequences and feature interactions have been key areas for improving recommendation models, ranging from using classic sequential neural networks (Hidasi et al., 2016; Kang and McAuley, 2018) to designing custom feature interaction components (Wang et al., 2021; Zhang et al., 2024).",
+   "refs": [
+    11,
+    16,
+    29,
+    38
+   ]
+  },
+  {
+   "sec": "S1",
+   "sub": "S1.SS1",
+   "text": "More recently, the emerging trend is to use a Transformer-like architecture to unify user history and heterogeneous features in a single sequence (Zhai et al., 2024; Huang et al., 2025; Han et al., 2025), showing better scaling compared to traditional MLP architectures.",
+   "refs": [
+    37,
+    14,
+    10
+   ]
+  },
+  {
+   "sec": "S1",
+   "sub": "S1.SS1",
+   "text": "Furthermore, the training paradigm itself has evolved to mirror that of LLMs, with some works adopting self-supervised pre-training objectives followed by task-specific fine-tuning (Netflix, 2024; Chen et al., 2025).",
+   "refs": [
+    21,
+    5
+   ]
+  },
+  {
+   "sec": "S1",
+   "sub": "S1.SS1",
+   "text": "Early work demonstrated the feasibility of training retrieval models from scratch to predict SIDs (Rajput et al., 2023), and subsequent research showed that SIDs could be hashed to replace random item ID embeddings, enhancing generalization of ranking models (Singh et al., 2024; Zheng et al., 2025).",
+   "refs": [
+    24,
+    25,
+    40
+   ]
+  },
+  {
+   "sec": "S1",
+   "sub": "S1.SS1",
+   "text": "This includes fusing multi-modal content features (Xu et al., 2025) and injecting collaborative filtering signals from user behaviors (Penha et al., 2025; Li et al., 2025; Yao et al., 2025; Ye et al., 2025).",
+   "refs": [
+    31,
+    23,
+    17,
+    34,
+    35
+   ]
+  },
+  {
+   "sec": "S1",
+   "sub": "S1.SS1",
+   "text": "Different from MMQ (Xu et al., 2025), where different tokens are generated for each modality, we simply concatenate multiple content embeddings before encoding them with an MLP, offering the flexibility of supporting more embeddings.",
+   "refs": [
+    31
+   ]
+  },
+  {
+   "sec": "S1",
+   "sub": "S1.SS1",
+   "text": "This idea has gained significant traction across the industry (e.g., (Wang et al., 2025; Mei et al., 2025; Ju et al., 2025; Pang et al., 2025)), since the seminal works in document search (Tay et al., 2022) and recommendation (Rajput et al., 2023).",
+   "refs": [
+    28,
+    19,
+    15,
+    22,
+    26,
+    24
+   ]
+  },
+  {
+   "sec": "S1",
+   "sub": "S1.SS1",
+   "text": "For instance, OneRec (Zhou et al., 2025) adopts an encoder-decoder architecture to generate video SIDs, and leverages RL training to enhance the model quality with a reward model.",
+   "refs": [
+    41
+   ]
+  },
+  {
+   "sec": "S1",
+   "sub": "S1.SS1",
+   "text": "Other works (Yang et al., 2024; Yang et al., 2025) propose hybrid models that generate both SIDs and dense embeddings to alleviate the information loss from quantization.",
+   "refs": [
+    32,
+    33
+   ]
+  },
+  {
+   "sec": "S1",
+   "sub": "S1.SS1",
+   "text": "While some research (Cao et al., 2024; Firooz et al., 2025) has explored aligning LLMs with recommendation tasks, their focus is primarily on language interfaces.",
+   "refs": [
+    2,
+    8
+   ]
+  },
+  {
+   "sec": "S2",
+   "sub": "S2.SS1",
+   "text": "A primary limitation of relying on a single content representation in (Rajput et al., 2023) is its inherent inability to capture the multi-faceted nature of complex media items.",
+   "refs": [
+    24
+   ]
+  },
+  {
+   "sec": "S2",
+   "sub": "S2.SS1",
+   "text": "• Multi-Resolution Codebooks: Prior work (Rajput et al., 2023) employs a fixed uniform-resolution codebooks that can be parametrically inefficient, leading to a vast and sparsely populated SID space where the majority of potential codeword combinations remain unassigned.",
+   "refs": [
+    24
+   ]
+  },
+  {
+   "sec": "S2",
+   "sub": "S2.SS1",
+   "text": "In addition to the training loss introduced in (Singh et al., 2024), we introduce the co-occurence contrastive loss term.",
+   "refs": [
+    25
+   ]
+  },
+  {
+   "sec": "S3",
+   "sub": "S3.SS1",
+   "text": "This baseline is the top-performing production model, being highly-optimized since early work such as Chen et al. (2019a).",
+   "refs": [
+    3
+   ]
+  },
+  {
+   "sec": "S3",
+   "sub": "S3.SS2",
+   "text": "In Table 4 we discuss the importance of different changes we introduced to the prior SID (Rajput et al., 2023).",
+   "refs": [
+    24
+   ]
+  },
+  {
+   "sec": "S3",
+   "sub": "S3.SS4",
+   "text": "We use four different sizes from the Gemini-1.5 (Team, 2024) Mixture-of-Experts (MoE) model family: MoE-110M, MoE-370M, MoE-900M, and MoE-3B (here the size indicates the number of activated parameters per token) with their total number of parameters spanning from less than 1B to more than 10B.",
+   "refs": [
+    27
+   ]
+  },
+  {
+   "sec": "S3",
+   "sub": "S3.SS4",
+   "text": "Our study was conducted on a production dataset sourced from a key YouTube surface recommending what videos to watch next given a current watched video and other contextual signals like watch history (see Figure 4 in (Zhao et al., 2019)).",
+   "refs": [
+    39
+   ]
+  },
+  {
+   "sec": "S3",
+   "sub": "S3.SS4",
+   "text": "Note that unlike scaling law studies in natural language processing (e.g., (Hoffmann et al., 2022)), we employ constant learning rates.",
+   "refs": [
+    12
+   ]
+  },
+  {
+   "sec": "S3",
+   "sub": "S3.SS4",
+   "text": "Similar to the Chinchilla paper (Hoffmann et al., 2022), in Figure 6(b) there is a peak for most of the Iso-FLOPS budgets we consider.",
+   "refs": [
+    12
+   ]
   }
  ]
 }

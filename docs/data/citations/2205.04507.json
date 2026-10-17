@@ -1,5 +1,5 @@
 {
- "generated": "2026-10-11",
+ "generated": "2026-10-16",
  "paper": {
   "arxiv": "2205.04507",
   "title": "PinnerFormer: Sequence Modeling for User Representation at Pinterest",
@@ -10,7 +10,8 @@
   "rows": 31,
   "merged": 0,
   "marks": 54,
-  "sections": 5
+  "sections": 5,
+  "mentions": 23
  },
  "themes": [
   "Other",
@@ -196,9 +197,9 @@
    ],
    "label": "Chen et al. (2019)",
    "authors": "Qiwei Chen, Huan Zhao, Wei Li, Pipei Huang, and Wenwu Ou. 2019",
-   "title": "Behavior sequence transformer for e-commerce recommendation in alibaba. In Proceedings of the 1st International Workshop on Deep Learning Practice for High-Dimensional Sparse Data",
-   "venue": "",
-   "year": "2019",
+   "title": "Behavior sequence transformer for e-commerce recommendation in alibaba",
+   "venue": "In Proceedings of the 1st International Workshop on Deep Learning Practice for High-Dimensional Sparse Data",
+   "year": "",
    "arxiv": "",
    "count": 1,
    "sections": {
@@ -238,8 +239,8 @@
    ],
    "label": "Covington et al. (2016)",
    "authors": "Paul Covington, Jay Adams, and Emre Sargin. 2016",
-   "title": "Deep Neural Networks for YouTube Recommendations. In ACM International Conference on Recommender Systems (RecSys ’16)",
-   "venue": "https://doi.org/10.1145/2959100.2959190",
+   "title": "Deep Neural Networks for YouTube Recommendations",
+   "venue": "In ACM International Conference on Recommender Systems (RecSys ’16)",
    "year": "",
    "arxiv": "",
    "count": 1,
@@ -259,9 +260,9 @@
    ],
    "label": "Donkers et al. (2017)",
    "authors": "Tim Donkers, Benedikt Loepp, and Jürgen Ziegler. 2017",
-   "title": "Sequential User-Based Recurrent Neural Network Recommendations. In Proceedings of the Eleventh ACM Conference on Recommender Systems (RecSys ’17)",
-   "venue": "",
-   "year": "2017",
+   "title": "Sequential User-Based Recurrent Neural Network Recommendations",
+   "venue": "In Proceedings of the Eleventh ACM Conference on Recommender Systems (RecSys ’17)",
+   "year": "",
    "arxiv": "",
    "count": 2,
    "sections": {
@@ -272,7 +273,7 @@
     "S1": 1,
     "S2": 1
    },
-   "keyword": "ACM",
+   "keyword": "Sequential User-Based",
    "theme": "Other"
   },
   {
@@ -282,9 +283,9 @@
    ],
    "label": "Grbovic and Cheng (2018)",
    "authors": "Mihajlo Grbovic and Haibin Cheng. 2018",
-   "title": "Real-Time Personalization Using Embeddings for Search Ranking at Airbnb. In Proceedings of the 24th ACM SIGKDD International Conference on Knowledge Discovery & Data Mining (KDD ’18)",
-   "venue": "",
-   "year": "2018",
+   "title": "Real-Time Personalization Using Embeddings for Search Ranking at Airbnb",
+   "venue": "In Proceedings of the 24th ACM SIGKDD International Conference on Knowledge Discovery & Data Mining (KDD ’18)",
+   "year": "",
    "arxiv": "",
    "count": 1,
    "sections": {
@@ -293,7 +294,7 @@
    "subsections": {
     "S1": 1
    },
-   "keyword": "ACM",
+   "keyword": "Real-Time Personalization",
    "theme": "Other"
   },
   {
@@ -303,9 +304,9 @@
    ],
    "label": "Hidasi and Karatzoglou (2018)",
    "authors": "Balázs Hidasi and Alexandros Karatzoglou. 2018",
-   "title": "Recurrent Neural Networks with Top-k Gains for Session-based Recommendations. In Proceedings of the 27th ACM International Conference on Information and Knowledge Management",
-   "venue": "",
-   "year": "2018",
+   "title": "Recurrent Neural Networks with Top-k Gains for Session-based Recommendations",
+   "venue": "In Proceedings of the 27th ACM International Conference on Information and Knowledge Management",
+   "year": "",
    "arxiv": "",
    "count": 3,
    "sections": {
@@ -316,7 +317,7 @@
     "S1": 2,
     "S2": 1
    },
-   "keyword": "ACM",
+   "keyword": "Recurrent Networks",
    "theme": "Sequential recommenders"
   },
   {
@@ -326,9 +327,9 @@
    ],
    "label": "Kang and McAuley (2018)",
    "authors": "Wang-Cheng Kang and Julian McAuley. 2018",
-   "title": "Self-attentive sequential recommendation. In IEEE International Conference on Data Mining (ICDM)",
-   "venue": "",
-   "year": "2018",
+   "title": "Self-attentive sequential recommendation",
+   "venue": "In IEEE International Conference on Data Mining (ICDM)",
+   "year": "",
    "arxiv": "",
    "count": 6,
    "sections": {
@@ -345,7 +346,7 @@
     "S4.SS2": 1,
     "A1.SS4": 1
    },
-   "keyword": "ICDM",
+   "keyword": "Self-attentive sequential",
    "theme": "Sequential recommenders"
   },
   {
@@ -376,9 +377,9 @@
    ],
    "label": "Li et al. (2019)",
    "authors": "Chao Li, Zhiyuan Liu, Mengmeng Wu, Yuchi Xu, Huan Zhao, Pipei Huang, Guoliang Kang, Qiwei Chen, Wei Li, and Dik Lun Lee. 2019",
-   "title": "Multi-Interest Network with Dynamic Routing for Recommendation at Tmall. In Proceedings of the 28th ACM International Conference on Information and Knowledge Management (CIKM ’19)",
-   "venue": "",
-   "year": "2019",
+   "title": "Multi-Interest Network with Dynamic Routing for Recommendation at Tmall",
+   "venue": "In Proceedings of the 28th ACM International Conference on Information and Knowledge Management (CIKM ’19)",
+   "year": "",
    "arxiv": "",
    "count": 2,
    "sections": {
@@ -389,7 +390,7 @@
     "S1": 1,
     "S2": 1
    },
-   "keyword": "ACM",
+   "keyword": "Multi-Interest Network",
    "theme": "Other"
   },
   {
@@ -399,9 +400,9 @@
    ],
    "label": "Liu et al. (2019)",
    "authors": "Ninghao Liu, Qiaoyu Tan, Yuening Li, Hongxia Yang, Jingren Zhou, and Xia Hu. 2019",
-   "title": "Is a Single Vector Enough? Exploring Node Polysemy for Network Embedding. In Proceedings of the 25th ACM SIGKDD International Conference on Knowledge Discovery & Data Mining",
-   "venue": "",
-   "year": "2019",
+   "title": "Is a Single Vector Enough? Exploring Node Polysemy for Network Embedding",
+   "venue": "In Proceedings of the 25th ACM SIGKDD International Conference on Knowledge Discovery & Data Mining",
+   "year": "",
    "arxiv": "",
    "count": 1,
    "sections": {
@@ -410,7 +411,7 @@
    "subsections": {
     "S2": 1
    },
-   "keyword": "ACM",
+   "keyword": "Single Vector",
    "theme": "Other"
   },
   {
@@ -508,9 +509,9 @@
    ],
    "label": "Pi et al. (2019)",
    "authors": "Qi Pi, Weijie Bian, Guorui Zhou, Xiaoqiang Zhu, and Kun Gai. 2019",
-   "title": "Practice on long sequential user behavior modeling for click-through rate prediction. In Proceedings of the 25th ACM SIGKDD International Conference on Knowledge Discovery & Data Mining",
-   "venue": "",
-   "year": "2019",
+   "title": "Practice on long sequential user behavior modeling for click-through rate prediction",
+   "venue": "In Proceedings of the 25th ACM SIGKDD International Conference on Knowledge Discovery & Data Mining",
+   "year": "",
    "arxiv": "",
    "count": 4,
    "sections": {
@@ -521,7 +522,7 @@
     "S1": 3,
     "S2": 1
    },
-   "keyword": "ACM",
+   "keyword": "Practice long",
    "theme": "Other"
   },
   {
@@ -552,9 +553,9 @@
    ],
    "label": "Rendle et al. (2010)",
    "authors": "Steffen Rendle, Christoph Freudenthaler, and Lars Schmidt-Thieme. 2010",
-   "title": "Factorizing Personalized Markov Chains for Next-Basket Recommendation. In Proceedings of the 19th International Conference on World Wide Web (WWW ’10)",
-   "venue": "",
-   "year": "2010",
+   "title": "Factorizing Personalized Markov Chains for Next-Basket Recommendation",
+   "venue": "In Proceedings of the 19th International Conference on World Wide Web (WWW ’10)",
+   "year": "",
    "arxiv": "",
    "count": 1,
    "sections": {
@@ -563,7 +564,7 @@
    "subsections": {
     "S1": 1
    },
-   "keyword": "WWW",
+   "keyword": "Factorizing Personalized",
    "theme": "Other"
   },
   {
@@ -573,9 +574,9 @@
    ],
    "label": "Sun et al. (2019)",
    "authors": "Fei Sun, Jun Liu, Jian Wu, Changhua Pei, Xiao Lin, Wenwu Ou, and Peng Jiang. 2019",
-   "title": "BERT4Rec: Sequential Recommendation with Bidirectional Encoder Representations from Transformer. In Proceedings of the 28th ACM International Conference on Information and Knowledge Management (CIKM ’19)",
-   "venue": "",
-   "year": "2019",
+   "title": "BERT4Rec: Sequential Recommendation with Bidirectional Encoder Representations from Transformer",
+   "venue": "In Proceedings of the 28th ACM International Conference on Information and Knowledge Management (CIKM ’19)",
+   "year": "",
    "arxiv": "",
    "count": 3,
    "sections": {
@@ -638,9 +639,9 @@
    ],
    "label": "Weston et al. (2013)",
    "authors": "Jason Weston, Ron Weiss, and Hector Yee. 2013",
-   "title": "Nonlinear Latent Factorization by Embedding Multiple User Interests. In ACM International Conference on Recommender Systems (RecSys)",
-   "venue": "",
-   "year": "2013",
+   "title": "Nonlinear Latent Factorization by Embedding Multiple User Interests",
+   "venue": "In ACM International Conference on Recommender Systems (RecSys)",
+   "year": "",
    "arxiv": "",
    "count": 1,
    "sections": {
@@ -649,7 +650,7 @@
    "subsections": {
     "S2": 1
    },
-   "keyword": "RecSys",
+   "keyword": "Nonlinear Latent",
    "theme": "Other"
   },
   {
@@ -659,9 +660,9 @@
    ],
    "label": "Wu et al. (2017)",
    "authors": "Chao-Yuan Wu, Amr Ahmed, Alex Beutel, Alexander J. Smola, and How Jing. 2017",
-   "title": "Recurrent Recommender Networks. In Proceedings of the Tenth ACM International Conference on Web Search and Data Mining (WSDM ’17)",
-   "venue": "",
-   "year": "2017",
+   "title": "Recurrent Recommender Networks",
+   "venue": "In Proceedings of the Tenth ACM International Conference on Web Search and Data Mining (WSDM ’17)",
+   "year": "",
    "arxiv": "",
    "count": 2,
    "sections": {
@@ -672,7 +673,7 @@
     "S1": 1,
     "S2": 1
    },
-   "keyword": "ACM",
+   "keyword": "Recurrent Recommender",
    "theme": "Other"
   },
   {
@@ -682,9 +683,9 @@
    ],
    "label": "Yang et al. (2020)",
    "authors": "Ji Yang, Xinyang Yi, Derek Zhiyuan Cheng, Lichan Hong, Yang Li, Simon Xiaoming Wang, Taibai Xu, and Ed H Chi. 2020",
-   "title": "Mixed negative sampling for learning two-tower neural networks in recommendations. In Companion Proceedings of the Web Conference",
-   "venue": "",
-   "year": "2020",
+   "title": "Mixed negative sampling for learning two-tower neural networks in recommendations",
+   "venue": "In Companion Proceedings of the Web Conference",
+   "year": "",
    "arxiv": "",
    "count": 2,
    "sections": {
@@ -726,9 +727,9 @@
    ],
    "label": "Ying et al. (2018)",
    "authors": "Rex Ying, Ruining He, Kaifeng Chen, Pong Eksombatchai, William L Hamilton, and Jure Leskovec. 2018",
-   "title": "Graph convolutional neural networks for web-scale recommender systems. In Proceedings of the 24th ACM SIGKDD international conference on knowledge discovery & data mining",
-   "venue": "",
-   "year": "2018",
+   "title": "Graph convolutional neural networks for web-scale recommender systems",
+   "venue": "In Proceedings of the 24th ACM SIGKDD international conference on knowledge discovery & data mining",
+   "year": "",
    "arxiv": "",
    "count": 2,
    "sections": {
@@ -738,7 +739,7 @@
     "S3": 1,
     "S3.SS1": 1
    },
-   "keyword": "ACM",
+   "keyword": "Graph convolutional",
    "theme": "Other"
   },
   {
@@ -748,9 +749,9 @@
    ],
    "label": "Yuan et al. (2019)",
    "authors": "Fajie Yuan, Alexandros Karatzoglou, Ioannis Arapakis, Joemon M. Jose, and Xiangnan He. 2019",
-   "title": "A Simple Convolutional Generative Network for Next Item Recommendation. In Proceedings of the Twelfth ACM International Conference on Web Search and Data Mining (WSDM ’19)",
-   "venue": "",
-   "year": "2019",
+   "title": "A Simple Convolutional Generative Network for Next Item Recommendation",
+   "venue": "In Proceedings of the Twelfth ACM International Conference on Web Search and Data Mining (WSDM ’19)",
+   "year": "",
    "arxiv": "",
    "count": 2,
    "sections": {
@@ -761,7 +762,7 @@
     "S1": 1,
     "S2": 1
    },
-   "keyword": "ACM",
+   "keyword": "Simple Convolutional",
    "theme": "Sequential recommenders"
   },
   {
@@ -771,9 +772,9 @@
    ],
    "label": "Zhang et al. (2020)",
    "authors": "Han Zhang, Songlin Wang, Kang Zhang, Zhiling Tang, Yunjiang Jiang, Yun Xiao, Weipeng Yan, and Wen-Yun Yang. 2020",
-   "title": "Towards Personalized and Semantic Retrieval: An End-to-End Solution for E-Commerce Search via Embedding Learning. In Proceedings of the 43rd International ACM SIGIR Conference on Research and Development in Information Retrieval. New York, NY, USA",
-   "venue": "",
-   "year": "2020",
+   "title": "Towards Personalized and Semantic Retrieval: An End-to-End Solution for E-Commerce Search via Embedding Learning",
+   "venue": "In Proceedings of the 43rd International ACM SIGIR Conference on Research and Development in Information Retrieval. New York, NY, USA",
+   "year": "",
    "arxiv": "",
    "count": 1,
    "sections": {
@@ -782,7 +783,7 @@
    "subsections": {
     "S1": 1
    },
-   "keyword": "ACM",
+   "keyword": "Personalized Semantic",
    "theme": "Other"
   },
   {
@@ -792,9 +793,9 @@
    ],
    "label": "Zhou et al. (2019)",
    "authors": "Guorui Zhou, Na Mou, Ying Fan, Qi Pi, Weijie Bian, Chang Zhou, Xiaoqiang Zhu, and Kun Gai. 2019",
-   "title": "Deep interest evolution network for click-through rate prediction. In Proceedings of the AAAI conference on artificial intelligence",
-   "venue": "",
-   "year": "2019",
+   "title": "Deep interest evolution network for click-through rate prediction",
+   "venue": "In Proceedings of the AAAI conference on artificial intelligence",
+   "year": "",
    "arxiv": "",
    "count": 1,
    "sections": {
@@ -803,8 +804,225 @@
    "subsections": {
     "S1": 1
    },
-   "keyword": "AAAI",
+   "keyword": "Interest evolution",
    "theme": "Other"
+  }
+ ],
+ "mentions": [
+  {
+   "sec": "S1",
+   "sub": "S1",
+   "text": "Such embeddings have been adopted to power ranking and candidate generation in industry, and are used to power personalized recommendations across YouTube (Covington et al., 2016), Google Play (Yang et al., 2020), Airbnb search (Grbovic and Cheng, 2018), JD.com search (Zhang et al., 2020), Alibaba…",
+   "refs": [
+    7,
+    27,
+    9,
+    31,
+    13,
+    19
+   ]
+  },
+  {
+   "sec": "S1",
+   "sub": "S1",
+   "text": "In addition to work on learning personalized embeddings, there is a body of work focused on directly building ranking models using sequential information (Chen et al., 2019; Zhou et al., 2019; Pi et al., 2019; Pi et al., 2020), enabling personalization of recommendations based on a user’s recent engagement.",
+   "refs": [
+    5,
+    32,
+    19,
+    20
+   ]
+  },
+  {
+   "sec": "S1",
+   "sub": "S1",
+   "text": "Various methods have been proposed to predict future engagement based on users’ sequences of historical interactions (Chen et al., 2021; Sun et al., 2019; Hidasi and Karatzoglou, 2018; Rendle et al., 2010; Pal et al., 2020).",
+   "refs": [
+    4,
+    22,
+    10,
+    21,
+    18
+   ]
+  },
+  {
+   "sec": "S1",
+   "sub": "S1",
+   "text": "More recent works have applied various deep learning models, including recurrent neural networks (RNNs) and transformers for such sequential recommendations and obtained promising results (Chen et al., 2021; Sun et al., 2019; Hidasi and Karatzoglou, 2018; Kang and McAuley, 2018; Donkers et al.,…",
+   "refs": [
+    4,
+    22,
+    10,
+    11,
+    8,
+    26,
+    30
+   ]
+  },
+  {
+   "sec": "S1",
+   "sub": "S1",
+   "text": "Stateless models may have high computational cost, as an embedding must be computed from scratch after every action a user takes, while stateful models require robust reliable streaming infrastructure to handle potential errors or data corruption in the model’s state for a given user (Pi et al., 2019).",
+   "refs": [
+    19
+   ]
+  },
+  {
+   "sec": "S2",
+   "sub": "S2",
+   "text": "Most approaches to generating user representations produce a single embedding (Chen et al., 2021; Sun et al., 2019; Hidasi and Karatzoglou, 2018; Kang and McAuley, 2018; Donkers et al., 2017; Wu et al., 2017; Yuan et al., 2019), but some focus on learning a fixed or variable number of user…",
+   "refs": [
+    4,
+    22,
+    10,
+    11,
+    8,
+    26,
+    30,
+    13,
+    18,
+    25,
+    14
+   ]
+  },
+  {
+   "sec": "S2",
+   "sub": "S2",
+   "text": "In our previous user representation, PinnerSage, we made the decision to allow for a variable, potentially large number of embeddings, allowing the model to explicitly represent a user’s varied interests (Pal et al., 2020).",
+   "refs": [
+    18
+   ]
+  },
+  {
+   "sec": "S2",
+   "sub": "S2",
+   "text": "• High infrastructure complexity: a user’s hidden state or embedding can be incrementally updated, but this requires a robust system to recover and warm up the model’s state in the case of any data corruption (Pi et al., 2019)",
+   "refs": [
+    19
+   ]
+  },
+  {
+   "sec": "S3",
+   "sub": "S3",
+   "text": "For each Pin in the corpus, we have a PinSage (Ying et al., 2018) embedding pi∈ℝ256p_{i}\\in\\mathbb{R}^{256}, which is an aggregation of visual, text, and engagement information for a Pin PiP_{i}.",
+   "refs": [
+    29
+   ]
+  },
+  {
+   "sec": "S3",
+   "sub": "S3.SS1",
+   "text": "For each action in a user’s sequence, we have a PinSage embedding (256-dimensional) (Ying et al., 2018) and metadata features: action type, surface, timestamp, and action duration.",
+   "refs": [
+    29
+   ]
+  },
+  {
+   "sec": "S3",
+   "sub": "S3.SS1",
+   "text": "For each of these time features, we follow the common practice of encoding time using sine and cosine transformations with various periods in a manner similar to Time2vec (Kazemi et al., 2019), but with PP fixed periods, rather than learned periods, and a logarithmic transformation of time, rather than a linear one.",
+   "refs": [
+    12
+   ]
+  },
+  {
+   "sec": "S3",
+   "sub": "S3.SS2",
+   "text": "In PinnerFormer, we model the sequence of user actions using a transformer model architecture (Vaswani et al., 2017).",
+   "refs": [
+    23
+   ]
+  },
+  {
+   "sec": "S3",
+   "sub": "S3.SS2",
+   "text": "We choose to use PreNorm residual connections, applying Layer Normalization before each block, as this approach has been shown to improve stability of training (Nguyen and Salazar, 2019; Wang et al., 2019).",
+   "refs": [
+    17,
+    24
+   ]
+  },
+  {
+   "sec": "S3",
+   "sub": "S3.SS3",
+   "text": "A third option we consider is combining both random and in-batch negatives to take advantage of the unique characteristics of both by merging the in-batch and random negative pools into a single one, which contains a combination of in-batch and random negatives (Yang et al., 2020).",
+   "refs": [
+    27
+   ]
+  },
+  {
+   "sec": "S3",
+   "sub": "S3.SS3",
+   "text": "The loss function we have found to work best is sampled softmax with a logQ correction (Yi et al., 2019; Bengio and Senécal, 2008), where we apply a correction to each logit based on the probability that a given negative appears in the batch.",
+   "refs": [
+    28,
+    3
+   ]
+  },
+  {
+   "sec": "S3",
+   "sub": "S3.SS3",
+   "text": "For simplicity, we approximate QQ using a count-min sketch (Cormode and Muthukrishnan, 2005).",
+   "refs": [
+    6
+   ]
+  },
+  {
+   "sec": "S3",
+   "sub": "S3.SS4",
+   "text": "Each of these actions has value, but rather than learning task-specific heads as is common in multi-task learning literature (Liu et al., 2015; Bell et al., 2020), we choose to train a single embedding in a multi-task manner, directly learning an embedding that can effectively retrieve different…",
+   "refs": [
+    15,
+    2
+   ]
+  },
+  {
+   "sec": "S3",
+   "sub": "S3.SS4",
+   "text": "SASRec (Kang and McAuley, 2018) extends this simple training objective by aiming to predict the next action at every step in the model, rather than only predicting the most recent positive action.",
+   "refs": [
+    11
+   ]
+  },
+  {
+   "sec": "S3",
+   "sub": "S3.SS4",
+   "text": "To further improve the signal provided by each batch, we draw inspiration from SASRec (Kang and McAuley, 2018) to modify the all action prediction objective.",
+   "refs": [
+    11
+   ]
+  },
+  {
+   "sec": "S3",
+   "sub": "S3.SS6",
+   "text": "Pin embeddings are inexpensive to compute, only requiring a small MLP transformation of an existing feature, so we generate them from scratch daily, then compile a HNSW (Malkov and Yashunin, 2018) graph that can be queried online using the user embeddings saved in a feature store.",
+   "refs": [
+    16
+   ]
+  },
+  {
+   "sec": "S4",
+   "sub": "S4.SS2",
+   "text": "In our offline evaluation, we compare to the baseline of PinnerSage (Pal et al., 2020), our previous, multi-embedding user representation, measuring recall based on an oracle evaluation to obtain an upper bound.",
+   "refs": [
+    18
+   ]
+  },
+  {
+   "sec": "S4",
+   "sub": "S4.SS2",
+   "text": "• A model trained using the SASRec training objective, which directly predicts the next action a user will take(Kang and McAuley, 2018).",
+   "refs": [
+    11
+   ]
+  },
+  {
+   "sec": "A1",
+   "sub": "A1.SS4",
+   "text": "In the original paper, SASRec (Kang and McAuley, 2018) model is trained based on a binary cross-entropy task, without any sample probability correction.",
+   "refs": [
+    11
+   ]
   }
  ]
 }

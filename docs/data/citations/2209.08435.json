@@ -1,5 +1,5 @@
 {
- "generated": "2026-10-11",
+ "generated": "2026-10-16",
  "paper": {
   "arxiv": "2209.08435",
   "title": "Rethinking Personalized Ranking at Pinterest: An End-to-End Approach",
@@ -10,7 +10,8 @@
   "rows": 21,
   "merged": 0,
   "marks": 23,
-  "sections": 3
+  "sections": 3,
+  "mentions": 9
  },
  "themes": [
   "Language models & tooling",
@@ -75,9 +76,9 @@
    ],
    "label": "Chen et al. (2019)",
    "authors": "Qiwei Chen, Huan Zhao, Wei Li, Pipei Huang, and Wenwu Ou. 2019",
-   "title": "Behavior sequence transformer for e-commerce recommendation in alibaba. In Proceedings of the 1st International Workshop on Deep Learning Practice for High-Dimensional Sparse Data",
-   "venue": "",
-   "year": "2019",
+   "title": "Behavior sequence transformer for e-commerce recommendation in alibaba",
+   "venue": "In Proceedings of the 1st International Workshop on Deep Learning Practice for High-Dimensional Sparse Data",
+   "year": "",
    "arxiv": "",
    "count": 1,
    "sections": {
@@ -96,8 +97,8 @@
    ],
    "label": "Covington et al. (2016)",
    "authors": "Paul Covington, Jay Adams, and Emre Sargin. 2016",
-   "title": "Deep Neural Networks for YouTube Recommendations. In ACM International Conference on Recommender Systems (RecSys ’16)",
-   "venue": "https://doi.org/10.1145/2959100.2959190",
+   "title": "Deep Neural Networks for YouTube Recommendations",
+   "venue": "In ACM International Conference on Recommender Systems (RecSys ’16)",
    "year": "",
    "arxiv": "",
    "count": 1,
@@ -117,9 +118,9 @@
    ],
    "label": "Eksombatchai et al. (2018)",
    "authors": "Chantat Eksombatchai, Pranav Jindal, Jerry Zitao Liu, Yuchen Liu, Rahul Sharma, Charles Sugnet, Mark Ulrich, and Jure Leskovec. 2018",
-   "title": "Pixie: A System for Recommending 3+ Billion Items to 200+ Million Users in Real-Time. In Proceedings of the 2018 World Wide Web Conference (Lyon, France) (WWW ’18). 1775–1784",
-   "venue": "https://doi.org/10.1145/3178876.3186183",
-   "year": "",
+   "title": "Pixie: A System for Recommending 3+ Billion Items to 200+ Million Users in Real-Time",
+   "venue": "In Proceedings of the 2018 World Wide Web Conference (Lyon, France) (WWW ’18). 1775–1784",
+   "year": "2018",
    "arxiv": "",
    "count": 1,
    "sections": {
@@ -138,9 +139,9 @@
    ],
    "label": "Fazelnia et al. (2022)",
    "authors": "Ghazal Fazelnia, Eric Simon, Ian Anderson, Benjamin Carterette, and Mounia Lalmas. 2022",
-   "title": "Variational User Modeling with Slow and Fast Features. In Proceedings of the Fifteenth ACM International Conference on Web Search and Data Mining. 271–279",
-   "venue": "",
-   "year": "2022",
+   "title": "Variational User Modeling with Slow and Fast Features",
+   "venue": "In Proceedings of the Fifteenth ACM International Conference on Web Search and Data Mining. 271–279",
+   "year": "",
    "arxiv": "",
    "count": 1,
    "sections": {
@@ -149,7 +150,7 @@
    "subsections": {
     "S1": 1
    },
-   "keyword": "ACM",
+   "keyword": "Variational User",
    "theme": "Other"
   },
   {
@@ -159,9 +160,9 @@
    ],
    "label": "Grbovic and Cheng (2018)",
    "authors": "Mihajlo Grbovic and Haibin Cheng. 2018",
-   "title": "Real-Time Personalization Using Embeddings for Search Ranking at Airbnb. In Proceedings of the 24th ACM SIGKDD International Conference on Knowledge Discovery & Data Mining (KDD ’18)",
-   "venue": "",
-   "year": "2018",
+   "title": "Real-Time Personalization Using Embeddings for Search Ranking at Airbnb",
+   "venue": "In Proceedings of the 24th ACM SIGKDD International Conference on Knowledge Discovery & Data Mining (KDD ’18)",
+   "year": "",
    "arxiv": "",
    "count": 1,
    "sections": {
@@ -170,7 +171,7 @@
    "subsections": {
     "S1": 1
    },
-   "keyword": "ACM",
+   "keyword": "Real-Time Personalization",
    "theme": "Other"
   },
   {
@@ -181,7 +182,7 @@
    "label": "Gusev and Xu (2020)",
    "authors": "Andrey Gusev and Jiajing Xu. 2020",
    "title": "Evolution of a Web-Scale Near Duplicate Image Detection System",
-   "venue": "Association for Computing Machinery, New York, NY, USA, 2733–2739. https://doi.org/10.1145/3366423.3380031",
+   "venue": "Association for Computing Machinery, New York, NY, USA, 2733–2739.",
    "year": "",
    "arxiv": "",
    "count": 1,
@@ -201,8 +202,8 @@
    ],
    "label": "Jing et al. (2015)",
    "authors": "Yushi Jing, David Liu, Dmitry Kislyuk, Andrew Zhai, Jiajing Xu, Jeff Donahue, and Sarah Tavel. 2015",
-   "title": "Visual Search at Pinterest. In Proceedings of the 21th ACM SIGKDD International Conference on Knowledge Discovery and Data Mining (Sydney, NSW, Australia) (KDD ’15). Association for Computing Machinery, New York, NY, USA, 1889–1898",
-   "venue": "https://doi.org/10.1145/2783258.2788621",
+   "title": "Visual Search at Pinterest",
+   "venue": "In Proceedings of the 21th ACM SIGKDD International Conference on Knowledge Discovery and Data Mining (Sydney, NSW, Australia) (KDD ’15). Association for Computing Machinery, New York, NY, USA, 1889–1898",
    "year": "",
    "arxiv": "",
    "count": 1,
@@ -212,7 +213,7 @@
    "subsections": {
     "S2.SS1": 1
    },
-   "keyword": "ACM",
+   "keyword": "Visual Search",
    "theme": "Other"
   },
   {
@@ -222,9 +223,9 @@
    ],
    "label": "Li et al. (2019)",
    "authors": "Chao Li, Zhiyuan Liu, Mengmeng Wu, Yuchi Xu, Huan Zhao, Pipei Huang, Guoliang Kang, Qiwei Chen, Wei Li, and Dik Lun Lee. 2019",
-   "title": "Multi-Interest Network with Dynamic Routing for Recommendation at Tmall. In Proceedings of the 28th ACM International Conference on Information and Knowledge Management (CIKM ’19)",
-   "venue": "",
-   "year": "2019",
+   "title": "Multi-Interest Network with Dynamic Routing for Recommendation at Tmall",
+   "venue": "In Proceedings of the 28th ACM International Conference on Information and Knowledge Management (CIKM ’19)",
+   "year": "",
    "arxiv": "",
    "count": 1,
    "sections": {
@@ -233,7 +234,7 @@
    "subsections": {
     "S1": 1
    },
-   "keyword": "ACM",
+   "keyword": "Multi-Interest Network",
    "theme": "Other"
   },
   {
@@ -243,9 +244,9 @@
    ],
    "label": "Mao et al. (2016)",
    "authors": "Junhua Mao, Jiajing Xu, Kevin Jing, and Alan L Yuille. 2016",
-   "title": "Training and Evaluating Multimodal Word Embeddings with Large-scale Web Annotated Images. In Advances in Neural Information Processing Systems, Vol. 29",
-   "venue": "",
-   "year": "2016",
+   "title": "Training and Evaluating Multimodal Word Embeddings with Large-scale Web Annotated Images",
+   "venue": "In Advances in Neural Information Processing Systems, Vol. 29",
+   "year": "",
    "arxiv": "",
    "count": 1,
    "sections": {
@@ -264,9 +265,9 @@
    ],
    "label": "Mikolov et al. (2013)",
    "authors": "Tomas Mikolov, Ilya Sutskever, Kai Chen, Greg S Corrado, and Jeff Dean. 2013",
-   "title": "Distributed Representations of Words and Phrases and their Compositionality. In Advances in Neural Information Processing Systems, Vol. 26",
-   "venue": "",
-   "year": "2013",
+   "title": "Distributed Representations of Words and Phrases and their Compositionality",
+   "venue": "In Advances in Neural Information Processing Systems, Vol. 26",
+   "year": "",
    "arxiv": "",
    "count": 1,
    "sections": {
@@ -350,9 +351,9 @@
    ],
    "label": "Pi et al. (2019)",
    "authors": "Qi Pi, Weijie Bian, Guorui Zhou, Xiaoqiang Zhu, and Kun Gai. 2019",
-   "title": "Practice on long sequential user behavior modeling for click-through rate prediction. In Proceedings of the 25th ACM SIGKDD International Conference on Knowledge Discovery & Data Mining",
-   "venue": "",
-   "year": "2019",
+   "title": "Practice on long sequential user behavior modeling for click-through rate prediction",
+   "venue": "In Proceedings of the 25th ACM SIGKDD International Conference on Knowledge Discovery & Data Mining",
+   "year": "",
    "arxiv": "",
    "count": 2,
    "sections": {
@@ -361,7 +362,7 @@
    "subsections": {
     "S1": 2
    },
-   "keyword": "ACM",
+   "keyword": "Practice long",
    "theme": "Other"
   },
   {
@@ -434,9 +435,9 @@
    ],
    "label": "Yang et al. (2020)",
    "authors": "Ji Yang, Xinyang Yi, Derek Zhiyuan Cheng, Lichan Hong, Yang Li, Simon Xiaoming Wang, Taibai Xu, and Ed H Chi. 2020",
-   "title": "Mixed negative sampling for learning two-tower neural networks in recommendations. In Companion Proceedings of the Web Conference",
-   "venue": "",
-   "year": "2020",
+   "title": "Mixed negative sampling for learning two-tower neural networks in recommendations",
+   "venue": "In Companion Proceedings of the Web Conference",
+   "year": "",
    "arxiv": "",
    "count": 1,
    "sections": {
@@ -455,9 +456,9 @@
    ],
    "label": "Ying et al. (2018)",
    "authors": "Rex Ying, Ruining He, Kaifeng Chen, Pong Eksombatchai, William L Hamilton, and Jure Leskovec. 2018",
-   "title": "Graph convolutional neural networks for web-scale recommender systems. In Proceedings of the 24th ACM SIGKDD international conference on knowledge discovery & data mining",
-   "venue": "",
-   "year": "2018",
+   "title": "Graph convolutional neural networks for web-scale recommender systems",
+   "venue": "In Proceedings of the 24th ACM SIGKDD international conference on knowledge discovery & data mining",
+   "year": "",
    "arxiv": "",
    "count": 1,
    "sections": {
@@ -466,7 +467,7 @@
    "subsections": {
     "S2.SS1": 1
    },
-   "keyword": "ACM",
+   "keyword": "Graph convolutional",
    "theme": "Other"
   },
   {
@@ -476,9 +477,9 @@
    ],
    "label": "Zhang et al. (2020)",
    "authors": "Han Zhang, Songlin Wang, Kang Zhang, Zhiling Tang, Yunjiang Jiang, Yun Xiao, Weipeng Yan, and Wen-Yun Yang. 2020",
-   "title": "Towards Personalized and Semantic Retrieval: An End-to-End Solution for E-Commerce Search via Embedding Learning. In Proceedings of the 43rd International ACM SIGIR Conference on Research and Development in Information Retrieval. New York, NY, USA",
-   "venue": "",
-   "year": "2020",
+   "title": "Towards Personalized and Semantic Retrieval: An End-to-End Solution for E-Commerce Search via Embedding Learning",
+   "venue": "In Proceedings of the 43rd International ACM SIGIR Conference on Research and Development in Information Retrieval. New York, NY, USA",
+   "year": "",
    "arxiv": "",
    "count": 1,
    "sections": {
@@ -487,7 +488,7 @@
    "subsections": {
     "S1": 1
    },
-   "keyword": "ACM",
+   "keyword": "Personalized Semantic",
    "theme": "Other"
   },
   {
@@ -497,9 +498,9 @@
    ],
    "label": "Zhou et al. (2019)",
    "authors": "Guorui Zhou, Na Mou, Ying Fan, Qi Pi, Weijie Bian, Chang Zhou, Xiaoqiang Zhu, and Kun Gai. 2019",
-   "title": "Deep interest evolution network for click-through rate prediction. In Proceedings of the AAAI conference on artificial intelligence",
-   "venue": "",
-   "year": "2019",
+   "title": "Deep interest evolution network for click-through rate prediction",
+   "venue": "In Proceedings of the AAAI conference on artificial intelligence",
+   "year": "",
    "arxiv": "",
    "count": 1,
    "sections": {
@@ -508,8 +509,96 @@
    "subsections": {
     "S1": 1
    },
-   "keyword": "AAAI",
+   "keyword": "Interest evolution",
    "theme": "Other"
+  }
+ ],
+ "mentions": [
+  {
+   "sec": "S1",
+   "sub": "S1",
+   "text": "It is very common across the industry to learn user embeddings to power personalized recommendations (Covington et al., 2016; Yang et al., 2020; Grbovic and Cheng, 2018; Zhang et al., 2020; Li et al., 2019; Pi et al., 2019).",
+   "refs": [
+    3,
+    19,
+    6,
+    21,
+    9,
+    15
+   ]
+  },
+  {
+   "sec": "S1",
+   "sub": "S1",
+   "text": "One alternative that has shown promise is to directly build ranking models to generate personalized recommendations using sequential information from a user’s recent engagement (Chen et al., 2019; Zhou et al., 2019; Pi et al., 2019; Pi et al., 2020).",
+   "refs": [
+    2,
+    22,
+    15,
+    16
+   ]
+  },
+  {
+   "sec": "S1",
+   "sub": "S1",
+   "text": "There is limited work on leveraging the complete user action sequences (Fazelnia et al., 2022).",
+   "refs": [
+    5
+   ]
+  },
+  {
+   "sec": "S2",
+   "sub": "S2.SS1",
+   "text": "We introduce PinnerFormer, an end-to-end learned user embeddings via sequence modeling to encode long-term user interest (Pancha et al., 2022).",
+   "refs": [
+    14
+   ]
+  },
+  {
+   "sec": "S2",
+   "sub": "S2.SS1",
+   "text": "Each Pin at Pinterest is represented with a PinSage (Ying et al., 2018) embedding, which is an aggregation of visual (Jing et al., 2015; Gusev and Xu, 2020), text annotations (Mikolov et al., 2013; Mao et al., 2016), and engagement information (Eksombatchai et al., 2018) for a Pin.",
+   "refs": [
+    20,
+    8,
+    7,
+    11,
+    10,
+    4
+   ]
+  },
+  {
+   "sec": "S2",
+   "sub": "S2.SS1",
+   "text": "In PinnerFormer, we model the sequence of user actions using a transformer model architecture (Vaswani et al., 2017).",
+   "refs": [
+    17
+   ]
+  },
+  {
+   "sec": "S2",
+   "sub": "S2.SS1",
+   "text": "We choose to use PreNorm residual connections, applying Layer Normalization before each block, as this approach has been shown to improve stability of training (Nguyen and Salazar, 2019; Wang et al., 2019).",
+   "refs": [
+    12,
+    18
+   ]
+  },
+  {
+   "sec": "S3",
+   "sub": "S3",
+   "text": "In our offline evaluations, we observed superior performance compared to the previous baseline (Pancha et al., 2022) and tuned the parameters to strike a good balance between infrastructure cost and performance gains, i.e. MM=255, PP=100.",
+   "refs": [
+    14
+   ]
+  },
+  {
+   "sec": "S3",
+   "sub": "S3.SS1",
+   "text": "In the control group, the previous production model used a weighted average of a user’s top kk PinnerSage embeddings as a feature (Pal et al., 2020).",
+   "refs": [
+    13
+   ]
   }
  ]
 }

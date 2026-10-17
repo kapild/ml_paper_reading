@@ -1,5 +1,5 @@
 {
- "generated": "2026-10-11",
+ "generated": "2026-10-16",
  "paper": {
   "arxiv": "2305.05065",
   "title": "Recommender Systems with Generative Retrieval",
@@ -10,7 +10,8 @@
   "rows": 43,
   "merged": 1,
   "marks": 108,
-  "sections": 8
+  "sections": 8,
+  "mentions": 60
  },
  "themes": [
   "Data & bias",
@@ -1155,6 +1156,536 @@
    },
    "keyword": "S3-Rec",
    "theme": "Sequential recommenders"
+  }
+ ],
+ "mentions": [
+  {
+   "sec": "S1",
+   "sub": "S1",
+   "text": "Recommender systems help users discover content of interest and are ubiquitous in various recommendation domains such as videos [4, 43, 9], apps [3], products [6, 8], and music [18, 19].",
+   "refs": [
+    4,
+    43,
+    9,
+    3,
+    6,
+    8,
+    18,
+    19
+   ]
+  },
+  {
+   "sec": "S1",
+   "sub": "S1",
+   "text": "Matrix factorization [19] learns query and candidate embeddings in the same space.",
+   "refs": [
+    19
+   ]
+  },
+  {
+   "sec": "S1",
+   "sub": "S1",
+   "text": "In order to better capture the non-linearities in the data, dual-encoder architectures [39] (i.e., one tower for the query and another for the candidate) employing inner-product to embed the query and candidate embeddings in the same space have become popular in recent years.",
+   "refs": [
+    39
+   ]
+  },
+  {
+   "sec": "S1",
+   "sub": "S1",
+   "text": "In recent years, the dual encoders architectures have also been extended for sequential recommendations [11, 24, 41, 17, 32, 6, 44] that explicitly take into account the order of user-item interactions.",
+   "refs": [
+    11,
+    24,
+    41,
+    17,
+    32,
+    6,
+    44
+   ]
+  },
+  {
+   "sec": "S1",
+   "sub": "S1",
+   "text": "We propose to leverage the Transformer [36] memory (parameters) as an end-to-end index for retrieval in recommendation systems, reminiscent of Tay et al. [34] that used Transformer memory for document retrieval.",
+   "refs": [
+    36,
+    34
+   ]
+  },
+  {
+   "sec": "S1",
+   "sub": "S1",
+   "text": "Concretely, given an item’s text features, we use a pre-trained text encoder (e.g., SentenceT5 [27]) to generate dense content embeddings.",
+   "refs": [
+    27
+   ]
+  },
+  {
+   "sec": "S1",
+   "sub": "S1",
+   "text": "This allows us to dispense away with the atomic and random item Ids that have been previously used [33, 42, 11, 8] as item features in recommendation models.",
+   "refs": [
+    33,
+    42,
+    11,
+    8
+   ]
+  },
+  {
+   "sec": "S1",
+   "sub": "S1",
+   "text": "With semantic token representations for items, the model is less prone to the inherent feedback loop [1, 26, 39] in recommendation systems, allowing the model to generalize to newly added items to the corpus.",
+   "refs": [
+    1,
+    26,
+    39
+   ]
+  },
+  {
+   "sec": "S1",
+   "sub": "S1",
+   "text": "While random hashing-based techniques [16] can be adopted to reduce the item representation space, in this work, we show that using semantically meaningful tokens for item representation is an appealing alternative.",
+   "refs": [
+    16
+   ]
+  },
+  {
+   "sec": "S2",
+   "sub": "S2.SS0.SSS0.Px1",
+   "text": "GRU4REC [11] was the first to use GRU based RNNs for sequential recommendations.",
+   "refs": [
+    11
+   ]
+  },
+  {
+   "sec": "S2",
+   "sub": "S2.SS0.SSS0.Px1",
+   "text": "Li et al. [24] proposed Neural Attentive Session-based Recommendation (NARM), where an attention mechanism along with a GRU layer is used to track long term intent of the user.",
+   "refs": [
+    24
+   ]
+  },
+  {
+   "sec": "S2",
+   "sub": "S2.SS0.SSS0.Px1",
+   "text": "AttRec [41] proposed by Zhang et al. used self-attention mechanism to model the user’s intent in the current session, and personalization is ensured by modeling user-item affinity with metric learning.",
+   "refs": [
+    41
+   ]
+  },
+  {
+   "sec": "S2",
+   "sub": "S2.SS0.SSS0.Px1",
+   "text": "Concurrently, Kang et al. also proposed SASRec [17], which used self-attention similar to decoder-only transformer models.",
+   "refs": [
+    17
+   ]
+  },
+  {
+   "sec": "S2",
+   "sub": "S2.SS0.SSS0.Px1",
+   "text": "Inspired by the success of masked language modeling in language tasks, BERT4Rec [32] and Transformers4Rec [6] utilize transformer models with masking strategies for sequential recommendation tasks.",
+   "refs": [
+    32,
+    6
+   ]
+  },
+  {
+   "sec": "S2",
+   "sub": "S2.SS0.SSS0.Px1",
+   "text": "S3\\text{S}^{3}-Rec [44] goes beyond just masking by pre-training on four self-supervised tasks to improve data representation.",
+   "refs": [
+    44
+   ]
+  },
+  {
+   "sec": "S2",
+   "sub": "S2.SS0.SSS0.Px1",
+   "text": "P5 [8] fine-tunes a pre-trained large language models for multi-task recommender systems.",
+   "refs": [
+    8
+   ]
+  },
+  {
+   "sec": "S2",
+   "sub": "S2.SS0.SSS0.Px1",
+   "text": "The P5 model relies on the LLM tokenizer (SentencePiece tokenizer [29]) to generate tokens from randomly-assigned item IDs.",
+   "refs": [
+    29
+   ]
+  },
+  {
+   "sec": "S2",
+   "sub": "S2.SS0.SSS0.Px2",
+   "text": "Hou et al. proposed VQ-Rec [12] to generate “codes” (analogous to Semantic IDs) using content information for item representation.",
+   "refs": [
+    12
+   ]
+  },
+  {
+   "sec": "S2",
+   "sub": "S2.SS0.SSS0.Px2",
+   "text": "While they also use product quantization [15] to generate the codes, we use RQ-VAE to generate Semantic IDs, which leads to hierarchical representation of items (Section 4.2).",
+   "refs": [
+    15
+   ]
+  },
+  {
+   "sec": "S2",
+   "sub": "S2.SS0.SSS0.Px2",
+   "text": "In a concurrent work to us, Singh et al. [31] show that hierarchical Semantic IDs can be used to replace item IDs for ranking models in large scale recommender systems improves model generalization.",
+   "refs": [
+    31
+   ]
+  },
+  {
+   "sec": "S2",
+   "sub": "S2.SS0.SSS0.Px3",
+   "text": "While techniques for learning search indices have been proposed in the past [20], generative retrieval is a recently developed approach for document retrieval, where the task is to return a set of relevant documents from a database.",
+   "refs": [
+    20
+   ]
+  },
+  {
+   "sec": "S2",
+   "sub": "S2.SS0.SSS0.Px3",
+   "text": "Some examples include GENRE [5], DSI [34], NCI [37], and CGR [22].",
+   "refs": [
+    5,
+    34,
+    37,
+    22
+   ]
+  },
+  {
+   "sec": "S3",
+   "sub": "S3.SS1",
+   "text": "For example, general-purpose pre-trained text encoders such as Sentence-T5 [27] and BERT [7] can be used to convert an item’s text features to obtain a semantic embedding.",
+   "refs": [
+    27,
+    7
+   ]
+  },
+  {
+   "sec": "S3",
+   "sub": "S3.SS1",
+   "text": "Residual-Quantized Variational AutoEncoder (RQ-VAE) [40] is a multi-level vector quantizer that applies quantization on residuals to generate a tuple of codewords (aka Semantic IDs).",
+   "refs": [
+    40
+   ]
+  },
+  {
+   "sec": "S3",
+   "sub": "S3.SS1",
+   "text": "Here 𝒙^\\widehat{{\\bm{x}}} is the output of the decoder, and sg is the stop-gradient operation [35].",
+   "refs": [
+    35
+   ]
+  },
+  {
+   "sec": "S3",
+   "sub": "S3.SS1",
+   "text": "As proposed in [40], to prevent RQ-VAE from a codebook collapse, where most of the input gets mapped to only a few codebook vectors, we use k-means clustering-based initialization for the codebook.",
+   "refs": [
+    40
+   ]
+  },
+  {
+   "sec": "S3",
+   "sub": "S3.SS1",
+   "text": "Another option is to use k-means clustering hierarchically [34], but it loses semantic meaning between different clusters [37].",
+   "refs": [
+    34,
+    37
+   ]
+  },
+  {
+   "sec": "S4",
+   "sub": "S4",
+   "text": "We evaluate the proposed framework on three public real-world benchmarks from the Amazon Product Reviews dataset [10], containing user reviews and item metadata from May 1996 to July 2014.",
+   "refs": [
+    10
+   ]
+  },
+  {
+   "sec": "S4",
+   "sub": "S4",
+   "text": "We use the pre-trained Sentence-T5 [27] model to obtain the semantic embedding of each item in the dataset.",
+   "refs": [
+    27
+   ]
+  },
+  {
+   "sec": "S4",
+   "sub": "S4",
+   "text": "We use the open-sourced T5X framework [28] to implement our transformer based encoder-decoder architecture.",
+   "refs": [
+    28
+   ]
+  },
+  {
+   "sec": "S4",
+   "sub": "S4",
+   "text": "We use the Hashing Trick [38] to map the raw user ID to one of the 2000 user ID tokens.",
+   "refs": [
+    38
+   ]
+  },
+  {
+   "sec": "S4",
+   "sub": "S4.SS1",
+   "text": "In this section, we compare our proposed framework for generative retrieval with the following sequential recommendation methods (which are described briefly in Appendix B): GRU4Rec [11], Caser [33], HGN [25], SASRec [17], BERT4Rec [32], FDSA [42], S3-Rec [44], and P5 [8].",
+   "refs": [
+    11,
+    33,
+    25,
+    17,
+    32,
+    42,
+    44,
+    8
+   ]
+  },
+  {
+   "sec": "S4",
+   "sub": "S4.SS1",
+   "text": "Methods Sports and Outdoors Beauty Toys and Games Recall @5 NDCG @5 Recall @10 NDCG @10 Recall @5 NDCG @5 Recall @10 NDCG @10 Recall @5 NDCG @5 Recall @10 NDCG @10 P5 [8] 0.0061 0.0041 0.0095 0.0052 0.0163 0.0107 0.0254 0.0136 0.0070 0.0050 0.0121 0.0066 Caser [33] 0.0116 0.0072 0.0194 0.0097…",
+   "refs": [
+    8,
+    33,
+    25,
+    11,
+    32,
+    42,
+    17,
+    44
+   ]
+  },
+  {
+   "sec": "S4",
+   "sub": "S4.SS1",
+   "text": "The results for all baselines, except P5, are taken from the publicly accessible results made available by Zhou et al. [44].",
+   "refs": [
+    44
+   ]
+  },
+  {
+   "sec": "S4",
+   "sub": "S4.SS2",
+   "text": "We study the importance of RQ-VAE in our framework by comparing RQ-VAE against Locality Sensitive Hashing (LSH) [14, 13, 2] for Semantic ID generation.",
+   "refs": [
+    14,
+    13,
+    2
+   ]
+  },
+  {
+   "sec": "A1",
+   "sub": "A1.SS0.SSS0.Px1",
+   "text": "This technique presents some disadvantages like having a large embedding table [22, 23].",
+   "refs": [
+    22,
+    23
+   ]
+  },
+  {
+   "sec": "A1",
+   "sub": "A1.SS0.SSS0.Px1",
+   "text": "Cao et al. [5] proposed GENRE for entity retrieval, which used a transformer-based architecture to return, token-by-token, the name of the entity referenced to in a given query.",
+   "refs": [
+    5
+   ]
+  },
+  {
+   "sec": "A1",
+   "sub": "A1.SS0.SSS0.Px1",
+   "text": "Tay et al. [34] proposed DSI for document retrieval, which was the first system to assign structured semantic DocIDs to each document.",
+   "refs": [
+    34
+   ]
+  },
+  {
+   "sec": "A1",
+   "sub": "A1.SS0.SSS0.Px1",
+   "text": "Subsequently, Lee et al. [23] show that generative document retrieval is useful even in the multi-hop setting, where a complex query cannot be answered directly by a single document, and hence their model generates intermediate queries, in a chain-of-thought manner, to ultimately generate the…",
+   "refs": [
+    23
+   ]
+  },
+  {
+   "sec": "A1",
+   "sub": "A1.SS0.SSS0.Px1",
+   "text": "Wang et al. [37] supplement the hierarchical kk-means clustering based semantic DocIDs of Tay et al. [34] by proposing a new decoder architecture that specifically takes into account the prefixes in semantic DocIDs.",
+   "refs": [
+    37,
+    34
+   ]
+  },
+  {
+   "sec": "A1",
+   "sub": "A1.SS0.SSS0.Px1",
+   "text": "In CGR [22], the authors propose a way to take advantage of both the bi-encoder technique and the generative retrieval technique, by allowing the decoder, of their encoder-decoder-based model, to learn separate contextualized embeddings which store information about documents intrinsically.",
+   "refs": [
+    22
+   ]
+  },
+  {
+   "sec": "A1",
+   "sub": "A1.SS0.SSS0.Px1",
+   "text": "To the best of our knowledge, we are the first to use generative Semantic IDs created using an auto-encoder (RQ-VAE [40, 21]) for retrieval models.",
+   "refs": [
+    40,
+    21
+   ]
+  },
+  {
+   "sec": "A1",
+   "sub": "A1.SS0.SSS0.Px2",
+   "text": "One of the most straightforward techniques uses hierarchical clustering, such as the one used in [34], where clusters created in a particular iteration are further partitioned into sub-clusters in the next iteration.",
+   "refs": [
+    34
+   ]
+  },
+  {
+   "sec": "A1",
+   "sub": "A1.SS0.SSS0.Px2",
+   "text": "An alternative popular approach is Vector-Quantized Variational AutoEncoder (VQ-VAE), which was introduced in [35] as a way to encode natural images into a sequence of codes.",
+   "refs": [
+    35
+   ]
+  },
+  {
+   "sec": "A1",
+   "sub": "A1.SS0.SSS0.Px2",
+   "text": "RQ-VAE [40, 21] applies residual quantization to the output of the encoder of VQ-VAE to achieve a lower reconstruction error.",
+   "refs": [
+    40,
+    21
+   ]
+  },
+  {
+   "sec": "A1",
+   "sub": "A1.SS0.SSS0.Px2",
+   "text": "Locality Sensitive Hashing (LSH) [14, 13] is a popular technique used for clustering and approximate nearest neighbor search.",
+   "refs": [
+    14,
+    13
+   ]
+  },
+  {
+   "sec": "A1",
+   "sub": "A1.SS0.SSS0.Px2",
+   "text": "The particular version that we use in this paper for clustering is SimHash [2], which uses random hyperplanes to create binary vectors which serve as hashes of the items.",
+   "refs": [
+    2
+   ]
+  },
+  {
+   "sec": "A1",
+   "sub": "A1.SS0.SSS0.Px2",
+   "text": "Because it has low computational complexity and is scalable [13], we use this as a baseline technique for vector quantization.",
+   "refs": [
+    13
+   ]
+  },
+  {
+   "sec": "A2",
+   "sub": "A2",
+   "text": "• GRU4Rec [11] is the first RNN-based approach that uses a customized GRU for the sequential recommendation task.",
+   "refs": [
+    11
+   ]
+  },
+  {
+   "sec": "A2",
+   "sub": "A2",
+   "text": "• Caser [33] uses a CNN architecture for capturing high-order Markov Chains by applying horizontal and vertical convolutional operations for sequential recommendation.",
+   "refs": [
+    33
+   ]
+  },
+  {
+   "sec": "A2",
+   "sub": "A2",
+   "text": "• HGN [25]: Hierarchical Gating Network captures the long-term and short-term user interests via a new gating architecture.",
+   "refs": [
+    25
+   ]
+  },
+  {
+   "sec": "A2",
+   "sub": "A2",
+   "text": "• SASRec [17]: Self-Attentive Sequential Recommendation uses a causal mask Transformer to model a user’s sequential interactions.",
+   "refs": [
+    17
+   ]
+  },
+  {
+   "sec": "A2",
+   "sub": "A2",
+   "text": "• BERT4Rec [32]: BERT4Rec addresses the limitations of uni-directional architectures by using a bi-directional self-attention Transformer for the recommendation task.",
+   "refs": [
+    32
+   ]
+  },
+  {
+   "sec": "A2",
+   "sub": "A2",
+   "text": "• FDSA [42]: Feature-level Deeper Self-Attention Network incorporates item features in addition to the item embeddings as part of the input sequence in the Transformers.",
+   "refs": [
+    42
+   ]
+  },
+  {
+   "sec": "A2",
+   "sub": "A2",
+   "text": "• S3-Rec [44]: Self-Supervised Learning for Sequential Recommendation proposes pre-training a bi-directional Transformer on self-supervision tasks to improve the sequential recommendation.",
+   "refs": [
+    44
+   ]
+  },
+  {
+   "sec": "A2",
+   "sub": "A2",
+   "text": "• P5 [8]: P5 is a recent method that uses a pretrained Large Language Model (LLM) to unify different recommendation tasks in a single model.",
+   "refs": [
+    8
+   ]
+  },
+  {
+   "sec": "A3",
+   "sub": "A3",
+   "text": "We use three public benchmarks from the Amazon Product Reviews dataset [10], containing user reviews and item metadata from May 1996 to July 2014.",
+   "refs": [
+    10
+   ]
+  },
+  {
+   "sec": "A3",
+   "sub": "A3",
+   "text": "Following the standard evaluation protocol [17, 8], we use the leave-one-out strategy for evaluation.",
+   "refs": [
+    17,
+    8
+   ]
+  },
+  {
+   "sec": "A4",
+   "sub": "A4",
+   "text": "Table 7: Results for P5[8] with the standard pre-processing.",
+   "refs": [
+    8
+   ]
+  },
+  {
+   "sec": "A4",
+   "sub": "A4",
+   "text": "Given that P5 uses Sentence Piece tokenizer [30] (See Section 4.1 in [8]), the test and train items in a user session may share the sub-word and can lead to information leakage during inference.",
+   "refs": [
+    30,
+    8
+   ]
   }
  ]
 }

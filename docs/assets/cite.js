@@ -28,11 +28,11 @@ function sv(tag, attrs, text) {
 const NOTES = {
   sub: 'Each band is one subsection citing one paper. Thickness is the number of citations, and the right-hand side is ordered to keep the bands from crossing. Tap a label to isolate it; tap a paper to open it below. A dot marks a reference already in your reading list.',
   theme: 'The same bands with whole sections on the left and themes on the right, so you can see what kind of prior work each section leans on. Themes come from config/citation_themes.toml.',
-  table: 'One row per paper, after merging references that share a title. Sort by number or by times cited, and see which references are already in your reading list.',
+  list: 'The reference index on the left is sized by how often the paper cites each work. On the right is every sentence that carries a citation, in paper order. Tap either side and both light up.',
 };
 
 const S = {data: null, refs: [], byNum: new Map(), atlas: new Map(), sel: null,
-           view: 'sub', sort: 'count', gsel: null, links: [], nodes: [], root: null, cache: new Map()};
+           view: 'sub', sort: 'count', filter: null, gsel: null, links: [], nodes: [], root: null, cache: new Map()};
 
 async function show({root, paper, atlas}) {
   S.root = root;
@@ -60,7 +60,8 @@ async function show({root, paper, atlas}) {
   S.refs = S.data.references;
   S.byNum = new Map();
   S.refs.forEach(r => r.numbers.forEach(n => S.byNum.set(n, r)));
-  S.sel = S.refs.slice().sort((a, b) => b.count - a.count)[0].n;
+  S.sel = null;
+  S.filter = null;
   S.view = 'sub';
   build();
 }
@@ -76,7 +77,7 @@ function build() {
   const head = el('div', 'cite-head');
   const tabs = el('div', 'seg tabs');
   tabs.setAttribute('role', 'tablist');
-  [['sub', 'Subsections → Papers'], ['theme', 'Sections → Themes'], ['table', 'Reference table']].forEach(([v, label]) => {
+  [['sub', 'Subsections → Papers'], ['theme', 'Sections → Themes'], ['list', 'References & sentences']].forEach(([v, label]) => {
     const b = el('button', null, label);
     b.type = 'button';
     b.setAttribute('role', 'tab');
@@ -93,10 +94,10 @@ function build() {
   svg.setAttribute('role', 'img');
   svg.setAttribute('aria-label', 'Which part of the paper cites which reference');
   gwrap.append(svg);
-  const tableWrap = el('div', 'tbl-wrap');
+  const cols = el('div', 'cols');
 
-  root.append(head, S.view === 'table' ? tableWrap : gwrap, dock());
-  if (S.view === 'table') drawTable(tableWrap);
+  root.append(head, S.view === 'list' ? cols : gwrap, dock());
+  if (S.view === 'list') drawList(cols);
   else { S.gsel = S.view === 'sub' && S.sel ? {side: 'R', key: String(S.sel)} : null; drawGraph(svg); }
 }
 
@@ -206,64 +207,160 @@ function markGraph() {
   });
 }
 
-function drawTable(wrap) {
+function buildIndex() {
+  const index = el('section', 'index');
+  const head = el('div', 'head');
+  head.append(el('h3', null, 'References, sized by times cited'));
+  const seg = el('div', 'seg sortseg');
+  [['count', 'Most cited'], ['num', 'By number']].forEach(([key, label]) => {
+    const b = el('button', null, label);
+    b.type = 'button';
+    b.setAttribute('aria-pressed', String(S.sort === key));
+    b.addEventListener('click', () => { S.sort = key; build(); });
+    seg.append(b);
+  });
+  head.append(seg);
+
+  const list = el('div', 'list');
   const rows = S.refs.slice().sort((a, b) => S.sort === 'count'
     ? (b.count - a.count || a.numbers[0] - b.numbers[0])
     : a.numbers[0] - b.numbers[0]);
   const max = Math.max(...rows.map(r => r.count), 1);
-  const table = el('table', 'rt');
-  const head = el('thead');
-  const hr = el('tr');
-  const sortable = (label, key) => {
-    const th = el('th');
-    th.dataset.sort = key;
-    th.setAttribute('aria-sort', S.sort === key ? (key === 'count' ? 'descending' : 'ascending') : 'none');
-    const b = el('button', 'th-btn', label);
-    b.type = 'button';
-    b.addEventListener('click', () => { S.sort = key; build(); });
-    th.append(b);
-    return th;
-  };
-  hr.append(sortable('[Number]', 'num'), el('th', null, 'Keyword'), el('th', null, 'Full title'),
-            el('th', null, 'Year'), el('th', null, 'In your list'), sortable('Times cited', 'count'));
-  head.append(hr);
-  const body = el('tbody');
   rows.forEach(r => {
     const mine = inList(r);
-    const tr = el('tr', 'krow' + (S.sel === r.n ? ' on' : ''));
-    tr.tabIndex = 0;
-    tr.dataset.n = r.n;
-    const cnt = el('td', 'c-cnt');
-    const bar = el('span', 'kbar');
-    bar.style.width = Math.round(r.count / max * 84) + 'px';
-    cnt.append(bar, String(r.count));
-    const have = el('td', 'c-have');
-    if (mine) have.append(el('span', 'have-pill' + (mine.status === 'done' ? ' read' : ''), `${mine.short} · ${STATUS[mine.status]}`));
-    else have.textContent = '—';
-    tr.append(el('td', 'c-num', r.label || `[${r.numbers.join(', ')}]`), el('td', 'c-key', r.keyword),
-              el('td', 'c-title', r.title), el('td', 'c-year', r.year || '—'), have, cnt);
-    tr.addEventListener('click', () => select(r.n));
-    tr.addEventListener('keydown', e => { if (e.key === 'Enter') { e.preventDefault(); select(r.n); } });
-    body.append(tr);
+    const b = el('button', 'ref' + (S.sel === r.n ? ' on' : ''));
+    b.type = 'button';
+    b.dataset.n = r.n;
+    const weight = (r.count - 1) / Math.max(max - 1, 1);
+    const title = el('span', 'ttl', r.title);
+    title.style.fontSize = (13.5 + weight * 5).toFixed(1) + 'px';
+    title.style.fontWeight = weight > 0.55 ? 600 : weight > 0.25 ? 500 : 400;
+    const mid = el('span');
+    const tag = el('span', 'tag', r.keyword);
+    if (mine) tag.append(el('i', 'have-dot' + (mine.status === 'done' ? ' read' : ''), ''));
+    mid.append(tag, title);
+    b.append(el('span', 'num', r.label || `[${r.numbers.join(', ')}]`), mid, el('span', 'cnt', '×' + r.count));
+    b.title = mine ? `In your reading list as ${mine.short} (${STATUS[mine.status]})` : r.venue || '';
+    // Clicking a reference keeps only its sentences on the right; clicking it again brings the rest back.
+    b.addEventListener('click', () => {
+      S.filter = S.filter === r.n ? null : r.n;
+      select(r.n, {fromIndex: true});
+      renderTrail();
+    });
+    list.append(b);
   });
-  table.append(head, body);
-  wrap.append(table);
+  index.append(head, list);
+  return index;
+}
+
+function buildTrail() {
+  const trail = el('section', 'trail');
+  const head = el('div', 'head');
+  head.append(el('h3', null, 'Where each citation appears'));
+  trail.append(head);
+
+  const all = S.data.mentions || [];
+  const mentions = S.filter == null ? all : all.filter(m => m.refs.includes(S.filter));
+  if (S.filter != null) {
+    const ref = S.byNum.get(S.filter);
+    const bar = el('div', 'trail-filter');
+    bar.append(el('span', null, `Showing ${mentions.length} sentence${mentions.length === 1 ? '' : 's'} citing `),
+               el('b', null, `${ref.label || '[' + S.filter + ']'} ${ref.keyword}`));
+    const btn = el('button', 'show-all', 'Show all');
+    btn.type = 'button';
+    btn.addEventListener('click', () => { S.filter = null; renderTrail(); });
+    bar.append(btn);
+    trail.append(bar);
+  } else {
+    trail.append(el('p', 'note', 'Each line is the sentence from the paper that carries the citation, in paper order. ' +
+      'Tap a reference on the left to keep only its sentences.'));
+  }
+
+  const subLabel = {};
+  S.data.subsections.forEach(s => { subLabel[s.key] = s.label; });
+  S.data.sections.forEach(section => {
+    const lines = mentions.filter(m => m.sec === section.key);
+    if (!lines.length) return;
+    const box = el('div', 'sec');
+    const h = el('h4', null, section.label);
+    h.append(el('span', null, S.filter == null ? `${section.marks} marks`
+      : `${lines.reduce((n, m) => n + m.refs.filter(r => r === S.filter).length, 0)} of ${section.marks} marks`));
+    box.append(h);
+    let sub = null;
+    lines.forEach(m => {
+      if (m.sub && m.sub !== sub) {
+        sub = m.sub;
+        if (subLabel[sub] && subLabel[sub] !== section.label) box.append(el('div', 'subh', subLabel[sub]));
+      }
+      const p = el('p', 'm', m.text + ' ');
+      p.dataset.refs = ' ' + m.refs.join(' ') + ' ';
+      m.refs.forEach(n => {
+        const ref = S.byNum.get(n);
+        const chip = el('button', 'c', String(n));
+        chip.type = 'button';
+        chip.dataset.n = n;
+        if (ref) {
+          chip.title = `${ref.label || '[' + n + ']'} ${ref.keyword}: ${ref.title}`;
+          chip.setAttribute('aria-label', `Reference ${n}, ${ref.title}`);
+        }
+        chip.addEventListener('click', () => select(n));  // chips highlight only, they never filter
+        p.append(chip);
+      });
+      box.append(p);
+    });
+    trail.append(box);
+  });
+  return trail;
+}
+
+function drawList(cols) {
+  cols.append(buildIndex(), buildTrail());
+  markList();
+}
+
+function renderTrail() {
+  const current = $('.trail', S.root);
+  if (current) current.replaceWith(buildTrail());
+  markList();
+}
+
+function markList() {
+  $$('.ref', S.root).forEach(b => b.classList.toggle('on', +b.dataset.n === S.sel));
+  $$('.m', S.root).forEach(p => p.classList.toggle('hit', S.sel != null && p.dataset.refs.includes(' ' + S.sel + ' ')));
+  $$('.c', S.root).forEach(c => c.classList.toggle('on', +c.dataset.n === S.sel));
 }
 
 function dock() {
   const d = el('aside', 'dock');
   d.setAttribute('aria-live', 'polite');
+  d.hidden = true;
   d.append(el('div', 'dock-in'));
-  setTimeout(() => drawDock(S.byNum.get(S.sel)), 0);
+  if (S.sel != null) setTimeout(() => drawDock(S.byNum.get(S.sel)), 0);
   return d;
 }
 
-function select(n) {
+function closeDock() {
+  S.sel = null;
+  const wasFiltered = S.filter != null;
+  S.filter = null;
+  const d = $('.dock', S.root);
+  if (d) d.hidden = true;
+  document.querySelector('#panel-citations').classList.remove('dock-open');
+  if (wasFiltered && S.view === 'list') renderTrail();
+  markList();
+  if (S.nodes.length) { S.gsel = null; markGraph(); }
+}
+
+function select(n, {fromIndex = false} = {}) {
   const ref = S.byNum.get(n);
   if (!ref) return;
   S.sel = ref.n;
   drawDock(ref);
-  $$('.krow', S.root).forEach(tr => tr.classList.toggle('on', +tr.dataset.n === S.sel));
+  markList();
+  if (S.view === 'list' && !fromIndex) {
+    const row = $(`.ref[data-n="${ref.n}"]`, S.root), list = $('.list', S.root);
+    if (row && list) list.scrollTop = row.offsetTop - list.clientHeight / 3;
+  }
   if (S.view === 'sub') { S.gsel = {side: 'R', key: String(ref.n)}; markGraph(); }
 }
 
@@ -275,6 +372,8 @@ function sectionTag(label) {
 function drawDock(ref) {
   const box = $('.dock-in', S.root);
   if (!box || !ref) return;
+  $('.dock', S.root).hidden = false;
+  document.querySelector('#panel-citations').classList.add('dock-open');
   box.textContent = '';
   const mine = inList(ref);
 
@@ -305,8 +404,12 @@ function drawDock(ref) {
     : `https://scholar.google.com/scholar?q=${encodeURIComponent(ref.title)}`;
   link.target = '_blank';
   link.rel = 'noopener';
+  const close = el('button', 'icon-btn dock-close', '×');
+  close.type = 'button';
+  close.setAttribute('aria-label', 'Close this reference');
+  close.addEventListener('click', closeDock);
   side.append(strip, link);
-  box.append(main, side);
+  box.append(main, side, close);
 }
 
 return {show};

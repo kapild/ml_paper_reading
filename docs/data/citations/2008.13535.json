@@ -1,5 +1,5 @@
 {
- "generated": "2026-10-11",
+ "generated": "2026-10-16",
  "paper": {
   "arxiv": "2008.13535",
   "title": "DCN V2: Improved Deep & Cross Network and Practical Lessons for Web-scale Learning to Rank Systems",
@@ -10,7 +10,8 @@
   "rows": 52,
   "merged": 0,
   "marks": 125,
-  "sections": 8
+  "sections": 8,
+  "mentions": 59
  },
  "themes": [
   "Other",
@@ -197,9 +198,9 @@
    ],
    "label": "Beutel et al. (2018)",
    "authors": "Alex Beutel, Paul Covington, Sagar Jain, Can Xu, Jia Li, Vince Gatto, and Ed H Chi. 2018",
-   "title": "Latent cross: Making use of context in recurrent recommender systems. In Proceedings of the Eleventh ACM International Conference on Web Search and Data Mining. 46–54",
-   "venue": "",
-   "year": "2018",
+   "title": "Latent cross: Making use of context in recurrent recommender systems",
+   "venue": "In Proceedings of the Eleventh ACM International Conference on Web Search and Data Mining. 46–54",
+   "year": "",
    "arxiv": "",
    "count": 5,
    "sections": {
@@ -241,8 +242,8 @@
    ],
    "label": "Broder (2008)",
    "authors": "Andrei Z Broder. 2008",
-   "title": "Computational advertising and recommender systems. In Proceedings of the 2008 ACM conference on Recommender systems. 1–2",
-   "venue": "",
+   "title": "Computational advertising and recommender systems",
+   "venue": "In Proceedings of the 2008 ACM conference on Recommender systems. 1–2",
    "year": "2008",
    "arxiv": "",
    "count": 1,
@@ -252,7 +253,7 @@
    "subsections": {
     "S1": 1
    },
-   "keyword": "ACM",
+   "keyword": "Computational advertising",
    "theme": "Other"
   },
   {
@@ -262,9 +263,9 @@
    ],
    "label": "Cao et al. (2007)",
    "authors": "Zhe Cao, Tao Qin, Tie-Yan Liu, Ming-Feng Tsai, and Hang Li. 2007",
-   "title": "Learning to rank: from pairwise approach to listwise approach. In Proceedings of the 24th international conference on Machine learning. 129–136",
-   "venue": "",
-   "year": "2007",
+   "title": "Learning to rank: from pairwise approach to listwise approach",
+   "venue": "In Proceedings of the 24th international conference on Machine learning. 129–136",
+   "year": "",
    "arxiv": "",
    "count": 1,
    "sections": {
@@ -350,9 +351,9 @@
    ],
    "label": "Dacrema et al. (2019)",
    "authors": "Maurizio Ferrari Dacrema, Paolo Cremonesi, and Dietmar Jannach. 2019",
-   "title": "Are we really making much progress? A worrying analysis of recent neural recommendation approaches. In Proceedings of the 13th ACM Conference on Recommender Systems. 101–109",
-   "venue": "",
-   "year": "2019",
+   "title": "Are we really making much progress? A worrying analysis of recent neural recommendation approaches",
+   "venue": "In Proceedings of the 13th ACM Conference on Recommender Systems. 101–109",
+   "year": "",
    "arxiv": "",
    "count": 1,
    "sections": {
@@ -361,7 +362,7 @@
    "subsections": {
     "S7": 1
    },
-   "keyword": "ACM",
+   "keyword": "We really",
    "theme": "Other"
   },
   {
@@ -508,9 +509,9 @@
    ],
    "label": "He et al. (2015)",
    "authors": "Kaiming He, Xiangyu Zhang, Shaoqing Ren, and Jian Sun. 2015",
-   "title": "Delving deep into rectifiers: Surpassing human-level performance on imagenet classification. In Proceedings of the IEEE international conference on computer vision. 1026–1034",
-   "venue": "",
-   "year": "2015",
+   "title": "Delving deep into rectifiers: Surpassing human-level performance on imagenet classification",
+   "venue": "In Proceedings of the IEEE international conference on computer vision. 1026–1034",
+   "year": "",
    "arxiv": "",
    "count": 1,
    "sections": {
@@ -519,7 +520,7 @@
    "subsections": {
     "S7.SS1": 1
    },
-   "keyword": "IEEE",
+   "keyword": "Delving into",
    "theme": "Other"
   },
   {
@@ -529,9 +530,9 @@
    ],
    "label": "He and Chua (2017)",
    "authors": "Xiangnan He and Tat-Seng Chua. 2017",
-   "title": "Neural factorization machines for sparse predictive analytics. In Proceedings of the 40th International ACM SIGIR conference on Research and Development in Information Retrieval. 355–364",
-   "venue": "",
-   "year": "2017",
+   "title": "Neural factorization machines for sparse predictive analytics",
+   "venue": "In Proceedings of the 40th International ACM SIGIR conference on Research and Development in Information Retrieval. 355–364",
+   "year": "",
    "arxiv": "",
    "count": 2,
    "sections": {
@@ -542,7 +543,7 @@
     "S2": 1,
     "S3.SS1": 1
    },
-   "keyword": "ACM",
+   "keyword": "Factorization machines",
    "theme": "Other"
   },
   {
@@ -722,9 +723,9 @@
    ],
    "label": "Li et al. (2020)",
    "authors": "Zeyu Li, Wei Cheng, Yang Chen, Haifeng Chen, and Wei Wang. 2020",
-   "title": "Interpretable Click-Through Rate Prediction through Hierarchical Attention. In Proceedings of the 13th International Conference on Web Search and Data Mining. 313–321",
-   "venue": "",
-   "year": "2020",
+   "title": "Interpretable Click-Through Rate Prediction through Hierarchical Attention",
+   "venue": "In Proceedings of the 13th International Conference on Web Search and Data Mining. 313–321",
+   "year": "",
    "arxiv": "",
    "count": 1,
    "sections": {
@@ -743,9 +744,9 @@
    ],
    "label": "Lian et al. (2018)",
    "authors": "Jianxun Lian, Xiaohuan Zhou, Fuzheng Zhang, Zhongxia Chen, Xing Xie, and Guangzhong Sun. 2018",
-   "title": "xdeepfm: Combining explicit and implicit feature interactions for recommender systems. In Proceedings of the 24th ACM SIGKDD International Conference on Knowledge Discovery & Data Mining. 1754–1763",
-   "venue": "",
-   "year": "2018",
+   "title": "xdeepfm: Combining explicit and implicit feature interactions for recommender systems",
+   "venue": "In Proceedings of the 24th ACM SIGKDD International Conference on Knowledge Discovery & Data Mining. 1754–1763",
+   "year": "",
    "arxiv": "",
    "count": 12,
    "sections": {
@@ -821,9 +822,9 @@
    ],
    "label": "Ma et al. (2019)",
    "authors": "Jiaqi Ma, Zhe Zhao, Jilin Chen, Ang Li, Lichan Hong, and Ed H Chi. 2019",
-   "title": "Snr: Sub-network routing for flexible parameter sharing in multi-task learning. In Proceedings of the AAAI Conference on Artificial Intelligence, Vol. 33. 216–223",
-   "venue": "",
-   "year": "2019",
+   "title": "Snr: Sub-network routing for flexible parameter sharing in multi-task learning",
+   "venue": "In Proceedings of the AAAI Conference on Artificial Intelligence, Vol. 33. 216–223",
+   "year": "",
    "arxiv": "",
    "count": 1,
    "sections": {
@@ -842,8 +843,8 @@
    ],
    "label": "Ma et al. (2018)",
    "authors": "Jiaqi Ma, Zhe Zhao, Xinyang Yi, Jilin Chen, Lichan Hong, and Ed H Chi. 2018",
-   "title": "Modeling task relationships in multi-task learning with multi-gate mixture-of-experts. In Proceedings of the 24th ACM SIGKDD International Conference on Knowledge Discovery & Data Mining. 1930–1939",
-   "venue": "",
+   "title": "Modeling task relationships in multi-task learning with multi-gate mixture-of-experts",
+   "venue": "In Proceedings of the 24th ACM SIGKDD International Conference on Knowledge Discovery & Data Mining. 1930–1939",
    "year": "1939",
    "arxiv": "",
    "count": 1,
@@ -853,7 +854,7 @@
    "subsections": {
     "S3.SS5": 1
    },
-   "keyword": "ACM",
+   "keyword": "Modeling task",
    "theme": "Other"
   },
   {
@@ -884,8 +885,8 @@
    ],
    "label": "Mikolov et al. (2011)",
    "authors": "Tomáš Mikolov, Stefan Kombrink, Lukáš Burget, Jan Černockỳ, and Sanjeev Khudanpur. 2011",
-   "title": "Extensions of recurrent neural network language model. In 2011 IEEE international conference on acoustics, speech and signal processing (ICASSP). IEEE, 5528–5531",
-   "venue": "",
+   "title": "Extensions of recurrent neural network language model",
+   "venue": "In 2011 IEEE international conference on acoustics, speech and signal processing (ICASSP). IEEE, 5528–5531",
    "year": "2011",
    "arxiv": "",
    "count": 1,
@@ -895,7 +896,7 @@
    "subsections": {
     "S7.SS4": 1
    },
-   "keyword": "ICASSP",
+   "keyword": "Extensions recurrent",
    "theme": "Other"
   },
   {
@@ -957,8 +958,8 @@
    ],
    "label": "Qu et al. (2016)",
    "authors": "Yanru Qu, Han Cai, Kan Ren, Weinan Zhang, Yong Yu, Ying Wen, and Jun Wang. 2016",
-   "title": "Product-based neural networks for user response prediction. In 2016 IEEE 16th International Conference on Data Mining (ICDM). IEEE, 1149–1154",
-   "venue": "",
+   "title": "Product-based neural networks for user response prediction",
+   "venue": "In 2016 IEEE 16th International Conference on Data Mining (ICDM). IEEE, 1149–1154",
    "year": "2016",
    "arxiv": "",
    "count": 7,
@@ -977,7 +978,7 @@
     "S7.SS1": 1,
     "S7.SS2": 1
    },
-   "keyword": "ICDM",
+   "keyword": "Product-based networks",
    "theme": "Other"
   },
   {
@@ -987,8 +988,8 @@
    ],
    "label": "Rendle (2010)",
    "authors": "Steffen Rendle. 2010",
-   "title": "Factorization machines. In 2010 IEEE International Conference on Data Mining. IEEE, 995–1000",
-   "venue": "",
+   "title": "Factorization machines",
+   "venue": "In 2010 IEEE International Conference on Data Mining. IEEE, 995–1000",
    "year": "2010",
    "arxiv": "",
    "count": 1,
@@ -998,7 +999,7 @@
    "subsections": {
     "S1": 1
    },
-   "keyword": "IEEE",
+   "keyword": "Factorization machines",
    "theme": "Other"
   },
   {
@@ -1092,9 +1093,9 @@
    ],
    "label": "Schafer et al. (1999)",
    "authors": "J Ben Schafer, Joseph Konstan, and John Riedl. 1999",
-   "title": "Recommender systems in e-commerce. In Proceedings of the 1st ACM conference on Electronic commerce. 158–166",
-   "venue": "",
-   "year": "1999",
+   "title": "Recommender systems in e-commerce",
+   "venue": "In Proceedings of the 1st ACM conference on Electronic commerce. 158–166",
+   "year": "",
    "arxiv": "",
    "count": 1,
    "sections": {
@@ -1103,7 +1104,7 @@
    "subsections": {
     "S1": 1
    },
-   "keyword": "ACM",
+   "keyword": "Recommender systems",
    "theme": "Other"
   },
   {
@@ -1134,8 +1135,8 @@
    ],
    "label": "Seide et al. (2011)",
    "authors": "Frank Seide, Gang Li, Xie Chen, and Dong Yu. 2011",
-   "title": "Feature engineering in context-dependent deep neural networks for conversational speech transcription. In 2011 IEEE Workshop on Automatic Speech Recognition & Understanding. IEEE, 24–29",
-   "venue": "",
+   "title": "Feature engineering in context-dependent deep neural networks for conversational speech transcription",
+   "venue": "In 2011 IEEE Workshop on Automatic Speech Recognition & Understanding. IEEE, 24–29",
    "year": "2011",
    "arxiv": "",
    "count": 1,
@@ -1145,7 +1146,7 @@
    "subsections": {
     "S1": 1
    },
-   "keyword": "IEEE",
+   "keyword": "Feature engineering",
    "theme": "Other"
   },
   {
@@ -1155,9 +1156,9 @@
    ],
    "label": "Shan et al. (2016)",
    "authors": "Ying Shan, T Ryan Hoens, Jian Jiao, Haijing Wang, Dong Yu, and JC Mao. 2016",
-   "title": "Deep Crossing: Web-Scale Modeling without Manually Crafted Combinatorial Features. In Proceedings of the 22nd ACM SIGKDD International Conference on Knowledge Discovery and Data Mining. ACM, 255–262",
-   "venue": "",
-   "year": "2016",
+   "title": "Deep Crossing: Web-Scale Modeling without Manually Crafted Combinatorial Features",
+   "venue": "In Proceedings of the 22nd ACM SIGKDD International Conference on Knowledge Discovery and Data Mining. ACM, 255–262",
+   "year": "",
    "arxiv": "",
    "count": 1,
    "sections": {
@@ -1199,9 +1200,9 @@
    ],
    "label": "Song et al. (2019)",
    "authors": "Weiping Song, Chence Shi, Zhiping Xiao, Zhijian Duan, Yewen Xu, Ming Zhang, and Jian Tang. 2019",
-   "title": "Autoint: Automatic feature interaction learning via self-attentive neural networks. In Proceedings of the 28th ACM International Conference on Information and Knowledge Management. 1161–1170",
-   "venue": "",
-   "year": "2019",
+   "title": "Autoint: Automatic feature interaction learning via self-attentive neural networks",
+   "venue": "In Proceedings of the 28th ACM International Conference on Information and Knowledge Management. 1161–1170",
+   "year": "",
    "arxiv": "",
    "count": 15,
    "sections": {
@@ -1254,9 +1255,9 @@
    ],
    "label": "Vaswani et al. (2017)",
    "authors": "Ashish Vaswani, Noam Shazeer, Niki Parmar, Jakob Uszkoreit, Llion Jones, Aidan N Gomez, Łukasz Kaiser, and Illia Polosukhin. 2017",
-   "title": "Attention is all you need. In Advances in neural information processing systems. 5998–6008",
-   "venue": "",
-   "year": "2017",
+   "title": "Attention is all you need",
+   "venue": "In Advances in neural information processing systems. 5998–6008",
+   "year": "",
    "arxiv": "",
    "count": 1,
    "sections": {
@@ -1353,9 +1354,9 @@
    ],
    "label": "Yu et al. (2017)",
    "authors": "Xiyu Yu, Tongliang Liu, Xinchao Wang, and Dacheng Tao. 2017",
-   "title": "On compressing deep models by low rank and sparse decomposition. In Proceedings of the IEEE Conference on Computer Vision and Pattern Recognition. 7370–7379",
-   "venue": "",
-   "year": "2017",
+   "title": "On compressing deep models by low rank and sparse decomposition",
+   "venue": "In Proceedings of the IEEE Conference on Computer Vision and Pattern Recognition. 7370–7379",
+   "year": "",
    "arxiv": "",
    "count": 1,
    "sections": {
@@ -1364,8 +1365,548 @@
    "subsections": {
     "S3.SS5": 1
    },
-   "keyword": "IEEE",
+   "keyword": "Compressing low",
    "theme": "Other"
+  }
+ ],
+ "mentions": [
+  {
+   "sec": "S1",
+   "sub": "S1",
+   "text": "Learning to rank (LTR) (Liu, 2011; Cao et al., 2007) has remained to be one of the most important problems in modern-day machine learning and deep learning.",
+   "refs": [
+    28,
+    5
+   ]
+  },
+  {
+   "sec": "S1",
+   "sub": "S1",
+   "text": "It has a wide range of applications in search, recommendation systems (Resnick and Varian, 1997; Herlocker et al., 2004; Schafer et al., 1999), and computational advertising (Broder, 2008; Bottou et al., 2013).",
+   "refs": [
+    40,
+    18,
+    42,
+    4,
+    3
+   ]
+  },
+  {
+   "sec": "S1",
+   "sub": "S1",
+   "text": "Among the crucial components of LTR models, learning effective feature crosses continues to attract lots of attention from both academia (Qu et al., 2016; Lian et al., 2018; Song et al., 2019) and industry (Wang et al., 2017; Cheng et al., 2016; Guo et al., 2017; Beutel et al., 2018; Naumov et al., 2019).",
+   "refs": [
+    36,
+    27,
+    47,
+    51,
+    7,
+    14,
+    2,
+    35
+   ]
+  },
+  {
+   "sec": "S1",
+   "sub": "S1",
+   "text": "In the era of linear models, ML practitioners rely on manually identifying such feature crosses (Seide et al., 2011) to increase model’s expressiveness.",
+   "refs": [
+    44
+   ]
+  },
+  {
+   "sec": "S1",
+   "sub": "S1",
+   "text": "Factorization Machines (FMs) (Rendle, 2010; Rendle, 2012) leverage the embedding techniques and construct pairwise feature interactions via the inner-product of two latent vectors.",
+   "refs": [
+    37,
+    38
+   ]
+  },
+  {
+   "sec": "S1",
+   "sub": "S1",
+   "text": "This has significantly improved model performance for search and recommendation systems across the board (Cheng et al., 2016; Wang et al., 2017; Guo et al., 2017).",
+   "refs": [
+    7,
+    51,
+    14
+   ]
+  },
+  {
+   "sec": "S1",
+   "sub": "S1",
+   "text": "People generally consider DNNs as universal function approximators, that could potentially learn all kinds of feature interactions (Mhaskar, 1996; Valiant, 2014; Veit et al., 2016).",
+   "refs": [
+    32,
+    48,
+    50
+   ]
+  },
+  {
+   "sec": "S1",
+   "sub": "S1",
+   "text": "However, recent studies (Beutel et al., 2018; Wang et al., 2017) found that DNNs are inefficient to even approximately model 2nd or 3rd-order feature crosses.",
+   "refs": [
+    2,
+    51
+   ]
+  },
+  {
+   "sec": "S1",
+   "sub": "S1",
+   "text": "Many recent works (Wang et al., 2017; Cheng et al., 2016; Guo et al., 2017; Beutel et al., 2018; Qu et al., 2016; Lian et al., 2018; Song et al., 2019; Naumov et al., 2019) tried to tackle this challenge.",
+   "refs": [
+    51,
+    7,
+    14,
+    2,
+    36,
+    27,
+    47,
+    35
+   ]
+  },
+  {
+   "sec": "S1",
+   "sub": "S1",
+   "text": "Among these, Deep & Cross Network (DCN) (Wang et al., 2017) is effective and elegant, however, productionizing DCN in large-scale industry systems faces many challenges.",
+   "refs": [
+    51
+   ]
+  },
+  {
+   "sec": "S1",
+   "sub": "S1",
+   "text": "In addition, we propose a technique based on the Mixture-of-Expert architecture (Shazeer et al., 2017; Jacobs et al., 1991) to further decompose the matrix into multiple smaller sub-spaces.",
+   "refs": [
+    46,
+    20
+   ]
+  },
+  {
+   "sec": "S2",
+   "sub": "S2",
+   "text": "One line of work jointly trains two parallel networks inspired from the wide and deep model (Cheng et al., 2016), where the wide component takes inputs as crosses of raw features; and the deep component is a DNN model.",
+   "refs": [
+    7
+   ]
+  },
+  {
+   "sec": "S2",
+   "sub": "S2",
+   "text": "DeepFM (Guo et al., 2017) automates the feature interaction learning in the wide component by adopting a FM model.",
+   "refs": [
+    14
+   ]
+  },
+  {
+   "sec": "S2",
+   "sub": "S2",
+   "text": "DCN (Wang et al., 2017) introduces a cross network, which learns explicit and bounded-degree feature interactions automatically and efficiently. xDeepFM (Lian et al., 2018) increases the expressiveness of DCN by generating multiple feature maps, each encoding all the pairwise interactions between…",
+   "refs": [
+    51,
+    27
+   ]
+  },
+  {
+   "sec": "S2",
+   "sub": "S2",
+   "text": "AutoInt (Song et al., 2019) leverages the multi-head self-attention mechanism with residual connections.",
+   "refs": [
+    47
+   ]
+  },
+  {
+   "sec": "S2",
+   "sub": "S2",
+   "text": "InterHAt (Li et al., 2020) further employs Hierarchical Attentions.",
+   "refs": [
+    26
+   ]
+  },
+  {
+   "sec": "S2",
+   "sub": "S2",
+   "text": "Product-based neural network (PNN) (Qu et al., 2016) introduces inner (IPNN) and outer (OPNN) product layer as the pairwise interaction layers.",
+   "refs": [
+    36
+   ]
+  },
+  {
+   "sec": "S2",
+   "sub": "S2",
+   "text": "Neural FM (NFM) (He and Chua, 2017) extends FM by replacing the inner-product with a Hadamard product; DLRM (Naumov et al., 2019) follows FM to compute the feature crosses through inner products; These models can only create up to 2nd-order explicit crosses.",
+   "refs": [
+    17,
+    35
+   ]
+  },
+  {
+   "sec": "S2",
+   "sub": "S2",
+   "text": "AFN (Cheng et al., 2019) transforms features into a log space and adaptively learns arbitrary-order feature interactions.",
+   "refs": [
+    8
+   ]
+  },
+  {
+   "sec": "S3",
+   "sub": "S3",
+   "text": "DCN-V2 significantly improves the expressiveness of DCN (Wang et al., 2017) in modeling complex explicit cross terms in web-scale production data, while maintaining its elegant formula for easy deployment.",
+   "refs": [
+    51
+   ]
+  },
+  {
+   "sec": "S3",
+   "sub": "S3.SS1",
+   "text": "Unlike many related works (Song et al., 2019; Lian et al., 2018; Qu et al., 2016; Guo et al., 2017; Naumov et al., 2019; He and Chua, 2017) which requires ei=ej​∀i,je_{i}=e_{j}\\penalty\\ \\forall i,j, our model accepts arbitrary embedding sizes.",
+   "refs": [
+    47,
+    27,
+    36,
+    14,
+    35,
+    17
+   ]
+  },
+  {
+   "sec": "S3",
+   "sub": "S3.SS5",
+   "text": "Low-rank techniques (Golub and Van Loan, 1996) are widely used (Jaderberg et al., 2014; Yu et al., 2017; Chen et al., 2018; Wang et al., 2019; Halko et al., 2011; Drineas and Mahoney, 2005) to reduce the computational cost.",
+   "refs": [
+    13,
+    21,
+    53,
+    6,
+    52,
+    15,
+    10
+   ]
+  },
+  {
+   "sec": "S3",
+   "sub": "S3.SS5",
+   "text": "Interpretation 1 inspires us to adopt the idea from Mixture-of-Experts (MoE) (Shazeer et al., 2017; Jacobs et al., 1991; Eigen et al., 2013; Ma et al., 2018).",
+   "refs": [
+    46,
+    20,
+    11,
+    31
+   ]
+  },
+  {
+   "sec": "S3",
+   "sub": "S3.SS5",
+   "text": "Instead of immediately projecting back from dimension d′d^{\\prime} to dd (d′≪dd^{\\prime}\\ll d), we further apply nonlinear transformations in the projected space to refine the representation (Fan et al., 2019).",
+   "refs": [
+    12
+   ]
+  },
+  {
+   "sec": "S4",
+   "sub": "S4",
+   "text": "We adopt the notations from (Wang et al., 2017).",
+   "refs": [
+    51
+   ]
+  },
+  {
+   "sec": "S4",
+   "sub": "S4.SS1",
+   "text": "Moreover, the feature interactions in DCN-V2 is more expressive and can be viewed both bitwise and feature-wise, whereas in DCN it is only bitwise (Wang et al., 2017; Lian et al., 2018; Song et al., 2019).",
+   "refs": [
+    51,
+    27,
+    47
+   ]
+  },
+  {
+   "sec": "S4",
+   "sub": "S4.SS2",
+   "text": "Our proposed model was largely inspired from DCN (Wang et al., 2017).",
+   "refs": [
+    51
+   ]
+  },
+  {
+   "sec": "S4",
+   "sub": "S4.SS2",
+   "text": "Let’s take the efficient projection view of DCN (Wang et al., 2017), i.e., it implicitly generates all the pairwise crosses and then projects it to a lower-dimensional space; DCN-V2 is similar with a different projection structure.",
+   "refs": [
+    51
+   ]
+  },
+  {
+   "sec": "S6",
+   "sub": "S6",
+   "text": "Many recent works (Wang et al., 2017; Cheng et al., 2016; Guo et al., 2017; Beutel et al., 2018; Qu et al., 2016; Lian et al., 2018; Naumov et al., 2019) proposed to model explicit feature crosses that couldn’t be learned efficiently from traditional neural networks.",
+   "refs": [
+    51,
+    7,
+    14,
+    2,
+    36,
+    27,
+    35
+   ]
+  },
+  {
+   "sec": "S6",
+   "sub": "S6",
+   "text": "This is well aligned with previous studies (Beutel et al., 2018).",
+   "refs": [
+    2
+   ]
+  },
+  {
+   "sec": "S7",
+   "sub": "S7",
+   "text": "In light of recent concerns about poor reproducibility of published results (Dacrema et al., 2019; Musgrave et al., 2020; Rendle et al., 2020), we conducted a fair and comprehensive experimental study with extensive hyper-parameter search to properly tune all the baselines and proposed approaches.",
+   "refs": [
+    9,
+    34,
+    39
+   ]
+  },
+  {
+   "sec": "S7",
+   "sub": "S7",
+   "text": "Section 7.2studies the performance of the feature-cross learning components (RQ2) between baselines without integrating with DNN ReLU layers (similar to (Lian et al., 2018; Song et al., 2019)); only sparse features are considered for a clean comparison.",
+   "refs": [
+    27,
+    47
+   ]
+  },
+  {
+   "sec": "S7",
+   "sub": "S7.SS1",
+   "text": "We follow (Wang et al., 2017; Song et al., 2019) and use first 6 days for training, and randomly split the last day’s data into validation and test set equally.",
+   "refs": [
+    51,
+    47
+   ]
+  },
+  {
+   "sec": "S7",
+   "sub": "S7.SS1",
+   "text": "Similar to AutoInt (Song et al., 2019), we formalize the task as a regression problem.",
+   "refs": [
+    47
+   ]
+  },
+  {
+   "sec": "S7",
+   "sub": "S7.SS1",
+   "text": "PNN (Qu et al., 2016)",
+   "refs": [
+    36
+   ]
+  },
+  {
+   "sec": "S7",
+   "sub": "S7.SS1",
+   "text": "DeepFM (Guo et al., 2017)",
+   "refs": [
+    14
+   ]
+  },
+  {
+   "sec": "S7",
+   "sub": "S7.SS1",
+   "text": "DLRM (Naumov et al., 2019)",
+   "refs": [
+    35
+   ]
+  },
+  {
+   "sec": "S7",
+   "sub": "S7.SS1",
+   "text": "DCN (Wang et al., 2017)",
+   "refs": [
+    51
+   ]
+  },
+  {
+   "sec": "S7",
+   "sub": "S7.SS1",
+   "text": "xDeepFM (Lian et al., 2018)",
+   "refs": [
+    27
+   ]
+  },
+  {
+   "sec": "S7",
+   "sub": "S7.SS1",
+   "text": "AutoInt (Song et al., 2019)",
+   "refs": [
+    47
+   ]
+  },
+  {
+   "sec": "S7",
+   "sub": "S7.SS1",
+   "text": "Hence, we fixed it to be Avg​(∑vocab6⋅(vocab cardinality)14)\\text{Avg}\\big(\\sum_{\\text{vocab}}6\\cdot(\\text{vocab cardinality})^{\\frac{1}{4}}\\big) (39 for Criteo and 30 for Movielen-1M) for all the models.",
+   "refs": [
+    51
+   ]
+  },
+  {
+   "sec": "S7",
+   "sub": "S7.SS1",
+   "text": "We used Adam (Kingma and Ba, 2014) with a batch size of 512512 (128 for MovieLen).",
+   "refs": [
+    23
+   ]
+  },
+  {
+   "sec": "S7",
+   "sub": "S7.SS1",
+   "text": "The kernels were initialized with He Normal (He et al., 2015), and biases to 𝟎{\\bf 0}; the gradient clipping norm was 10; an exponential moving average with decay 0.9999 to trained parameters was applied.",
+   "refs": [
+    16
+   ]
+  },
+  {
+   "sec": "S7",
+   "sub": "S7.SS2",
+   "text": "PNN (Qu et al., 2016)",
+   "refs": [
+    36
+   ]
+  },
+  {
+   "sec": "S7",
+   "sub": "S7.SS2",
+   "text": "CIN (Lian et al., 2018)",
+   "refs": [
+    27
+   ]
+  },
+  {
+   "sec": "S7",
+   "sub": "S7.SS2",
+   "text": "AutoInt (Song et al., 2019)",
+   "refs": [
+    47
+   ]
+  },
+  {
+   "sec": "S7",
+   "sub": "S7.SS3",
+   "text": "For Criteo, a 0.001-level improvement is considered significant (see (Song et al., 2019; Wang et al., 2017; Guo et al., 2017)).",
+   "refs": [
+    47,
+    51,
+    14
+   ]
+  },
+  {
+   "sec": "S7",
+   "sub": "S7.SS3",
+   "text": "DCN-V2 achieved the best performance (0.001 considered to be significant on Criteo (Wang et al., 2017; Lian et al., 2018; Song et al., 2019)) by explicitly modeling up to 3rd-order crosses beyond those implicit ones from DNN.",
+   "refs": [
+    51,
+    27,
+    47
+   ]
+  },
+  {
+   "sec": "S7",
+   "sub": "S7.SS3",
+   "text": "Hence, we finely tuned DNN along with all the baselines, and used a larger layer size than those used in literature (e.g., 200 - 400 in (Lian et al., 2018; Song et al., 2019)).",
+   "refs": [
+    27,
+    47
+   ]
+  },
+  {
+   "sec": "S7",
+   "sub": "S7.SS3",
+   "text": "For most models, the FLOPS is roughly 2x of the #params; for xDeepFM, however, the FLOPS is one magnitude higher, making it impractical in industrial-scale applications (also observed in (Song et al., 2019)).",
+   "refs": [
+    47
+   ]
+  },
+  {
+   "sec": "S7",
+   "sub": "S7.SS4",
+   "text": "It is well known that ReLU layers are the backbone for various Neural Nets models including DNN, Recurrent Neural Net (RNN) (Rumelhart et al., 1985; Hochreiter and Schmidhuber, 1997; Mikolov et al., 2011) and Convolutional Neural Net (CNN) (LeCun et al., 1989; Schmidhuber, 2015; Lawrence et al., 1997).",
+   "refs": [
+    41,
+    19,
+    33,
+    25,
+    43,
+    24
+   ]
+  },
+  {
+   "sec": "S7",
+   "sub": "S7.SS5",
+   "text": "We believe more sophisticated gating (Jang et al., 2016; Louizos et al., 2017; Ma et al., 2019) and optimization techniques (e.g., alternative training, special initialization, temperature adjustment) would leverage more from a mixture of experts.",
+   "refs": [
+    22,
+    29,
+    30
+   ]
+  },
+  {
+   "sec": "S8",
+   "sub": "S8",
+   "text": "• It’s better to insert the cross layers in between the input and the hidden layers of DNN (also observed in (Shan et al., 2016)).",
+   "refs": [
+    45
+   ]
+  },
+  {
+   "sec": "S8",
+   "sub": "S8",
+   "text": "Stacking layers learns higher-order feature interactions, while concatenating layers (similar to multi-head mechanism (Vaswani et al., 2017)) captures complimentary interactions.",
+   "refs": [
+    49
+   ]
+  },
+  {
+   "sec": "S10",
+   "sub": "S10",
+   "text": "DeepFM(Guo et al., 2017) (2017)",
+   "refs": [
+    14
+   ]
+  },
+  {
+   "sec": "S10",
+   "sub": "S10",
+   "text": "DCN(Wang et al., 2017) (2017)",
+   "refs": [
+    51
+   ]
+  },
+  {
+   "sec": "S10",
+   "sub": "S10",
+   "text": "xDeepFM(Lian et al., 2018) (2018)",
+   "refs": [
+    27
+   ]
+  },
+  {
+   "sec": "S10",
+   "sub": "S10",
+   "text": "DLRM(Naumov et al., 2019) (2019)",
+   "refs": [
+    35
+   ]
+  },
+  {
+   "sec": "S10",
+   "sub": "S10",
+   "text": "AutoInt(Song et al., 2019) (2019)",
+   "refs": [
+    47
+   ]
   }
  ]
 }

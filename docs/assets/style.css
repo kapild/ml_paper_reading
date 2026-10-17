@@ -35,7 +35,8 @@
 [hidden]{display:none!important}
 html{-webkit-text-size-adjust:100%}
 body{margin:0;background:var(--paper);color:var(--ink);font:400 15px/1.6 var(--f-sans);padding-inline:20px;padding-block:0 40px;-webkit-font-smoothing:antialiased}
-.wrap{max-width:1120px;margin-inline:auto}
+.wrap{max-width:1380px;margin-inline:auto}
+:root{--bar-h:46px}
 a{color:var(--accent);text-decoration-thickness:1px;text-underline-offset:2px}
 :focus-visible{outline:2px solid var(--accent);outline-offset:2px}
 h1,h2,h3,p{margin:0}
@@ -60,18 +61,30 @@ h1{font:500 clamp(30px,4.4vw,42px)/1.05 var(--f-display);letter-spacing:-.01em}
 .tab:hover{color:var(--ink)}
 .tab[aria-selected="true"]{color:var(--ink);border-bottom-color:var(--accent)}
 
-/* Theme filter */
-.filters-bar{position:sticky;top:0;z-index:20;background:var(--paper)}
-.filters{display:flex;align-items:center;gap:14px;padding-block:10px;border-bottom:1px solid var(--rule)}
-.filters .label{flex:none}
-#chips{display:flex;gap:6px;flex-wrap:wrap}
+/* Collapsing the title block */
+.title-toggle{border:1px solid var(--rule);background:var(--sheet);color:var(--ink-2);border-radius:6px;padding:6px 10px;font:500 12.5px var(--f-sans);cursor:pointer;white-space:nowrap}
+.title-toggle:hover{border-color:var(--muted);color:var(--ink)}
+.brand-actions{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+body.title-collapsed .top-inner{padding-block:12px 10px}
+body.title-collapsed .brand .eyebrow,body.title-collapsed .brand h1{display:none}
+body.title-collapsed .stats::before{content:"Paper Read Atlas · ";color:var(--ink);font-weight:600}
+
+/* Tab row pinned to the top, theme filter in the left rail */
+.sticky-bar{position:sticky;top:0;z-index:30;background:var(--paper);border-bottom:1px solid var(--rule)}
+.sticky-bar .tabs{border-bottom:0}
+.shell{display:grid;grid-template-columns:196px minmax(0,1fr);gap:30px;align-items:start}
+.rail{position:sticky;top:calc(var(--bar-h) + 14px);align-self:start;display:grid;gap:8px;padding-top:24px}
+.rail .label{margin-bottom:2px}
+#chips{display:grid;gap:6px;justify-items:stretch}
+.rail .chip{justify-content:flex-start;width:100%}
+.rail .chip .ct{margin-left:auto}
 .chip{display:inline-flex;align-items:center;gap:7px;border:1px solid var(--rule);background:var(--sheet);color:var(--ink);border-radius:999px;padding:5px 11px;font:500 13px/1.1 var(--f-sans);white-space:nowrap;cursor:pointer}
 .chip:hover{border-color:var(--muted)}
 .chip[aria-pressed="true"]{border-color:var(--ink);box-shadow:inset 0 0 0 1px var(--ink)}
 .chip i{width:9px;height:9px;border-radius:50%;flex:none}
 
 /* Views */
-main{padding-block:22px 0}
+main{padding-block:22px 0;min-width:0}
 .view-head{display:grid;gap:4px;margin-bottom:14px}
 .view-head h2{font:500 26px/1.2 var(--f-display)}
 .view-head p{color:var(--ink-2);max-width:76ch;font-size:14.5px}
@@ -227,6 +240,13 @@ td a{font-weight:600}
 .foot{margin-top:40px;padding-block:16px 0;border-top:1px solid var(--rule);color:var(--muted);font-size:13px}
 .missing{padding:48px 0;color:var(--ink-2)}
 
+@media (max-width:1040px){
+  .shell{grid-template-columns:minmax(0,1fr);gap:0}
+  .rail{position:sticky;top:var(--bar-h);z-index:19;background:var(--paper);border-bottom:1px solid var(--rule);
+        padding-block:8px;grid-template-columns:auto minmax(0,1fr);display:grid;align-items:center;gap:12px}
+  #chips{display:flex;flex-wrap:nowrap;overflow-x:auto;padding-bottom:2px}
+  .rail .chip{width:auto}
+}
 @media (max-width:760px){
   .search-btn{min-width:0;width:100%}
   .filters{flex-wrap:wrap}

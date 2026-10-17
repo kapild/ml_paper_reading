@@ -1,5 +1,5 @@
 {
- "generated": "2026-10-11",
+ "generated": "2026-10-16",
  "paper": {
   "arxiv": "1806.01973",
   "title": "Graph Convolutional Neural Networks for Web-Scale Recommender Systems",
@@ -10,7 +10,8 @@
   "rows": 31,
   "merged": 0,
   "marks": 67,
-  "sections": 5
+  "sections": 5,
+  "mentions": 34
  },
  "themes": [
   "Other",
@@ -143,9 +144,9 @@
    ],
    "label": "Andoni and Indyk (2006)",
    "authors": "A. Andoni and P. Indyk. 2006",
-   "title": "Near-optimal hashing algorithms for approximate nearest neighbor in high dimensions. In FOCS",
-   "venue": "",
-   "year": "2006",
+   "title": "Near-optimal hashing algorithms for approximate nearest neighbor in high dimensions",
+   "venue": "In FOCS",
+   "year": "",
    "arxiv": "",
    "count": 1,
    "sections": {
@@ -154,7 +155,7 @@
    "subsections": {
     "S3.SS5": 1
    },
-   "keyword": "FOCS",
+   "keyword": "Near-optimal hashing",
    "theme": "Semantic IDs & quantization"
   },
   {
@@ -164,9 +165,9 @@
    ],
    "label": "Bansal et al. (2016)",
    "authors": "T. Bansal, D. Belanger, and A. McCallum. 2016",
-   "title": "Ask the GRU: Multi-task learning for deep text recommendations. In RecSys. ACM",
-   "venue": "",
-   "year": "2016",
+   "title": "Ask the GRU: Multi-task learning for deep text recommendations",
+   "venue": "In RecSys. ACM",
+   "year": "",
    "arxiv": "",
    "count": 1,
    "sections": {
@@ -185,9 +186,9 @@
    ],
    "label": "Bengio et al. (2009)",
    "authors": "Y. Bengio, J. Louradour, R. Collobert, and J. Weston. 2009",
-   "title": "Curriculum learning. In ICML",
-   "venue": "",
-   "year": "2009",
+   "title": "Curriculum learning",
+   "venue": "In ICML",
+   "year": "",
    "arxiv": "",
    "count": 1,
    "sections": {
@@ -196,7 +197,7 @@
    "subsections": {
     "S3.SS3": 1
    },
-   "keyword": "ICML",
+   "keyword": "Curriculum",
    "theme": "Other"
   },
   {
@@ -206,9 +207,9 @@
    ],
    "label": "Broder et al. (2003)",
    "authors": "A. Z. Broder, D. Carmel, M. Herscovici, A. Soffer, and J. Zien. 2003",
-   "title": "Efficient query evaluation using a two-level retrieval process. In CIKM",
-   "venue": "",
-   "year": "2003",
+   "title": "Efficient query evaluation using a two-level retrieval process",
+   "venue": "In CIKM",
+   "year": "",
    "arxiv": "",
    "count": 1,
    "sections": {
@@ -217,7 +218,7 @@
    "subsections": {
     "S3.SS5": 1
    },
-   "keyword": "CIKM",
+   "keyword": "Efficient query",
    "theme": "Other"
   },
   {
@@ -252,9 +253,9 @@
    ],
    "label": "Bruna et al. (2014)",
    "authors": "J. Bruna, W. Zaremba, A. Szlam, and Y. LeCun. 2014",
-   "title": "Spectral networks and locally connected networks on graphs. In ICLR",
-   "venue": "",
-   "year": "2014",
+   "title": "Spectral networks and locally connected networks on graphs",
+   "venue": "In ICLR",
+   "year": "",
    "arxiv": "",
    "count": 1,
    "sections": {
@@ -263,7 +264,7 @@
    "subsections": {
     "S2": 1
    },
-   "keyword": "ICLR",
+   "keyword": "Spectral networks",
    "theme": "Other"
   },
   {
@@ -294,9 +295,9 @@
    ],
    "label": "Covington et al. (2016)",
    "authors": "P. Covington, J. Adams, and E. Sargin. 2016",
-   "title": "Deep neural networks for youtube recommendations. In RecSys. ACM",
-   "venue": "",
-   "year": "2016",
+   "title": "Deep neural networks for youtube recommendations",
+   "venue": "In RecSys. ACM",
+   "year": "",
    "arxiv": "",
    "count": 2,
    "sections": {
@@ -307,7 +308,7 @@
     "S1": 1,
     "S4.SS1": 1
    },
-   "keyword": "RecSys",
+   "keyword": "Networks youtube",
    "theme": "Industry recommenders"
   },
   {
@@ -317,9 +318,9 @@
    ],
    "label": "Dai et al. (2016)",
    "authors": "H. Dai, B. Dai, and L. Song. 2016",
-   "title": "Discriminative Embeddings of Latent Variable Models for Structured Data. In ICML",
-   "venue": "",
-   "year": "2016",
+   "title": "Discriminative Embeddings of Latent Variable Models for Structured Data",
+   "venue": "In ICML",
+   "year": "",
    "arxiv": "",
    "count": 1,
    "sections": {
@@ -328,7 +329,7 @@
    "subsections": {
     "S2": 1
    },
-   "keyword": "ICML",
+   "keyword": "Discriminative Embeddings",
    "theme": "Other"
   },
   {
@@ -338,9 +339,9 @@
    ],
    "label": "Defferrard et al. (2016)",
    "authors": "M. Defferrard, X. Bresson, and P. Vandergheynst. 2016",
-   "title": "Convolutional neural networks on graphs with fast localized spectral filtering. In NIPS",
-   "venue": "",
-   "year": "2016",
+   "title": "Convolutional neural networks on graphs with fast localized spectral filtering",
+   "venue": "In NIPS",
+   "year": "",
    "arxiv": "",
    "count": 1,
    "sections": {
@@ -349,7 +350,7 @@
    "subsections": {
     "S2": 1
    },
-   "keyword": "NIPS",
+   "keyword": "Convolutional networks",
    "theme": "Other"
   },
   {
@@ -359,9 +360,9 @@
    ],
    "label": "den Oord et al. (2013)",
    "authors": "A. Van den Oord, S. Dieleman, and B. Schrauwen. 2013",
-   "title": "Deep content-based music recommendation. In NIPS",
-   "venue": "",
-   "year": "2013",
+   "title": "Deep content-based music recommendation",
+   "venue": "In NIPS",
+   "year": "",
    "arxiv": "",
    "count": 2,
    "sections": {
@@ -372,7 +373,7 @@
     "S1": 1,
     "S4.SS1": 1
    },
-   "keyword": "NIPS",
+   "keyword": "Content-based music",
    "theme": "Industry recommenders"
   },
   {
@@ -382,9 +383,9 @@
    ],
    "label": "Duvenaud et al. (2015)",
    "authors": "D. Duvenaud, D. Maclaurin, J. Iparraguirre, R. Bombarell, T. Hirzel, A. Aspuru-Guzik, and R. P. Adams. 2015",
-   "title": "Convolutional networks on graphs for learning molecular fingerprints. In NIPS",
-   "venue": "",
-   "year": "2015",
+   "title": "Convolutional networks on graphs for learning molecular fingerprints",
+   "venue": "In NIPS",
+   "year": "",
    "arxiv": "",
    "count": 2,
    "sections": {
@@ -395,7 +396,7 @@
     "S2": 1,
     "S3": 1
    },
-   "keyword": "NIPS",
+   "keyword": "Convolutional networks",
    "theme": "Other"
   },
   {
@@ -431,9 +432,9 @@
    ],
    "label": "Gori et al. (2005)",
    "authors": "M. Gori, G. Monfardini, and F. Scarselli. 2005",
-   "title": "A new model for learning in graph domains. In IEEE International Joint Conference on Neural Networks",
-   "venue": "",
-   "year": "2005",
+   "title": "A new model for learning in graph domains",
+   "venue": "In IEEE International Joint Conference on Neural Networks",
+   "year": "",
    "arxiv": "",
    "count": 1,
    "sections": {
@@ -442,7 +443,7 @@
    "subsections": {
     "S2": 1
    },
-   "keyword": "IEEE",
+   "keyword": "New graph",
    "theme": "Other"
   },
   {
@@ -473,9 +474,9 @@
    ],
    "label": "Grover and Leskovec (2016)",
    "authors": "A. Grover and J. Leskovec. 2016",
-   "title": "node2vec: Scalable feature learning for networks. In KDD",
-   "venue": "",
-   "year": "2016",
+   "title": "node2vec: Scalable feature learning for networks",
+   "venue": "In KDD",
+   "year": "",
    "arxiv": "",
    "count": 2,
    "sections": {
@@ -494,8 +495,8 @@
    ],
    "label": "Hamilton et al. (2017a)",
    "authors": "W. L. Hamilton, R. Ying, and J. Leskovec. 2017a",
-   "title": "Inductive Representation Learning on Large Graphs. In NIPS",
-   "venue": "",
+   "title": "Inductive Representation Learning on Large Graphs",
+   "venue": "In NIPS",
    "year": "",
    "arxiv": "",
    "count": 5,
@@ -509,7 +510,7 @@
     "S3.SS2": 1,
     "S4.SS1": 2
    },
-   "keyword": "NIPS",
+   "keyword": "Inductive Representation",
    "theme": "Other"
   },
   {
@@ -567,9 +568,9 @@
    ],
    "label": "Kipf and Welling (2017)",
    "authors": "T. N. Kipf and M. Welling. 2017",
-   "title": "Semi-supervised classification with graph convolutional networks. In ICLR",
-   "venue": "",
-   "year": "2017",
+   "title": "Semi-supervised classification with graph convolutional networks",
+   "venue": "In ICLR",
+   "year": "",
    "arxiv": "",
    "count": 5,
    "sections": {
@@ -584,7 +585,7 @@
     "S3.SS2": 1,
     "S4.SS1": 1
    },
-   "keyword": "ICLR",
+   "keyword": "Semi-supervised classification",
    "theme": "Other"
   },
   {
@@ -594,9 +595,9 @@
    ],
    "label": "Li et al. (2015)",
    "authors": "Y. Li, D. Tarlow, M. Brockschmidt, and R. Zemel. 2015",
-   "title": "Gated graph sequence neural networks. In ICLR",
-   "venue": "",
-   "year": "2015",
+   "title": "Gated graph sequence neural networks",
+   "venue": "In ICLR",
+   "year": "",
    "arxiv": "",
    "count": 1,
    "sections": {
@@ -605,7 +606,7 @@
    "subsections": {
     "S2": 1
    },
-   "keyword": "ICLR",
+   "keyword": "Gated graph",
    "theme": "Other"
   },
   {
@@ -615,9 +616,9 @@
    ],
    "label": "Mikolov et al. (2013)",
    "authors": "T. Mikolov, I Sutskever, K. Chen, G. S. Corrado, and J. Dean. 2013",
-   "title": "Distributed representations of words and phrases and their compositionality. In NIPS",
-   "venue": "",
-   "year": "2013",
+   "title": "Distributed representations of words and phrases and their compositionality",
+   "venue": "In NIPS",
+   "year": "",
    "arxiv": "",
    "count": 2,
    "sections": {
@@ -628,7 +629,7 @@
     "S3.SS3": 1,
     "S4.SS1": 1
    },
-   "keyword": "NIPS",
+   "keyword": "Distributed representations",
    "theme": "Other"
   },
   {
@@ -638,9 +639,9 @@
    ],
    "label": "Monti et al. (2017)",
    "authors": "F. Monti, M. M. Bronstein, and X. Bresson. 2017",
-   "title": "Geometric matrix completion with recurrent multi-graph neural networks. In NIPS",
-   "venue": "",
-   "year": "2017",
+   "title": "Geometric matrix completion with recurrent multi-graph neural networks",
+   "venue": "In NIPS",
+   "year": "",
    "arxiv": "",
    "count": 7,
    "sections": {
@@ -653,7 +654,7 @@
     "S2": 3,
     "S4.SS1": 2
    },
-   "keyword": "NIPS",
+   "keyword": "Geometric matrix",
    "theme": "Other"
   },
   {
@@ -684,9 +685,9 @@
    ],
    "label": "Perozzi et al. (2014)",
    "authors": "B. Perozzi, R. Al-Rfou, and S. Skiena. 2014",
-   "title": "DeepWalk: Online learning of social representations. In KDD",
-   "venue": "",
-   "year": "2014",
+   "title": "DeepWalk: Online learning of social representations",
+   "venue": "In KDD",
+   "year": "",
    "arxiv": "",
    "count": 2,
    "sections": {
@@ -806,6 +807,313 @@
    },
    "keyword": "Modeling polypharmacy",
    "theme": "Other"
+  }
+ ],
+ "mentions": [
+  {
+   "sec": "S1",
+   "sub": "S1",
+   "text": "Deep learning methods have an increasingly critical role in recommender system applications, being used to learn useful low-dimensional embeddings of images, text, and even individual users (Covington et al., 2016; den Oord et al., 2013).",
+   "refs": [
+    10,
+    13
+   ]
+  },
+  {
+   "sec": "S1",
+   "sub": "S1",
+   "text": "Recent years have seen significant developments in this space—especially the development of new deep learning methods that are capable of learning on graph-structured data, which is fundamental for recommendation applications (e.g., to exploit user-to-item interaction graphs as well as social…",
+   "refs": [
+    30,
+    7,
+    20,
+    22,
+    25,
+    31
+   ]
+  },
+  {
+   "sec": "S1",
+   "sub": "S1",
+   "text": "Most prominent among these recent advancements is the success of deep learning architectures known as Graph Convolutional Networks (GCNs) (van den Berg et al., 2017; Hamilton et al., 2017b; Kipf and Welling, 2017; Monti et al., 2017).",
+   "refs": [
+    30,
+    20,
+    22,
+    25
+   ]
+  },
+  {
+   "sec": "S1",
+   "sub": "S1",
+   "text": "Unlike purely content-based deep models (e.g., recurrent neural networks (Bansal et al., 2016)), GCNs leverage both content information as well as graph structure.",
+   "refs": [
+    4
+   ]
+  },
+  {
+   "sec": "S1",
+   "sub": "S1",
+   "text": "GCN-based methods have set a new standard on countless recommender system benchmarks (see (Hamilton et al., 2017b) for a survey).",
+   "refs": [
+    20
+   ]
+  },
+  {
+   "sec": "S2",
+   "sub": "S2",
+   "text": "The notion of neural networks for graph data was first outlined in Gori et al. (2005) (Gori et al., 2005) and further elaborated on in Scarselli et al. (2009) (Scarselli et al., 2009).",
+   "refs": [
+    16,
+    28
+   ]
+  },
+  {
+   "sec": "S2",
+   "sub": "S2",
+   "text": "Some limitations were addressed by Gated Graph Sequence Neural Networks (Li et al., 2015)—which employs modern recurrent neural architectures—but the approach remains computationally expensive and has mainly been used on graphs with <10,000{<}10,000 nodes.",
+   "refs": [
+    23
+   ]
+  },
+  {
+   "sec": "S2",
+   "sub": "S2",
+   "text": "This approach originated with the work of Bruna et al. (2013), which developed a version of graph convolutions based on spectral graph thery (Bruna et al., 2014).",
+   "refs": [
+    8
+   ]
+  },
+  {
+   "sec": "S2",
+   "sub": "S2",
+   "text": "Following on this work, a number of authors proposed improvements, extensions, and approximations of these spectral convolutions (van den Berg et al., 2017; Bronstein et al., 2017; Dai et al., 2016; Defferrard et al., 2016; Duvenaud et al., 2015; Hamilton et al., 2017a; Kipf and Welling, 2017;…",
+   "refs": [
+    30,
+    7,
+    11,
+    12,
+    14,
+    19,
+    22,
+    25,
+    32,
+    25
+   ]
+  },
+  {
+   "sec": "S2",
+   "sub": "S2",
+   "text": "These approaches have consistently outperformed techniques based upon matrix factorization or random walks (e.g., node2vec (Grover and Leskovec, 2016) and DeepWalk (Perozzi et al., 2014)), and their success has led to a surge of interest in applying GCN-based methods to applications ranging from…",
+   "refs": [
+    18,
+    27,
+    25,
+    21,
+    32
+   ]
+  },
+  {
+   "sec": "S2",
+   "sub": "S2",
+   "text": "Hamilton et al. (2017b) (Hamilton et al., 2017b) and Bronstein et al. (2017) (Bronstein et al., 2017) provide comprehensive surveys of recent advancements.",
+   "refs": [
+    20,
+    7
+   ]
+  },
+  {
+   "sec": "S2",
+   "sub": "S2",
+   "text": "In terms of algorithm design, our work is most closely related to Hamilton et al. (2017a)’s GraphSAGE algorithm (Hamilton et al., 2017a) and the closely related follow-up work of Chen et al. (2018) (Chen et al., 2018).",
+   "refs": [
+    19,
+    9
+   ]
+  },
+  {
+   "sec": "S2",
+   "sub": "S2",
+   "text": "Lastly, also note that graph embedding methods like node2vec (Grover and Leskovec, 2016) and DeepWalk (Perozzi et al., 2014) cannot be applied here.",
+   "refs": [
+    18,
+    27
+   ]
+  },
+  {
+   "sec": "S3",
+   "sub": "S3",
+   "text": "The key computational workhorse of our approach is the notion of localized graph convolutions.",
+   "refs": [
+    14,
+    21,
+    7
+   ]
+  },
+  {
+   "sec": "S3",
+   "sub": "S3.SS2",
+   "text": "Empirically we observe significant performance gains when using concatenation operation instead of the average operation as in (Kipf and Welling, 2017).",
+   "refs": [
+    22
+   ]
+  },
+  {
+   "sec": "S3",
+   "sub": "S3.SS2",
+   "text": "Concretely, we simulate random walks starting from node uu and compute the L1L_{1}-normalized visit count of nodes visited by the random walk (Eksombatchai et al., 2018).",
+   "refs": [
+    15
+   ]
+  },
+  {
+   "sec": "S3",
+   "sub": "S3.SS2",
+   "text": "First, selecting a fixed number of nodes to aggregate from allows us to control the memory footprint of the algorithm during training (Hamilton et al., 2017a).",
+   "refs": [
+    19
+   ]
+  },
+  {
+   "sec": "S3",
+   "sub": "S3.SS3",
+   "text": "We use techniques similar to those proposed by Goyal et al. (Goyal et al., 2017) to ensure fast convergence and maintain training and generalization accuracy when dealing with large batch sizes.",
+   "refs": [
+    17
+   ]
+  },
+  {
+   "sec": "S3",
+   "sub": "S3.SS3",
+   "text": "In addition to parallelizing GPU computation with multi-tower training, and CPU computation using OpenMP (OpenMP Architecture Review Board, 2015), we design a producer-consumer pattern to run GPU computation at the current iteration and CPU computation at the next iteration in parallel.",
+   "refs": [
+    26
+   ]
+  },
+  {
+   "sec": "S3",
+   "sub": "S3.SS3",
+   "text": "Negative sampling is used in our loss function (Equation 1) as an approximation of the normalization factor of edge likelihood (Mikolov et al., 2013).",
+   "refs": [
+    24
+   ]
+  },
+  {
+   "sec": "S3",
+   "sub": "S3.SS3",
+   "text": "They are generated by ranking items in a graph according to their Personalized PageRank scores with respect to query item qq (Eksombatchai et al., 2018).",
+   "refs": [
+    15
+   ]
+  },
+  {
+   "sec": "S3",
+   "sub": "S3.SS3",
+   "text": "To help with convergence, we develop a curriculum training scheme (Bengio et al., 2009).",
+   "refs": [
+    5
+   ]
+  },
+  {
+   "sec": "S3",
+   "sub": "S3.SS5",
+   "text": "Approximate KNN can be obtained efficiently via locality sensitive hashing (Andoni and Indyk, 2006).",
+   "refs": [
+    3
+   ]
+  },
+  {
+   "sec": "S3",
+   "sub": "S3.SS5",
+   "text": "After the hash function is computed, retrieval of items can be implemented with a two-level retrieval process based on the Weak AND operator (Broder et al., 2003).",
+   "refs": [
+    6
+   ]
+  },
+  {
+   "sec": "S4",
+   "sub": "S4.SS1",
+   "text": "The visual embeddings are the 6-th fully connected layer of a classification network using the VGG-16 architecture (Simonyan and Zisserman, 2014).",
+   "refs": [
+    29
+   ]
+  },
+  {
+   "sec": "S4",
+   "sub": "S4.SS1",
+   "text": "Textual annotation embeddings are trained using a Word2Vec-based model (Mikolov et al., 2013), where the context of an annotation consists of other annotations that are associated with each pin.",
+   "refs": [
+    24
+   ]
+  },
+  {
+   "sec": "S4",
+   "sub": "S4.SS1",
+   "text": "(4) Graph-based method (Pixie): This random-walk-based method (Eksombatchai et al., 2018) uses biased random walks to generate ranking scores by simulating random walks starting at query pin qq.",
+   "refs": [
+    15
+   ]
+  },
+  {
+   "sec": "S4",
+   "sub": "S4.SS1",
+   "text": "While this approach does not generate pin embeddings, it is currently the state-of-the-art at Pinterest for certain recommendation tasks (Eksombatchai et al., 2018) and thus an informative baseline.",
+   "refs": [
+    15
+   ]
+  },
+  {
+   "sec": "S4",
+   "sub": "S4.SS1",
+   "text": "We also do not consider non-deep learning approaches for generating item/content embeddings, since other works have already proven state-of-the-art performance of deep learning approaches for generating such embeddings (Covington et al., 2016; Monti et al., 2017; den Oord et al., 2013).",
+   "refs": [
+    10,
+    25,
+    13
+   ]
+  },
+  {
+   "sec": "S4",
+   "sub": "S4.SS1",
+   "text": "• mean-pooling-xent is the same as mean-pooling but uses the cross-entropy loss introduced in (Hamilton et al., 2017a).",
+   "refs": [
+    19
+   ]
+  },
+  {
+   "sec": "S4",
+   "sub": "S4.SS1",
+   "text": "The max-pooling and cross-entropy settings are extensions of the best-performing GCN model from Hamilton et al. (Hamilton et al., 2017a)—other variants (e.g., based on Kipf et al. (Kipf and Welling, 2017)) performed significantly worse in development tests and are omitted for brevity.",
+   "refs": [
+    19,
+    22,
+    25,
+    30
+   ]
+  },
+  {
+   "sec": "S4",
+   "sub": "S4.SS1",
+   "text": "Training of PinSage is implemented in TensorFlow (Abadi et al., 2016) and run on a single machine with 32 cores and 16 Tesla K80 GPUs.",
+   "refs": [
+    2
+   ]
+  },
+  {
+   "sec": "S4",
+   "sub": "S4.SS5",
+   "text": "One advantage of GCNs is that they can be made inductive (Hamilton et al., 2017b): at the inference (i.e., embedding generation) step, we are able to compute embeddings for items that were not in the training set.",
+   "refs": [
+    20
+   ]
+  },
+  {
+   "sec": "S5",
+   "sub": "S5.SSx1",
+   "text": "The authors acknowledge Raymond Hsu, Andrei Curelea and Ali Altaf for performing various A/B tests in production system, Jerry Zitao Liu for providing data used by Pixie(Eksombatchai et al., 2018), and Vitaliy Kulikov for help in nearest neighbor query of the item embeddings.",
+   "refs": [
+    15
+   ]
   }
  ]
 }
